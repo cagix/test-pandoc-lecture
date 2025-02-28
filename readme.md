@@ -84,6 +84,17 @@ Sie _können_ hierzu den Raum J101 (siehe Stundenplan) nutzen.
 ::: {.tab title="IFM 3.1 CB (PO23, 3. Semester)"}
 
 `{{% notice style="note" title="News" %}}`{=markdown}
+`{{% expand title="17.02.25" %}}`{=markdown}
+
+**Planung nächste Prüfung Compilerbau (PO23) (27.03.25)**
+
+Die nächste Prüfung in Compilerbau (PO23) wird am Donnerstag, den 27.03.25 zwischen
+**08:00 bis 18:00 Uhr** stattfinden. Die Prüfung wird aus einer Station bestehen
+(mündliche Prüfung mit je ca. 45 Minuten, per Zoom). Die genaue Verteilung der
+Startzeiten erfolgt per Mail über das LSF ca. eine Woche vorher.
+
+`{{% /expand %}}`{=markdown}
+
 `{{% expand title="09.01.25" %}}`{=markdown}
 
 ### Parcoursprüfung: Feedbackgespräche am Do, 30.01., 15:30-18:00 Uhr
@@ -280,7 +291,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
 
 | Monat                | Woche | Vorlesung                                                                                                                                | Lead        | Abgabe Aufgabenblatt    | Vorstellung Praktikum                                    |
 |:---------------------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------|:------------------------|:---------------------------------------------------------|
-| Oktober              | 41    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
+| Oktober              | 43    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
 |                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                     | _Edmonton_  |                         |                                                          |
 |                      | 44    | 30.: [Parser mit ANTLR]                                                                                                                  | Carsten     |                         |                                                          |
 | November             | 45    | 06.: *Dienstbesprechung*                                                                                                                 |             | 04.: [B01] CFG          | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
@@ -296,6 +307,17 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
 ::: {.tab title="IFM 5.21 CB (PO18, 5. Semester)"}
 
 `{{% notice style="note" title="News" %}}`{=markdown}
+`{{% expand title="17.02.25" %}}`{=markdown}
+
+**Planung nächste Prüfung Compilerbau (PO18) (27.03.25)**
+
+Die nächste Prüfung in Compilerbau (PO18) wird am Donnerstag, den 27.03.25 zwischen
+**08:00 bis 18:00 Uhr** stattfinden. Die Prüfung wird aus einer Station bestehen
+(mündliche Prüfung mit je ca. 45 Minuten, per Zoom). Die genaue Verteilung der
+Startzeiten erfolgt per Mail über das LSF ca. eine Woche vorher.
+
+`{{% /expand %}}`{=markdown}
+
 `{{% expand title="09.01.25" %}}`{=markdown}
 
 ### Parcoursprüfung: Feedbackgespräche am Do, 30.01., 14:00-15:30 Uhr
@@ -450,7 +472,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 
 | Monat                | Woche | Vorlesung                                                                                                                                | Lead        | Abgabe Aufgabenblatt    | Vorstellung Praktikum                                    |
 |:---------------------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------|:------------------------|:---------------------------------------------------------|
-| Oktober              | 41    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
+| Oktober              | 43    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
 |                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                     | _Edmonton_  |                         |                                                          |
 |                      | 44    | 30.: [Parser mit ANTLR]                                                                                                                  | Carsten     |                         |                                                          |
 | November             | 45    | 06.: *Dienstbesprechung*                                                                                                                 |             | 04.: [B01] CFG          | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
@@ -536,7 +558,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 
 *   **Stationen**:
     1.  Vortrag (3er Team, 27.11. bzw. 04.12. im Praktikum): Vorstellung der Lösung von [B04]
-    2.  Vorstellung Mini-Projekt [B07x] (3er Teams, letzte VL-Woche)
+    2.  Vorstellung Mini-Projekt [B04] (3er Teams, letzte VL-Woche)
 
     Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung
     **40% (Station 1) und 60% (Station 2)** die Gesamtnote (individuelle Günstigerprüfung).
