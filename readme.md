@@ -474,7 +474,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 |:---------------------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------|:------------------------|:---------------------------------------------------------|
 | Oktober              | 43    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
 |                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                     | _Edmonton_  |                         |                                                          |
-|                      | 44    | 30.: [Parser mit ANTLR]                                                                                                                  | Carsten     |                         |                                                          |
+|                      | 44    | 30.: [Parser mit ANTLR], [Perzeptron]                                                                                                    | Carsten     |                         |                                                          |
 | November             | 45    | 06.: *Dienstbesprechung*                                                                                                                 |             | 04.: [B01] CFG          | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
 |                      | 52    | 25.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
 | Januar               | 01    | 01.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
@@ -494,6 +494,8 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 [CFG]: lecture/02-parsing/cfg.md
 <!-- [LL-Parser]: lecture/02-parsing/ll-parser.md -->
 [Parser mit ANTLR]: lecture/02-parsing/antlr-parsing.md
+[Perzeptron]: lecture/02-parsing/nn01-perceptron.md
+
 
 [B01]: homework/sheet01.md
 [B02]: homework/sheet02.md
