@@ -245,7 +245,7 @@ individuell in Ihrer jeweiligen Praktikumsgruppe vor.
 
 Sie können Ihre Teams jederzeit selbstständig im Semester ändern/wechseln.
 
-**Achtung**: Den Vortrag zu [B07] müssen Sie aber **gemeinsam als Team** halten.
+**Achtung**: Den Vortrag zu [B04] müssen Sie aber **gemeinsam als Team** halten.
 Wenn Ihre Teammitglieder aus verschiedenen Stundenplangruppen kommen sollten,
 findet der Vortrag in der Gruppe statt, aus der die meisten der Teammitglieder
 kommen. Bitte beachten Sie das bei der Teamwahl!
@@ -264,7 +264,7 @@ müssen! Achten Sie bitte auch auf die mind. 60% für das Testat.
 Sie gehen einfach in das Praktikum, welches Ihrer Stundenplangruppe zugeordnet ist
 und stellen dort individuell die Lösungen Ihres Teams vor.
 
-Den Vortrag zu [B07] (letzte VL-Woche) halten Sie dann in die Praktikumsgruppe, in
+Den Vortrag zu [B04] (letzte VL-Woche) halten Sie dann in die Praktikumsgruppe, in
 der die meisten Teammitglieder sind. Bitte prüfen Sie, ob das für Sie passt (vom
 Stundenplan her möglich ist) und wählen Sie ggf. ein anderes Team. Wir werden
 rechtzeitig eine entsprechende Planung organisieren. Einige Vorträge werden wir
@@ -278,29 +278,19 @@ Hier finden Sie einen abonnierbaren [Google Kalender IFM 3.1 CB (PO23, 3. Semest
 
 Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1420724&client_id=FH-Bielefeld). Vorstellung der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
-| Monat                | Woche | Vorlesung                                                                                                                                               | Lead        | Abgabe Aufgabenblatt           | Vorstellung Praktikum                                    |
-|:---------------------|:------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|:-------------------------------|:---------------------------------------------------------|
-| Oktober              | 41    | 09.: [Orga] (*Zoom*); [Überblick], [Sprachen], [Anwendungen]                                                                                            | Carsten, BC |                                |                                                          |
-|                      | 42    | 16.: [Reguläre Sprachen]                                                                                                                                | BC          |                                |                                                          |
-|                      | 43    | 23.: [CFG]                                                                                                                                              | BC          | 21.: [B01] Reguläre Sprachen   | 21. / 22. / 25. (BC, *Präsenz*)                          |
-|                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                                    | _Edmonton_  |                                |                                                          |
-|                      | 44    | 30.: [Lexer mit ANTLR], [Parser mit ANTLR]                                                                                                              | Carsten     |                                |                                                          |
-| November             | 45    | 06.: *Dienstbesprechung*                                                                                                                                |             | 04.: [B02] CFG                 | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
-|                      | 46    | 13.: [Überblick Symboltabellen], [Symboltabellen: Scopes], [Symboltabellen: Funktionen], [Symboltabellen: Klassen]                                      | Carsten     | 11.: [B03] ANTLR               | 11. / 12. / 15. (Carsten, *online*)                      |
-|                      | 47    | 20.: [**A-L: 09:45 - 10:30 Uhr, M-Z: 10:45 - 11:30 Uhr (B40): Parcoursprüfung: Station 1 ILIAS (Grammar, Lexing, Parsing), siehe Ankündigung**]{.alert} |             | 18.: [B04] Semantische Analyse | 18. / 19. / 22. (Carsten, *online*)                      |
-|                      | 48    | 26.: **18:00 - 19:30 Uhr (online): Edmonton II: Vorträge Mindener Projekte**                                                                            | _Minden_    |                                |                                                          |
-|                      | 48    | 27.: [Überblick Zwischencode], [Überblick Backend (LLVM)]                                                                                               | BC, Carsten |                                |                                                          |
-| Dezember             | 49    | 03.: **18:00 - 19:30 Uhr (online): Edmonton III: Vorträge Edmontoner Projekte**                                                                         | _Edmonton_  |                                |                                                          |
-|                      | 49    | 04.: [AST-basierte Interpreter 1], [AST-basierte Interpreter 2]                                                                                         | Carsten     |                                |                                                          |
-|                      | 50    | 11.: C++ I: [Basics], [Pointer & Referenzen], [Klassen], [Big 3]                                                                                        | Carsten     | 09.: [B05] Interpreter         | 09. / 10. / 13. (Carsten, *online*)                      |
-|                      | 51    | 18.: ~~Projektwoche Semester 1+3~~ C++ II: [Operatoren], [Vererbung & Polymorphie], [Templates]                                                         |             |                                |                                                          |
-|                      | 52    | 25.: _Weihnachtspause_                                                                                                                                  |             |                                |                                                          |
-| Januar               | 01    | 01.: _Weihnachtspause_                                                                                                                                  |             |                                |                                                          |
-|                      | 02    | 08.: _Sprechstunde/Freies Arbeiten_                                                                                                                     | Carsten     | 06.: [B06] C++                 | 06. / 07. / 10. (Carsten, *online*)                      |
-|                      | 03    | 15.: _Freies Arbeiten/Puffer_                                                                                                                           |             |                                |                                                          |
-|                      | 04    | 22.: [**Parcoursprüfung: Station 2 [B07] (VL- und Praktika-Slots, siehe Ankündigung)**]{.alert}                                                         | Carsten, BC | 20.: [B07] Mini-Projekt        | 20. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
-| _(Prüfungsphase I)_  | 05    | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                                 |             |                                |                                                          |
-| _(Prüfungsphase II)_ |       | [**Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)**]{.alert} (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher)                |             |                                |                                                          |
+| Monat                | Woche | Vorlesung                                                                                                                                | Lead        | Abgabe Aufgabenblatt    | Vorstellung Praktikum                                    |
+|:---------------------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------|:------------------------|:---------------------------------------------------------|
+| Oktober              | 41    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
+|                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                     | _Edmonton_  |                         |                                                          |
+|                      | 44    | 30.: [Parser mit ANTLR]                                                                                                                  | Carsten     |                         |                                                          |
+| November             | 45    | 06.: *Dienstbesprechung*                                                                                                                 |             | 04.: [B01] CFG          | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
+|                      | 52    | 25.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
+| Januar               | 01    | 01.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
+|                      | 02    | 08.: _Sprechstunde/Freies Arbeiten_                                                                                                      | Carsten     | 06.: [B02] C++          | 06. / 07. / 10. (Carsten, *online*)                      |
+|                      | 03    | 15.: _Freies Arbeiten/Puffer_                                                                                                            |             |                         |                                                          |
+|                      | 04    | 22.: [**Parcoursprüfung: Station 2 [B04] (VL- und Praktika-Slots, siehe Ankündigung)**]{.alert}                                          | Carsten, BC | 20.: [B03] Mini-Projekt | 20. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
+| _(Prüfungsphase I)_  | 05    | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                  |             |                         |                                                          |
+| _(Prüfungsphase II)_ |       | [**Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)**]{.alert} (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |             |                         |                                                          |
 
 :::
 ::: {.tab title="IFM 5.21 CB (PO18, 5. Semester)"}
@@ -425,7 +415,7 @@ individuell in Ihrer jeweiligen Praktikumsgruppe vor.
 
 Sie können Ihre Teams jederzeit selbstständig im Semester ändern/wechseln.
 
-**Achtung**: Den Vortrag zu [B07x] müssen Sie (wie auch den Vortrag zu [B04x]) aber
+**Achtung**: Den Vortrag zu [B04] müssen Sie (wie auch den Vortrag zu [B04]) aber
 **gemeinsam als Team** halten. Wenn Ihre Teammitglieder aus verschiedenen
 Stundenplangruppen kommen sollten, findet der Vortrag in der Gruppe statt, aus der
 die meisten der Teammitglieder kommen. Bitte beachten Sie das bei der Teamwahl!
@@ -444,7 +434,7 @@ müssen! Achten Sie bitte auch auf die mind. 60% für das Testat.
 Sie gehen einfach in das Praktikum, welches Ihrer Stundenplangruppe zugeordnet ist
 und stellen dort individuell die Lösungen Ihres Teams vor.
 
-Den Vortrag zu [B07x] (letzte VL-Woche) halten Sie dann in die Praktikumsgruppe, in
+Den Vortrag zu [B04] (letzte VL-Woche) halten Sie dann in die Praktikumsgruppe, in
 der die meisten Teammitglieder sind. Bitte prüfen Sie, ob das für Sie passt (vom
 Stundenplan her möglich ist) und wählen Sie ggf. ein anderes Team. Wir werden
 rechtzeitig eine entsprechende Planung organisieren. Einige Vorträge werden wir
@@ -458,29 +448,19 @@ Hier finden Sie einen abonnierbaren [Google Kalender IFM 5.21 CB (PO18, 5. Semes
 
 Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1420725&client_id=FH-Bielefeld). Vorstellung der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
-| Monat                | Tag | Vorlesung                                                                                                                                | Lead          | Abgabe Aufgabenblatt & Vorstellung Praktikum                                                                     |
-|:---------------------|:----|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:-----------------------------------------------------------------------------------------------------------------|
-| Oktober              | 09. | [Orga] (*Zoom*); [Überblick], [Sprachen], [Anwendungen]                                                                                  | Carsten, BC   |                                                                                                                  |
-|                      | 16. | [Reguläre Sprachen]                                                                                                                      | BC            |                                                                                                                  |
-|                      | 23. | [CFG]                                                                                                                                    | BC            | ~~[B01] Reguläre Sprachen (BC, *online*)~~                                                                       |
-|                      | 29. | **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                          | _Edmonton_    |                                                                                                                  |
-|                      | 30. | [Lexer mit ANTLR], [Parser mit ANTLR]                                                                                                    | Carsten       | **16:00 Uhr: [B01] Reguläre Sprachen (BC, *online*)**                                                            |
-| November             | 06. | *Dienstbesprechung*                                                                                                                      |               | [B02] CFG (BC, *online*)                                                                                         |
-|                      | 13. | [Überblick Symboltabellen], [Symboltabellen: Scopes], [Symboltabellen: Funktionen], [Symboltabellen: Klassen]                            | Carsten       | [B03] ANTLR (Carsten, *online*)                                                                                  |
-|                      | 20. |                                                                                                                                          |               |                                                                                                                  |
-|                      | 26. | **18:00 - 19:30 Uhr (online): Edmonton II: Vorträge Mindener Projekte**                                                                  | _Minden (S5)_ |                                                                                                                  |
-|                      | 27. | [Überblick Zwischencode], [Überblick Backend (LLVM)]                                                                                     | BC, Carsten   | [**Parcoursprüfung: Station 1: Vorstellung der Lösung von [B04x] (online, 3 Teams, siehe Ankündigung)**]{.alert} |
-| Dezember             | 03. | **18:00 - 19:30 Uhr (online): Edmonton III: Vorträge Edmontoner Projekte**                                                               | _Edmonton_    |                                                                                                                  |
-|                      | 04. | [AST-basierte Interpreter 1], [AST-basierte Interpreter 2]                                                                               | Carsten       | [**Parcoursprüfung: Station 1: Vorstellung der Lösung von [B04x] (online, 2 Teams, siehe Ankündigung)**]{.alert} |
-|                      | 11. | C++ I: [Basics], [Pointer & Referenzen], [Klassen], [Big 3]                                                                              | Carsten       | [B05x] Interpreter (Carsten, *online*)                                                                           |
-|                      | 18. | ~~Projektwoche Semester 1+3~~ C++ II: [Operatoren], [Vererbung & Polymorphie], [Templates]                                               |               | Feedback zu Station 1                                                                                            |
-|                      | 25. | _Weihnachtspause_                                                                                                                        |               |                                                                                                                  |
-| Januar               | 01. | _Weihnachtspause_                                                                                                                        |               |                                                                                                                  |
-|                      | 08. | _Sprechstunde/Freies Arbeiten_                                                                                                           | Carsten       | [B06x] C++ und dyn. Speicherverwaltung (Carsten, *online*)                                                       |
-|                      | 15. | _Freies Arbeiten/Puffer_                                                                                                                 |               |                                                                                                                  |
-|                      | 22. | [**Parcoursprüfung: Station 2 [B07x] (VL- und Praktika-Slots, siehe Ankündigung)**]{.alert}                                              | Carsten, BC   | [B07x] Mini-Projekt (Carsten/BC, *online*)                                                                       |
-| _(Prüfungsphase I)_  | 30. | **Feedback-Gespräche (14:00 - 15:30 Uhr, online)**                                                                                       |               |                                                                                                                  |
-| _(Prüfungsphase II)_ |     | [**Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)**]{.alert} (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |               |                                                                                                                  |
+| Monat                | Woche | Vorlesung                                                                                                                                | Lead        | Abgabe Aufgabenblatt    | Vorstellung Praktikum                                    |
+|:---------------------|:------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------|:------------------------|:---------------------------------------------------------|
+| Oktober              | 41    | 23.: [CFG]                                                                                                                               | Carsten, BC |                         |                                                          |
+|                      | 44    | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                     | _Edmonton_  |                         |                                                          |
+|                      | 44    | 30.: [Parser mit ANTLR]                                                                                                                  | Carsten     |                         |                                                          |
+| November             | 45    | 06.: *Dienstbesprechung*                                                                                                                 |             | 04.: [B01] CFG          | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)        |
+|                      | 52    | 25.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
+| Januar               | 01    | 01.: _Weihnachtspause_                                                                                                                   |             |                         |                                                          |
+|                      | 02    | 08.: _Sprechstunde/Freies Arbeiten_                                                                                                      | Carsten     | 06.: [B02] C++          | 06. / 07. / 10. (Carsten, *online*)                      |
+|                      | 03    | 15.: _Freies Arbeiten/Puffer_                                                                                                            |             |                         |                                                          |
+|                      | 04    | 22.: [**Parcoursprüfung: Station 2 [B04] (VL- und Praktika-Slots, siehe Ankündigung)**]{.alert}                                          | Carsten, BC | 20.: [B03] Mini-Projekt | 20. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
+| _(Prüfungsphase I)_  | 05    | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                  |             |                         |                                                          |
+| _(Prüfungsphase II)_ |       | [**Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)**]{.alert} (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |             |                         |                                                          |
 
 :::
 ::::::
@@ -489,54 +469,14 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 [Google Kalender IFM 3.1 CB (PO23, 3. Semester)]: https://calendar.google.com/calendar/ical/07021c87022fe3f132fa2e2e799b230b5ab9c7088c85d152f2beab8f1b5218af%40group.calendar.google.com/public/basic.ics
 [Google Kalender IFM 5.21 CB (PO18, 5. Semester)]: https://calendar.google.com/calendar/ical/643ebb4721e215c2b2f2ac0330d5642f6cf9efe18cd16548e2e08f8bfa199336%40group.calendar.google.com/public/basic.ics
 
-[Orga]: https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1360443/index.html#überblick-modulinhalte
-
-[Überblick]: lecture/00-intro/overview.md
-[Sprachen]: lecture/00-intro/languages.md
-[Anwendungen]: lecture/00-intro/applications.md
-
-[Reguläre Sprachen]: lecture/01-lexing/regular.md
-[Lexer mit ANTLR]: lecture/01-lexing/antlr-lexing.md
-
 [CFG]: lecture/02-parsing/cfg.md
 <!-- [LL-Parser]: lecture/02-parsing/ll-parser.md -->
 [Parser mit ANTLR]: lecture/02-parsing/antlr-parsing.md
-<!-- [Grenze Lexer und Parser]: lecture/02-parsing/finalwords.md -->
-
-<!-- [Attributierte Grammatiken]: lecture/03-semantics/attribgrammars.md -->
-[Überblick Symboltabellen]: lecture/03-semantics/symbtab0-intro.md
-[Symboltabellen: Scopes]: lecture/03-semantics/symbtab1-scopes.md
-[Symboltabellen: Funktionen]: lecture/03-semantics/symbtab2-functions.md
-[Symboltabellen: Klassen]: lecture/03-semantics/symbtab3-classes.md
-
-[Überblick Zwischencode]: lecture/04-intermediate/intro-ir.md
-[Überblick Backend (LLVM)]: lecture/04-intermediate/llvm-ir.md
-
-<!-- [Syntaxgesteuerte Interpreter]: lecture/06-interpretation/syntaxdriven.md -->
-[AST-basierte Interpreter 1]: lecture/06-interpretation/astdriven-part1.md
-[AST-basierte Interpreter 2]: lecture/06-interpretation/astdriven-part2.md
-
-<!-- [Builder für Mini-Python]: lecture/07-codegen/minipython-builder.md -->
-
-[Basics]: lecture/99-languages/cpp0-basics.md
-[Pointer & Referenzen]: lecture/99-languages/cpp1-pointer.md
-[Klassen]: lecture/99-languages/cpp2-classes.md
-[Big 3]: lecture/99-languages/cpp3-big3.md
-[Operatoren]: lecture/99-languages/cpp4-operators.md
-[Vererbung & Polymorphie]: lecture/99-languages/cpp5-inheritance.md
-[Templates]: lecture/99-languages/cpp6-templates.md
 
 [B01]: homework/sheet01.md
 [B02]: homework/sheet02.md
 [B03]: homework/sheet03.md
 [B04]: homework/sheet04.md
-[B05]: homework/sheet05.md
-[B06]: homework/sheet06.md
-[B07]: homework/sheet07.md
-[B04x]: homework/sheet04x.md
-[B05x]: homework/sheet05x.md
-[B06x]: homework/sheet06x.md
-[B07x]: homework/sheet07x.md
 
 
 ## Prüfungsform, Note und Credits
@@ -547,7 +487,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 **Parcoursprüfung plus Testat**, 5 ECTS (PO23)
 
 *   **Testat**: Vergabe der Credit-Points
-    1.  Mindestens 4 der Übungsblätter [B01], [B02], [B03], [B04], [B05] und [B06] erfolgreich bearbeitet, **und**
+    1.  Mindestens 4 der Übungsblätter [B01], [B02], [B03], [B04] erfolgreich bearbeitet, **und**
     2.  **aktive** Teilnahme an allen 3 Edmonton-Terminen.
 
     ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet,
@@ -558,7 +498,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 
 *   **Stationen**:
     1.  ILIAS-Test (einzeln, 20.11.)
-    2.  Vorstellung Mini-Projekt [B07] (3er Teams, letzte VL-Woche)
+    2.  Vorstellung Mini-Projekt [B04] (3er Teams, letzte VL-Woche)
 
     Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung
     **30 Punkte (Station I) und 50 Punkte (Station II)** die Gesamtnote (individuelle
@@ -585,7 +525,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 **Parcoursprüfung plus Testat**, 5 ECTS (PO18)
 
 *   **Testat**: Vergabe der Credit-Points
-    1.  Mindestens 4 der Übungsblätter [B01], [B02], [B03], [B04x], [B05x] und [B06x] erfolgreich bearbeitet, **und**
+    1.  Mindestens 4 der Übungsblätter [B01], [B02], [B03], [B04] erfolgreich bearbeitet, **und**
     2.  **aktive** Teilnahme an allen 3 Edmonton-Terminen.
 
     ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet,
@@ -595,7 +535,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 ::: {.tab title="Prüfung im ersten Zeitraum"}
 
 *   **Stationen**:
-    1.  Vortrag (3er Team, 27.11. bzw. 04.12. im Praktikum): Vorstellung der Lösung von [B04x]
+    1.  Vortrag (3er Team, 27.11. bzw. 04.12. im Praktikum): Vorstellung der Lösung von [B04]
     2.  Vorstellung Mini-Projekt [B07x] (3er Teams, letzte VL-Woche)
 
     Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung
