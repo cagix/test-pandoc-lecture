@@ -86,3 +86,18 @@ g_i^{(t+1)} = \left\{
 $$
 
 
+## Links
+
+### Link to WWW
+
+[craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html)
+
+### Internal Links
+
+[selbe ebene](readme.md)
+
+[unterordner](subfolder/foo.md)
+
+[zurück nach oben I ...](../02-parsing/antlr-parsing.md)
+
+[zurück nach oben II ...](../../homework/sheet01.md)
