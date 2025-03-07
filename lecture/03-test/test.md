@@ -154,3 +154,17 @@ Normales Zitieren [@Siek2023racket] ...
 Mit Seitenangabe [@Siek2023racket, Seite 111] oder Kapitel [@Siek2023racket, Kapitel 111] ...
 
 Als Author-Zitat @Siek2023racket ...
+
+
+## GFM
+
+### Details
+
+<details>
+
+<summary>Zusammenfassung: NIX :)</summary>
+
+Lalelu ...
+
+</details>
+
