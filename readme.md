@@ -483,6 +483,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 |                      | 04    | 22.: [**Parcoursprüfung: Station 2 [B04] (VL- und Praktika-Slots, siehe Ankündigung)**]{.alert}                                          | Carsten, BC | 20.: [B03] Mini-Projekt | 20. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
 | _(Prüfungsphase I)_  | 05    | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                  |             |                         |                                                          |
 | _(Prüfungsphase II)_ |       | [**Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)**]{.alert} (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |             |                         |                                                          |
+|                      |       | [Markdown Test]                                                                                                                          |             |                         |                                                          |
 
 :::
 ::::::
@@ -496,6 +497,7 @@ Abgabe der Übungsblätter jeweils **Mittwoch bis 09:00 Uhr** im [ILIAS](https:/
 [Parser mit ANTLR]: lecture/02-parsing/antlr-parsing.md
 [Perzeptron]: lecture/02-parsing/nn01-perceptron.md
 
+[Markdown Test]: lecture/03-test/test.md
 
 [B01]: homework/sheet01.md
 [B02]: homework/sheet02.md
