@@ -201,3 +201,10 @@ Foo bar, wuppie fluppie!
 - Export to Beamer using [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`, `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
 
 This should probably be in line with #180 ...
+
+
+## Footnotes
+
+Sometimes[^1] we need some^[lalalala] footnotes.
+
+[^1]: sometime even more often
