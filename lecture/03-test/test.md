@@ -135,3 +135,13 @@ Java-Code kompilieren: `javac *.java`
 
 !["wuppie" via web](https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png)
 
+
+## Tabellen
+
+| Rechtsbündig | Linksbündig | Default | Zentriert |
+|-------------:|:------------|---------|:---------:|
+|          foo | foo         | foo     |    foo    |
+|          123 | 123         | 123     |    123    |
+|          bar | bar         | bar     |    bar    |
+
+: Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
