@@ -168,3 +168,36 @@ Lalelu ...
 
 </details>
 
+### Alert Extension
+
+GH introduced "alerts" with distinctive styling, like
+
+> [!NOTE]
+> Foo bar, wuppie fluppie!
+
+> [!TIP]
+> Foo bar, wuppie fluppie!
+
+> [!IMPORTANT]
+> Foo bar, wuppie fluppie!
+
+> [!WARNING]
+> Foo bar, wuppie fluppie!
+
+> [!CAUTION]
+> Foo bar, wuppie fluppie!
+
+(see https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
+
+
+Let's stick with Pandocs divs in Markdown content and use filters for export:
+
+::: note
+Foo bar, wuppie fluppie!
+:::
+
+- Export to GH Markdown using ["distinctive alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
+- Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
+- Export to Beamer using [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`, `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
+
+This should probably be in line with #180 ...
