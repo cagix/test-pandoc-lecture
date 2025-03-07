@@ -1,0 +1,62 @@
+---
+archetype: lecture-cg
+title: "Test Markdown"
+author: "Carsten Gips (HSBI)"
+readings:
+  - key: "@Parr2014"
+tldr: |
+    Text für TL;DR ...
+outcomes:
+  - k1: "K1"
+  - k2: "K2"
+  - k3: "K3.1"
+  - k3: "K3.2"
+assignments:
+  - topic: sheet01
+youtube:
+  - link: "https://youtu.be/YuUHBvPUS4k"
+    name: "VL Parser mit ANTLR"
+  - link: "https://youtu.be/FJOEPY-TMmw"
+    name: "Demo ANTLR Parser"
+challenges: |
+    **Lexer und Parser mit ANTLR: Programmiersprache Lox**
+
+    Betrachten Sie folgenden Code-Schnipsel in der Sprache ["Lox"](https://www.craftinginterpreters.com/the-lox-language.html):
+
+    ```
+    fun fib(x) {
+        if (x == 0) {
+            return 0;
+        } else {
+            if (x == 1) {
+                return 1;
+            } else {
+                fib(x - 1) + fib(x - 2);
+            }
+        }
+    }
+
+    var wuppie = fib(4);
+    ```
+
+    Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR.
+    Implementieren Sie mit Hilfe des Parse-Trees und der Listener oder Visitoren einen einfachen Pretty-Printer.
+
+    (Die genauere Sprachdefinition finden Sie bei Bedarf unter [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
+---
+
+
+## Hello World
+
+Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
+
+-   Stichpunkt 1
+-   Stichpunkt 2
+-   Stichpunkt 3
+
+1.  Aufzählung 1
+2.  Aufzählung 2
+3.  Aufzählung 3
+    1.  Unterpunkt 3.1
+    2.  Unterpunkt 3.2
+
