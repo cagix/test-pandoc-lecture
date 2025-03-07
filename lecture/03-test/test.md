@@ -94,13 +94,13 @@ $$
 
 ### Internal Links
 
-[selbe ebene](readme.md)
+[selbe ebene: readme.md](readme.md)
 
-[unterordner](subfolder/foo.md)
+[unterordner: subfolder/foo.md](subfolder/foo.md)
 
-[zurück nach oben I ...](../02-parsing/antlr-parsing.md)
+[zurück nach oben I: ../02-parsing/antlr-parsing.md](../02-parsing/antlr-parsing.md)
 
-[zurück nach oben II ...](../../homework/sheet01.md)
+[zurück nach oben II: ../../homework/sheet01.md](../../homework/sheet01.md)
 
 
 ## Code
