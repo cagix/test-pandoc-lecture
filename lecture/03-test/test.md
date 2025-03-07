@@ -123,3 +123,15 @@ WS    : [ \t\n]+ -> skip ;
 Java-Code kompilieren: `javac *.java`
 
 
+## Images
+
+!["B" (small)](img/b.png)
+
+!["B", width="20%"](img/b.png){width="20%"}
+
+!["wuppie" (wide)](img/wuppie.png)
+
+!["wuppie", width="20%"](img/wuppie.png){width="20%"}
+
+!["wuppie" via web](https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png)
+
