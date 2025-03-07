@@ -4,6 +4,8 @@ title: "Test Markdown"
 author: "Carsten Gips (HSBI)"
 readings:
   - key: "@Parr2014"
+nocite: |
+  @Nystrom2021
 tldr: |
     Text für TL;DR ...
 outcomes:
