@@ -60,3 +60,29 @@ Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
     1.  Unterpunkt 3.1
     2.  Unterpunkt 3.2
 
+
+## Math
+
+### Inline
+
+$\mathbf{g} = (g_1, \dots, g_m)\in \{ 0,1\}^m$
+
+*    $a^ib^{2*i}$ ist nicht regulär
+*    $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
+
+### Block
+
+$$\Phi(\mathbf{g}_i) = F(\Gamma(\mathbf{g}_i)) - w\cdot\sum_j(Z_j(\Gamma(\mathbf{g}_i)))^2$$
+
+$$p_{sel}(\mathbf{g}_k) = \frac{\Phi(\mathbf{g}_k)}{\sum_j \Phi(\mathbf{g}_j)}$$
+
+$$
+g_i^{(t+1)} = \left\{
+\begin{array}{ll}
+    \neg g_i^{(t)} & \mbox{ falls } \chi_i \le p_{mut}\\[5pt]
+    \phantom{\neg} g_i^{(t)} & \mbox{ sonst }
+\end{array}
+\right.
+$$
+
+
