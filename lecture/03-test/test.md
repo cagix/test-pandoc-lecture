@@ -210,3 +210,30 @@ This should probably be in line with #180 ...
 Sometimes[^1] we need some^[lalalala] footnotes.
 
 [^1]: sometime even more often
+
+
+## Credits
+
+Typische Regeln und Konventionen tauchen überall auf, beispielsweise
+in @Chacon2014 oder bei Tim Pope (siehe nächstes Beispiel) oder bei
+["How to Write a Git Commit Message"](https://cbea.ms/git-commit/).
+
+```markdown
+Short (50 chars or less) summary of changes
+
+More detailed explanatory text, if necessary.  Wrap it to about
+72 characters or so.  In some contexts, the first line is treated
+as the subject of an email and the rest of the text as the body.
+The blank line separating the summary from the body is critical
+(unless you omit the body entirely); tools like rebase can get
+confused if you run the two together.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+```
+
+[Quelle: ["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
