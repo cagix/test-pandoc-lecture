@@ -1,0 +1,22 @@
+## Options for simple style
+## (see https://pandoc.org/MANUAL.html#defaults-files)
+
+## general options
+from: markdown+lists_without_preceding_blankline
+to: gfm
+
+
+## reader options
+metadata:
+  link-citations: true
+
+
+## writer options
+standalone: true
+self-contained: true
+
+
+## citation rendering
+citeproc: true
+#csl: https://www.zotero.org/styles/springer-lecture-notes-in-computer-science
+#csl: https://www.zotero.org/styles/springer-basic-author-date
