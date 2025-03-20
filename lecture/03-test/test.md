@@ -215,7 +215,7 @@ Sometimes[^1] we need some^[lalalala] footnotes.
 ## Credits
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise
-in @Chacon2014 oder bei Tim Pope (siehe nächstes Beispiel) oder bei
+bei Tim Pope (siehe nächstes Beispiel) oder bei
 ["How to Write a Git Commit Message"](https://cbea.ms/git-commit/).
 
 ```markdown
