@@ -239,7 +239,13 @@ Further paragraphs come after blank lines.
 [Quelle: ["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
 
 
+---
+
+
 # Literatur {.unnumbered}
 
 ::: {#refs}
 :::
+
+
+---
