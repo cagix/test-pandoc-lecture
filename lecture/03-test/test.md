@@ -226,6 +226,14 @@ export:
 >
 > Foo bar, wuppie fluppie! Blablabla third line of nonsense …
 
+ist da ein unterschied zu
+
+
+> [!NOTE]
+> Foo bar, wuppie fluppie! Blablabla third line of nonsense …
+
+hmmm.
+
 - Export to GH Markdown using [“distinctive
   alerts”](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 - Export to Hugo using [notice
