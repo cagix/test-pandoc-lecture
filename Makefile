@@ -20,9 +20,9 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 
 ## Source files
 ## (Adjust to your needs.)
-SRC_DIR                ?= .
 BIBFILE                ?= cb.bib
 METADATA               ?= cb.yaml
+ROOT_DOC               ?= readme.md
 
 
 
@@ -38,7 +38,6 @@ METADATA               ?= cb.yaml
 DATA                    = .pandoc
 GFM_OUTPUT_DIR          = _gfm
 ROOT_DEPS               = make.deps
-ROOT_DOC                = readme.md
 
 
 ## Source and target files for gfm (to be filled via make.deps target)
