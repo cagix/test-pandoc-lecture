@@ -1,5 +1,5 @@
-name: 'Pandoc-Thesis'
-description: 'This action will run the Pandoc-Thesis toolchain from https://github.com/cagix/pandoc-thesis (Ubuntu runner only)'
+name: 'Pandoc-Lecture'
+description: 'This action will run the Pandoc-Lecture toolchain from https://github.com/cagix/pandoc-lecture (Ubuntu runner only)'
 
 inputs:
   rootdoc:
