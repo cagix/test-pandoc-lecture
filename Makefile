@@ -83,7 +83,10 @@ distclean: clean
 
 $(ROOT_DEPS): $(ROOT_DOC)
 	@$(PANDOC)  -L $(DATA)/makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -t markdown  $<  -o $@
+
+ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)
+endif
 
 
 ## Enable secondary expansion for subsequent targets. This allows the use
@@ -99,7 +102,7 @@ $(ROOT_DEPS): $(ROOT_DOC)
 
 ## GFM: Process markdown with pandoc
 gfm: OPTIONS           += --defaults=$(DATA)/gfm.yaml
-gfm: $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
+gfm: $(ROOT_DEPS) $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
 
 $(GFM_MARKDOWN_TARGETS):
 	$(create-folder)
@@ -107,6 +110,7 @@ $(GFM_MARKDOWN_TARGETS):
 
 $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
+
 
 ## Canned recipe for creating output folder
 define create-folder
