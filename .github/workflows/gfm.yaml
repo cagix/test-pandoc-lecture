@@ -19,7 +19,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: _gfm
-          publish_dir: _gfm/
+          publish_dir: _gfm
           force_orphan: true
   gfm-action:
     runs-on: ubuntu-latest
@@ -28,9 +28,10 @@ jobs:
       - uses: cagix/test-pandoc-lecture@master
         with:
           metadata: cb.yaml
+          publish_dir: _gfm_action
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: _gfm_action
-          publish_dir: _gfm/
+          publish_dir: _gfm_action
           force_orphan: true

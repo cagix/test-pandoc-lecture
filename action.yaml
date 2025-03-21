@@ -5,6 +5,10 @@ inputs:
   metadata:
     description: 'Metadata file (.yaml)'
     required: true
+  publish_dir:
+    description: 'Prefix for GFM output'
+    default: '_gfm'
+    required: false
 
 runs:
   using: "composite"
@@ -18,7 +22,7 @@ runs:
       shell: bash
 
     - name: 'Compile document'
-      run: make  gfm  METADATA=${{ inputs.metadata }}
+      run: make  gfm  METADATA=${{ inputs.metadata }}  GFM_OUTPUT_DIR=${{ inputs.publish_dir }}
       shell: bash
 
     - name: 'ls -lags'

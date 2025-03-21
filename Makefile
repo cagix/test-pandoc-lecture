@@ -21,6 +21,7 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 ## Source files
 ## (Adjust to your needs.)
 METADATA               ?= cb.yaml
+GFM_OUTPUT_DIR         ?= _gfm
 
 
 
@@ -34,7 +35,6 @@ METADATA               ?= cb.yaml
 ## Auxiliary files
 ## (Do not change!)
 DATA                    = .pandoc
-GFM_OUTPUT_DIR          = _gfm
 ROOT_DEPS               = make.deps
 
 
