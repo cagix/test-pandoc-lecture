@@ -237,6 +237,27 @@ Sometimes[^1] we need some^[lalalala] footnotes.
 [^1]: sometime even more often
 
 
+## Handling of TeX Shenanigans
+
+**Zustand:**
+:   (Formale) Beschreibung eines Zustandes der Welt
+
+**Aktion:**
+:   (Formale) Beschreibung einer durch Agenten ausführbaren Aktion
+
+    *   Anwendbar auf bestimmte Zustände
+    *   Überführt Welt in neuen Zustand ("Nachfolge-Zustand")
+
+LaTeX-Befehle wie `\bigskip` etc. sollten automatisch entfernt werden:
+
+\bigskip
+\bigskip
+
+Hier nach den LaTeX-Befehlen.
+
+[**Geeignete Abstraktionen wählen für Zustände und Aktionen!**]{.alert}
+
+
 ## Credits
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise
