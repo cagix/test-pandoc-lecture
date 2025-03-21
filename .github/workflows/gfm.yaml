@@ -1,0 +1,23 @@
+name: Convert Markdown sources to GFM
+
+on:
+  # push on master branch
+  push:
+    branches: [master]
+  # triggered manually
+  workflow_dispatch:
+  # triggered by pull requests
+  pull_request:
+
+jobs:
+  action-eisvogel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make gfm
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: _gfm
+          publish_dir: _gfm/
+          force_orphan: true
