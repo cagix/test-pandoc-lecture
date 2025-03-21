@@ -8,9 +8,6 @@ inputs:
   metadata:
     description: 'Metadata file (.yaml)'
     required: true
-  bibfile:
-    description: 'Bibtex file (.bib)'
-    required: true
 
 runs:
   using: "composite"
@@ -24,7 +21,7 @@ runs:
       shell: bash
 
     - name: 'Compile document'
-      run: make  gfm  ROOT_DOC=${{ inputs.rootdoc }}  METADATA=${{ inputs.metadata }}  BIBFILE=${{ inputs.bibfile }}
+      run: make  gfm  ROOT_DOC=${{ inputs.rootdoc }}  METADATA=${{ inputs.metadata }}
       shell: bash
 
     - name: 'ls -lags'

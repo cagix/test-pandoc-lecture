@@ -20,7 +20,6 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 
 ## Source files
 ## (Adjust to your needs.)
-BIBFILE                ?= cb.bib
 METADATA               ?= cb.yaml
 ROOT_DOC               ?= readme.md
 
@@ -99,7 +98,6 @@ endif
 
 
 ## GFM: Process markdown with pandoc
-gfm: OPTIONS           += --bibliography=$(BIBFILE)
 gfm: OPTIONS           += --metadata-file=$(METADATA)
 gfm: $(ROOT_DEPS) $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
 
