@@ -2,10 +2,15 @@
 archetype: lecture-cg
 title: "Test Markdown"
 author: "Carsten Gips (HSBI)"
+#readings:
+#  - key: "@Parr2014"
+#    comment: "Kapitel 2 und 3"
 readings:
-  - key: "@Parr2014"
-nocite: |
-  @Nystrom2021
+  - "@Tate2011 [Kapitel 2]"
+  - "@Nystrom2021"
+refs: |
+   ::: {#refs}
+   :::
 tldr: |
     Text für TL;DR ...
 outcomes:
@@ -20,6 +25,15 @@ youtube:
     name: "VL Parser mit ANTLR"
   - link: "https://youtu.be/FJOEPY-TMmw"
     name: "Demo ANTLR Parser"
+fhmedia:
+  - link: "https://www.hsbi.de/medienportal/m/3a44c8a32e7699db77ae922c6b8944acf0d8c65b78d02859e707ffdf783ea45a78200312cdb8102c1052f382101b69a5092bcaf0a11ded36b98f4552a4aca345"
+    name: "VL Git Basics"
+quizzes:
+  - link: "https://www.hsbi.de/elearning/goto.php?target=tst_1106241&client_id=FH-Bielefeld"
+    name: "Quiz Git Basics (ILIAS)"
+attachments:
+  - link: "https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/master/lecture/nn/files/NN03-Logistische_Regression.pdf"
+    name: "NN03-Logistische_Regression.pdf"
 challenges: |
     **Lexer und Parser mit ANTLR: Programmiersprache Lox**
 
