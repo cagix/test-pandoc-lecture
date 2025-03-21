@@ -33,6 +33,6 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: _gfm
-          publish_dir: _gfm_action/
+          publish_branch: _gfm_action
+          publish_dir: _gfm/
           force_orphan: true
