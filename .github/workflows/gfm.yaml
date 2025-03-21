@@ -21,3 +21,18 @@ jobs:
           publish_branch: _gfm
           publish_dir: _gfm/
           force_orphan: true
+  gfm-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cagix/test-pandoc-lecture@master
+        with:
+          rootdoc: readme.md
+          metadata: cb.yaml
+          bibfile: cb.bib
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: _gfm
+          publish_dir: _gfm_action/
+          force_orphan: true
