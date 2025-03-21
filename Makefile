@@ -78,7 +78,7 @@ distclean: clean
 
 
 $(ROOT_DEPS): $(METADATA)
-	@$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
 ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)
