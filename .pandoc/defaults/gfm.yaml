@@ -7,6 +7,9 @@ to: gfm
 
 
 ## reader options
+filters:
+  - prepareHandout.lua
+
 metadata:
   link-citations: true
 

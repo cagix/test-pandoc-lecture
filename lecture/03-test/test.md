@@ -205,6 +205,17 @@ Foo bar, wuppie fluppie!
 This should probably be in line with #180 ...
 
 
+## Filter for Slides and Handouts
+
+::: notes
+Foo bar, wuppie fluppie! (NOTES)
+:::
+
+::: slides
+THIS IS SLIDE-ONLY CONTENT, STUPID!
+:::
+
+
 ## Footnotes
 
 Sometimes[^1] we need some^[lalalala] footnotes.

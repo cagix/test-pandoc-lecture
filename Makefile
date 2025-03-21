@@ -41,8 +41,8 @@ ROOT_DEPS               = make.deps
 
 
 ## Source and target files for gfm (to be filled via make.deps target)
-GFM_MARKDOWN_TARGETS =
-GFM_IMAGE_TARGETS    =
+GFM_MARKDOWN_TARGETS    =
+GFM_IMAGE_TARGETS       =
 
 
 
@@ -54,8 +54,7 @@ GFM_IMAGE_TARGETS    =
 
 
 ## Common options
-OPTIONS                 = --bibliography=$(BIBFILE)
-OPTIONS                += --metadata-file=$(METADATA)
+OPTIONS                 = --data-dir=$(DATA)
 
 
 ## Build docker image ("pandoc-thesis") containing pandoc and TeX-Live
@@ -81,7 +80,7 @@ distclean: clean
 
 
 $(ROOT_DEPS): $(ROOT_DOC)
-	@$(PANDOC)  -L $(DATA)/makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -t markdown  $<  -o $@
+	@$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -t markdown  $<  -o $@
 
 ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)
@@ -100,12 +99,13 @@ endif
 
 
 ## GFM: Process markdown with pandoc
-gfm: OPTIONS           += --defaults=$(DATA)/gfm.yaml
+gfm: OPTIONS           += --bibliography=$(BIBFILE)
+gfm: OPTIONS           += --metadata-file=$(METADATA)
 gfm: $(ROOT_DEPS) $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
 
 $(GFM_MARKDOWN_TARGETS):
 	$(create-folder)
-	$(PANDOC) $(OPTIONS)  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -d gfm.yaml  $<  -o $@
 
 $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
