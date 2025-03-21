@@ -168,5 +168,6 @@ $endif$
 
 ---
 
-$-- this needs to be found in root directory
-${ license_footer.md() }
+$if(license_footer)$
+$license_footer$
+$endif$
