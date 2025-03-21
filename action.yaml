@@ -2,9 +2,6 @@ name: 'Pandoc-Lecture'
 description: 'This action will run the Pandoc-Lecture toolchain from https://github.com/cagix/pandoc-lecture (Ubuntu runner only)'
 
 inputs:
-  rootdoc:
-    description: 'root document (.md)'
-    required: true
   metadata:
     description: 'Metadata file (.yaml)'
     required: true
@@ -21,7 +18,7 @@ runs:
       shell: bash
 
     - name: 'Compile document'
-      run: make  gfm  ROOT_DOC=${{ inputs.rootdoc }}  METADATA=${{ inputs.metadata }}
+      run: make  gfm  METADATA=${{ inputs.metadata }}
       shell: bash
 
     - name: 'ls -lags'

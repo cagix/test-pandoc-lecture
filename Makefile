@@ -21,7 +21,6 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 ## Source files
 ## (Adjust to your needs.)
 METADATA               ?= cb.yaml
-ROOT_DOC               ?= readme.md
 
 
 
@@ -78,8 +77,8 @@ distclean: clean
 ###############################################################################
 
 
-$(ROOT_DEPS): $(ROOT_DOC)
-	@$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -t markdown  $<  -o $@
+$(ROOT_DEPS): $(METADATA)
+	@$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
 ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)

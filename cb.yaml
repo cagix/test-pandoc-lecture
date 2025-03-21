@@ -1,6 +1,17 @@
+# language
 lang: de-DE
+
+# author information
 institute: "Unless otherwise noted, this work is licensed under CC BY-SA 4.0."
+
+# bibtex file
 bibliography: cb.bib
+
+# root document
+root_doc: readme.md
+indexMD: readme
+
+# license footer
 license_footer: |
     FOOO
 

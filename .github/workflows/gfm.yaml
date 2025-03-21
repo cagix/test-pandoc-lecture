@@ -27,7 +27,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: cagix/test-pandoc-lecture@master
         with:
-          rootdoc: readme.md
           metadata: cb.yaml
       - uses: peaceiris/actions-gh-pages@v4
         with:

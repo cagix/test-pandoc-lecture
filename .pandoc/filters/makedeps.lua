@@ -285,8 +285,7 @@ function Pandoc (doc)
     ROOT = pandoc.system.get_working_directory()        -- remember our project root
 
     -- get filename (input file)
-    local input_files = PANDOC_STATE.input_files
-    local file = #input_files >= 1 and input_files[#input_files] or "."
+    local file = doc.meta.root_doc or (INDEX_MD .. ".md")
 
     -- enqueue landing page for processing
     _enqueue(_prepend_include_path(file))
