@@ -11,15 +11,21 @@ $endif$
 
 
 $if(tldr)$
-<details>
 
-<summary>
-**TL;DR**
-</summary>
+> [!NOTE]
+>
+> <details>
+> 
+> <summary>
+> 
+> **TL;DR**
+> 
+> </summary>
+> 
+> $tldr$
+> 
+> </details>
 
-$tldr$
-
-</details>
 $endif$
 
 
