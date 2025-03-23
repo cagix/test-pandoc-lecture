@@ -15,7 +15,7 @@
 > <summary>TL;DR</summary>
 > 
 > Text für TL;DR …
-
+>
 > 
 > </details>
 
@@ -27,7 +27,7 @@
 !> <summary>TL;DR</summary>
 !> 
 !> Text für TL;DR …
-
+!>
 !> 
 !> </details>
 
