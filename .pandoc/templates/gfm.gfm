@@ -16,11 +16,7 @@ $if(tldr)$
 >
 > <details>
 > 
-> <summary>
-> 
-> **TL;DR**
-> 
-> </summary>
+> <summary>TL;DR</summary>
 > 
 > $tldr$
 > 
