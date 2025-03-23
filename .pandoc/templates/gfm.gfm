@@ -11,9 +11,9 @@ $endif$
 
 
 $if(tldr)$
-## TL;DR
-
 <details>
+
+<summary>**TL;DR**</summary>
 
 $tldr$
 
