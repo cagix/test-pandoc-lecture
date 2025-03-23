@@ -12,6 +12,8 @@ $endif$
 
 $if(tldr)$
 
+**GitHub Markdown**
+
 > [!NOTE]
 >
 > <details>
@@ -21,6 +23,17 @@ $if(tldr)$
 > $tldr$
 > 
 > </details>
+
+
+**Docsify Markdown**
+
+!> <details>
+!> 
+!> <summary>TL;DR</summary>
+!> 
+!> $tldr$
+!> 
+!> </details>
 
 $endif$
 
