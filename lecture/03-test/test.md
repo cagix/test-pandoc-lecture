@@ -168,6 +168,8 @@ Java-Code kompilieren: `javac *.java`
 
 !["wuppie" via web](https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png)
 
+!["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+
 
 ## Tabellen
 
