@@ -101,6 +101,23 @@ g_i^{(t+1)} = \left\{
 \right.
 $$
 
+### Known Problems
+
+*   VSCode Preview: `\mbox{ tanh }` => $\mbox{ tanh }$ => `\text{ tanh }` => $\text{ tanh }$
+*   GH Preview:
+    -   `\phantom{xyz}` => $\phantom{xyz}$ => ?? => ??
+    -   `\operatorname{tanh}` => $\operatorname{tanh}$ => `\mathop{\text{tanh}}` => $\mathop{\text{tanh}}$
+
+$$
+g_i^{(t+1)} = \left\{
+\begin{array}{rll}
+    \neg & g_i^{(t)} & \mbox{ falls } \chi_i \le p_{mut}\\[5pt]
+    & g_i^{(t)} & \mbox{ sonst }
+\end{array}
+\right.
+$$
+
+
 
 ## Links
 
