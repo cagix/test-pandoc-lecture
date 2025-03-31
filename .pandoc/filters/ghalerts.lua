@@ -53,18 +53,18 @@ function Pandoc(doc)
         blocks:insert(pandoc.BlockQuote(quote))
     end
 
-    -- 3. main doc
-    blocks:insert(pandoc.HorizontalRule())
-    blocks:extend(doc.blocks)
+    -- 3. Main Doc and Literature
     blocks:insert(pandoc.HorizontalRule())
 
-    hblocks:insert(pandoc.HorizontalRule())
-    hblocks:insert(pandoc.HorizontalRule())
+    blocks:extend(doc.blocks)
 
     if doc.meta.readings then
-        hblocks:insert(pandoc.Header(2, "Zum Nachlesen"))
-        hblocks:insert(pandoc.BulletList(doc.meta.readings))
+        blocks:insert(pandoc.Header(2, "Zum Nachlesen"))
+        blocks:insert(pandoc.BulletList(doc.meta.readings))
     end
+
+    blocks:insert(pandoc.HorizontalRule())
+
 
     if doc.meta.refs then
         hblocks:insert(pandoc.Header(2, "Quellen"))
