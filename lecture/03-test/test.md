@@ -192,9 +192,13 @@ Java-Code kompilieren: `javac *.java`
 
 !["wuppie", width="20%"](img/wuppie.png){width="20%"}
 
-!["wuppie" via web](https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png)
+!["wuppie" via web (won't work in VSC preview)](https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png)
 
 !["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+
+### Known Problems
+
+- In VSC preview images via web like https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (need to be "raw")
 
 
 ## Tabellen
