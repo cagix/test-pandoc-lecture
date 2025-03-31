@@ -113,15 +113,13 @@ function Pandoc(doc)
         blocks:extend(doc.meta.refs)
     end
 
-    hblocks:insert(pandoc.HorizontalRule())
-    hblocks:insert(pandoc.HorizontalRule())
-
+    -- 6. License
+    blocks:insert(pandoc.HorizontalRule())
     if doc.meta.license_footer then
-        hblocks:extend(doc.meta.license_footer)
+        blocks:extend(doc.meta.license_footer)
     end
 
-    hblocks:insert(pandoc.HorizontalRule())
-    hblocks:insert(pandoc.HorizontalRule())
 
-    return pandoc.Pandoc(hblocks, doc.meta)
+    -- finé
+    return pandoc.Pandoc(blocks, doc.meta)
 end
