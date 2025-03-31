@@ -18,7 +18,7 @@ metadata:
 ## writer options
 standalone: true
 self-contained: true
-template: gfm
+#template: gfm
 
 
 ## citation rendering
