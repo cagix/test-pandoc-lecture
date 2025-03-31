@@ -104,7 +104,7 @@ function Pandoc(doc)
 
     -- 5. References
     if doc.meta.refs then
-        blocks:insert(pandoc.Header(2, "Quellen", {class = 'unnumbered'}))
+        blocks:insert(pandoc.Header(2, "Quellen", {class = 'unnumbered unlisted'}))
 --        pandoc.RawBlock("markdown", '<strong>Quellen</strong>'))
         blocks:extend(doc.meta.refs)
     end
