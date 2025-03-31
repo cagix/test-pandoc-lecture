@@ -10,8 +10,10 @@ end
 function Pandoc(doc)
     local hblocks = pandoc.List()
 
-    hblocks:insert(pandoc.HorizontalRule())
-    hblocks:insert(pandoc.HorizontalRule())
+    -- 1. Title
+    if doc.meta.title then
+        blocks:insert(pandoc.Header(1, doc.meta.title))
+    end
 
     hblocks:insert(pandoc.Para(pandoc.Str("FOO (via Filter)")))
     if doc.meta.tldr then
