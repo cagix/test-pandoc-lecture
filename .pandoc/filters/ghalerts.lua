@@ -106,12 +106,11 @@ function Pandoc(doc)
         blocks:insert(pandoc.BlockQuote(quote))
     end
 
-
-
-
+    -- 5. References
     if doc.meta.refs then
-        hblocks:insert(pandoc.Header(2, "Quellen"))
-        hblocks:extend(doc.meta.refs)
+        blocks:insert(pandoc.Header(2, "Quellen", {class = 'unnumbered'}))
+--        pandoc.RawBlock("markdown", '<strong>Quellen</strong>'))
+        blocks:extend(doc.meta.refs)
     end
 
     hblocks:insert(pandoc.HorizontalRule())
