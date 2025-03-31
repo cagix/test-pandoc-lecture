@@ -65,6 +65,7 @@ function Pandoc(doc)
     if doc.meta.outcomes or doc.meta.quizzes or doc.meta.challenges then
         local quote = pandoc.List()
 
+        blocks:insert(pandoc.HorizontalRule())
         quote:insert(pandoc.RawBlock("markdown", '[!TIP]'))
 
         if doc.meta.outcomes then
@@ -100,6 +101,7 @@ function Pandoc(doc)
         end
 
         blocks:insert(pandoc.BlockQuote(quote))
+        blocks:insert(pandoc.HorizontalRule())
     end
 
     -- 5. References
