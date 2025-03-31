@@ -41,7 +41,8 @@ function Pandoc(doc)
         blocks:insert(pandoc.BlockQuote(quote))
     end
 
-    hblocks:extend(doc.blocks)
+    -- 3. main doc
+    blocks:extend(doc.blocks)
 
     hblocks:insert(pandoc.HorizontalRule())
     hblocks:insert(pandoc.HorizontalRule())
