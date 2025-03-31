@@ -24,7 +24,10 @@ function Pandoc(doc)
             local str_link = pandoc.utils.stringify(v.link)
             bullets:insert(pandoc.Link(v.name or str_link, str_link))
         end
+        hblocks:insert(pandoc.RawBlock("markdown", '<details>'))
+        hblocks:insert(pandoc.RawBlock("markdown", '<summary>Videos</summary>'))
         hblocks:insert(pandoc.BulletList(bullets))
+        hblocks:insert(pandoc.RawBlock("markdown", '</details>'))
     end
 
     hblocks:insert(pandoc.HorizontalRule())
