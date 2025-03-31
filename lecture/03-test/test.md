@@ -13,6 +13,9 @@ refs: |
    :::
 tldr: |
     Text für TL;DR ...
+
+    In @Parr2014 wird geschrieben, blablablabla ...
+
 outcomes:
   - k1: "K1"
   - k2: "K2"
