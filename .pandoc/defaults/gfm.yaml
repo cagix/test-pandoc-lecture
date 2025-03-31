@@ -16,7 +16,7 @@ metadata:
 
 
 ## writer options
-standalone: true
+#standalone: true
 self-contained: true
 #template: gfm
 
