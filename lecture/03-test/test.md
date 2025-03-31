@@ -50,6 +50,7 @@ youtube:
     name: "VL Parser mit ANTLR"
   - link: "https://youtu.be/FJOEPY-TMmw"
     name: "Demo ANTLR Parser"
+  - link: "https://foo.bar.de"
 fhmedia:
   - link: "https://www.hsbi.de/medienportal/m/3a44c8a32e7699db77ae922c6b8944acf0d8c65b78d02859e707ffdf783ea45a78200312cdb8102c1052f382101b69a5092bcaf0a11ded36b98f4552a4aca345"
     name: "VL Git Basics"
