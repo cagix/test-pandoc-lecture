@@ -21,7 +21,23 @@ tldr: |
 
     $$\Phi(\mathbf{g}_i) = F(\Gamma(\mathbf{g}_i)) - w\cdot\sum_j(Z_j(\Gamma(\mathbf{g}_i)))^2$$
 
+    Code sollte auch gehen: `inline`, aber auch block:
 
+        ```
+    fun fib(x) {
+        if (x == 0) {
+            return 0;
+        } else {
+            if (x == 1) {
+                return 1;
+            } else {
+                fib(x - 1) + fib(x - 2);
+            }
+        }
+    }
+
+    var wuppie = fib(4);
+    ```
 outcomes:
   - k1: "K1"
   - k2: "K2"
