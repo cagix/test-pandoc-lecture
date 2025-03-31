@@ -14,16 +14,18 @@ function Pandoc(doc)
     hblocks:insert(pandoc.HorizontalRule())
 
     hblocks:insert(pandoc.Para(pandoc.Str("FOO (via Filter)")))
-    if doc.meta.license_footer then
+    if doc.meta.tldr then
         hblocks:extend(doc.meta.tldr)
     end
 
-    local bullets = pandoc.List()
-    for _, v in ipairs(doc.meta.youtube) do
-        local str_link = pandoc.utils.stringify(v.link)
-        bullets:insert(pandoc.Link(v.name or str_link, str_link))
+    if doc.meta.youtube then
+        local bullets = pandoc.List()
+        for _, v in ipairs(doc.meta.youtube) do
+            local str_link = pandoc.utils.stringify(v.link)
+            bullets:insert(pandoc.Link(v.name or str_link, str_link))
+        end
+        hblocks:insert(pandoc.BulletList(bullets))
     end
-    hblocks:insert(pandoc.BulletList(bullets))
 
     hblocks:insert(pandoc.HorizontalRule())
     hblocks:insert(pandoc.HorizontalRule())
