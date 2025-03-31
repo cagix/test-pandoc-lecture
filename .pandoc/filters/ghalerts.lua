@@ -35,6 +35,19 @@ function Pandoc(doc)
     hblocks:insert(pandoc.HorizontalRule())
     hblocks:insert(pandoc.HorizontalRule())
 
+    if doc.meta.readings then
+        hblocks:insert(pandoc.Header(2, "Zum Nachlesen"))
+        hblocks:insert(pandoc.BulletList(doc.meta.readings))
+    end
+
+    if doc.meta.refs then
+        hblocks:insert(pandoc.Header(2, "Quellen"))
+        hblocks:extend(doc.meta.refs)
+    end
+
+    hblocks:insert(pandoc.HorizontalRule())
+    hblocks:insert(pandoc.HorizontalRule())
+
     if doc.meta.license_footer then
         hblocks:extend(doc.meta.license_footer)
     end
