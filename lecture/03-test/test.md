@@ -16,6 +16,12 @@ tldr: |
 
     In @Parr2014 wird geschrieben, blablablabla ...
 
+    Wir können hier sowohl Inline-Math ($a^ib^{2*i}$) als
+    auch Block-Math:
+
+    $$\Phi(\mathbf{g}_i) = F(\Gamma(\mathbf{g}_i)) - w\cdot\sum_j(Z_j(\Gamma(\mathbf{g}_i)))^2$$
+
+
 outcomes:
   - k1: "K1"
   - k2: "K2"
