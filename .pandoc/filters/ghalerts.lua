@@ -8,8 +8,37 @@ end
 
 --- TODO TEST
 function Pandoc(doc)
---    firstblock = pandoc.Para({pandoc.Str("FOO"), pandoc.HorizontalRule()})
-    firstblock = pandoc.Para(pandoc.Str("FOO"))
-    table.insert(doc.blocks, 1, firstblock)
-    return pandoc.Pandoc(doc.blocks, doc.meta)
+    local hblocks = pandoc.List()
+
+    hblocks:insert(pandoc.HorizontalRule())
+    hblocks:insert(pandoc.HorizontalRule())
+
+    hblocks:insert(pandoc.Para(pandoc.Str("FOO (via Filter)")))
+    if doc.meta.license_footer then
+        hblocks:extend(doc.meta.tldr)
+    end
+
+    local bullets = pandoc.List()
+    for _, v in ipairs(doc.meta.youtube) do
+        local str_link = pandoc.utils.stringify(v.link)
+        bullets:insert(pandoc.Link(v.name or str_link, str_link))
+    end
+    hblocks:insert(pandoc.BulletList(bullets))
+
+    hblocks:insert(pandoc.HorizontalRule())
+    hblocks:insert(pandoc.HorizontalRule())
+
+    hblocks:extend(doc.blocks)
+
+    hblocks:insert(pandoc.HorizontalRule())
+    hblocks:insert(pandoc.HorizontalRule())
+
+    if doc.meta.license_footer then
+        hblocks:extend(doc.meta.license_footer)
+    end
+
+    hblocks:insert(pandoc.HorizontalRule())
+    hblocks:insert(pandoc.HorizontalRule())
+
+    return pandoc.Pandoc(hblocks, doc.meta)
 end
