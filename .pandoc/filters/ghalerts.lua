@@ -16,7 +16,7 @@ function Pandoc(doc)
     end
 
     -- 2. TL;DR and Videos
-    if doc.meta.tldr or doc.meta.youtube then
+    if doc.meta.tldr or doc.meta.youtube or doc.meta.attachments then
         local quote = pandoc.List()
 
         quote:insert(pandoc.RawBlock("markdown", '[!IMPORTANT]'))
@@ -34,6 +34,18 @@ function Pandoc(doc)
             end
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
             quote:insert(pandoc.RawBlock("markdown", '<summary><strong>Videos</strong></summary>'))
+            quote:insert(pandoc.BulletList(bullets))
+            quote:insert(pandoc.RawBlock("markdown", '</details>'))
+        end
+
+        if doc.meta.attachments then
+            local bullets = pandoc.List()
+            for _, v in ipairs(doc.meta.attachments) do
+                local str_link = pandoc.utils.stringify(v.link)
+                bullets:insert(pandoc.Link(v.name or str_link, str_link))
+            end
+            quote:insert(pandoc.RawBlock("markdown", '<details>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>Slides</strong></summary>'))
             quote:insert(pandoc.BulletList(bullets))
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
