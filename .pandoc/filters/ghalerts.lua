@@ -15,7 +15,7 @@ function Pandoc(doc)
 
     hblocks:insert(pandoc.Para(pandoc.Str("FOO (via Filter)")))
     if doc.meta.tldr then
-        hblocks:extend(doc.meta.tldr)
+        hblocks:insert(pandoc.BlockQuote({pandoc.RawBlock("markdown", '[!IMPORTANT]')} .. doc.meta.tldr))
     end
 
     if doc.meta.youtube then
