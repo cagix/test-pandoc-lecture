@@ -54,16 +54,12 @@ function Pandoc(doc)
     end
 
     -- 3. Main Doc and Literature
-    blocks:insert(pandoc.HorizontalRule())
-
     blocks:extend(doc.blocks)
 
     if doc.meta.readings then
         blocks:insert(pandoc.Header(2, "Zum Nachlesen"))
         blocks:insert(pandoc.BulletList(doc.meta.readings))
     end
-
-    blocks:insert(pandoc.HorizontalRule())
 
     -- 4. Outcomes, Quizzes, and Challenges
     if doc.meta.outcomes or doc.meta.quizzes or doc.meta.challenges then
