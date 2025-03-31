@@ -8,32 +8,38 @@ end
 
 --- TODO TEST
 function Pandoc(doc)
-    local hblocks = pandoc.List()
+    local blocks = pandoc.List()
 
     -- 1. Title
     if doc.meta.title then
         blocks:insert(pandoc.Header(1, doc.meta.title))
     end
 
-    hblocks:insert(pandoc.Para(pandoc.Str("FOO (via Filter)")))
-    if doc.meta.tldr then
-        hblocks:insert(pandoc.BlockQuote({pandoc.RawBlock("markdown", '[!IMPORTANT]')} .. doc.meta.tldr))
-    end
+    -- 2. TL;DR and Videos
+    if doc.meta.tldr or doc.meta.youtube then
+        local quote = pandoc.List()
 
-    if doc.meta.youtube then
-        local bullets = pandoc.List()
-        for _, v in ipairs(doc.meta.youtube) do
-            local str_link = pandoc.utils.stringify(v.link)
-            bullets:insert(pandoc.Link(v.name or str_link, str_link))
+        quote:insert(pandoc.RawBlock("markdown", '[!IMPORTANT]'))
+
+        if doc.meta.tldr then
+            quote:insert(pandoc.RawBlock("markdown", '<strong>TL;DR</strong>'))
+            quote:extend(doc.meta.tldr)
         end
-        hblocks:insert(pandoc.RawBlock("markdown", '<details>'))
-        hblocks:insert(pandoc.RawBlock("markdown", '<summary>Videos</summary>'))
-        hblocks:insert(pandoc.BulletList(bullets))
-        hblocks:insert(pandoc.RawBlock("markdown", '</details>'))
-    end
 
-    hblocks:insert(pandoc.HorizontalRule())
-    hblocks:insert(pandoc.HorizontalRule())
+        if doc.meta.youtube then
+            local bullets = pandoc.List()
+            for _, v in ipairs(doc.meta.youtube) do
+                local str_link = pandoc.utils.stringify(v.link)
+                bullets:insert(pandoc.Link(v.name or str_link, str_link))
+            end
+            quote:insert(pandoc.RawBlock("markdown", '<details>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>Videos</strong></summary>'))
+            quote:insert(pandoc.BulletList(bullets))
+            quote:insert(pandoc.RawBlock("markdown", '</details>'))
+        end
+
+        blocks:insert(pandoc.BlockQuote(quote))
+    end
 
     hblocks:extend(doc.blocks)
 
