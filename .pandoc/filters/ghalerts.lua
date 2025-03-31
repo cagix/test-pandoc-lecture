@@ -42,7 +42,9 @@ function Pandoc(doc)
     end
 
     -- 3. main doc
+    blocks:insert(pandoc.HorizontalRule())
     blocks:extend(doc.blocks)
+    blocks:insert(pandoc.HorizontalRule())
 
     hblocks:insert(pandoc.HorizontalRule())
     hblocks:insert(pandoc.HorizontalRule())
