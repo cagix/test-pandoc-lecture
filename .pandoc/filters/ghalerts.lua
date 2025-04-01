@@ -6,6 +6,7 @@ function Div(el)
     end
 end
 
+
 --- TODO TEST
 function Pandoc(doc)
     local blocks = pandoc.List()
@@ -53,15 +54,23 @@ function Pandoc(doc)
         blocks:insert(pandoc.BlockQuote(quote))
     end
 
-    -- 3. Main Doc and Literature
-    blocks:extend(doc.blocks)
+    -- 3. Main Doc (shift headings if necessary)
+    blocks:extend(doc.blocks:walk {
+        Header = function(el)
+            if doc.meta.shift_headings then
+                el.level = el.level + 1
+            end
+            return el
+        end
+    })
 
+    -- 4. Literature
     if doc.meta.readings then
         blocks:insert(pandoc.Header(2, "Zum Nachlesen"))
         blocks:insert(pandoc.BulletList(doc.meta.readings))
     end
 
-    -- 4. Outcomes, Quizzes, and Challenges
+    -- 5. Outcomes, Quizzes, and Challenges
     if doc.meta.outcomes or doc.meta.quizzes or doc.meta.challenges then
         local quote = pandoc.List()
 
@@ -104,14 +113,14 @@ function Pandoc(doc)
         blocks:insert(pandoc.HorizontalRule())
     end
 
-    -- 5. References
+    -- 6. References
     if doc.meta.refs then
         blocks:insert(pandoc.Header(2, "Quellen", {class = 'unnumbered unlisted'}))
 --        pandoc.RawBlock("markdown", '<strong>Quellen</strong>'))
         blocks:extend(doc.meta.refs)
     end
 
-    -- 6. License
+    -- 7. License
     blocks:insert(pandoc.HorizontalRule())
     if doc.meta.license_footer then
         blocks:extend(doc.meta.license_footer)

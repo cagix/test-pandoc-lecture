@@ -2,6 +2,7 @@
 archetype: lecture-bc
 title: "CFG"
 author: "BC George (HSBI)"
+shift_headings: true
 readings:
   - key: "Aho2023"
   - key: "hopcroft2003"
