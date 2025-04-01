@@ -3,9 +3,6 @@ title: "Test Markdown"
 readings:
   - "@Tate2011 [Kapitel 2]"
   - "@Nystrom2021"
-refs: |
-   ::: {#refs}
-   :::
 tldr: |
     Text für TL;DR ...
 
