@@ -116,9 +116,16 @@ function Pandoc(doc)
     -- 6. References
     local refs = pandoc.utils.references(doc)
     if refs and #refs > 0 then
-        blocks:insert(pandoc.Header(2, "Quellen", {class = 'unnumbered unlisted'}))
---        pandoc.RawBlock("markdown", '<strong>Quellen</strong>'))
-        blocks:extend(doc.meta.refs)
+        local quote = pandoc.List()
+
+        quote:insert(pandoc.RawBlock("markdown", '[!NOTE]'))
+        quote:insert(pandoc.RawBlock("markdown", '<details>'))
+        quote:insert(pandoc.RawBlock("markdown", '<summary><strong>Quellen</strong></summary>'))
+        quote:extend(doc.meta.refs)
+        quote:insert(pandoc.RawBlock("markdown", '</details>'))
+
+        blocks:insert(pandoc.HorizontalRule())
+        blocks:insert(pandoc.BlockQuote(quote))
     end
 
     -- 7. License
