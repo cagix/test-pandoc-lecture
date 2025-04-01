@@ -108,6 +108,11 @@ $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
 
 
+## LaTeX:
+# https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/examples/boxes-with-pandoc-latex-environment-and-tcolorbox/document.md
+# docker run --rm --volume ".:/data" --workdir /data --user 502:20 pandoc/extra:latest-ubuntu --data-dir=.pandoc --metadata-file=cb.yaml -f markdown+lists_without_preceding_blankline+rebase_relative_paths  lecture/03-test/test.md  -o _gfm/lecture/03-test/test.pdf
+
+
 ## Canned recipe for creating output folder
 define create-folder
 @mkdir -p $(dir $@)
