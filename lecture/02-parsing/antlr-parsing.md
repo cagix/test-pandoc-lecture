@@ -1,5 +1,6 @@
 ---
 title: "Parser mit ANTLR generieren"
+author: "Carsten Gips (HSBI)"
 readings:
   - "@Parr2014"
 tldr: |
