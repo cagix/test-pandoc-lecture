@@ -1,7 +1,5 @@
 ---
-archetype: lecture-cy
 title: "NN01 - Das Perzeptron"
-linkTitle: "NN01 - Perzeptron"
 author: "Canan Yıldız (Türkisch-Deutsche Universität)"
 outcomes:
   - k2: "Arten des maschinellen Lernens"
@@ -17,8 +15,8 @@ outcomes:
 quizzes:
   - link: "https://www.hsbi.de/elearning/goto.php?target=tst_1106589&client_id=FH-Bielefeld"
     name: "Selbsttest Intro ML (ILIAS)"
-assignments:
-  - topic: sheet-nn-perceptron
+#assignments:
+#  - topic: sheet-nn-perceptron
 youtube:
   - link: "https://youtu.be/IJdiwITTC9Y"
     name: "NN1.1 - Einführung"
