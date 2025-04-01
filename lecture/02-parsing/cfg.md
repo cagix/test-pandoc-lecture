@@ -1,11 +1,10 @@
 ---
-archetype: lecture-bc
 title: "CFG"
 author: "BC George (HSBI)"
 shift_headings: true
 readings:
-  - key: "Aho2023"
-  - key: "hopcroft2003"
+  - "@Aho2023"
+  - "@hopcroft2003"
 outcomes:
   - k1: "PDAs"
   - k1: "Deterministische PDAs"
@@ -338,13 +337,3 @@ Hier entsteht ein Tafelbild.
 - mehr Inhalte für CFGs (vertiefendere Erklärungen)
 - spezifisches Wrap-up für CFGs
 ADD -->
-
-
-
-<!-- DO NOT REMOVE - THIS IS A LAST SLIDE TO INDICATE THE LICENSE AND POSSIBLE EXCEPTIONS (IMAGES, ...). -->
-::: slides
-## LICENSE
-![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
-
-Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
-:::

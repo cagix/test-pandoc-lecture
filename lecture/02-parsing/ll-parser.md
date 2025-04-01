@@ -1,10 +1,10 @@
 ---
-archetype: lecture-bc
 title: "LL-Parser"
 author: "BC George (HSBI)"
+shift_headings: true
 readings:
-  - key: "Aho2023"
-  - key: "hopcroft2003"
+  - "@Aho2023"
+  - "@hopcroft2003"
 outcomes:
   - k1: "Top-Down-Analyse"
   - k1: "LL-Parser"
@@ -173,16 +173,3 @@ Rekursive Programmierung bedeutet, dass das Laufzeitsystem einen Stack benutzt. 
 *   Eine Teilmenge der dazu gehörigen Sprachen lässt sich top-down parsen.
 *   Ein effizienter LL(k)-Parser realisiert einen DPDA und kann automatisch aus einer LL(k)-Grammatik generiert werden.
 *   Der Parser liefert in der Regel einen abstrakten Syntaxbaum.
-
-
-
-
-
-
-<!-- DO NOT REMOVE - THIS IS A LAST SLIDE TO INDICATE THE LICENSE AND POSSIBLE EXCEPTIONS (IMAGES, ...). -->
-::: slides
-## LICENSE
-![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
-
-Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
-:::
