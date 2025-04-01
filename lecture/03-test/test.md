@@ -1,5 +1,6 @@
 ---
 title: "Test Markdown"
+#shift_headings: true
 readings:
   - "@Tate2011 [Kapitel 2]"
   - "@Nystrom2021"
