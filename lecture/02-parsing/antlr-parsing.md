@@ -1,9 +1,7 @@
 ---
-archetype: lecture-cg
 title: "Parser mit ANTLR generieren"
-author: "Carsten Gips (HSBI)"
 readings:
-  - key: "@Parr2014"
+  - "@Parr2014"
 tldr: |
     Mit ANTLR kann aus einer Grammatik ein LL(*)-Parser generiert werden. Die Parser-Regeln
     in der Grammatik fangen dabei mit einem **Kleinbuchstaben** an (Erinnerung: Lexer-Regel
@@ -51,16 +49,15 @@ outcomes:
   - k2: "Aufbau des Parse-Tree"
   - k3: "Umgang mit Kontext-Objekten"
   - k3: "Traversierung des Parse-Tree mit den generierten Listenern oder Visitors"
-assignments:
-  - topic: sheet01
+#assignments:
+#  - topic: sheet01
 youtube:
   - link: "https://youtu.be/YuUHBvPUS4k"
-    name: "VL Parser mit ANTLR"
+    name: "VL Parser mit ANTLR (YT)"
   - link: "https://youtu.be/FJOEPY-TMmw"
-    name: "Demo ANTLR Parser"
-fhmedia:
+    name: "Demo ANTLR Parser (YT)"
   - link: "https://www.hsbi.de/medienportal/m/19925b756d6fc934bfe0b5107eb5fa58373a53af49c690ebce86e15f2b212c89c80ea7665e42c78abdc8dfe0718ea46f6a9817eeba4ad1293bdb4c84f7c8f084"
-    name: "VL Parser mit ANTLR"
+    name: "VL Parser mit ANTLR (HSBI)"
 challenges: |
     **Lexer und Parser mit ANTLR: Programmiersprache Lox**
 
@@ -651,16 +648,3 @@ Parser mit ANTLR generieren: Parser-Regeln werden mit **Kleinbuchstaben** geschr
 *   Benannte Alternativen und Regel-Elemente
 *   Traversierung des Parse-Tree: Listener oder Visitoren, Zugriff auf Kontextobjekte
 
-
-
-
-
-
-
-<!-- DO NOT REMOVE - THIS IS A LAST SLIDE TO INDICATE THE LICENSE AND POSSIBLE EXCEPTIONS (IMAGES, ...). -->
-::: slides
-## LICENSE
-![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
-
-Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
-:::
