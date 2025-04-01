@@ -122,8 +122,8 @@ function Pandoc(doc)
     end
 
     -- 7. License
-    blocks:insert(pandoc.HorizontalRule())
     if doc.meta.license_footer then
+        blocks:insert(pandoc.HorizontalRule())
         blocks:extend(doc.meta.license_footer)
     end
 
