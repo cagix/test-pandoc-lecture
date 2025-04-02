@@ -16,6 +16,8 @@
 
 - [ ] beamer: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", letzte slide: license, workflow anpassen
 
+- [ ] beamer: folien-seitennummern "folie x von xx" für bc
+
 - [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (beamer)
 
 - [ ] gfm: link zu pdf und beamer einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
