@@ -94,8 +94,10 @@ function Pandoc(doc)
         quote:insert(pandoc.RawBlock("markdown", '[!IMPORTANT]'))
 
         if doc.meta.tldr then
+            quote:insert(pandoc.RawBlock("markdown", '<details open>'))
             quote:insert(pandoc.RawBlock("markdown", '<strong>TL;DR</strong>'))
             quote:extend(doc.meta.tldr)
+            quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
 
         if doc.meta.youtube then
