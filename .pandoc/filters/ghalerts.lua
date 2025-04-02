@@ -17,17 +17,11 @@ function Span(el)
     -- Use key/value pair "href=..." in span as href parameter in shortcode
     -- In GitHub preview <span ...> would not work properly, using <p ...> instead
     if el.classes[1] == "bsp" then
-        local bl = pandoc.List()
-
-        bl:insert(pandoc.RawInline('markdown', '<p align="right">'))
-        bl:extend(el.content)
-        if el.attributes["href"] then
-            bl:insert(pandoc.Str(" "))
-            bl:insert(pandoc.Link("(" .. el.attributes["href"] .. ")", el.attributes["href"]))
-        end
-        bl:insert(pandoc.RawInline('markdown', '</p>'))
-
-        return bl
+        return {
+            pandoc.RawInline('markdown', '<p align="right">'),
+            (el.attributes["href"] and pandoc.Link(el.content, el.attributes["href"]) or pandoc.Span(el.content)),
+            pandoc.RawInline('markdown', '</p>')
+        }
     end
 
     -- We should handle also 'alert', 'hinweis', and 'thema'. However, there is nothing to be done here.
