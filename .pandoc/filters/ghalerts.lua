@@ -1,3 +1,13 @@
+-- Collect all 'origin' spans - this is foreign material, i.e. should be listed as exceptions to our licence
+credits = {}
+function Span(el)
+    if el.classes[1] == "origin" then
+        -- use map to avoid duplicates
+        credits[pandoc.utils.stringify(el.content)] = el.content
+    end
+end
+
+
 -- GitHub Alerts: replace alert Divs with "real" GH alerts
 function Div(el)
     -- Replace "note" Div with "note" alert
@@ -131,6 +141,15 @@ function Pandoc(doc)
     if doc.meta.license_footer then
         blocks:insert(pandoc.HorizontalRule())
         blocks:extend(doc.meta.license_footer)
+
+        local bullets = pandoc.List()
+        for _, v in pairs(credits) do
+            bullets:insert(v)
+        end
+        if #bullets > 0 then
+            blocks:insert(pandoc.RawBlock("markdown", '<strong>Exceptions:</strong>'))
+            blocks:insert(pandoc.BulletList(bullets))
+        end
     end
 
 
