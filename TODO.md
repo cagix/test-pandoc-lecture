@@ -7,12 +7,16 @@
 
 - [x] yaml: ausnahmen von lizenz -> in lizenz-block integrieren; als neue yaml-variable oder automatisch über `origin` sammeln?
 
-- [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm, beamer, pdf)
+- [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm)
 
 
 - [ ] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
 
+- [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (pdf)
+
 - [ ] beamer: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", letzte slide: license, workflow anpassen
+
+- [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (beamer)
 
 - [ ] gfm: link zu pdf und beamer einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
 

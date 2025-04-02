@@ -345,3 +345,59 @@ Further paragraphs come after blank lines.
 ```
 
 [["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
+
+
+## Filters
+
+### ShowMe
+
+Hier ein ShowMe-Test:
+
+::: showme
+this is hidden content ...
+:::
+
+::: {.showme title="wuppie"}
+this is a show-me w/ title :)
+:::
+
+### CBOX
+
+::: cbox
+this is content to be centered (and put into a box)...
+:::
+
+### Center
+
+::: center
+this content should be centered
+:::
+
+### Alert
+
+This [will]{.alert} be highlighted.
+
+Even [**with bold**]{.alert} text.
+
+
+### Hinweis
+
+[This is a hint.]{.hinweis}
+(but not used anymore)
+
+
+### Thema
+
+[The topic of this task or ...]{.thema}
+(but not used anymore)
+
+
+### BSP
+
+Lalalelu
+
+[Simple Beispiel-Button X]{.bsp}
+
+lalelu
+
+[Beispiel-Button w/ link]{.bsp href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}

@@ -1,6 +1,8 @@
 -- Collect all 'origin' spans - this is foreign material, i.e. should be listed as exceptions to our licence
 credits = {}
+
 function Span(el)
+    -- Collect all 'origin' spans - this is foreign material, i.e. should be listed as exceptions to our licence
     if el.classes[1] == "origin" then
         -- use map to avoid duplicates
         -- (when used in images, this would end up in alt text _and_ in caption)
@@ -10,11 +12,29 @@ function Span(el)
         el.content = { pandoc.Str("Quelle: ") } .. el.content
         return el
     end
+
+    -- Handle "bsp" span
+    -- Use key/value pair "href=..." in span as href parameter in shortcode
+    if el.classes[1] == "bsp" then
+        local bl = pandoc.List()
+
+        bl:insert(pandoc.RawInline('markdown', '<p align="right">'))
+        bl:extend(el.content)
+        if el.attributes["href"] then
+            bl:insert(pandoc.Str(" "))
+            bl:insert(pandoc.Link("("..el.attributes["href"]..")", el.attributes["href"]))
+        end
+        bl:insert(pandoc.RawInline('markdown', '</p>'))
+
+        return bl
+    end
+
+    -- We should handle also 'alert',  'hinweis', and 'thema'. However, there nothing to be done here.
 end
 
 
--- GitHub Alerts: replace alert Divs with "real" GH alerts
 function Div(el)
+    -- GitHub Alerts: replace alert Divs with "real" GH alerts
     if el.classes[1] == "note" then
         return pandoc.BlockQuote({pandoc.RawBlock("markdown", '[!NOTE]')} .. el.content)
     end
@@ -29,6 +49,30 @@ function Div(el)
     end
     if el.classes[1] == "caution" then
         return pandoc.BlockQuote({pandoc.RawBlock("markdown", '[!CAUTION]')} .. el.content)
+    end
+
+    -- Replace "showme" Div with <details>
+    if el.classes[1] == "showme" then
+        local bl = pandoc.List()
+
+        bl:insert(pandoc.RawBlock("markdown", '<details>'))
+        if el.attributes["title"] then
+            bl:insert(pandoc.RawBlock("markdown", '<summary><strong>' .. el.attributes["title"] .. '</strong></summary>'))
+        end
+        bl:extend(el.content)
+        bl:insert(pandoc.RawBlock("markdown", '</details>'))
+
+        return bl
+    end
+
+    -- Replace "cbox" Div with centered <p>
+    if el.classes[1] == "cbox" then
+        return pandoc.Div(el.content, {style="text-align:center"})
+    end
+
+    -- Replace "center" Div with centered <p>
+    if el.classes[1] == "center" then
+        return pandoc.Div(el.content, {style="text-align:center"})
     end
 end
 
