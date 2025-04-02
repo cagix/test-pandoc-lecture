@@ -16,10 +16,14 @@ function Span(el)
     -- Handle "bsp" span
     -- Use key/value pair "href=..." in span as href parameter in shortcode
     -- In GitHub preview <span ...> would not work properly, using <p ...> instead
+    -- Links do not work in <p ...> either ...
     if el.classes[1] == "bsp" then
+        if el.attributes["href"] then
+            el.content:insert(" (" .. el.attributes["href"] ..")")
+        end
         return {
             pandoc.RawInline('markdown', '<p align="right">'),
-            (el.attributes["href"] and pandoc.Link(el.content, el.attributes["href"]) or pandoc.Span(el.content)),
+            pandoc.Span(el.content),
             pandoc.RawInline('markdown', '</p>')
         }
     end
