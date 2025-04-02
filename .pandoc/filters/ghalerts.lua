@@ -3,7 +3,12 @@ credits = {}
 function Span(el)
     if el.classes[1] == "origin" then
         -- use map to avoid duplicates
+        -- (when used in images, this would end up in alt text _and_ in caption)
         credits[pandoc.utils.stringify(el.content)] = el.content
+
+        -- add "Quelle: " in front of content
+        el.content = { pandoc.Str("Quelle: ") } .. el.content
+        return el
     end
 end
 

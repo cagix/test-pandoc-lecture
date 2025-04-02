@@ -186,9 +186,9 @@ Java-Code kompilieren: `javac *.java`
 
 !["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
-!["wuppie" via web (raw), [Quelle: "Foo" by me on void.intern.com]{.origin}](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+!["wuppie" via web (raw), ["Foo" by me on void.intern.com]{.origin}](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
-[Quelle: "Foo" by me on void.extern.com]{.origin}
+["Foo" by me on void.extern.com]{.origin}
 
 ### Known Problems
 
@@ -327,4 +327,4 @@ Further paragraphs come after blank lines.
    vary here
 ```
 
-[Quelle: ["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
+[["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}

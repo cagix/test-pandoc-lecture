@@ -5,7 +5,7 @@
 
 - [x] filter für bc: yaml-toggle, alle header nach header+1 konvertieren (gfm, pdf, beamer); evtl. automatisch mit pandoc.structure.slide_level(blocks)?!
 
-- [ ] yaml: ausnahmen von lizenz -> in lizenz-block integrieren; als neue yaml-variable oder automatisch über `origin` sammeln?
+- [x] yaml: ausnahmen von lizenz -> in lizenz-block integrieren; als neue yaml-variable oder automatisch über `origin` sammeln?
 
 - [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm, beamer, pdf)
 
