@@ -94,6 +94,7 @@ Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
     1.  Unterpunkt 3.1
     2.  Unterpunkt 3.2
 
+Hier die ==Pandoc-Markdown== mark-Erweiterung.
 
 ## Math
 
