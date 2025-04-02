@@ -257,6 +257,22 @@ Blablabla
 third line of nonsense ...
 :::
 
+::: tip
+Foo bar, wuppie fluppie!
+:::
+
+::: important
+Foo bar, wuppie fluppie!
+:::
+
+::: warning
+Foo bar, wuppie fluppie!
+:::
+
+::: caution
+Foo bar, wuppie fluppie!
+:::
+
 - Export to GH Markdown using ["distinctive alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 - Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
 - Export to Beamer using [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`, `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
