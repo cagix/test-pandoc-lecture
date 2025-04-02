@@ -95,7 +95,7 @@ function Pandoc(doc)
 
         if doc.meta.tldr then
             quote:insert(pandoc.RawBlock("markdown", '<details open>'))
-            quote:insert(pandoc.RawBlock("markdown", '<strong>TL;DR</strong>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>TL;DR</strong></summary>'))
             quote:extend(doc.meta.tldr)
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
