@@ -9,6 +9,8 @@
 
 - [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm)
 
+- [ ] layout: use utf8 symbols for special sections (like in https://microsoft.github.io/AI-For-Beginners/; cf. https://www.w3schools.com/charsets/ref_html_utf8.asp)
+
 
 - [ ] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
 
