@@ -271,7 +271,8 @@ local function _emit_links ()
         if link_img[new_target] then
             inlines:insert(pandoc.RawInline("markdown", new_target .. ": " .. link_img[new_target] .. "\n"))
         end
-        inlines:insert(pandoc.RawInline("markdown", "GFM_MARKDOWN_TARGETS += " .. new_target .. "\n\n"))
+        inlines:insert(pandoc.RawInline("markdown", "GFM_MARKDOWN_TARGETS += " .. new_target .. "\n"))
+        inlines:insert(pandoc.RawInline("markdown", "MARKDOWN_SRC += " .. old_target .. "\n\n"))
     end
     return inlines
 end

@@ -36,6 +36,7 @@ local.yaml
 /data/readings.yaml
 make.deps
 _gfm
+_pdf
 
 
 # C/C++ #

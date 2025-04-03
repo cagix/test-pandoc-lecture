@@ -22,6 +22,8 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 ## (Adjust to your needs.)
 METADATA               ?= cb.yaml
 GFM_OUTPUT_DIR         ?= _gfm
+PDF_OUTPUT_DIR         ?= _pdf
+BEAMER_OUTPUT_DIR      ?= _slides
 
 
 
@@ -38,7 +40,8 @@ DATA                    = .pandoc
 ROOT_DEPS               = make.deps
 
 
-## Source and target files for gfm (to be filled via make.deps target)
+## Markdown sources and GFM target files (to be filled via make.deps target)
+MARKDOWN_SRC            =
 GFM_MARKDOWN_TARGETS    =
 GFM_IMAGE_TARGETS       =
 
@@ -80,9 +83,9 @@ distclean: clean
 $(ROOT_DEPS): $(METADATA)
 	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
-ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
+#ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)
-endif
+#endif
 
 
 ## Enable secondary expansion for subsequent targets. This allows the use
@@ -108,9 +111,16 @@ $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
 
 
-## LaTeX:
+## PDF: Process markdown with pandoc and latex
+PDF_MARKDOWN_TARGETS    = $(addprefix $(PDF_OUTPUT_DIR)/,$(subst /,_, $(patsubst %.md,%.pdf, $(MARKDOWN_SRC))))
+pdf: OPTIONS           += --metadata-file=$(METADATA)
+pdf: $(ROOT_DEPS) $$(PDF_MARKDOWN_TARGETS)
+
+$(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(PDF_OUTPUT_DIR)/%.pdf,%.md,$$@))
+	$(create-folder)
+	$(PANDOC) $(OPTIONS)  -d pdf.yaml  $<  -o $@
+
 # https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/examples/boxes-with-pandoc-latex-environment-and-tcolorbox/document.md
-# docker run --rm --volume ".:/data" --workdir /data --user 502:20 pandoc/extra:latest-ubuntu --data-dir=.pandoc --metadata-file=cb.yaml -f markdown+lists_without_preceding_blankline+rebase_relative_paths  lecture/03-test/test.md  -o _gfm/lecture/03-test/test.pdf
 
 
 ## Canned recipe for creating output folder
@@ -133,4 +143,4 @@ endef
 ###############################################################################
 
 
-.PHONY: all docker gfm clean distclean
+.PHONY: all docker gfm pdf clean distclean

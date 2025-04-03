@@ -1,0 +1,53 @@
+## Options for simple style
+## (see https://pandoc.org/MANUAL.html#defaults-files)
+
+## general options
+from: markdown+lists_without_preceding_blankline+mark+rebase_relative_paths
+to: pdf
+
+
+## reader options
+filters:
+  - prepareHandout.lua
+#  - ghalerts.lua
+
+metadata:
+  link-citations: true
+
+
+## writer options
+#standalone: true
+#self-contained: true
+#template: gfm
+## scrbook: https://ftp.tu-chemnitz.de/pub/tex/macros/latex/contrib/koma-script/doc/scrguide-de.pdf
+#variables:
+#  documentclass: scrbook
+#  papersize: a4
+#  fontsize: 11pt
+#  titlepage: true
+#  colorlinks: true
+#  classoption:
+#    - twoside=false
+#    - open=any
+#    - cleardoublepage=empty
+#  geometry:
+#    - top=30mm
+#    - left=25mm
+#    - bottom=30mm
+#    - width=150mm
+#    - bindingoffset=6mm
+
+
+## options for specific writer
+#number-sections: true
+
+#listings: true
+
+pdf-engine: pdflatex
+pdf-engine-opt: '-shell-escape'
+
+
+## citation rendering
+citeproc: true
+#csl: https://www.zotero.org/styles/springer-lecture-notes-in-computer-science
+#csl: https://www.zotero.org/styles/springer-basic-author-date
