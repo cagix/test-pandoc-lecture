@@ -53,7 +53,7 @@ GFM_IMAGE_TARGETS      ?=
 
 
 ## Common options
-OPTIONS                 = --data-dir=$(DATA)
+OPTIONS                 = --metadata-file=$(METADATA)
 
 
 ## Build docker image ("pandoc-thesis") containing pandoc and TeX-Live
@@ -79,11 +79,12 @@ distclean: clean
 
 
 $(ROOT_DEPS): $(METADATA)
-	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
+	$(PANDOC)  -L $(DATA)/makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
 ## this needs docker/pandoc, so do only include (and build) when required
 ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS),gfm pdf))
 -include $(ROOT_DEPS)
+PDF_MARKDOWN_TARGETS    = $(addprefix $(OUTPUT_DIR)/,$(subst /,_, $(patsubst %.md,%.pdf, $(MARKDOWN_SRC))))
 endif
 
 
@@ -99,25 +100,22 @@ endif
 
 
 ## GFM: Process markdown with pandoc
-gfm: OPTIONS           += --metadata-file=$(METADATA)
 gfm: $(ROOT_DEPS) $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
 
 $(GFM_MARKDOWN_TARGETS):
 	$(create-folder)
-	$(PANDOC) $(OPTIONS)  -d gfm.yaml  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -d $(DATA)/gfm.yaml  $<  -o $@
 
 $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
 
 
 ## PDF: Process markdown with pandoc and latex
-PDF_MARKDOWN_TARGETS    = $(addprefix $(OUTPUT_DIR)/,$(subst /,_, $(patsubst %.md,%.pdf, $(MARKDOWN_SRC))))
-pdf: OPTIONS           += --metadata-file=$(METADATA)
 pdf: $(ROOT_DEPS) $$(PDF_MARKDOWN_TARGETS)
 
 $(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(OUTPUT_DIR)/%.pdf,%.md,$$@))
 	$(create-folder)
-	$(PANDOC) $(OPTIONS)  -d pdf.yaml  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -d $(DATA)/pdf.yaml  $<  -o $@
 
 # https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/examples/boxes-with-pandoc-latex-environment-and-tcolorbox/document.md
 

@@ -70,7 +70,7 @@ function Div(el)
 end
 
 
---- TODO TEST
+--- Structure of the document (should be done w/ template, but quotes won't work)
 function Pandoc(doc)
     local blocks = pandoc.List()
 
@@ -199,7 +199,7 @@ function Pandoc(doc)
 
         local bullets = pandoc.List()
         for _, v in pairs(credits) do
-            bullets:insert(v)
+            bullets:insert(pandoc.Plain(v))
         end
         if #bullets > 0 then
             blocks:insert(pandoc.Strong('Exceptions:'))

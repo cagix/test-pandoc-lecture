@@ -1,4 +1,4 @@
-## Options for GFM style
+## Options for GFM output
 ## (see https://pandoc.org/MANUAL.html#defaults-files)
 
 ## general options
@@ -8,18 +8,15 @@ to: gfm
 
 ## reader options
 filters:
-  - deprecated.lua
-  - handout.lua
-  - gfm.lua
+  - ${.}/deprecated.lua
+  - ${.}/handout.lua
+  - ${.}/gfm.lua
 
 metadata:
   link-citations: true
 
 
 ## writer options
-#standalone: true
-#self-contained: true
-#template: gfm
 
 
 ## citation rendering

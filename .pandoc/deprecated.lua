@@ -2,7 +2,7 @@
 -- Issue a warning if users use elements that are no longer supported (spans, divs, classes, ...)
 
 local function warning(w)
-    io.stderr:write("\n\n" .. "[WARNING] " .. w .. "\n\n")
+    io.stderr:write("\t" .. "[WARNING] " .. w .. "\n")
 end
 
 
