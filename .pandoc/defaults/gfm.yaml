@@ -9,7 +9,7 @@ to: gfm
 ## reader options
 filters:
   - prepareHandout.lua
-  - ghalerts.lua
+  - gfm.lua
 
 metadata:
   link-citations: true
