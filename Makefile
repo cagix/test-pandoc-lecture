@@ -117,8 +117,6 @@ $(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(OUTPUT_DIR)/%.pdf,%.md,$$@))
 	$(create-folder)
 	$(PANDOC) $(OPTIONS)  -d $(DATA)/pdf.yaml  $<  -o $@
 
-# https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/examples/boxes-with-pandoc-latex-environment-and-tcolorbox/document.md
-
 
 ## Canned recipe for creating output folder
 define create-folder
