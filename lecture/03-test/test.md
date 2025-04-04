@@ -357,7 +357,13 @@ Hier ein ShowMe-Test:
 this is hidden content ...
 :::
 
-::: {.showme title="wuppie"}
+Use `details` instead:
+
+::: details
+this is hidden content ...
+:::
+
+::: {.details title="wuppie"}
 this is a show-me w/ title :)
 :::
 

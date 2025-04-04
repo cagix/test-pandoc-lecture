@@ -50,8 +50,8 @@ function Div(el)
         return pandoc.BlockQuote({pandoc.RawBlock("markdown", '[!CAUTION]')} .. el.content)
     end
 
-    -- Replace "showme" Div with <details>
-    if el.classes[1] == "showme" then
+    -- Replace "details" Div with <details>
+    if el.classes[1] == "details" then
         local bl = pandoc.List()
 
         bl:insert(pandoc.RawBlock("markdown", '<details>'))
