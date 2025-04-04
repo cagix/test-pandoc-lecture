@@ -95,7 +95,7 @@ function Pandoc(doc)
 
         if doc.meta.tldr then
             quote:insert(pandoc.RawBlock("markdown", '<details open>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🎯 ⏩ TL;DR</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🎯 TL;DR</strong></summary>'))
             quote:extend(doc.meta.tldr)
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
@@ -107,7 +107,7 @@ function Pandoc(doc)
                 bullets:insert(pandoc.Link(v.name or str_link, str_link))
             end
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🎞 🎬 🎦 Videos</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🎦 Videos</strong></summary>'))
             quote:insert(pandoc.BulletList(bullets))
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
@@ -119,7 +119,7 @@ function Pandoc(doc)
                 bullets:insert(pandoc.Link(v.name or str_link, str_link))
             end
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🖇 📖 Unterlagen</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🖇 Unterlagen</strong></summary>'))
             quote:insert(pandoc.BulletList(bullets))
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
@@ -157,7 +157,7 @@ function Pandoc(doc)
                 end
             end
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>✅ ✨ ⭐ 🌟 🏁 🎉 👏 Lernziele</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>✅ Lernziele</strong></summary>'))
             quote:insert(pandoc.BulletList(bullets))
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
@@ -169,14 +169,14 @@ function Pandoc(doc)
                 bullets:insert(pandoc.Link(v.name or str_link, str_link))
             end
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🧩 ✍🏻 Quizzes</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🧩 Quizzes</strong></summary>'))
             quote:insert(pandoc.BulletList(bullets))
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
 
         if doc.meta.challenges then
             quote:insert(pandoc.RawBlock("markdown", '<details>'))
-            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🏅 🏆 Challenges</strong></summary>'))
+            quote:insert(pandoc.RawBlock("markdown", '<summary><strong>🏅 Challenges</strong></summary>'))
             quote:extend(doc.meta.challenges)
             quote:insert(pandoc.RawBlock("markdown", '</details>'))
         end
@@ -192,7 +192,7 @@ function Pandoc(doc)
 
         quote:insert(pandoc.RawBlock("markdown", '[!NOTE]'))
         quote:insert(pandoc.RawBlock("markdown", '<details>'))
-        quote:insert(pandoc.RawBlock("markdown", '<summary><strong>👀 📝 Quellen</strong></summary>'))
+        quote:insert(pandoc.RawBlock("markdown", '<summary><strong>👀 Quellen</strong></summary>'))
         quote:extend(doc.meta.refs)
         quote:insert(pandoc.RawBlock("markdown", '</details>'))
 
