@@ -64,12 +64,6 @@ function Div(el)
         return bl
     end
 
-    -- Replace "cbox" Div with centered <p>
-    if el.classes[1] == "cbox" then
-        -- GitHub preview strips "style" attribute ...
-        return pandoc.Div(el.content, {align="center"})
-    end
-
     -- Replace "center" Div with centered <p>
     if el.classes[1] == "center" then
         -- GitHub preview strips "style" attribute ...

@@ -8,6 +8,7 @@ to: gfm
 
 ## reader options
 filters:
+  - deprecated.lua
   - handout.lua
   - gfm.lua
 
