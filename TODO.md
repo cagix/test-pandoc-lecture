@@ -11,7 +11,7 @@
 - [x] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
 - [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (pdf)
 - [x] filter: remove `\pause`, replace `$$\begin{eqnarray}` w/ `\begin{eqnarray}` (Para Math DisplayMath "\\begin{eqnarray}...") (pdf)
-- [ ] action: create new action and workflow (pdf)
+- [x] action: create new action and workflow (pdf)
 
 - [ ] beamer: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", letzte slide: license, workflow anpassen
 - [ ] beamer: folien-seitennummern "folie x von xx" für bc
