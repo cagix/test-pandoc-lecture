@@ -1,4 +1,4 @@
-## Options for simple style
+## Options for PDF output
 ## (see https://pandoc.org/MANUAL.html#defaults-files)
 
 ## general options
@@ -8,40 +8,29 @@ to: pdf
 
 ## reader options
 filters:
-  - prepareHandout.lua
-#  - ghalerts.lua
+  - ${.}/deprecated.lua
+  - ${.}/handout.lua
+  - ${.}/pdf.lua
 
 metadata:
   link-citations: true
 
 
 ## writer options
-#standalone: true
-#self-contained: true
-#template: gfm
 ## scrbook: https://ftp.tu-chemnitz.de/pub/tex/macros/latex/contrib/koma-script/doc/scrguide-de.pdf
-#variables:
-#  documentclass: scrbook
-#  papersize: a4
-#  fontsize: 11pt
-#  titlepage: true
-#  colorlinks: true
-#  classoption:
-#    - twoside=false
-#    - open=any
-#    - cleardoublepage=empty
-#  geometry:
-#    - top=30mm
-#    - left=25mm
-#    - bottom=30mm
-#    - width=150mm
-#    - bindingoffset=6mm
+template: eisvogel
+
+variables:
+  papersize: a4
+  fontsize: 11pt
+  colorlinks: true
+
+include-in-header:
+  - ${.}/pdf.tex
 
 
 ## options for specific writer
-#number-sections: true
-
-#listings: true
+listings: true
 
 pdf-engine: pdflatex
 pdf-engine-opt: '-shell-escape'
