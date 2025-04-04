@@ -408,4 +408,8 @@ Lalalelu
 
 lalelu
 
-[Beispiel-Button w/ link]{.bsp href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
+use `ex` instead:
+
+[Simple Beispiel-Button X]{.ex}
+
+[Beispiel-Button w/ link]{.ex href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
