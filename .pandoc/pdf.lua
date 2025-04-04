@@ -229,8 +229,8 @@ function Pandoc(doc)
 
     -- 7. License
     if doc.meta.license_footer then
-        blocks:insert(pandoc.HorizontalRule())
         blocks:insert(pandoc.RawBlock('latex', '\\vfill'))
+        blocks:insert(pandoc.HorizontalRule())
         blocks:extend(doc.meta.license_footer)
 
         local bullets = pandoc.List()
