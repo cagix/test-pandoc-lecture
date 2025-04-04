@@ -39,9 +39,9 @@ ROOT_DEPS               = make.deps
 
 
 ## Markdown sources and GFM target files (to be filled via make.deps target)
-MARKDOWN_SRC            =
-GFM_MARKDOWN_TARGETS    =
-GFM_IMAGE_TARGETS       =
+MARKDOWN_SRC           ?=
+GFM_MARKDOWN_TARGETS   ?=
+GFM_IMAGE_TARGETS      ?=
 
 
 
