@@ -21,6 +21,8 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 ## Source files
 ## (Adjust to your needs.)
 METADATA               ?= cb.yaml
+OUTPUT_DIR             ?= _gfm
+
 GFM_OUTPUT_DIR         ?= _gfm
 PDF_OUTPUT_DIR         ?= _pdf
 BEAMER_OUTPUT_DIR      ?= _slides
