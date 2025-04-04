@@ -356,6 +356,7 @@ Hier ein ShowMe-Test:
 ::: showme
 this is hidden content ...
 :::
+(but not used anymore)
 
 Use `details` instead:
 
@@ -372,6 +373,7 @@ this is a show-me w/ title :)
 ::: cbox
 this is content to be centered (and put into a box)...
 :::
+(but not used anymore)
 
 ### Center
 
@@ -382,8 +384,7 @@ this content should be centered
 ### Alert
 
 This [will]{.alert} be highlighted.
-
-Even [**with bold**]{.alert} text.
+(but not used anymore)
 
 Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead: This ==will== be highlighted. Even ==**with bold**== text.
 
@@ -405,6 +406,7 @@ Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) ins
 Lalalelu
 
 [Simple Beispiel-Button X]{.bsp}
+(but not used anymore)
 
 lalelu
 
