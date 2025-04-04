@@ -23,10 +23,6 @@ PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir 
 METADATA               ?= cb.yaml
 OUTPUT_DIR             ?= _gfm
 
-GFM_OUTPUT_DIR         ?= _gfm
-PDF_OUTPUT_DIR         ?= _pdf
-BEAMER_OUTPUT_DIR      ?= _slides
-
 
 
 
@@ -71,7 +67,7 @@ clean:
 
 ## Clean-up: Remove also generated gfm-markdown files
 distclean: clean
-	rm -rf $(GFM_OUTPUT_DIR)
+	rm -rf $(OUTPUT_DIR)
 
 
 
@@ -83,7 +79,7 @@ distclean: clean
 
 
 $(ROOT_DEPS): $(METADATA)
-	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(GFM_OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
 #ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
 -include $(ROOT_DEPS)
@@ -114,11 +110,11 @@ $(GFM_IMAGE_TARGETS):
 
 
 ## PDF: Process markdown with pandoc and latex
-PDF_MARKDOWN_TARGETS    = $(addprefix $(PDF_OUTPUT_DIR)/,$(subst /,_, $(patsubst %.md,%.pdf, $(MARKDOWN_SRC))))
+PDF_MARKDOWN_TARGETS    = $(addprefix $(OUTPUT_DIR)/,$(subst /,_, $(patsubst %.md,%.pdf, $(MARKDOWN_SRC))))
 pdf: OPTIONS           += --metadata-file=$(METADATA)
 pdf: $(ROOT_DEPS) $$(PDF_MARKDOWN_TARGETS)
 
-$(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(PDF_OUTPUT_DIR)/%.pdf,%.md,$$@))
+$(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(OUTPUT_DIR)/%.pdf,%.md,$$@))
 	$(create-folder)
 	$(PANDOC) $(OPTIONS)  -d pdf.yaml  $<  -o $@
 
