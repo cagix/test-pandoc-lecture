@@ -159,6 +159,17 @@ $$
 
 ==Schwierig==: In Pandoc-Markdown muss Mathe mit `$` oder `$$` eingeschlossen werden, unabhängig vom konkreten Inhalt. In LaTeX ist aber `\begin{eqnarray}` bereits der Beginn einer Mathe-Umgebung, d.h. hier wären extra `$$` ==falsch==. Das muss per Filter korrigiert werden!
 
+```
+$$\begin{eqnarray}
+S &\rightarrow& a A                      \nonumber \\
+A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
+B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
+C &\rightarrow& \epsilon                 \nonumber
+\end{eqnarray}$$
+```
+
+should become
+
 $$\begin{eqnarray}
 S &\rightarrow& a A                      \nonumber \\
 A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
