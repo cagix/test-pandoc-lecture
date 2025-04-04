@@ -8,7 +8,7 @@ to: gfm
 
 ## reader options
 filters:
-  - handout.lua.lua
+  - handout.lua
   - gfm.lua
 
 metadata:
