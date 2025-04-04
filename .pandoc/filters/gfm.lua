@@ -27,8 +27,6 @@ function Span(el)
             pandoc.RawInline('markdown', '</p>')
         }
     end
-
-    -- We should handle also 'alert', 'hinweis', and 'thema'. However, there is nothing to be done here.
 end
 
 

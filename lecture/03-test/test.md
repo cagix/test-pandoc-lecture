@@ -317,7 +317,7 @@ LaTeX-Befehle wie `\bigskip` etc. sollten automatisch entfernt werden:
 
 Hier nach den LaTeX-Befehlen.
 
-[**Geeignete Abstraktionen wählen für Zustände und Aktionen!**]{.alert}
+**Geeignete Abstraktionen wählen für Zustände und Aktionen!**
 
 
 ## Credits
@@ -384,6 +384,8 @@ this content should be centered
 This [will]{.alert} be highlighted.
 
 Even [**with bold**]{.alert} text.
+
+Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead: This ==will== be highlighted. Even ==**with bold**== text.
 
 
 ### Hinweis
