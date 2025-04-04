@@ -5,13 +5,12 @@
 - [x] filter für bc: yaml-toggle, alle header nach header+1 konvertieren (gfm, pdf, beamer); evtl. automatisch mit pandoc.structure.slide_level(blocks)?!
 - [x] yaml: ausnahmen von lizenz -> in lizenz-block integrieren; als neue yaml-variable oder automatisch über `origin` sammeln?
 - [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm)
+- [x] layout: use utf8 symbols for special sections (like in https://microsoft.github.io/AI-For-Beginners/; cf. https://www.w3schools.com/charsets/ref_html_utf8.asp)
 
-- [ ] layout: use utf8 symbols for special sections (like in https://microsoft.github.io/AI-For-Beginners/; cf. https://www.w3schools.com/charsets/ref_html_utf8.asp)
 
-
-- [ ] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
-- [ ] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (pdf)
-- [ ] filter: remove `\pause`, replace `$$\begin{eqnarray}` w/ `\begin{eqnarray}` (Para Math DisplayMath "\\begin{eqnarray}...") (pdf)
+- [x] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
+- [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (pdf)
+- [x] filter: remove `\pause`, replace `$$\begin{eqnarray}` w/ `\begin{eqnarray}` (Para Math DisplayMath "\\begin{eqnarray}...") (pdf)
 - [ ] action: create new action and workflow (pdf)
 
 - [ ] beamer: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", letzte slide: license, workflow anpassen
