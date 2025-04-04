@@ -81,9 +81,10 @@ distclean: clean
 $(ROOT_DEPS): $(METADATA)
 	$(PANDOC) $(OPTIONS)  -L makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
-#ifeq (gfm,$(MAKECMDGOALS))  ## this needs docker/pandoc, so do only include (and build) when required
+## this needs docker/pandoc, so do only include (and build) when required
+ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS),gfm pdf))
 -include $(ROOT_DEPS)
-#endif
+endif
 
 
 ## Enable secondary expansion for subsequent targets. This allows the use
