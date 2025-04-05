@@ -6,6 +6,10 @@ inputs:
     description: 'Make target to run'
     default: 'gfm'
     required: false
+  pandoc_data:
+    description: 'Temporary folder for Pandoc filters'
+    default: '.pandoc'
+    required: false
   metadata:
     description: 'Metadata file (.yaml)'
     required: true
@@ -22,11 +26,11 @@ runs:
       shell: bash
 
     - name: 'Copy Templates'
-      run: cp -r ${{ github.action_path }}/.pandoc .
+      run: cp -r ${{ github.action_path }}/${{ inputs.pandoc_data }} .
       shell: bash
 
     - name: 'Compile document(s)'
-      run: make  ${{ inputs.mktarget }}  METADATA=${{ inputs.metadata }}  OUTPUT_DIR=${{ inputs.publish_dir }}
+      run: make  ${{ inputs.mktarget }}  PANDOC_DATA=${{ inputs.pandoc_data }}  METADATA=${{ inputs.metadata }}  OUTPUT_DIR=${{ inputs.publish_dir }}
       shell: bash
 
     - name: 'ls -lags'

@@ -34,7 +34,7 @@ OUTPUT_DIR             ?= _gfm
 
 ## Auxiliary files
 ## (Do not change!)
-DATA                    = .pandoc
+PANDOC_DATA            ?= .pandoc
 ROOT_DEPS               = make.deps
 
 
@@ -79,7 +79,7 @@ distclean: clean
 
 
 $(ROOT_DEPS): $(METADATA)
-	$(PANDOC)  -L $(DATA)/makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
+	$(PANDOC)  -L $(PANDOC_DATA)/makedeps.lua  -M prefix=$(OUTPUT_DIR)  -f markdown -t markdown  $<  -o $@
 
 ## this needs docker/pandoc, so do only include (and build) when required
 ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS),gfm pdf))
@@ -104,7 +104,7 @@ gfm: $(ROOT_DEPS) $$(GFM_MARKDOWN_TARGETS) $$(GFM_IMAGE_TARGETS)
 
 $(GFM_MARKDOWN_TARGETS):
 	$(create-folder)
-	$(PANDOC) $(OPTIONS)  -d $(DATA)/gfm.yaml  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -d $(PANDOC_DATA)/gfm.yaml  $<  -o $@
 
 $(GFM_IMAGE_TARGETS):
 	$(create-dir-and-copy)
@@ -115,7 +115,7 @@ pdf: $(ROOT_DEPS) $$(PDF_MARKDOWN_TARGETS)
 
 $(PDF_MARKDOWN_TARGETS): $$(subst _,/,$$(patsubst $(OUTPUT_DIR)/%.pdf,%.md,$$@))
 	$(create-folder)
-	$(PANDOC) $(OPTIONS)  -d $(DATA)/pdf.yaml  $<  -o $@
+	$(PANDOC) $(OPTIONS)  -d $(PANDOC_DATA)/pdf.yaml  $<  -o $@
 
 
 ## Canned recipe for creating output folder

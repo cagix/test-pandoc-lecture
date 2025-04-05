@@ -17,6 +17,7 @@ jobs:
       - uses: cagix/test-pandoc-lecture@master
         with:
           mktarget: pdf
+          pandoc_data: .pandoc
           metadata: cb.yaml
           publish_dir: _pdf
       - uses: peaceiris/actions-gh-pages@v4
