@@ -7,9 +7,8 @@ inputs:
     default: 'gfm'
     required: false
   pandoc_data:
-    description: 'Temporary folder for Pandoc filters'
-    default: '.pandoc'
-    required: false
+    description: 'Temporary folder for Pandoc filters: Will be overwritten!'
+    required: true
   metadata:
     description: 'Metadata file (.yaml)'
     required: true
