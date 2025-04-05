@@ -248,6 +248,12 @@ public class Main {
 
 ["Foo" by me on void.extern.com]{.origin}
 
+
+**Image w/o Caption:
+
+![](img/b.png)
+
+
 ### Known Problems
 
 - In VSC preview as well as in LaTeX images via web like https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (**need to be "raw"**)
