@@ -7,11 +7,14 @@
 - [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (gfm)
 - [x] layout: use utf8 symbols for special sections (like in https://microsoft.github.io/AI-For-Beginners/; cf. https://www.w3schools.com/charsets/ref_html_utf8.asp)
 
+---
 
 - [x] pdf: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", workflow anpassen
 - [x] filter: integrate all filters, e.g. for `bsp`, `origin`, ... (pdf)
 - [x] filter: remove `\pause`, replace `$$\begin{eqnarray}` w/ `\begin{eqnarray}` (Para Math DisplayMath "\\begin{eqnarray}...") (pdf)
 - [x] action: create new action and workflow (pdf)
+
+---
 
 - [ ] beamer: kopie von defaults und filter, mit relocate-path, makefile für alle .md und "_" statt "/", letzte slide: license, workflow anpassen
 - [ ] beamer: folien-seitennummern "folie x von xx" für bc
@@ -19,16 +22,19 @@
 - [ ] filter: remove `\pause`, replace `$$\begin{eqnarray}` w/ `\begin{eqnarray}` (Para Math DisplayMath "\\begin{eqnarray}...") (pdf)
 - [ ] action: create new action and workflow (pdf)
 
-- [ ] gfm: link zu pdf und beamer einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
+---
 
+- [x] ~~gfm: link zu pdf und beamer einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)~~
+
+---
 
 - [ ] docsify/liascript: kopie von defaults und filter, workflow anpassen
 
-- [ ] gfm: link zu docsify- oder liascript-variante einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
+- [ ] readme: link zu docsify- oder liascript-variante einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
 
+---
 
 - [x] tooling: .pandoc/ auf gitignore und clone pandoc-lecture, mini-makefile: repo clonen und updaten; variablen setzen und "include .pandoc/makefile"
-
 
 - [ ] test bc & canan: seite im ilias vs neue gfm-seite im test-repo, tooling (canan: vorschau, bc: make+docker)
 
