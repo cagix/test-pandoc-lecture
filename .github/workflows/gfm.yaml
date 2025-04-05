@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cagix/test-pandoc-lecture@master
+      - uses: cagix/pandoc-lecture-zen@master
         with:
           mktarget: gfm
           pandoc_data: .pandoc
