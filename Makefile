@@ -17,8 +17,11 @@ GRPID                  ?= $(shell id -g)
 ## pandoc installation.)
 PANDOC                 ?= docker run --rm --volume "$(WORKDIR):/data" --workdir /data --user $(USRID):$(GRPID) pandoc/extra:latest-ubuntu
 
+## Folder containing the Pandoc-Lecture-Zen project
+PANDOC_DATA            ?= .pandoc
 
-## Source files
+
+## Source files of your project
 ## (Adjust to your needs.)
 METADATA               ?= cb.yaml
 OUTPUT_DIR             ?= _gfm
@@ -33,8 +36,6 @@ OUTPUT_DIR             ?= _gfm
 
 
 ## Auxiliary files
-## (Do not change!)
-PANDOC_DATA            ?= .pandoc
 ROOT_DEPS               = make.deps
 
 
