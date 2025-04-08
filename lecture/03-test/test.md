@@ -220,7 +220,26 @@ WS    : [ \t\n]+ -> skip ;
 
 Java-Code kompilieren: `javac *.java`
 
-``` {.java  caption="The preprocessing step, cf. [@Dietz2018]" #lst:huh}
+``` {.java caption="The preprocessing step, cf. [@Dietz2018]" #lst:huh}
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        HelloLexer lexer = new HelloLexer(CharStreams.fromStream(System.in));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        HelloParser parser = new HelloParser(tokens);
+
+        ParseTree tree = parser.start();  // Start-Regel
+        System.out.println(tree.toStringTree(parser));
+    }
+}
+```
+
+Code ohne alles
+
+```
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
