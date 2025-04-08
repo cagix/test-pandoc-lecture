@@ -273,10 +273,34 @@ public class Main {
 
 ["Foo" by me on void.extern.com]{.origin}
 
+---
 
-**Image w/o Caption:
+**Image w/o Caption**:
+
+ohne alles:
 
 ![](img/b.png)
+
+mit breitenangabe:
+
+![](img/b.png){width="20%"}
+
+mit breitenangabe und titel:
+
+![](img/b.png "title: wuppie"){width="20%"}
+
+
+mit caption:
+
+![FOO BAr Wuppie Fluppie](img/b.png)
+
+mit caption und breitenangabe:
+
+![FOO BAr Wuppie Fluppie](img/b.png){width="25%"}
+
+mit caption und breitenangabe und titel:
+
+![FOO BAr Wuppie Fluppie](img/b.png "mytitle FOO"){width="25%"}
 
 
 ### Known Problems
@@ -294,6 +318,11 @@ public class Main {
 
 : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
 
+| Rechtsbündig | Linksbündig | Default | Zentriert |
+|-------------:|:------------|---------|:---------:|
+|          foo | foo         | foo     |    foo    |
+|          123 | 123         | 123     |    123    |
+|          bar | bar         | bar     |    bar    |
 
 ## Zitieren, Quellen
 
