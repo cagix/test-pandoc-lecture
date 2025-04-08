@@ -377,7 +377,6 @@ Sometimes[^1] we need some^[lalalala] footnotes.
 **Aktion:**
 
 :   (Formale) Beschreibung einer durch Agenten ausführbaren Aktion
-
     *   Anwendbar auf bestimmte Zustände
     *   Überführt Welt in neuen Zustand ("Nachfolge-Zustand")
 
