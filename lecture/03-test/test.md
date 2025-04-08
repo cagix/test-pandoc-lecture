@@ -371,9 +371,11 @@ Sometimes[^1] we need some^[lalalala] footnotes.
 ## Handling of TeX Shenanigans
 
 **Zustand:**
+
 :   (Formale) Beschreibung eines Zustandes der Welt
 
 **Aktion:**
+
 :   (Formale) Beschreibung einer durch Agenten ausführbaren Aktion
 
     *   Anwendbar auf bestimmte Zustände
