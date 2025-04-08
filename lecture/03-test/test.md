@@ -310,6 +310,8 @@ mit caption und breitenangabe und titel:
 
 ## Tabellen
 
+mit caption:
+
 | Rechtsbündig | Linksbündig | Default | Zentriert |
 |-------------:|:------------|---------|:---------:|
 |          foo | foo         | foo     |    foo    |
@@ -317,6 +319,9 @@ mit caption und breitenangabe und titel:
 |          bar | bar         | bar     |    bar    |
 
 : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
+
+
+ohne caption:
 
 | Rechtsbündig | Linksbündig | Default | Zentriert |
 |-------------:|:------------|---------|:---------:|
