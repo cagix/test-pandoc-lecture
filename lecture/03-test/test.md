@@ -236,7 +236,7 @@ public class Main {
 
 !["B" (small)](img/b.png)
 
-!["B", width="20%"](img/b.png){width="20%"}
+!["B", width="20%"](img/b.png "foobarwuppiefluppie"){width="20%"}
 
 !["wuppie" (wide)](img/wuppie.png)
 
