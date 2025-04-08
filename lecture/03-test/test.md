@@ -100,6 +100,12 @@ challenges: |
     (Die genauere Sprachdefinition finden Sie bei Bedarf unter [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
 ---
 
+<p align="center">
+
+[![GH-Preview](https://github.com/cagix/test-pandoc-lecture/actions/workflows/gfm.yaml/badge.svg)](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
+
+</p>
+
 
 ## Hello World
 
