@@ -306,7 +306,13 @@ mit caption und breitenangabe und titel:
 
 **Images w/ `img`-Code**
 
-<img src="img/b.png" width="25%">
+using "5%":
+
+<img src="img/b.png" width="5%">
+
+using "80px":
+
+<img src="img/b.png" width="80px">
 
 
 ### Known Problems
