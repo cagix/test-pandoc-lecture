@@ -310,9 +310,22 @@ using "5%":
 
 <img src="img/b.png" width="5%">
 
+`<img src="img/b.png" width="5%">`{=markdown}
+
 using "80px":
 
 <img src="img/b.png" width="80px">
+
+`<img src="img/b.png" width="80px">`{=markdown}
+
+mit div drumherum:
+
+`<div style="width: 5%;">`{=markdown}
+
+![](img/b.png)
+
+`</div>`{=markdown}
+
 
 
 ### Known Problems
