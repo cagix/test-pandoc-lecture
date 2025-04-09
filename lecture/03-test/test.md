@@ -302,6 +302,12 @@ mit caption und breitenangabe und titel:
 
 ![FOO BAr Wuppie Fluppie](img/b.png "mytitle FOO"){width="25%"}
 
+---
+
+**Images w/ `img`-Code**
+
+<img src="img/b.png" width="25%">
+
 
 ### Known Problems
 
