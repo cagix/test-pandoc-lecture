@@ -267,7 +267,7 @@ kleines Bild, keine Breiteangabe:
 
 kleines Bild, mit Titel und Breite:
 
-!["B", width="20%"](img/b.png "foobarwuppiefluppie"){width="20%"}
+!["B", width="5%"](img/b.png "foobarwuppiefluppie"){width="5%"}
 
 breites Bild, keine Breiteangabe:
 
@@ -296,11 +296,19 @@ ohne alles:
 
 mit breitenangabe:
 
-![](img/b.png){width="20%"}
+![](img/b.png){width="5%"}
 
-mit breitenangabe und titel:
+mit breitenangabe ("width") und titel:
 
-![](img/b.png "title: wuppie"){width="20%"}
+![](img/b.png "title: wuppie"){width="5%"}
+
+mit breitenangabe ("web_width") und titel:
+
+![](img/b.png "title: wuppie"){web_width="10%"}
+
+mit breitenangabe ("width" und "web_width") und titel:
+
+![](img/b.png "title: wuppie"){width="5%" web_width="10%"}
 
 
 ### Images w/ `img`-Code
