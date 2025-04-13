@@ -259,23 +259,36 @@ public class Main {
 
 ## Images
 
+### Images with Caption
+
+kleines Bild, keine Breiteangabe:
+
 !["B" (small)](img/b.png)
+
+kleines Bild, mit Titel und Breite:
 
 !["B", width="20%"](img/b.png "foobarwuppiefluppie"){width="20%"}
 
+breites Bild, keine Breiteangabe:
+
 !["wuppie" (wide)](img/wuppie.png)
+
+breites Bild, mit Breiteangabe:
 
 !["wuppie", width="20%"](img/wuppie.png){width="20%"}
 
+breites Bild über HTTP, keine Breiteangabe:
+
 !["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+
+breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
 
 !["wuppie" via web (raw) (["FooFOOOO" by me on void.intern.com]{.origin})](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
 ["Foo" by me on void.extern.com]{.origin}
 
----
 
-**Image w/o Caption**:
+### Images w/o Caption
 
 ohne alles:
 
@@ -290,21 +303,7 @@ mit breitenangabe und titel:
 ![](img/b.png "title: wuppie"){width="20%"}
 
 
-mit caption:
-
-![FOO BAr Wuppie Fluppie](img/b.png)
-
-mit caption und breitenangabe:
-
-![FOO BAr Wuppie Fluppie](img/b.png){width="25%"}
-
-mit caption und breitenangabe und titel:
-
-![FOO BAr Wuppie Fluppie](img/b.png "mytitle FOO"){width="25%"}
-
----
-
-**Images w/ `img`-Code**
+### Images w/ `img`-Code
 
 using "5%":
 
