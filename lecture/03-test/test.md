@@ -579,3 +579,8 @@ Vor `\pause`...
 \pause
 
 Nach `\pause`...
+
+
+## Last Change
+
+should be added automatically and in `\scriptsize` or `<sup><sub>`
