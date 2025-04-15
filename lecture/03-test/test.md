@@ -259,6 +259,8 @@ public class Main {
 
 ## Images
 
+Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is.
+
 ### Images with Caption
 
 kleines Bild, keine Breiteangabe:
