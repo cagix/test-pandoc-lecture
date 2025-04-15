@@ -259,7 +259,7 @@ public class Main {
 
 ## Images
 
-Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is.
+Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is (also like in LaTeX).
 
 ### Images with Caption
 
