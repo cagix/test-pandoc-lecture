@@ -1,4 +1,4 @@
-name: Convert Markdown sources to Beamer
+name: Beamer Slides
 
 on:
   # push on master branch

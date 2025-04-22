@@ -1,4 +1,4 @@
-name: Convert Markdown sources to PDF
+name: PDF Handout
 
 on:
   # push on master branch
