@@ -35,8 +35,7 @@
 
 - [x] tooling: .pandoc/ auf gitignore und clone pandoc-lecture, mini-makefile: repo clonen und updaten; variablen setzen und "include .pandoc/makefile"
 - [x] test bc & canan: seite im ilias vs neue gfm-seite im test-repo, tooling (canan: vorschau, bc: make+docker)
-
-- [ ] start im repo: default-branch ändern? link im readme! (inkl. link zu pdf) ...
+- [x] start im repo: default-branch ändern? link im readme! (inkl. link zu pdf) ...
 
 - [ ] pandoc-lecture ergänzen (oder fork "pandoc-lecture2"?)
 
