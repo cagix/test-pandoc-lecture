@@ -18,6 +18,15 @@ has_license: true
 [![Docsify Preview](https://img.shields.io/github/actions/workflow/status/cagix/test-pandoc-lecture/docsify.yaml?branch=master&label=Docsify%20Preview)](https://docsify-this.net/?basePath=https://raw.githubusercontent.com/cagix/test-pandoc-lecture/refs/heads/_docsify&homepage=readme.md&sidebar=true&browser-tab-title=TEST&font-size=14px&searchbox=true&externalLinkTarget=_blank&mergeNavbar=true&zoom-images=true&dark-mode=auto#/)
 [![PDF-Version](https://img.shields.io/github/actions/workflow/status/cagix/test-pandoc-lecture/pdf.yaml?branch=master&label=PDF-Version)](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/readme.pdf)
 
+
+::: tip
+**Read Online**:
+
+*   [GitHub Preview](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
+*   [Docsify Preview](https://docsify-this.net/?basePath=https://raw.githubusercontent.com/cagix/test-pandoc-lecture/refs/heads/_docsify&homepage=readme.md&sidebar=true&browser-tab-title=PR2&font-size=14px&searchbox=true&externalLinkTarget=_blank&mergeNavbar=true&zoom-images=true&dark-mode=auto#/)
+*   [PDF-Version](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/readme.pdf)
+:::
+
 ---
 
 :::
