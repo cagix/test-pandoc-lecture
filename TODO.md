@@ -28,7 +28,7 @@
 
 ---
 
-- [ ] docsify/liascript: kopie von defaults und filter, workflow anpassen
+- [x] docsify/liascript: kopie von defaults und filter, workflow anpassen
 
 - [ ] readme: link zu docsify- oder liascript-variante einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
 
