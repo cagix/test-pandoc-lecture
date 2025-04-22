@@ -104,7 +104,7 @@ challenges: |
 
 <p align="center">
 
-[![GH-Preview](https://github.com/cagix/test-pandoc-lecture/actions/workflows/gfm.yaml/badge.svg)](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
+[**GH-Preview**](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
 
 </p>
 
@@ -148,6 +148,8 @@ g_i^{(t+1)} = \left\{
 \end{array}
 \right.
 $$
+
+---
 
 ### Known Problems
 
@@ -220,6 +222,8 @@ NUM   : [0-9]+ ;
 WS    : [ \t\n]+ -> skip ;
 ```
 
+---
+
 Java-Code kompilieren: `javac *.java`
 
 ``` {.java caption="The preprocessing step, cf. [@Dietz2018]" #lst:huh}
@@ -238,6 +242,8 @@ public class Main {
     }
 }
 ```
+
+---
 
 Code ohne alles
 
@@ -269,21 +275,31 @@ kleines Bild, keine Breiteangabe:
 
 !["B" (small)](img/b.png)
 
+---
+
 kleines Bild, mit Titel und Breite:
 
 !["B", width="5%"](img/b.png "foobarwuppiefluppie"){width="5%"}
+
+---
 
 breites Bild, keine Breiteangabe:
 
 !["wuppie" (wide)](img/wuppie.png)
 
+---
+
 breites Bild, mit Breiteangabe:
 
 !["wuppie", width="20%"](img/wuppie.png){width="20%"}
 
+---
+
 breites Bild über HTTP, keine Breiteangabe:
 
 !["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+
+---
 
 breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
 
@@ -298,17 +314,25 @@ ohne alles:
 
 ![](img/b.png)
 
+---
+
 mit breitenangabe:
 
 ![](img/b.png){width="5%"}
+
+---
 
 mit breitenangabe ("width") und titel:
 
 ![](img/b.png "title: wuppie"){width="5%"}
 
+---
+
 mit breitenangabe ("web_width") und titel:
 
 ![](img/b.png "title: wuppie"){web_width="10%"}
+
+---
 
 mit breitenangabe ("width" und "web_width") und titel:
 
@@ -356,6 +380,8 @@ mit caption:
 
 : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
 
+
+---
 
 ohne caption:
 
@@ -406,6 +432,8 @@ GH introduced "alerts" with distinctive styling, like
 > Foo bar, wuppie fluppie!
 
 (see https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
+
+---
 
 
 Let's stick with Pandocs divs in Markdown content and use filters for export:
@@ -527,6 +555,8 @@ this is hidden content ...
 this is a show-me w/ title :)
 :::
 
+---
+
 ### CBOX
 
 ::: cbox
@@ -547,6 +577,7 @@ This [will]{.alert} be highlighted.
 
 Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead: This ==will== be highlighted. Even ==**with bold**== text.
 
+---
 
 ### Hinweis
 
@@ -575,12 +606,13 @@ use `ex` instead:
 
 [Beispiel-Button w/ link]{.ex href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
 
+---
 
 Vor `\pause`...
 
 \pause
 
-Nach `\pause`...
+Nach `\pause`... ("neue" Slide)
 
 
 ## Last Change
