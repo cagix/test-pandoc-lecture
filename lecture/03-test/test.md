@@ -72,6 +72,8 @@ quizzes:
     name: "Quiz Git Basics (ILIAS)"
 attachments:
   - link: "https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/master/lecture/nn/files/NN03-Logistische_Regression.pdf"
+    name: "Folien (raw link)"
+  - link: "https://github.com/cagix/test-pandoc-lecture/blob/_pdf/lecture_03-test_test.pdf"
     name: "Folien"
 challenges: |
     **Lexer und Parser mit ANTLR: Programmiersprache Lox**
