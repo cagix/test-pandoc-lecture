@@ -29,14 +29,12 @@
 ---
 
 - [x] docsify/liascript: kopie von defaults und filter, workflow anpassen
-
 - [x] readme: link zu docsify- oder liascript-variante einfügen (automatisch oder per variable? branch+pfad könnte über Makefile -> YAML -> Filter bekannt sein...)
 
 ---
 
 - [x] tooling: .pandoc/ auf gitignore und clone pandoc-lecture, mini-makefile: repo clonen und updaten; variablen setzen und "include .pandoc/makefile"
-
-- [ ] test bc & canan: seite im ilias vs neue gfm-seite im test-repo, tooling (canan: vorschau, bc: make+docker)
+- [x] test bc & canan: seite im ilias vs neue gfm-seite im test-repo, tooling (canan: vorschau, bc: make+docker)
 
 - [ ] start im repo: default-branch ändern? link im readme! (inkl. link zu pdf) ...
 
