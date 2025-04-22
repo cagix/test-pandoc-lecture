@@ -1,0 +1,30 @@
+name: Convert Markdown sources to Beamer
+
+on:
+  # push on master branch
+  push:
+    branches: [master]
+  # triggered manually
+  workflow_dispatch:
+  # triggered by pull requests
+  pull_request:
+
+jobs:
+  beamer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: cagix/pandoc-lecture-zen@master
+        with:
+          mktarget: beamer
+          pandoc_data: .pandoc
+          metadata: cb.yaml
+          publish_dir: _beamer
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _beamer
+          publish_branch: _beamer
+          force_orphan: true
