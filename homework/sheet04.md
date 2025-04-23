@@ -340,7 +340,7 @@ f95(n);
 
 # Aufgaben
 
-## A4.1: Grammatik und AST (2P)
+## Grammatik und AST (2P)
 
 Erstellen Sie eine ANTLR-Grammatik für die Zielsprache. Sie können dabei die [Grammatik] im
 [Sample Project] als Ausgangspunkt nutzen und diese anpassen und vervollständigen.
@@ -352,20 +352,20 @@ Programmieren Sie eine Traversierung des Parse-Trees, die den AST erzeugt. Teste
 den obigen Beispielprogrammen und definieren Sie sich selbst weitere Programme
 unterschiedlicher Komplexität für diesen Zweck.
 
-## A4.2: Aufbau der Symboltabelle (2P)
+## Aufbau der Symboltabelle (2P)
 
 Bauen Sie für den AST eine Symboltabelle auf. Führen Sie dabei die im ersten Lauf möglichen
 Prüfungen durch, beispielsweise ob referenzierte Variablen tatsächlich bereits definiert und
 sichtbar sind oder ob eine Variable oder Funktion in einem Scope mehrfach definiert wird oder
 ob Variablen als Funktion genutzt werden. Geben Sie erkannte Fehler auf der Konsole aus.
 
-## A4.3: Symboltabelle: Funktionsaufrufe (1P)
+## Symboltabelle: Funktionsaufrufe (1P)
 
 Implementieren Sie einen zweiten Lauf. Dabei soll für Funktionsaufrufe geprüft werden, ob
 diese Funktionen bereits definiert sind und im Scope sichtbar sind. Geben Sie erkannte Fehler
 auf der Konsole aus.
 
-## A4.4: Symboltabelle: Typprüfungen (5P)
+## Symboltabelle: Typprüfungen (5P)
 
 Implementieren Sie einen dritten Lauf. Führen Sie die Typprüfung durch: Haben die Operanden in
 Ausdrücken die richtigen Typen, passen die Typen der Funktionsargumente, passen die Typen bei

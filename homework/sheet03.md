@@ -215,7 +215,7 @@ end
 
 # Aufgaben
 
-## A3.1: Grammatik (4P)
+## Grammatik (4P)
 
 Definieren Sie für die obige Sprache eine geeignete ANTLR-Grammatik.
 
@@ -223,7 +223,7 @@ Sie werden sowohl Lexer- als auch (rekursive) Parser-Regeln benötigen. Beachten
 üblichen Vorrangregeln für die Operatoren, orientieren Sie sich hier an Sprachen wie Java oder
 Python oder C.
 
-## A3.2: Pretty Printer (3P)
+## Pretty Printer (3P)
 
 Erzeugen Sie mithilfe der Grammatik und ANTLR einen Lexer und Parser. Damit können Sie
 syntaktisch korrekte Eingabe-Programme in einen Parse-Tree überführen.
@@ -274,7 +274,7 @@ aufwändig werden. Sie finden im Paper ["A prettier printer"] von Philip Wadler
 [@wadler2003prettier] und im Blog ["The Hardest Program I've Ever Written"] von Bob Nystrom
 [@Nystrom2015] gut geschriebene Beiträge, um tiefer in die Materie einzusteigen.
 
-## A3.3: AST (3P)
+## AST (3P)
 
 Beim Parsen bekommen Sie von ANTLR einen Parse-Tree zurück, der direkt die Struktur Ihrer
 Grammatik widerspiegelt. Die einzelnen Zweige sind damit in der Regel aber auch viel zu tief
