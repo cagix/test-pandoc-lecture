@@ -9,7 +9,7 @@ hidden: true
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet02.md  -o xxx.md  -->
 
-## A2.1: PDA (2P)
+# A2.1: PDA (2P)
 
 Erstellen Sie einen deterministischen PDA, der die Sprache
 
@@ -19,7 +19,7 @@ akzeptiert.
 
 Beschreiben Sie Schritt für Schritt, wie der PDA die Eingaben *bcaba* und *bccac* abarbeitet.
 
-## A2.2: Akzeptierte Sprache (1P)
+# A2.2: Akzeptierte Sprache (1P)
 
 Ist der folgenden PDA deterministisch? Warum (nicht)?
 
@@ -40,7 +40,7 @@ $$\begin{eqnarray}
 
 Zeichnen Sie den Automaten. Geben Sie das 7-Tupel des PDa an. Welche Sprache akzeptiert er?
 
-## A2.3: Kontextfreie Sprache (1P)
+# A2.3: Kontextfreie Sprache (1P)
 
 Welche Sprache generiert die folgende kontextfreie (Teil-) Grammatik?
 
@@ -57,7 +57,7 @@ P = \lbrace &&                                                                  
 
 Ist die Grammatik mehrdeutig? Warum (nicht)?
 
-## A2.4: Kontextfreie Grammatik (2P)
+# A2.4: Kontextfreie Grammatik (2P)
 
 Entwickeln Sie eine kontextfreie Grammatik für die Sprache
 
@@ -65,7 +65,7 @@ $$L = \lbrace a^ib^jc^k \; | \; i = j \lor j = k \rbrace$$
 
 Zeigen Sie, dass die Grammatik mehrdeutig ist. Entwickeln Sie einen PDA für diese Sprache.
 
-## A2.5: Kontextfreie Grammatik (4P)
+# A2.5: Kontextfreie Grammatik (4P)
 
 Betrachten sie die folgende Grammatik:
 

@@ -1,7 +1,6 @@
 ---
 title: "CFG"
 author: "BC George (HSBI)"
-shift_headings: true
 readings:
   - "@Aho2023"
   - "@hopcroft2003"

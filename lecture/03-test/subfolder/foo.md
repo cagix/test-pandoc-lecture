@@ -13,6 +13,6 @@ attachments:
 ---
 
 
-## Lecture/03-Test/Subfolder/Foo.md
+# Lecture/03-Test/Subfolder/Foo.md
 
 This is a "single page" in a "leaf bundle" and should **not** be available.

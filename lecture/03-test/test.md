@@ -1,7 +1,6 @@
 ---
 title: "Test Markdown"
 author: "Wuppie Fluppie"
-#shift_headings: true
 readings:
   - "@Tate2011 [Kapitel 2]"
   - "@Nystrom2021"
@@ -109,7 +108,7 @@ challenges: |
 </p>
 
 
-## Hello World
+# Hello World
 
 Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
@@ -125,16 +124,16 @@ Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
 Hier die ==Pandoc-Markdown== mark-Erweiterung.
 
-## Math
+# Math
 
-### Inline
+## Inline
 
 $\mathbf{g} = (g_1, \dots, g_m)\in \{ 0,1\}^m$
 
 *    $a^ib^{2*i}$ ist nicht regulär
 *    $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
 
-### Block
+## Block
 
 $$\Phi(\mathbf{g}_i) = F(\Gamma(\mathbf{g}_i)) - w\cdot\sum_j(Z_j(\Gamma(\mathbf{g}_i)))^2$$
 
@@ -151,7 +150,7 @@ $$
 
 ---
 
-### Known Problems
+## Known Problems
 
 *   VSCode Preview: `\mbox{ tanh }` => $\mbox{ tanh }$ => `\text{ tanh }` => $\text{ tanh }$
 *   GH Preview:
@@ -188,13 +187,13 @@ C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
 
 
-## Links
+# Links
 
-### Link to WWW
+## Link to WWW
 
 [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html)
 
-### Internal Links
+## Internal Links
 
 [selbe ebene: readme.md](readme.md)
 
@@ -205,7 +204,7 @@ C &\rightarrow& \epsilon                 \nonumber
 [zurück nach oben II: ../../homework/sheet01.md](../../homework/sheet01.md)
 
 
-## Code
+# Code
 
 ```antlr
 grammar Hello;
@@ -265,11 +264,11 @@ public class Main {
 ```
 
 
-## Images
+# Images
 
 Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is (also like in LaTeX).
 
-### Images with Caption
+## Images with Caption
 
 kleines Bild, keine Breiteangabe:
 
@@ -308,7 +307,7 @@ breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
 ["Foo" by me on void.extern.com]{.origin}
 
 
-### Images w/o Caption
+## Images w/o Caption
 
 ohne alles:
 
@@ -339,7 +338,7 @@ mit breitenangabe ("width" und "web_width") und titel:
 ![](img/b.png "title: wuppie"){width="5%" web_width="10%"}
 
 
-### Images w/ `img`-Code
+## Images w/ `img`-Code
 
 using "5%":
 
@@ -363,12 +362,12 @@ mit div drumherum:
 
 
 
-### Known Problems
+## Known Problems
 
 - In VSC preview as well as in LaTeX images via web like https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (**need to be "raw"**)
 
 
-## Tabellen
+# Tabellen
 
 mit caption:
 
@@ -391,7 +390,7 @@ ohne caption:
 |          123 | 123         | 123     |    123    |
 |          bar | bar         | bar     |    bar    |
 
-## Zitieren, Quellen
+# Zitieren, Quellen
 
 Normales Zitieren [@Siek2023racket] ...
 
@@ -400,9 +399,9 @@ Mit Seitenangabe [@Siek2023racket, Seite 111] oder Kapitel [@Siek2023racket, Kap
 Als Author-Zitat @Siek2023racket ...
 
 
-## GFM
+# GFM
 
-### Details
+## Details
 
 <details>
 
@@ -412,7 +411,7 @@ Lalelu ...
 
 </details>
 
-### Alert Extension
+## Alert Extension
 
 GH introduced "alerts" with distinctive styling, like
 
@@ -467,7 +466,7 @@ Foo bar, wuppie fluppie!
 This should probably be in line with #180 ...
 
 
-## Filter for Slides and Handouts
+# Filter for Slides and Handouts
 
 ::: notes
 Foo bar, wuppie fluppie! (NOTES)
@@ -478,14 +477,14 @@ THIS IS SLIDE-ONLY CONTENT, STUPID!
 :::
 
 
-## Footnotes
+# Footnotes
 
 Sometimes[^1] we need some^[lalalala] footnotes.
 
 [^1]: sometime even more often
 
 
-## Handling of TeX Shenanigans
+# Handling of TeX Shenanigans
 
 **Zustand:**
 
@@ -507,7 +506,7 @@ Hier nach den LaTeX-Befehlen.
 **Geeignete Abstraktionen wählen für Zustände und Aktionen!**
 
 
-## Credits
+# Credits
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise
 bei Tim Pope (siehe nächstes Beispiel) oder bei
@@ -534,9 +533,9 @@ Further paragraphs come after blank lines.
 [["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
 
 
-## Filters
+# Filters
 
-### ShowMe
+## ShowMe
 
 Hier ein ShowMe-Test:
 
@@ -557,20 +556,20 @@ this is a show-me w/ title :)
 
 ---
 
-### CBOX
+## CBOX
 
 ::: cbox
 this is content to be centered (and put into a box)...
 :::
 (but not used anymore)
 
-### Center
+## Center
 
 ::: center
 this content should be centered
 :::
 
-### Alert
+## Alert
 
 This [will]{.alert} be highlighted.
 (but not used anymore)
@@ -579,19 +578,19 @@ Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) ins
 
 ---
 
-### Hinweis
+## Hinweis
 
 [This is a hint.]{.hinweis}
 (but not used anymore)
 
 
-### Thema
+## Thema
 
 [The topic of this task or ...]{.thema}
 (but not used anymore)
 
 
-### BSP
+## BSP
 
 Lalalelu
 
@@ -615,6 +614,6 @@ Vor `\pause`...
 Nach `\pause`... ("neue" Slide)
 
 
-## Last Change
+# Last Change
 
 should be added automatically and in `\scriptsize` or `<sup><sub>`

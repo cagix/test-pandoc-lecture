@@ -9,7 +9,7 @@ hidden: true
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet03.md  -o xxx.md  -->
 
-## Zusammenfassung
+# Zusammenfassung
 
 Ziel dieses Aufgabenblattes ist die Erstellung eines einfachen *Pretty Printers* für eine
 einfache fiktive Sprache mit Expressions und Kontrollstrukturen.
@@ -29,7 +29,7 @@ und den Baum mit einer weiteren Traversierung in einen vereinfachten Baum, den s
 Abstract-Syntex-Tree (*AST*), transformieren und diesen erneut als formatierten Code auf der
 Konsole ausgeben.
 
-## Methodik
+# Methodik
 
 Nutzen Sie das [Starter-Projekt] in der Vorgabe.
 
@@ -47,11 +47,11 @@ gekoppelt und sind deshalb so individuell wie Ihre Grammatik. Mit einer Traversi
 Baumes können Sie die gewünschte Ausgabe programmieren und auch die Erstellung des
 vereinfachten Baumes (AST).
 
-## Sprachdefinition
+# Sprachdefinition
 
 Ein Programm besteht aus einer oder mehreren Anweisungen (*Statements*).
 
-### Anweisungen (*Statements*)
+## Anweisungen (*Statements*)
 
 Eine Anweisung ist eine einzeilige Befehlsfolge, beispielsweise eine Zuweisung oder eine
 Operation. Sie muss immer mit einem Newline abgeschlossen werden. Eine Anweisung hat keinen
@@ -64,7 +64,7 @@ b := "foo"   # Zuweisung des Ausdrucks "foo" (String) an die Variable b
 
 Kontrollstrukturen (s.u.) zählen ebenfalls als Anweisungen.
 
-### Ausdrücke (*Expressions*)
+## Ausdrücke (*Expressions*)
 
 Die einfachsten Ausdrücke sind Integer- oder String-Literale. Variablen sind ebenfalls
 Ausdrücke. Komplexere Ausdrücke werden mit Hilfe von Operationen gebildet, dabei sind die
@@ -76,7 +76,7 @@ entspricht der üblichen Semantik (vgl. Java, C, Python).
 
 Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 
-#### Vergleichsoperatoren
+### Vergleichsoperatoren
 
 | Operation    | Operator |
 |:-------------|:--------:|
@@ -85,7 +85,7 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 | Größer       |   `>`    |
 | Kleiner      |   `<`    |
 
-#### Arithmetische Operatoren
+### Arithmetische Operatoren
 
 | Operation                            | Operator |
 |:-------------------------------------|:--------:|
@@ -94,7 +94,7 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 | Multiplikation                       |   `*`    |
 | Division                             |   `/`    |
 
-#### Beispiele für Ausdrücke
+### Beispiele für Ausdrücke
 
 ``` python
 10 - 5  # Der Integer-Wert 5
@@ -103,12 +103,12 @@ a       # Wert der Variablen a
 a + b   # Ergebnis der Addition der Variablen a und b
 ```
 
-### Bezeichner
+## Bezeichner
 
 Werden zur Bezeichnung von Variablen verwendet. Sie bestehen aus einer Zeichenkette der
 Zeichen `a-z`,`A-Z`, `0-9`, `_`. Bezeichner dürfen nicht mit einer Ziffer `0-9` beginnen.
 
-### Variablen
+## Variablen
 
 Variablen bestehen aus einem eindeutigen Bezeichner (Variablennamen). Den Variablen können
 Werte zugewiesen werden und Variablen können als Werte verwendet werden. Die Zuweisung erfolgt
@@ -119,14 +119,14 @@ a := 5      # Zuweisung des Wertes 5 an die Variable a
 a := 2 + 3  # Zuweisung des Wertes 5 an die Variable a
 ```
 
-### Kommentare
+## Kommentare
 
 Kommentare werden durch das Zeichen `#` eingeleitet und umfassen sämtliche Zeichen bis zum
 nächsten Newline.
 
-### Kontrollstrukturen
+## Kontrollstrukturen
 
-#### While-Schleife
+### While-Schleife
 
 While-Schleifen werden mit dem Schlüsselwort `while` eingeleitet. Sie bestehen im Weiteren aus
 einer Bedingung, die durch ein `do` abgeschlossen wird, einer Folge von Anweisungen und werden
@@ -150,7 +150,7 @@ while a >= 0 do
 end
 ```
 
-#### Bedingte Anweisung (If-Else)
+### Bedingte Anweisung (If-Else)
 
 Eine bedingte Anweisung besteht immer aus genau einer `if`-Anweisung, gefolgt von einer
 Bedingung, die mit einem `do` abgeschlossen wird und einer Folge von Anweisungen.
@@ -185,7 +185,7 @@ else do
 end
 ```
 
-### Datentypen
+## Datentypen
 
 Unsere Sprache hat zwei eingebaute Datentypen, für die entsprechende Literale erkannt werden
 müssen:
@@ -198,7 +198,7 @@ müssen:
 Die Sprache ist dynamisch typisiert, d.h. beim Parsen werden Ihnen keine Typ-Angaben im Code
 begegnen. Aber Sie müssen die entsprechenden Werte (Literale) parsen können.
 
-### Beispiele
+## Beispiele
 
 ``` python
 a := "wuppie fluppie"
@@ -213,9 +213,9 @@ else do
 end
 ```
 
-## Aufgaben
+# Aufgaben
 
-### A3.1: Grammatik (4P)
+## A3.1: Grammatik (4P)
 
 Definieren Sie für die obige Sprache eine geeignete ANTLR-Grammatik.
 
@@ -223,7 +223,7 @@ Sie werden sowohl Lexer- als auch (rekursive) Parser-Regeln benötigen. Beachten
 üblichen Vorrangregeln für die Operatoren, orientieren Sie sich hier an Sprachen wie Java oder
 Python oder C.
 
-### A3.2: Pretty Printer (3P)
+## A3.2: Pretty Printer (3P)
 
 Erzeugen Sie mithilfe der Grammatik und ANTLR einen Lexer und Parser. Damit können Sie
 syntaktisch korrekte Eingabe-Programme in einen Parse-Tree überführen.
@@ -274,7 +274,7 @@ aufwändig werden. Sie finden im Paper ["A prettier printer"] von Philip Wadler
 [@wadler2003prettier] und im Blog ["The Hardest Program I've Ever Written"] von Bob Nystrom
 [@Nystrom2015] gut geschriebene Beiträge, um tiefer in die Materie einzusteigen.
 
-### A3.3: AST (3P)
+## A3.3: AST (3P)
 
 Beim Parsen bekommen Sie von ANTLR einen Parse-Tree zurück, der direkt die Struktur Ihrer
 Grammatik widerspiegelt. Die einzelnen Zweige sind damit in der Regel aber auch viel zu tief

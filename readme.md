@@ -23,7 +23,7 @@ has_license: true
 :::
 
 
-## Kursbeschreibung
+# Kursbeschreibung
 
 Der Compiler ist das wichtigste Werkzeug in der Informatik. In der Königsdisziplin der
 Informatik schließt sich der Kreis, hier kommen die unterschiedlichen Algorithmen und
@@ -34,7 +34,7 @@ im Compilerbau. Wir schauen uns dazu relevante aktuelle Tools und Frameworks an 
 setzen diese bei der Erstellung eines kleinen Compiler-Frontends für C++ ein.
 
 
-## Überblick Modulinhalte
+# Überblick Modulinhalte
 
 1.  Lexikalische Analyse: Scanner/Lexer
     *   Reguläre Sprachen
@@ -53,13 +53,13 @@ setzen diese bei der Erstellung eines kleinen Compiler-Frontends für C++ ein.
 6.  C++ als zu verarbeitende Programmiersprache
 
 
-## Team
+# Team
 
 *   [BC George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
 *   [Carsten Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips) (Sprechstunde nach Vereinbarung)
 
 
-## Kursformat
+# Kursformat
 
 | Vorlesung (2 SWS)                               | Praktikum (2 SWS)                                   |
 |:------------------------------------------------|:----------------------------------------------------|
@@ -75,7 +75,7 @@ Sie _können_ hierzu den Raum J101 (siehe Stundenplan) nutzen.
   [ILIAS IFM 3.1 CB (PO23, 3. Semester)]: https://www.hsbi.de/elearning/goto.php?target=crs_1400596&client_id=FH-Bielefeld
 
 
-## Fahrplan
+# Fahrplan
 
 Hier finden Sie einen abonnierbaren [Google Kalender IFM 3.1 CB (PO23, 3. Semester)] mit allen Terminen der Veranstaltung zum Einbinden in Ihre Kalender-App.
 
@@ -112,7 +112,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
 [B04]: homework/sheet04.md
 
 
-## Prüfungsform, Note und Credits
+# Prüfungsform, Note und Credits
 
 **Parcoursprüfung plus Testat**, 5 ECTS (PO23)
 
@@ -123,7 +123,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
     ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet,
     fristgerechte Abgabe der Lösungen im ILIAS, Vorstellung der Lösungen im Praktikum)
 
-### Prüfung im ersten Zeitraum"
+## Prüfung im ersten Zeitraum"
 
 *   **Stationen**:
     1.  ILIAS-Test (einzeln, 20.11.)
@@ -137,7 +137,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
     Punkten werden 30 Punkte als 100% gewertet, darüber hinausgehende Punkte bleiben
     als Bonuspunkte erhalten.
 
-### Prüfung im zweiten Zeitraum"
+## Prüfung im zweiten Zeitraum"
 
 *   **Stationen**:
     1.  Mündliche Prüfung (individuell, ca. 45 Minuten, zweiter Prüfungszeitraum)
@@ -145,7 +145,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
     Die Note der mündlichen Prüfung ergibt die Gesamtnote.
 
 
-## Materialien
+# Materialien
 
 1.  ["**Compilers: Principles, Techniques, and Tools**"](https://learning.oreilly.com/library/view/compilers-principles-techniques/9789357054881/).
     Aho, A. V. und Lam, M. S. und Sethi, R. und Ullman, J. D. and Bansal, S., Pearson India, 2023.
@@ -163,9 +163,9 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
     [Online](https://learning.oreilly.com/library/view/writing-a-c/9781098182229/) über die [O'Reilly-Lernplattform](https://www.oreilly.com/library-access/).
 
 
-## Förderungen und Kooperationen
+# Förderungen und Kooperationen
 
-### Kooperation mit University of Alberta, Edmonton (Kanada)
+## Kooperation mit University of Alberta, Edmonton (Kanada)
 
 Über das Projekt ["We CAN virtuOWL"] der Fachhochschule Bielefeld ist im Frühjahr 2021 eine
 Kooperation mit der [University of Alberta] (Edmonton/Alberta, Kanada) im Modul "Compilerbau"
@@ -183,7 +183,7 @@ Hochschulen anbieten zu können. (Diese Termine werden in englischer Sprache dur
 
 
 
-## LICENSE
+# LICENSE
 ![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
