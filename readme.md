@@ -184,8 +184,10 @@ Hochschulen anbieten zu können. (Diese Termine werden in englischer Sprache dur
 
 
 # LICENSE
-![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
+
+[`<img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">`{=markdown}](https://creativecommons.org/licenses/by-sa/4.0/)
 
 Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
-Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz.
+Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz und Credits.
+(Nicht mit generiertem Lizenz-Footer aus cb.yaml verwechseln.)
