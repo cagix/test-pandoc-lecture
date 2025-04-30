@@ -506,6 +506,37 @@ Hier nach den LaTeX-Befehlen.
 **Geeignete Abstraktionen wählen für Zustände und Aktionen!**
 
 
+# Columns
+
+blablabla
+
+::::::::: {.columns}
+:::::: {.column width="50%"}
+
+Zum Parsen von Ausdrücken (_Expressions_) könnte man diese einfache Grammatik
+einsetzen. Ein Ausdruck ist dabei entweder ein einfacher Integer oder eine
+Addition oder Multiplikation zweier Ausdrücke.
+
+```yacc
+expr : e1=expr '*' e2=expr      # MUL
+     | e1=expr '+' e2=expr      # ADD
+     | INT                      # NUM
+     ;
+```
+
+::::::
+:::::: {.column width="40%"}
+
+Beim Parsen von "5*4+3" würde dabei der folgende Parsetree entstehen:
+
+![](img/b.png){width="50%" web_width="20%"}
+
+::::::
+:::::::::
+
+wuppie! fluppie! foo? bar ...
+
+
 # Credits
 
 Typische Regeln und Konventionen tauchen überall auf, beispielsweise
