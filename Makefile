@@ -18,5 +18,9 @@ $(PANDOC_DATA):
 -include $(PANDOC_DATA)/Makefile
 
 
+## Activate slide numbering ( for local generation only)
+beamer: OPTIONS        += -V themeoptions="numbering=fraction"
+
+
 ## Declaration of phony targets
 .PHONY: update_tooling
