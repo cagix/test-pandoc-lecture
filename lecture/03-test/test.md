@@ -2,8 +2,10 @@
 title: "Test Markdown"
 author: "Wuppie Fluppie"
 readings:
-  - "@Tate2011 [Kapitel 2]"
-  - "@Nystrom2021"
+  - "@Tate2011 [Kapitel 2]: foo bar wuppie fluppie"
+  - "@Tate2011 [Kapitel 2]: Creating Graphical User Interfaces > Creating a GUI With Swing"
+  - "@Nystrom2021: Abschnitt 2.5.2: Ant"
+  - "[@Nystrom2021]: Abschnitt 2.5.2: Ant"
 tldr: |
     Text für TL;DR ...
 
