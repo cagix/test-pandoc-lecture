@@ -1,6 +1,7 @@
 ---
 title: "CFG"
 author: "BC George (HSBI)"
+numbering: true
 readings:
   - "@Aho2023"
   - "@hopcroft2003"
