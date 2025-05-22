@@ -494,6 +494,8 @@ Docsify seems to recognize footnotes even in inline code:
 | `^`              | Zeilenanfang                                             |
 | `[abc]`          | "a" oder "b" oder "c"                                    |
 | `[^abc]`         | alles außer "a", "b" oder "c" (Negation)                 |
+| `^abc`           | test                                                     |
+| `[ ^abc]`        | test                                                     |
 | `[ ^abc]`        | test                                                     |
 | `[^ abc]`        | test                                                     |
 | `[a-zA-Z]`       | alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)     |
