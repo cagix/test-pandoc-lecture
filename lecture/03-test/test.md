@@ -574,7 +574,7 @@ Foo bar, wuppie fluppie! (NOTES)
 
 ## Footnotes
 
-Sometimes[^1] we need some[^2] footnotes.
+Sometimes[^1] we need some[^2] footnotes^[lalalala].
 
 ### Test for Docsify
 
