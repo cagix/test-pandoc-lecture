@@ -487,7 +487,7 @@ Sometimes[^1] we need some^[lalalala] footnotes.
 
 ## Test for Docsify
 
-Docsify seems to recognize footnotes even in inline code:
+~~Docsify seems to recognize footnotes even in inline code:~~
 
 | **Zeichenkette** | **Beschreibt**                                           |
 |:-----------------|:---------------------------------------------------------|
