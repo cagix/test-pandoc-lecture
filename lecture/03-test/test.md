@@ -551,6 +551,14 @@ This should probably be in line with #180 ...
     foo bar wuppie fluppie - text below code block in bullet point 6
 -   simple bullet point
 
+
+### Lists Item w/ inline math and block math
+
+-   Bullet point 1
+-   Bullet point 2 with inline math ($x_i$) and block math (w/o blank line)
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+
 ### Test Case nn02-linear-regression.md
 
 [nn02-linear-regression.md](nn02-linear-regression.md)

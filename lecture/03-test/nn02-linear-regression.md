@@ -51,7 +51,7 @@ no_beamer: true
 
 # Kurze Übersicht
 
-## Formalisierung (original mit Bullet Points)
+## Formalisierung (original)
 
 *   Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
 *   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$:
@@ -62,15 +62,32 @@ no_beamer: true
     $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 
-## Formalisierung (mit Nummerierung)
+## Formalisierung (ohne inline math)
 
-1.  Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
-2.  Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$:
+*   Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+*   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0:
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
-3.  Der **Verlust** (engl. loss) für einen Datenpunkt $\mathbf{x}$ ist das **Fehlerquadrat**:
+*   Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**:
     $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
-4.  Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
+*   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
     $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
+
+
+## Formalisierung (mit inline math, block math ausgerückt)
+
+*   Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+
+*   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0:
+
+$$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+*   Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**:
+
+$$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+
+*   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
+
+$$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 
 ## Der Gradient
