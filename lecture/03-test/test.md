@@ -566,7 +566,7 @@ compare with
 
 compare with
 
--   Bullet point with inline math ($x_i$) and not properly indented block math (w/o blank line)
+-   Bullet point with inline math ($x_i$) and not properly indented block math (i.e. block math does end bullet point environment)
 
 $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
