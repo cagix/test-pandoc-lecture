@@ -554,6 +554,29 @@ This should probably be in line with #180 ...
 
 ### Lists Item w/ inline math and block math
 
+```markdown
+
+-   wuppie $x_i$ fluppie
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
+
+compare with
+
+-   wuppie fluppie
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
+
+compare with
+
+-   wuppie $x_i$ fluppie
+
+$$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+-   foo bar
+````
+
+will be rendered as
+
 -   wuppie $x_i$ fluppie
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 -   foo bar
