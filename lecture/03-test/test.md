@@ -474,6 +474,40 @@ Foo bar, wuppie fluppie!
 
 This should probably be in line with #180 ...
 
+## GH Shenenigans
+
+It seems GitHub cannot interpret code blocks, images or block math in bullet points.
+
+-   Bullet point 1
+
+-   Bullet point 2 with block math
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+-   Bullet point 3 with block math and blank line
+
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+
+-   Bullet point 4 with image
+
+    ![](img/b.png)
+
+-   Bullet point 5 with code block
+
+    ```antlr
+    grammar Hello;
+
+    start : stmt* ;
+
+    stmt  : ID '=' expr ';' | expr ';' ;
+    expr  : term ('+' term)* ;
+    term  : atom ('*' atom)* ;
+    atom  : ID | NUM ;
+
+    ID    : [a-z][a-zA-Z]* ;
+    NUM   : [0-9]+ ;
+    WS    : [ \t\n]+ -> skip ;
+    ```
+
 
 # Filter for Slides and Handouts
 
