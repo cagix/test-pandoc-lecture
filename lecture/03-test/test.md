@@ -553,6 +553,22 @@ This should probably be in line with #180 ...
 
 ### Test Case nn02-linear-regression.md
 
+---
+
+##### Manually typed to avoid UTF8-Problems
+
+###### Formalisierung
+
+*   Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+*   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$:
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+*   Der **Verlust** (engl. loss) für einen Datenpunkt $\mathbf{x}$ ist das **Fehlerquadrat**:
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+*   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
+    $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
+
+---
+
 #### Original Text
 
 ##### Formalisierung
