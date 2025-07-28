@@ -554,19 +554,19 @@ This should probably be in line with #180 ...
 
 ### Lists Item w/ inline math and block math
 
--   Bullet point with inline math ($x_i$) and block math (w/o blank line)
+-   wuppie $x_i$ fluppie
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 -   foo bar
 
 compare with
 
--   Bullet point w/o inline math and just block math (w/o blank line)
+-   wuppie fluppie
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 -   foo bar
 
 compare with
 
--   Bullet point with inline math ($x_i$) and not properly indented block math (i.e. block math does end bullet point environment)
+-   wuppie $x_i$ fluppie
 
 $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
