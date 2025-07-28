@@ -556,12 +556,21 @@ This should probably be in line with #180 ...
 
 -   Bullet point with inline math ($x_i$) and block math (w/o blank line)
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
 
 compare with
 
--   Bullet point w/inline math and just block math (w/o blank line)
+-   Bullet point w/o inline math and just block math (w/o blank line)
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
 
+compare with
+
+-   Bullet point w/o inline math and just block math (w/o blank line)
+
+$$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+-   foo bar
 
 
 ### Test Case nn02-linear-regression.md
