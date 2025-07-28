@@ -554,9 +554,14 @@ This should probably be in line with #180 ...
 
 ### Lists Item w/ inline math and block math
 
--   Bullet point 1
--   Bullet point 2 with inline math ($x_i$) and block math (w/o blank line)
+-   Bullet point with inline math ($x_i$) and block math (w/o blank line)
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+compare with
+
+-   Bullet point w/inline math and just block math (w/o blank line)
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
 
 
 ### Test Case nn02-linear-regression.md
