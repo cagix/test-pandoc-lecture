@@ -551,9 +551,9 @@ This should probably be in line with #180 ...
     foo bar wuppie fluppie - text below code block in bullet point 6
 -   simple bullet point
 
-## Test Case nn02-linear-regression.md
+### Test Case nn02-linear-regression.md
 
-### Formalisierung
+#### Formalisierung
 
 *   Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
 *   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$:
@@ -564,7 +564,7 @@ This should probably be in line with #180 ...
     $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 
-### Der Gradient
+#### Der Gradient
 
 *   Der **Gradientenvektor** $\nabla J(\mathbf{w})$ setzt sich zusammen aus den partiellen Ableitungen der Kostenfunktion $J$ nach den Gewichten $w_i$ und zeigt in jedem Punkt $\mathbf{w}$ in die **Richtung des steilsten Aufstiegs**:
     $$\nabla J = [ \partial J / \partial w_0
@@ -574,7 +574,7 @@ This should probably be in line with #180 ...
 *   **IDEE**: Bewege $\mathbf{w}$ in Richtung $-\nabla J(\mathbf{w})$, um die Kosten $J$ möglichst schnell zu senken.
 
 
-### Der Gradientenabstieg (engl. Gradient Descent)
+#### Der Gradientenabstieg (engl. Gradient Descent)
 
 1.   Starte mit zufälligen Gewichten $\mathbf{w}$
 2.   Berechne den Gradientenvektor im aktuellen Punkt $\mathbf{w}$
