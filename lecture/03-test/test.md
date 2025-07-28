@@ -553,7 +553,7 @@ This should probably be in line with #180 ...
 
 ### Test Case nn02-linear-regression.md
 
-![](nn02-linear-regression.md)
+[nn02-linear-regression.md](nn02-linear-regression.md)
 
 
 # Filter for Slides and Handouts
