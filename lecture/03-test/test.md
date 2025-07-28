@@ -476,11 +476,11 @@ This should probably be in line with #180 ...
 
 ## GH Shenenigans
 
-It seems GitHub cannot interpret code blocks, images or block math in bullet points.
+### Relaxed Lists
 
 -   Bullet point 1
 
--   Bullet point 2 with block math
+-   Bullet point 2 with block math (w/o blank line)
     $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
 -   Bullet point 3 with block math and blank line
@@ -491,7 +491,11 @@ It seems GitHub cannot interpret code blocks, images or block math in bullet poi
 
     ![](img/b.png)
 
--   Bullet point 5 with code block
+-   Bullet point 5 with figure
+
+    ![image caption](img/b.png)
+
+-   Bullet point 6 with code block
 
     ```antlr
     grammar Hello;
@@ -507,6 +511,46 @@ It seems GitHub cannot interpret code blocks, images or block math in bullet poi
     NUM   : [0-9]+ ;
     WS    : [ \t\n]+ -> skip ;
     ```
+
+    foo bar wuppie fluppie - text below code block in bullet point 6
+
+-   simple bullet point
+
+
+### Tight Lists
+
+-   Bullet point 1
+-   Bullet point 2 with block math (w/o blank line)
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   Bullet point 3 with block math and blank line
+
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+-   Bullet point 4 with image
+
+    ![](img/b.png)
+-   Bullet point 5 with figure
+
+    ![image caption](img/b.png)
+-   Bullet point 6 with code block
+
+    ```antlr
+    grammar Hello;
+
+    start : stmt* ;
+
+    stmt  : ID '=' expr ';' | expr ';' ;
+    expr  : term ('+' term)* ;
+    term  : atom ('*' atom)* ;
+    atom  : ID | NUM ;
+
+    ID    : [a-z][a-zA-Z]* ;
+    NUM   : [0-9]+ ;
+    WS    : [ \t\n]+ -> skip ;
+    ```
+
+    foo bar wuppie fluppie - text below code block in bullet point 6
+-   simple bullet point
+
 
 
 # Filter for Slides and Handouts
