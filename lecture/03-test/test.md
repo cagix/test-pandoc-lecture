@@ -583,6 +583,28 @@ compare with
         blubfasel $z$
 
 *   foobar
+
+compare with
+
+1.  wuppie $x_i$ fluppie $w_0$:
+
+    $$h(\mathbf{x}^1) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   bla bla bla
+
+    *   blub $x$ blub blub
+
+        $$h(\mathbf{x}^2) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   brabbel brabbel brabbel
+
+    *   blafasel $y$
+
+        $$h(\mathbf{x}^3) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+        blubfasel $z$
+
+2.  foobar
 ```
 
 **will be rendered as**
@@ -629,6 +651,28 @@ compare with
         blubfasel $z$
 
 *   foobar
+
+compare with
+
+1.  wuppie $x_i$ fluppie $w_0$:
+
+    $$h(\mathbf{x}^1) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   bla bla bla
+
+    *   blub $x$ blub blub
+
+        $$h(\mathbf{x}^2) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   brabbel brabbel brabbel
+
+    *   blafasel $y$
+
+        $$h(\mathbf{x}^3) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+        blubfasel $z$
+
+2.  foobar
 
 
 ### Test Case nn02-linear-regression.md
