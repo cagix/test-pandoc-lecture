@@ -476,7 +476,10 @@ This should probably be in line with #180 ...
 
 ## GH Shenenigans
 
-### Relaxed Lists
+The GitHub Markdown parser has a really weird bug: as soon as there's inline math in a
+bullet point, any display math after that won't render properly in the whole bullet list.
+
+### Example
 
 -   Bullet point 1
 
@@ -487,15 +490,19 @@ This should probably be in line with #180 ...
 
     $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
 
--   Bullet point 4 with image
+-   Bullet point 4 with inline math ($x_i$) and block math and blank line
+
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+
+-   Bullet point 5 with image
 
     ![](img/b.png)
 
--   Bullet point 5 with figure
+-   Bullet point 6 with figure
 
     ![image caption](img/b.png)
 
--   Bullet point 6 with code block
+-   Bullet point 7 with code block
 
     ```antlr
     grammar Hello;
@@ -517,42 +524,21 @@ This should probably be in line with #180 ...
 -   simple bullet point
 
 
-### Tight Lists
+### Tests
 
--   Bullet point 1
--   Bullet point 2 with block math (w/o blank line)
-    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
--   Bullet point 3 with block math and blank line
+Using `bulletlist_displaymath.lua` to remove display math from bullet points.
 
-    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
--   Bullet point 4 with image
+This filter is intended as a quick-and-dirty workaround. If a display math element occurs
+in a bullet point, it is removed from the bullet point. The bullet list obtained so far is
+terminated, the display math element is inserted at the same AST level as the bullet list,
+and a new bullet list is started for the remaining bullet points.
 
-    ![](img/b.png)
--   Bullet point 5 with figure
+For reasons that are not entirely clear, empty pandoc.Para elements are sometimes inserted
+into the bullet points. These are immediately removed again here in the filter.
 
-    ![image caption](img/b.png)
--   Bullet point 6 with code block
-
-    ```antlr
-    grammar Hello;
-
-    start : stmt* ;
-
-    stmt  : ID '=' expr ';' | expr ';' ;
-    expr  : term ('+' term)* ;
-    term  : atom ('*' atom)* ;
-    atom  : ID | NUM ;
-
-    ID    : [a-z][a-zA-Z]* ;
-    NUM   : [0-9]+ ;
-    WS    : [ \t\n]+ -> skip ;
-    ```
-
-    foo bar wuppie fluppie - text below code block in bullet point 6
--   simple bullet point
-
-
-### Lists Item w/ inline math and block math
+Note: If a bullet point contains text followed by display math followed by text, the
+resulting order after the filter is no longer correct: First, the complete bullet point is
+emitted, followed by the display math.
 
 ```markdown
 -   wuppie $x_i$ fluppie:
@@ -578,6 +564,25 @@ compare with
 -   wuppie $x_i$ fluppie:
     $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
 -   foo bar
+
+compare with
+
+*   wuppie $x_i$ fluppie $w_0$:
+    *   bla bla bla
+
+    *   blub $x$ blub blub
+
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   brabbel brabbel brabbel
+
+    *   blafasel $y$
+
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+        blubfasel $z$
+
+*   foobar
 ```
 
 **will be rendered as**
@@ -605,6 +610,25 @@ compare with
 -   wuppie $x_i$ fluppie:
     $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
 -   foo bar
+
+compare with
+
+*   wuppie $x_i$ fluppie $w_0$:
+    *   bla bla bla
+
+    *   blub $x$ blub blub
+
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+    *   brabbel brabbel brabbel
+
+    *   blafasel $y$
+
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+
+        blubfasel $z$
+
+*   foobar
 
 
 ### Test Case nn02-linear-regression.md
