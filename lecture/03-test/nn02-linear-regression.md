@@ -64,7 +64,7 @@ $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} 
     Aufstiegs**: $$\nabla J = [ \partial J / \partial w_0
     \quad \partial J / \partial w_1 \quad \ldots
     \quad \partial J / \partial w_n]^T$$
--   **Schlussfolgerung**: In die entgegengesetzte Richtung, i.e. in Richtung $-\nabla J(\mathbf{w})$ geht es am
+-   **Schlussfolgerung**: In die entgegengesetzte Richtung, i.e. in Richtung $-\nabla J(\mathbf{w})$ geht es am
     *steilsten bergab!*
 -   **IDEE**: Bewege $\mathbf{w}$ in Richtung $-\nabla J(\mathbf{w})$, um die Kosten $J$ möglichst schnell zu senken.
 
