@@ -466,7 +466,7 @@ Foo bar, wuppie fluppie!
 
 This should probably be in line with #180 ...
 
-## GH Shenenigans
+## GH Shenanigans
 
 The GitHub Markdown parser has a really weird bug: as soon as there's inline math in a bullet point, any display math
 after that won't render properly in the whole bullet list.
@@ -731,7 +731,7 @@ Hier nach den LaTeX-Befehlen.
 
 **Geeignete Abstraktionen wählen für Zustände und Aktionen!**
 
-# Pandoc Shenenigans
+# Pandoc Shenanigans
 
 Pandoc sometimes transforms whitespace into UTF8 whitespace, which
 results in pdftex yelling at me, when this appears in lstlistings.
