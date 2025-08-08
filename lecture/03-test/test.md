@@ -731,6 +731,24 @@ Hier nach den LaTeX-Befehlen.
 
 **Geeignete Abstraktionen wählen für Zustände und Aktionen!**
 
+# Pandoc Shenenigans
+
+Pandoc sometimes transforms whitespace into UTF8 whitespace, which
+results in pdftex yelling at me, when this appears in lstlistings.
+
+Example:
+
+``` markdown
+cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
+```
+
+normal white space: cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
+
+pandoc replacement:
+cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
+
+Also ... hmmm. And "wuppie"?
+
 # Columns
 
 blablabla
