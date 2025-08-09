@@ -28,77 +28,101 @@ Code sollte auch gehen: `inline`, aber auch block:
 
     var wuppie = fib(4);
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu vulputate nisl. Ut scelerisque magna eros, at semper
-lectus vulputate vitae. Nullam egestas tellus lorem, eget sodales mauris lacinia ut. Etiam a viverra ex. Nam eu nisl vel
-nisl cursus condimentum. Aliquam accumsan augue ut consequat viverra. Curabitur sagittis est mauris, at molestie arcu
-condimentum ut. Quisque efficitur porta maximus. Donec non leo est. Aenean interdum condimentum libero, ac cursus dolor
-condimentum in. Nullam lorem ex, iaculis a orci vitae, iaculis aliquam enim.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu vulputate nisl. Ut
+scelerisque magna eros, at semper lectus vulputate vitae. Nullam egestas tellus
+lorem, eget sodales mauris lacinia ut. Etiam a viverra ex. Nam eu nisl vel nisl
+cursus condimentum. Aliquam accumsan augue ut consequat viverra. Curabitur sagittis
+est mauris, at molestie arcu condimentum ut. Quisque efficitur porta maximus. Donec
+non leo est. Aenean interdum condimentum libero, ac cursus dolor condimentum in.
+Nullam lorem ex, iaculis a orci vitae, iaculis aliquam enim.
 
-Quisque est lacus, pellentesque vitae fringilla vitae, bibendum sit amet dolor. Proin rutrum metus sit amet hendrerit
-lobortis. Fusce ut ultrices enim. Morbi a urna rutrum, fringilla augue mattis, mollis lacus. Pellentesque elementum
-vitae magna ac feugiat. Vestibulum et metus eget augue finibus fringilla ac at velit. Cras eleifend in nisl ac commodo.
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse id mi nec diam
-pellentesque varius. Morbi in consequat neque, at bibendum purus. Quisque a est bibendum, pellentesque quam ac,
-fermentum diam. Cras augue nibh, tincidunt eu mollis at, hendrerit nec ex. Integer condimentum neque velit, eget aliquam
-justo iaculis ac.
+Quisque est lacus, pellentesque vitae fringilla vitae, bibendum sit amet dolor. Proin
+rutrum metus sit amet hendrerit lobortis. Fusce ut ultrices enim. Morbi a urna
+rutrum, fringilla augue mattis, mollis lacus. Pellentesque elementum vitae magna ac
+feugiat. Vestibulum et metus eget augue finibus fringilla ac at velit. Cras eleifend
+in nisl ac commodo. Orci varius natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. Suspendisse id mi nec diam pellentesque varius. Morbi in
+consequat neque, at bibendum purus. Quisque a est bibendum, pellentesque quam ac,
+fermentum diam. Cras augue nibh, tincidunt eu mollis at, hendrerit nec ex. Integer
+condimentum neque velit, eget aliquam justo iaculis ac.
 
-Nam consequat vehicula faucibus. In consequat sed lacus sed congue. Ut quis risus vel erat tincidunt molestie. Nullam
-nibh lorem, placerat et dignissim porttitor, mollis eget nisl. Mauris eu justo nisi. Sed viverra, enim in tincidunt
-blandit, dui eros mattis nulla, in elementum neque ex sed diam. Aliquam nec neque vitae sapien pulvinar tempus. Donec
-gravida interdum nunc sed feugiat. Curabitur finibus sed urna at rutrum. Maecenas mollis pulvinar lobortis. Mauris
-dignissim orci ut metus eleifend, eget porttitor purus rhoncus. Phasellus volutpat egestas odio mollis pharetra. Cras
-sem dolor, commodo eu lectus vel, ultrices fringilla tellus. Fusce eleifend orci sed porttitor imperdiet. Phasellus
-suscipit, est ut semper blandit, ligula dui scelerisque felis, varius tincidunt tellus est vitae lectus. Phasellus eu
-molestie urna.
+Nam consequat vehicula faucibus. In consequat sed lacus sed congue. Ut quis risus vel
+erat tincidunt molestie. Nullam nibh lorem, placerat et dignissim porttitor, mollis
+eget nisl. Mauris eu justo nisi. Sed viverra, enim in tincidunt blandit, dui eros
+mattis nulla, in elementum neque ex sed diam. Aliquam nec neque vitae sapien pulvinar
+tempus. Donec gravida interdum nunc sed feugiat. Curabitur finibus sed urna at
+rutrum. Maecenas mollis pulvinar lobortis. Mauris dignissim orci ut metus eleifend,
+eget porttitor purus rhoncus. Phasellus volutpat egestas odio mollis pharetra. Cras
+sem dolor, commodo eu lectus vel, ultrices fringilla tellus. Fusce eleifend orci sed
+porttitor imperdiet. Phasellus suscipit, est ut semper blandit, ligula dui
+scelerisque felis, varius tincidunt tellus est vitae lectus. Phasellus eu molestie
+urna.
 
-Sed sed leo vestibulum, iaculis justo in, aliquet mauris. Nunc luctus, metus quis vulputate lobortis, libero lacus
-imperdiet turpis, sit amet hendrerit magna nisi at leo. Pellentesque vehicula, mauris nec varius tempus, odio diam
-hendrerit mi, id porttitor ex felis ut sem. Vivamus tellus lacus, vehicula a augue non, aliquet aliquam quam. Donec
-dapibus quam sed ante blandit, in imperdiet enim dapibus. Etiam imperdiet sapien nec quam lobortis aliquet. Nam est
-eros, luctus consequat nulla ac, dapibus efficitur augue. Morbi tempor ex sed consectetur pharetra. Morbi ullamcorper ac
-enim nec accumsan. Nulla vestibulum eu turpis et rutrum.
+Sed sed leo vestibulum, iaculis justo in, aliquet mauris. Nunc luctus, metus quis
+vulputate lobortis, libero lacus imperdiet turpis, sit amet hendrerit magna nisi at
+leo. Pellentesque vehicula, mauris nec varius tempus, odio diam hendrerit mi, id
+porttitor ex felis ut sem. Vivamus tellus lacus, vehicula a augue non, aliquet
+aliquam quam. Donec dapibus quam sed ante blandit, in imperdiet enim dapibus. Etiam
+imperdiet sapien nec quam lobortis aliquet. Nam est eros, luctus consequat nulla ac,
+dapibus efficitur augue. Morbi tempor ex sed consectetur pharetra. Morbi ullamcorper
+ac enim nec accumsan. Nulla vestibulum eu turpis et rutrum.
 
-Donec laoreet lectus at laoreet condimentum. Nulla porttitor elit iaculis turpis vestibulum, eget lobortis dolor
-pretium. Nulla sollicitudin convallis ultrices. Integer porttitor a nunc a viverra. Vestibulum pulvinar a urna et
-posuere. Duis sem nibh, consequat vitae ornare id, porttitor vel odio. Duis sit amet mi non odio accumsan condimentum
-sit amet non leo. Duis ut ligula ligula.
+Donec laoreet lectus at laoreet condimentum. Nulla porttitor elit iaculis turpis
+vestibulum, eget lobortis dolor pretium. Nulla sollicitudin convallis ultrices.
+Integer porttitor a nunc a viverra. Vestibulum pulvinar a urna et posuere. Duis sem
+nibh, consequat vitae ornare id, porttitor vel odio. Duis sit amet mi non odio
+accumsan condimentum sit amet non leo. Duis ut ligula ligula.
 
-Phasellus sagittis non nisi eu ultricies. Donec quis ipsum at velit finibus mollis. Praesent facilisis blandit ligula.
-Pellentesque nec quam id neque lobortis egestas. Etiam nec risus feugiat, pulvinar mi in, vestibulum justo. Proin ac
-nisi scelerisque, bibendum tellus quis, lacinia leo. Vestibulum consequat fermentum est, eget cursus est efficitur ut.
-Fusce quis bibendum sapien. Vivamus vel nisl nulla. Nunc vehicula, odio ac ultricies iaculis, turpis turpis mollis
-dolor, et lobortis tortor ligula vel nisl. Nullam eget mi rutrum, suscipit felis at, dignissim justo. Praesent dapibus,
-arcu at luctus hendrerit, neque odio rhoncus lectus, vel semper lectus orci et ex. Etiam gravida, ex id hendrerit
-elementum, dolor urna lobortis quam, id commodo est erat eu purus. Nullam vitae diam id dui luctus imperdiet et eget
-est. Nam tincidunt elit nisl, id varius purus condimentum ut.
+Phasellus sagittis non nisi eu ultricies. Donec quis ipsum at velit finibus mollis.
+Praesent facilisis blandit ligula. Pellentesque nec quam id neque lobortis egestas.
+Etiam nec risus feugiat, pulvinar mi in, vestibulum justo. Proin ac nisi scelerisque,
+bibendum tellus quis, lacinia leo. Vestibulum consequat fermentum est, eget cursus
+est efficitur ut. Fusce quis bibendum sapien. Vivamus vel nisl nulla. Nunc vehicula,
+odio ac ultricies iaculis, turpis turpis mollis dolor, et lobortis tortor ligula vel
+nisl. Nullam eget mi rutrum, suscipit felis at, dignissim justo. Praesent dapibus,
+arcu at luctus hendrerit, neque odio rhoncus lectus, vel semper lectus orci et ex.
+Etiam gravida, ex id hendrerit elementum, dolor urna lobortis quam, id commodo est
+erat eu purus. Nullam vitae diam id dui luctus imperdiet et eget est. Nam tincidunt
+elit nisl, id varius purus condimentum ut.
 
-Nullam pharetra metus eu felis elementum suscipit. Quisque ultricies ultrices tellus, vitae volutpat diam suscipit
-vitae. Phasellus vel ornare erat, ut malesuada neque. Suspendisse ac justo sit amet urna tincidunt efficitur a sit amet
-nisi. Vivamus varius dolor lacinia, sodales dolor id, molestie diam. Duis mi eros, vestibulum sed odio quis, maximus
-ultricies nunc. Cras dapibus scelerisque arcu at consequat. Maecenas mattis mauris id luctus ultrices.
+Nullam pharetra metus eu felis elementum suscipit. Quisque ultricies ultrices tellus,
+vitae volutpat diam suscipit vitae. Phasellus vel ornare erat, ut malesuada neque.
+Suspendisse ac justo sit amet urna tincidunt efficitur a sit amet nisi. Vivamus
+varius dolor lacinia, sodales dolor id, molestie diam. Duis mi eros, vestibulum sed
+odio quis, maximus ultricies nunc. Cras dapibus scelerisque arcu at consequat.
+Maecenas mattis mauris id luctus ultrices.
 
-In mollis, ligula ac dignissim porttitor, enim erat vulputate leo, in interdum sapien lorem vitae metus. Sed condimentum
-id massa quis venenatis. Nam vitae lobortis libero, sed porttitor mauris. Morbi volutpat quis metus sit amet egestas. In
-in tortor non justo luctus pretium. Quisque rutrum neque lacus, sit amet hendrerit erat dignissim eu. Aenean justo dui,
-suscipit in mauris quis, mattis fringilla ligula. Fusce ac nibh dictum, iaculis augue id, sollicitudin mi. Pellentesque
-commodo, orci ac commodo congue, libero nunc hendrerit est, a maximus metus sem sed arcu. Maecenas venenatis sodales
-purus, eu interdum nunc dignissim nec. Cras aliquam ligula a sollicitudin hendrerit.
+In mollis, ligula ac dignissim porttitor, enim erat vulputate leo, in interdum sapien
+lorem vitae metus. Sed condimentum id massa quis venenatis. Nam vitae lobortis
+libero, sed porttitor mauris. Morbi volutpat quis metus sit amet egestas. In in
+tortor non justo luctus pretium. Quisque rutrum neque lacus, sit amet hendrerit erat
+dignissim eu. Aenean justo dui, suscipit in mauris quis, mattis fringilla ligula.
+Fusce ac nibh dictum, iaculis augue id, sollicitudin mi. Pellentesque commodo, orci
+ac commodo congue, libero nunc hendrerit est, a maximus metus sem sed arcu. Maecenas
+venenatis sodales purus, eu interdum nunc dignissim nec. Cras aliquam ligula a
+sollicitudin hendrerit.
 
-Suspendisse fringilla pretium risus, quis pharetra lacus laoreet quis. Nulla ultrices eros odio, id tincidunt lacus
-lobortis sed. In suscipit lacus vel risus cursus commodo vel nec nulla. Sed a sapien fringilla, commodo mi quis, luctus
-erat. Nam suscipit quam et nisl dictum, ut condimentum tortor tempor. Vestibulum ante ipsum primis in faucibus orci
-luctus et ultrices posuere cubilia curae; Suspendisse cursus, lacus sed sodales tincidunt, tellus ex blandit libero,
-quis tincidunt lectus leo eget magna. Donec sodales sodales ex vel sodales. Vestibulum pellentesque tellus vitae mauris
-gravida blandit. Pellentesque dignissim sem id lacus vulputate, sit amet laoreet ex tempor.
+Suspendisse fringilla pretium risus, quis pharetra lacus laoreet quis. Nulla ultrices
+eros odio, id tincidunt lacus lobortis sed. In suscipit lacus vel risus cursus
+commodo vel nec nulla. Sed a sapien fringilla, commodo mi quis, luctus erat. Nam
+suscipit quam et nisl dictum, ut condimentum tortor tempor. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse cursus,
+lacus sed sodales tincidunt, tellus ex blandit libero, quis tincidunt lectus leo eget
+magna. Donec sodales sodales ex vel sodales. Vestibulum pellentesque tellus vitae
+mauris gravida blandit. Pellentesque dignissim sem id lacus vulputate, sit amet
+laoreet ex tempor.
 
-Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in, tincidunt ante. Vestibulum quis
-ultricies neque. Cras nec dui id augue laoreet tempus at sit amet sem. Quisque mauris sem, ullamcorper a scelerisque sit
-amet, rhoncus nec risus. Donec malesuada, mauris a bibendum gravida, erat lectus ornare metus, quis iaculis erat tellus
-in turpis. Suspendisse nulla enim, mattis id fringilla sed, venenatis scelerisque lorem. Integer eget ex velit. Duis
-blandit risus mauris, eget iaculis velit eleifend a. Fusce volutpat justo sit amet tempus vulputate. Vivamus ac leo
-tempor, dapibus justo aliquam, mollis mi. Aenean pellentesque ipsum at quam dictum rutrum. Aliquam maximus commodo
-augue, ac egestas elit lobortis quis. Morbi vel ex ac sapien tincidunt aliquet. Donec pharetra ac felis non placerat.
-Integer fermentum vel velit sed auctor.
+Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in,
+tincidunt ante. Vestibulum quis ultricies neque. Cras nec dui id augue laoreet tempus
+at sit amet sem. Quisque mauris sem, ullamcorper a scelerisque sit amet, rhoncus nec
+risus. Donec malesuada, mauris a bibendum gravida, erat lectus ornare metus, quis
+iaculis erat tellus in turpis. Suspendisse nulla enim, mattis id fringilla sed,
+venenatis scelerisque lorem. Integer eget ex velit. Duis blandit risus mauris, eget
+iaculis velit eleifend a. Fusce volutpat justo sit amet tempus vulputate. Vivamus ac
+leo tempor, dapibus justo aliquam, mollis mi. Aenean pellentesque ipsum at quam
+dictum rutrum. Aliquam maximus commodo augue, ac egestas elit lobortis quis. Morbi
+vel ex ac sapien tincidunt aliquet. Donec pharetra ac felis non placerat. Integer
+fermentum vel velit sed auctor.
 :::
 
 ::: youtube
@@ -159,14 +183,16 @@ $$g_i^{(t+1)} = \left\{
 \end{array}
 \right.$$
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ## Known Problems
 
--   VSCode Preview: `\mbox{ tanh }` =\> $\mbox{ tanh }$ =\> `\text{ tanh }` =\> $\text{ tanh }$
+-   VSCode Preview: `\mbox{ tanh }` =\> $\mbox{ tanh }$ =\> `\text{ tanh }` =\>
+    $\text{ tanh }$
 -   GH Preview:
     -   `\phantom{xyz}` =\> $\phantom{xyz}$ =\> ?? =\> ??
-    -   `\operatorname{tanh}` =\> $\operatorname{tanh}$ =\> `\mathop{\text{tanh}}` =\> $\mathop{\text{tanh}}$
+    -   `\operatorname{tanh}` =\> $\operatorname{tanh}$ =\> `\mathop{\text{tanh}}`
+        =\> $\mathop{\text{tanh}}$
 
 $$g_i^{(t+1)} = \left\{
 \begin{array}{rll}
@@ -175,9 +201,10 @@ $$g_i^{(t+1)} = \left\{
 \end{array}
 \right.$$
 
-==Schwierig==: In Pandoc-Markdown muss Mathe mit `$` oder `$$` eingeschlossen werden, unabhängig vom konkreten Inhalt.
-In LaTeX ist aber `\begin{eqnarray}` bereits der Beginn einer Mathe-Umgebung, d.h. hier wären extra `$$` ==falsch==. Das
-muss per Filter korrigiert werden!
+==Schwierig==: In Pandoc-Markdown muss Mathe mit `$` oder `$$` eingeschlossen werden,
+unabhängig vom konkreten Inhalt. In LaTeX ist aber `\begin{eqnarray}` bereits der
+Beginn einer Mathe-Umgebung, d.h. hier wären extra `$$` ==falsch==. Das muss per
+Filter korrigiert werden!
 
     $$\begin{eqnarray}
     S &\rightarrow& a A                      \nonumber \\
@@ -228,7 +255,7 @@ NUM   : [0-9]+ ;
 WS    : [ \t\n]+ -> skip ;
 ```
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 Java-Code kompilieren: `javac *.java`
 
@@ -249,7 +276,7 @@ public class Main {
 }
 ```
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 Code ohne alles
 
@@ -270,7 +297,8 @@ Code ohne alles
 
 # Images
 
-Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is (also like in LaTeX).
+Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as
+is (also like in LaTeX).
 
 ## Images with Caption
 
@@ -278,31 +306,32 @@ kleines Bild, keine Breiteangabe:
 
 !["B" (small)](img/b.png)
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 kleines Bild, mit Titel und Breite:
 
 !["B", width="5%"](img/b.png "foobarwuppiefluppie"){width="5%"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 breites Bild, keine Breiteangabe:
 
 !["wuppie" (wide)](img/wuppie.png)
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 breites Bild, mit Breiteangabe:
 
 !["wuppie", width="20%"](img/wuppie.png){width="20%"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 breites Bild über HTTP, keine Breiteangabe:
 
-!["wuppie" via web (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+!["wuppie" via web
+(raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
 
@@ -317,25 +346,25 @@ ohne alles:
 
 ![](img/b.png)
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 mit breitenangabe:
 
 ![](img/b.png){width="5%"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 mit breitenangabe ("width") und titel:
 
 ![](img/b.png "title: wuppie"){width="5%"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 mit breitenangabe ("web_width") und titel:
 
 ![](img/b.png "title: wuppie"){web_width="10%"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 mit breitenangabe ("width" und "web_width") und titel:
 
@@ -366,7 +395,8 @@ mit div drumherum:
 ## Known Problems
 
 -   In VSC preview as well as in LaTeX images via web like
-    https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (**need to be "raw"**)
+    https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work
+    (**need to be "raw"**)
 
 # Tabellen
 
@@ -380,7 +410,7 @@ mit caption:
 
 : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ohne caption:
 
@@ -394,7 +424,8 @@ ohne caption:
 
 Normales Zitieren [@Siek2023racket] ...
 
-Mit Seitenangabe [@Siek2023racket, Seite 111] oder Kapitel [@Siek2023racket, Kapitel 111] ...
+Mit Seitenangabe [@Siek2023racket, Seite 111] oder Kapitel [@Siek2023racket, Kapitel
+111] ...
 
 Als Author-Zitat @Siek2023racket ...
 
@@ -432,7 +463,7 @@ GH introduced "alerts" with distinctive styling, like
 (see
 https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 Let's stick with Pandocs divs in Markdown content and use filters for export:
 
@@ -458,18 +489,22 @@ Foo bar, wuppie fluppie!
 
 -   Export to GH Markdown using ["distinctive
     alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
--   Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
+-   Export to Hugo using [notice
+    shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
 -   Export to Beamer using
-    [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also
-    [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`,
-    `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
+    [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment)
+    (also
+    [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf);
+    or `block`, `alertblock`, `examples` -
+    cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
 
 This should probably be in line with #180 ...
 
 ## GH Shenanigans
 
-The GitHub Markdown parser has a really weird bug: as soon as there's inline math in a bullet point, any display math
-after that won't render properly in the whole bullet list.
+The GitHub Markdown parser has a really weird bug: as soon as there's inline math in
+a bullet point, any display math after that won't render properly in the whole bullet
+list.
 
 ### Example
 
@@ -519,15 +554,19 @@ after that won't render properly in the whole bullet list.
 
 Using `bulletlist_displaymath.lua` to remove display math from bullet points.
 
-This filter is intended as a quick-and-dirty workaround. If a display math element occurs in a bullet point, it is
-removed from the bullet point. The bullet list obtained so far is terminated, the display math element is inserted at
-the same AST level as the bullet list, and a new bullet list is started for the remaining bullet points.
+This filter is intended as a quick-and-dirty workaround. If a display math element
+occurs in a bullet point, it is removed from the bullet point. The bullet list
+obtained so far is terminated, the display math element is inserted at the same AST
+level as the bullet list, and a new bullet list is started for the remaining bullet
+points.
 
-For reasons that are not entirely clear, empty pandoc.Para elements are sometimes inserted into the bullet points. These
-are immediately removed again here in the filter.
+For reasons that are not entirely clear, empty pandoc.Para elements are sometimes
+inserted into the bullet points. These are immediately removed again here in the
+filter.
 
-Note: If a bullet point contains text followed by display math followed by text, the resulting order after the filter is
-no longer correct: First, the complete bullet point is emitted, followed by the display math.
+Note: If a bullet point contains text followed by display math followed by text, the
+resulting order after the filter is no longer correct: First, the complete bullet
+point is emitted, followed by the display math.
 
 ``` markdown
 -   wuppie $x_i$ fluppie:
@@ -598,12 +637,14 @@ compare with
 
 **will be rendered as**
 
--   wuppie $x_i$ fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   wuppie $x_i$ fluppie:
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 -   foo bar
 
 compare with
 
--   wuppie fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   wuppie fluppie:
+    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 -   foo bar
 
 compare with
@@ -616,7 +657,8 @@ $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx
 
 compare with
 
--   wuppie $x_i$ fluppie: $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
+-   wuppie $x_i$ fluppie:
+    $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
 -   foo bar
 
 compare with
@@ -733,8 +775,8 @@ Hier nach den LaTeX-Befehlen.
 
 # Pandoc Shenanigans
 
-Pandoc sometimes transforms whitespace into UTF8 whitespace, which
-results in pdftex yelling at me, when this appears in lstlistings.
+Pandoc sometimes transforms whitespace into UTF8 whitespace, which results in pdftex
+yelling at me, when this appears in lstlistings.
 
 Example:
 
@@ -742,7 +784,8 @@ Example:
 cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
 ```
 
-normal white space: cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
+normal white space:
+cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
 
 pandoc replacement:
 cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents
@@ -755,8 +798,9 @@ blablabla
 
 ::::: columns
 ::: {.column width="50%"}
-Zum Parsen von Ausdrücken (*Expressions*) könnte man diese einfache Grammatik einsetzen. Ein Ausdruck ist dabei entweder
-ein einfacher Integer oder eine Addition oder Multiplikation zweier Ausdrücke.
+Zum Parsen von Ausdrücken (*Expressions*) könnte man diese einfache Grammatik
+einsetzen. Ein Ausdruck ist dabei entweder ein einfacher Integer oder eine Addition
+oder Multiplikation zweier Ausdrücke.
 
 ``` yacc
 expr : e1=expr '*' e2=expr      # MUL
@@ -777,8 +821,9 @@ wuppie! fluppie! foo? bar ...
 
 # Credits
 
-Typische Regeln und Konventionen tauchen überall auf, beispielsweise bei Tim Pope (siehe nächstes Beispiel) oder bei
-["How to Write a Git Commit Message"](https://cbea.ms/git-commit/).
+Typische Regeln und Konventionen tauchen überall auf, beispielsweise bei Tim Pope
+(siehe nächstes Beispiel) oder bei ["How to Write a Git Commit
+Message"](https://cbea.ms/git-commit/).
 
 ``` markdown
 Short (50 chars or less) summary of changes
@@ -798,8 +843,9 @@ Further paragraphs come after blank lines.
    vary here
 ```
 
-[["A Note About Git Commit Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by [Tim
-Pope](https://tpo.pe/) on tbaggery.com]{.origin}
+[["A Note About Git Commit
+Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by
+[Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
 
 # Filters
 
@@ -823,7 +869,7 @@ this is hidden content ...
 this is a show-me w/ title :)
 :::
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ## CBOX
 
@@ -843,10 +889,10 @@ this content should be centered
 
 This [will]{.alert} be highlighted. (but not used anymore)
 
-Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead: This ==will== be highlighted. Even
-==**with bold**== text.
+Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead:
+This ==will== be highlighted. Even ==**with bold**== text.
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ## Hinweis
 
@@ -868,9 +914,10 @@ use `ex` instead:
 
 [Simple Beispiel-Button X]{.ex}
 
-[Beispiel-Button w/ link]{.ex href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
+[Beispiel-Button w/ link]{.ex
+href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 Vor `\pause`...
 
@@ -884,7 +931,8 @@ should be added automatically and in `\scriptsize` or `<sup><sub>`
 
 ::: readings
 -   @Tate2011 [Kapitel 2]: foo bar wuppie fluppie
--   @Tate2011 [Kapitel 2]: Creating Graphical User Interfaces \> Creating a GUI With Swing
+-   @Tate2011 [Kapitel 2]: Creating Graphical User Interfaces \> Creating a GUI With
+    Swing
 -   @Nystrom2021: Abschnitt 2.5.2: Ant
 -   [@Nystrom2021]: Abschnitt 2.5.2: Ant
 :::
@@ -897,7 +945,8 @@ should be added automatically and in `\scriptsize` or `<sup><sub>`
 :::
 
 ::: quizzes
--   [Quiz Git Basics (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106241&client_id=FH-Bielefeld)
+-   [Quiz Git Basics
+    (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106241&client_id=FH-Bielefeld)
 :::
 
 ::: challenges
@@ -920,15 +969,17 @@ Betrachten Sie folgenden Code-Schnipsel in der Sprache
 
     var wuppie = fib(4);
 
-Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR. Implementieren Sie mit Hilfe des Parse-Trees und
-der Listener oder Visitoren einen einfachen Pretty-Printer.
+Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR. Implementieren
+Sie mit Hilfe des Parse-Trees und der Listener oder Visitoren einen einfachen
+Pretty-Printer.
 
 (Die genauere Sprachdefinition finden Sie bei Bedarf unter
 [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
 
 **Test for Pandoc Filter**
 
-This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in license statement!).
+This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in license
+statement!).
 
 [test from yaml (challenges)]{.origin}
 :::
