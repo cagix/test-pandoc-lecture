@@ -36,8 +36,8 @@ est mauris, at molestie arcu condimentum ut. Quisque efficitur porta maximus. Do
 non leo est. Aenean interdum condimentum libero, ac cursus dolor condimentum in.
 Nullam lorem ex, iaculis a orci vitae, iaculis aliquam enim.
 
-Quisque est lacus, pellentesque vitae fringilla vitae, bibendum sit amet dolor. Proin
-rutrum metus sit amet hendrerit lobortis. Fusce ut ultrices enim. Morbi a urna
+Quisque est lacus, pellentesque vitae fringilla vitae, bibendum sit amet dolor.
+Proin rutrum metus sit amet hendrerit lobortis. Fusce ut ultrices enim. Morbi a urna
 rutrum, fringilla augue mattis, mollis lacus. Pellentesque elementum vitae magna ac
 feugiat. Vestibulum et metus eget augue finibus fringilla ac at velit. Cras eleifend
 in nisl ac commodo. Orci varius natoque penatibus et magnis dis parturient montes,
@@ -46,17 +46,17 @@ consequat neque, at bibendum purus. Quisque a est bibendum, pellentesque quam ac
 fermentum diam. Cras augue nibh, tincidunt eu mollis at, hendrerit nec ex. Integer
 condimentum neque velit, eget aliquam justo iaculis ac.
 
-Nam consequat vehicula faucibus. In consequat sed lacus sed congue. Ut quis risus vel
-erat tincidunt molestie. Nullam nibh lorem, placerat et dignissim porttitor, mollis
-eget nisl. Mauris eu justo nisi. Sed viverra, enim in tincidunt blandit, dui eros
-mattis nulla, in elementum neque ex sed diam. Aliquam nec neque vitae sapien pulvinar
-tempus. Donec gravida interdum nunc sed feugiat. Curabitur finibus sed urna at
-rutrum. Maecenas mollis pulvinar lobortis. Mauris dignissim orci ut metus eleifend,
-eget porttitor purus rhoncus. Phasellus volutpat egestas odio mollis pharetra. Cras
-sem dolor, commodo eu lectus vel, ultrices fringilla tellus. Fusce eleifend orci sed
-porttitor imperdiet. Phasellus suscipit, est ut semper blandit, ligula dui
-scelerisque felis, varius tincidunt tellus est vitae lectus. Phasellus eu molestie
-urna.
+Nam consequat vehicula faucibus. In consequat sed lacus sed congue. Ut quis risus
+vel erat tincidunt molestie. Nullam nibh lorem, placerat et dignissim porttitor,
+mollis eget nisl. Mauris eu justo nisi. Sed viverra, enim in tincidunt blandit, dui
+eros mattis nulla, in elementum neque ex sed diam. Aliquam nec neque vitae sapien
+pulvinar tempus. Donec gravida interdum nunc sed feugiat. Curabitur finibus sed urna
+at rutrum. Maecenas mollis pulvinar lobortis. Mauris dignissim orci ut metus
+eleifend, eget porttitor purus rhoncus. Phasellus volutpat egestas odio mollis
+pharetra. Cras sem dolor, commodo eu lectus vel, ultrices fringilla tellus. Fusce
+eleifend orci sed porttitor imperdiet. Phasellus suscipit, est ut semper blandit,
+ligula dui scelerisque felis, varius tincidunt tellus est vitae lectus. Phasellus eu
+molestie urna.
 
 Sed sed leo vestibulum, iaculis justo in, aliquet mauris. Nunc luctus, metus quis
 vulputate lobortis, libero lacus imperdiet turpis, sit amet hendrerit magna nisi at
@@ -75,54 +75,54 @@ accumsan condimentum sit amet non leo. Duis ut ligula ligula.
 
 Phasellus sagittis non nisi eu ultricies. Donec quis ipsum at velit finibus mollis.
 Praesent facilisis blandit ligula. Pellentesque nec quam id neque lobortis egestas.
-Etiam nec risus feugiat, pulvinar mi in, vestibulum justo. Proin ac nisi scelerisque,
-bibendum tellus quis, lacinia leo. Vestibulum consequat fermentum est, eget cursus
-est efficitur ut. Fusce quis bibendum sapien. Vivamus vel nisl nulla. Nunc vehicula,
-odio ac ultricies iaculis, turpis turpis mollis dolor, et lobortis tortor ligula vel
-nisl. Nullam eget mi rutrum, suscipit felis at, dignissim justo. Praesent dapibus,
-arcu at luctus hendrerit, neque odio rhoncus lectus, vel semper lectus orci et ex.
-Etiam gravida, ex id hendrerit elementum, dolor urna lobortis quam, id commodo est
-erat eu purus. Nullam vitae diam id dui luctus imperdiet et eget est. Nam tincidunt
-elit nisl, id varius purus condimentum ut.
+Etiam nec risus feugiat, pulvinar mi in, vestibulum justo. Proin ac nisi
+scelerisque, bibendum tellus quis, lacinia leo. Vestibulum consequat fermentum est,
+eget cursus est efficitur ut. Fusce quis bibendum sapien. Vivamus vel nisl nulla.
+Nunc vehicula, odio ac ultricies iaculis, turpis turpis mollis dolor, et lobortis
+tortor ligula vel nisl. Nullam eget mi rutrum, suscipit felis at, dignissim justo.
+Praesent dapibus, arcu at luctus hendrerit, neque odio rhoncus lectus, vel semper
+lectus orci et ex. Etiam gravida, ex id hendrerit elementum, dolor urna lobortis
+quam, id commodo est erat eu purus. Nullam vitae diam id dui luctus imperdiet et
+eget est. Nam tincidunt elit nisl, id varius purus condimentum ut.
 
-Nullam pharetra metus eu felis elementum suscipit. Quisque ultricies ultrices tellus,
-vitae volutpat diam suscipit vitae. Phasellus vel ornare erat, ut malesuada neque.
-Suspendisse ac justo sit amet urna tincidunt efficitur a sit amet nisi. Vivamus
-varius dolor lacinia, sodales dolor id, molestie diam. Duis mi eros, vestibulum sed
-odio quis, maximus ultricies nunc. Cras dapibus scelerisque arcu at consequat.
-Maecenas mattis mauris id luctus ultrices.
+Nullam pharetra metus eu felis elementum suscipit. Quisque ultricies ultrices
+tellus, vitae volutpat diam suscipit vitae. Phasellus vel ornare erat, ut malesuada
+neque. Suspendisse ac justo sit amet urna tincidunt efficitur a sit amet nisi.
+Vivamus varius dolor lacinia, sodales dolor id, molestie diam. Duis mi eros,
+vestibulum sed odio quis, maximus ultricies nunc. Cras dapibus scelerisque arcu at
+consequat. Maecenas mattis mauris id luctus ultrices.
 
-In mollis, ligula ac dignissim porttitor, enim erat vulputate leo, in interdum sapien
-lorem vitae metus. Sed condimentum id massa quis venenatis. Nam vitae lobortis
-libero, sed porttitor mauris. Morbi volutpat quis metus sit amet egestas. In in
-tortor non justo luctus pretium. Quisque rutrum neque lacus, sit amet hendrerit erat
-dignissim eu. Aenean justo dui, suscipit in mauris quis, mattis fringilla ligula.
-Fusce ac nibh dictum, iaculis augue id, sollicitudin mi. Pellentesque commodo, orci
-ac commodo congue, libero nunc hendrerit est, a maximus metus sem sed arcu. Maecenas
-venenatis sodales purus, eu interdum nunc dignissim nec. Cras aliquam ligula a
-sollicitudin hendrerit.
+In mollis, ligula ac dignissim porttitor, enim erat vulputate leo, in interdum
+sapien lorem vitae metus. Sed condimentum id massa quis venenatis. Nam vitae
+lobortis libero, sed porttitor mauris. Morbi volutpat quis metus sit amet egestas.
+In in tortor non justo luctus pretium. Quisque rutrum neque lacus, sit amet
+hendrerit erat dignissim eu. Aenean justo dui, suscipit in mauris quis, mattis
+fringilla ligula. Fusce ac nibh dictum, iaculis augue id, sollicitudin mi.
+Pellentesque commodo, orci ac commodo congue, libero nunc hendrerit est, a maximus
+metus sem sed arcu. Maecenas venenatis sodales purus, eu interdum nunc dignissim
+nec. Cras aliquam ligula a sollicitudin hendrerit.
 
-Suspendisse fringilla pretium risus, quis pharetra lacus laoreet quis. Nulla ultrices
-eros odio, id tincidunt lacus lobortis sed. In suscipit lacus vel risus cursus
-commodo vel nec nulla. Sed a sapien fringilla, commodo mi quis, luctus erat. Nam
-suscipit quam et nisl dictum, ut condimentum tortor tempor. Vestibulum ante ipsum
-primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse cursus,
-lacus sed sodales tincidunt, tellus ex blandit libero, quis tincidunt lectus leo eget
-magna. Donec sodales sodales ex vel sodales. Vestibulum pellentesque tellus vitae
-mauris gravida blandit. Pellentesque dignissim sem id lacus vulputate, sit amet
-laoreet ex tempor.
+Suspendisse fringilla pretium risus, quis pharetra lacus laoreet quis. Nulla
+ultrices eros odio, id tincidunt lacus lobortis sed. In suscipit lacus vel risus
+cursus commodo vel nec nulla. Sed a sapien fringilla, commodo mi quis, luctus erat.
+Nam suscipit quam et nisl dictum, ut condimentum tortor tempor. Vestibulum ante
+ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse
+cursus, lacus sed sodales tincidunt, tellus ex blandit libero, quis tincidunt lectus
+leo eget magna. Donec sodales sodales ex vel sodales. Vestibulum pellentesque tellus
+vitae mauris gravida blandit. Pellentesque dignissim sem id lacus vulputate, sit
+amet laoreet ex tempor.
 
 Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in,
-tincidunt ante. Vestibulum quis ultricies neque. Cras nec dui id augue laoreet tempus
-at sit amet sem. Quisque mauris sem, ullamcorper a scelerisque sit amet, rhoncus nec
-risus. Donec malesuada, mauris a bibendum gravida, erat lectus ornare metus, quis
-iaculis erat tellus in turpis. Suspendisse nulla enim, mattis id fringilla sed,
-venenatis scelerisque lorem. Integer eget ex velit. Duis blandit risus mauris, eget
-iaculis velit eleifend a. Fusce volutpat justo sit amet tempus vulputate. Vivamus ac
-leo tempor, dapibus justo aliquam, mollis mi. Aenean pellentesque ipsum at quam
-dictum rutrum. Aliquam maximus commodo augue, ac egestas elit lobortis quis. Morbi
-vel ex ac sapien tincidunt aliquet. Donec pharetra ac felis non placerat. Integer
-fermentum vel velit sed auctor.
+tincidunt ante. Vestibulum quis ultricies neque. Cras nec dui id augue laoreet
+tempus at sit amet sem. Quisque mauris sem, ullamcorper a scelerisque sit amet,
+rhoncus nec risus. Donec malesuada, mauris a bibendum gravida, erat lectus ornare
+metus, quis iaculis erat tellus in turpis. Suspendisse nulla enim, mattis id
+fringilla sed, venenatis scelerisque lorem. Integer eget ex velit. Duis blandit
+risus mauris, eget iaculis velit eleifend a. Fusce volutpat justo sit amet tempus
+vulputate. Vivamus ac leo tempor, dapibus justo aliquam, mollis mi. Aenean
+pellentesque ipsum at quam dictum rutrum. Aliquam maximus commodo augue, ac egestas
+elit lobortis quis. Morbi vel ex ac sapien tincidunt aliquet. Donec pharetra ac
+felis non placerat. Integer fermentum vel velit sed auctor.
 :::
 
 ::: youtube
@@ -183,7 +183,7 @@ $$g_i^{(t+1)} = \left\{
 \end{array}
 \right.$$
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 ## Known Problems
 
@@ -201,10 +201,10 @@ $$g_i^{(t+1)} = \left\{
 \end{array}
 \right.$$
 
-==Schwierig==: In Pandoc-Markdown muss Mathe mit `$` oder `$$` eingeschlossen werden,
-unabhängig vom konkreten Inhalt. In LaTeX ist aber `\begin{eqnarray}` bereits der
-Beginn einer Mathe-Umgebung, d.h. hier wären extra `$$` ==falsch==. Das muss per
-Filter korrigiert werden!
+==Schwierig==: In Pandoc-Markdown muss Mathe mit `$` oder `$$` eingeschlossen
+werden, unabhängig vom konkreten Inhalt. In LaTeX ist aber `\begin{eqnarray}`
+bereits der Beginn einer Mathe-Umgebung, d.h. hier wären extra `$$` ==falsch==. Das
+muss per Filter korrigiert werden!
 
     $$\begin{eqnarray}
     S &\rightarrow& a A                      \nonumber \\
@@ -255,7 +255,7 @@ NUM   : [0-9]+ ;
 WS    : [ \t\n]+ -> skip ;
 ```
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Java-Code kompilieren: `javac *.java`
 
@@ -276,7 +276,7 @@ public class Main {
 }
 ```
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Code ohne alles
 
@@ -306,32 +306,32 @@ kleines Bild, keine Breiteangabe:
 
 !["B" (small)](img/b.png)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 kleines Bild, mit Titel und Breite:
 
 !["B", width="5%"](img/b.png "foobarwuppiefluppie"){width="5%"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 breites Bild, keine Breiteangabe:
 
 !["wuppie" (wide)](img/wuppie.png)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 breites Bild, mit Breiteangabe:
 
 !["wuppie", width="20%"](img/wuppie.png){width="20%"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 breites Bild über HTTP, keine Breiteangabe:
 
 !["wuppie" via web
 (raw)](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
 
@@ -346,25 +346,25 @@ ohne alles:
 
 ![](img/b.png)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 mit breitenangabe:
 
 ![](img/b.png){width="5%"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 mit breitenangabe ("width") und titel:
 
 ![](img/b.png "title: wuppie"){width="5%"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 mit breitenangabe ("web_width") und titel:
 
 ![](img/b.png "title: wuppie"){web_width="10%"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 mit breitenangabe ("width" und "web_width") und titel:
 
@@ -410,7 +410,7 @@ mit caption:
 
 : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 ohne caption:
 
@@ -463,7 +463,7 @@ GH introduced "alerts" with distinctive styling, like
 (see
 https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Let's stick with Pandocs divs in Markdown content and use filters for export:
 
@@ -503,8 +503,8 @@ This should probably be in line with #180 ...
 ## GH Shenanigans
 
 The GitHub Markdown parser has a really weird bug: as soon as there's inline math in
-a bullet point, any display math after that won't render properly in the whole bullet
-list.
+a bullet point, any display math after that won't render properly in the whole
+bullet list.
 
 ### Example
 
@@ -869,7 +869,7 @@ this is hidden content ...
 this is a show-me w/ title :)
 :::
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 ## CBOX
 
@@ -889,10 +889,10 @@ this content should be centered
 
 This [will]{.alert} be highlighted. (but not used anymore)
 
-Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark) instead:
-This ==will== be highlighted. Even ==**with bold**== text.
+Use [Pandoc's mark extension](https://pandoc.org/MANUAL.html#extension-mark)
+instead: This ==will== be highlighted. Even ==**with bold**== text.
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 ## Hinweis
 
@@ -917,7 +917,7 @@ use `ex` instead:
 [Beispiel-Button w/ link]{.ex
 href="https://github.com/sdiehl/write-you-a-haskell/blob/master/README.md"}
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Vor `\pause`...
 

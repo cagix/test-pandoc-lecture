@@ -9,7 +9,7 @@ title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 
 ::: slides
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 **Read Online**:
 
@@ -19,18 +19,19 @@ title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
     Preview](https://docsify-this.net/?basePath=https://raw.githubusercontent.com/cagix/test-pandoc-lecture/refs/heads/_docsify&homepage=readme.md&sidebar=true&browser-tab-title=PR2&font-size=14px&searchbox=true&externalLinkTarget=_blank&mergeNavbar=true&zoom-images=true&dark-mode=auto#/)
 -   [PDF-Version](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/readme.pdf)
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 :::
 
 # Kursbeschreibung
 
 Der Compiler ist das wichtigste Werkzeug in der Informatik. In der Königsdisziplin
-der Informatik schließt sich der Kreis, hier kommen die unterschiedlichen Algorithmen
-und Datenstrukturen und Programmiersprachenkonzepte zur Anwendung.
+der Informatik schließt sich der Kreis, hier kommen die unterschiedlichen
+Algorithmen und Datenstrukturen und Programmiersprachenkonzepte zur Anwendung.
 
-In diesem Modul geht es um ein grundlegendes Verständnis für die wichtigsten Konzepte
-im Compilerbau. Wir schauen uns dazu relevante aktuelle Tools und Frameworks an und
-setzen diese bei der Erstellung eines kleinen Compiler-Frontends für C++ ein.
+In diesem Modul geht es um ein grundlegendes Verständnis für die wichtigsten
+Konzepte im Compilerbau. Wir schauen uns dazu relevante aktuelle Tools und
+Frameworks an und setzen diese bei der Erstellung eines kleinen Compiler-Frontends
+für C++ ein.
 
 # Überblick Modulinhalte
 
@@ -61,7 +62,7 @@ setzen diese bei der Erstellung eines kleinen Compiler-Frontends für C++ ein.
 # Kursformat
 
 | Vorlesung (2 SWS) | Praktikum (2 SWS) |
-|:----------------------------------------|:-------------------------------------------|
+|:----------------------------------------|:------------------------------------------|
 | Mi, 08:00 - 09:30 Uhr (online) | S3, G1: Di, 11:30 - 13:00 Uhr (online/Präsenz J101) |
 | (Carsten: *Flipped Classroom*, BC: *Vorlesung*) | S3, G2: Fr, 14:00 - 15:30 Uhr (online/Präsenz J101) |
 |  | S3, G3: Mo, 09:15 - 10:45 Uhr (online/Präsenz J101) |
@@ -137,8 +138,8 @@ Vorstellung der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
 1.  ["**Compilers: Principles, Techniques, and
     Tools**"](https://learning.oreilly.com/library/view/compilers-principles-techniques/9789357054881/).
-    Aho, A. V. und Lam, M. S. und Sethi, R. und Ullman, J. D. and Bansal, S., Pearson
-    India, 2023. ISBN
+    Aho, A. V. und Lam, M. S. und Sethi, R. und Ullman, J. D. and Bansal, S.,
+    Pearson India, 2023. ISBN
     [978-9-3570-5488-1](https://fhb-bielefeld.digibib.net/openurl?isbn=978-9-3570-5488-1).
     [Online](https://learning.oreilly.com/library/view/compilers-principles-techniques/9789357054881/)
     über die [O'Reilly-Lernplattform](https://www.oreilly.com/library-access/).
