@@ -1,6 +1,8 @@
 ---
 author: Wuppie Fluppie
 title: Test Markdown
+outcomes: |
+    test for divtometa.lua - should be overwritten, warning should be emitted
 ---
 
 ::: tldr
