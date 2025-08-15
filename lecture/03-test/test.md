@@ -226,7 +226,7 @@ C &\rightarrow& \epsilon                 \nonumber
 
 ## Tests
 
-# Inline Math
+### Inline Math
 
 `array` as inline math:
 
@@ -246,7 +246,7 @@ B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$
 
-# Block Math
+### Block Math
 
 `array` as block math:
 
@@ -266,15 +266,15 @@ B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
 
-# Newline after `$$`
+### Newline after `$$`
 
 `array` as block math w/ newline:
 
 $$
-\begin{array}{rll}
+  \begin{array}{rll}
     \neg & g_i^{(t)} & \text{ falls } \chi_i \le p_{mut}\\[5pt]
     & g_i^{(t)} & \text{ sonst }
-\end{array}
+  \end{array}
 $$
 
 \bigskip
