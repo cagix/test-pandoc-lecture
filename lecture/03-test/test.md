@@ -198,8 +198,8 @@ $$g_i^{(t+1)} = \left\{
 
 $$g_i^{(t+1)} = \left\{
 \begin{array}{rll}
-    \neg & g_i^{(t)} & \mbox{ falls } \chi_i \le p_{mut}\\[5pt]
-    & g_i^{(t)} & \mbox{ sonst }
+    \neg & g_i^{(t)} & \text{ falls } \chi_i \le p_{mut}\\[5pt]
+    & g_i^{(t)} & \text{ sonst }
 \end{array}
 \right.$$
 
@@ -223,6 +223,72 @@ A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
 B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
+
+## Tests
+
+# Inline Math
+
+`array` as inline math:
+
+$\begin{array}{rll}
+    \neg & g_i^{(t)} & \text{ falls } \chi_i \le p_{mut}\\[5pt]
+    & g_i^{(t)} & \text{ sonst }
+\end{array}$
+
+\bigskip
+
+`eqnarray` as inline math:
+
+$\begin{eqnarray}
+S &\rightarrow& a A                      \nonumber \\
+A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
+B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
+C &\rightarrow& \epsilon                 \nonumber
+\end{eqnarray}$
+
+# Block Math
+
+`array` as block math:
+
+$$\begin{array}{rll}
+    \neg & g_i^{(t)} & \text{ falls } \chi_i \le p_{mut}\\[5pt]
+    & g_i^{(t)} & \text{ sonst }
+\end{array}$$
+
+\bigskip
+
+`eqnarray` as block math:
+
+$$\begin{eqnarray}
+S &\rightarrow& a A                      \nonumber \\
+A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
+B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
+C &\rightarrow& \epsilon                 \nonumber
+\end{eqnarray}$$
+
+# Newline after `$$`
+
+`array` as block math w/ newline:
+
+$$
+\begin{array}{rll}
+    \neg & g_i^{(t)} & \text{ falls } \chi_i \le p_{mut}\\[5pt]
+    & g_i^{(t)} & \text{ sonst }
+\end{array}
+$$
+
+\bigskip
+
+`eqnarray` as block math w/ newline:
+
+$$
+\begin{eqnarray}
+S &\rightarrow& a A                      \nonumber \\
+A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
+B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
+C &\rightarrow& \epsilon                 \nonumber
+\end{eqnarray}
+$$
 
 # Links
 
