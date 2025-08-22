@@ -933,6 +933,8 @@ So even `[bla]{.credits nolist=false}` will work:
 
 [Test 4: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist=0}
 
+[Test 5: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist=1}
+
 Do not use the old `origin` span anymore - superceded by `credits`.
 [This should emit a warning...]{.origin}
 
