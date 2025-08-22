@@ -915,6 +915,24 @@ Further paragraphs come after blank lines.
 Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by
 [Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
 
+---
+
+Use `[bla]{.origin nolist=true}` to put a nicely formatted reference to the original
+sources in the text without adding it to the list of exceptions to our licence (just
+giving credits):
+
+[Test 1: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=true}
+
+Note: Using the attribute "nolist" with any value would prevent this span from being
+included in the exceptions list since values will be read as string in the filter.
+So even `[bla]{.origin nolist=false}` will work:
+
+[Test 2: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=false}
+
+[Test 3: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist="false"}
+
+[Test 4: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=0}
+
 # Filters
 
 ## ShowMe
@@ -1049,7 +1067,7 @@ Pretty-Printer.
 This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in license
 statement!).
 
-[test from yaml (challenges)]{.origin}
+[test from yaml (challenges) - should not appear in slides]{.origin}
 :::
 
 [^1]: sometime even more often
