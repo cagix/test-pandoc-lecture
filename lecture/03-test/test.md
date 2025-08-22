@@ -401,12 +401,12 @@ breites Bild über HTTP, keine Breiteangabe:
 
 ------------------------------------------------------------------------------------
 
-breites Bild über HTTP mit `origin`-Span, keine Breiteangabe:
+breites Bild über HTTP mit `credits`-Span, keine Breiteangabe:
 
 !["wuppie" via web (raw) (["FooFOOOO" by me on
-void.intern.com]{.origin})](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
+void.intern.com]{.credits})](https://raw.githubusercontent.com/cagix/pandoc-thesis/refs/heads/master/figs/wuppie.png)
 
-["Foo" by me on void.extern.com]{.origin}
+["Foo" by me on void.extern.com]{.credits}
 
 ## Images w/o Caption
 
@@ -913,25 +913,28 @@ Further paragraphs come after blank lines.
 
 [["A Note About Git Commit
 Messages"](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) by
-[Tim Pope](https://tpo.pe/) on tbaggery.com]{.origin}
+[Tim Pope](https://tpo.pe/) on tbaggery.com]{.credits}
 
 ---
 
-Use `[bla]{.origin nolist=true}` to put a nicely formatted reference to the original
+Use `[bla]{.credits nolist=true}` to put a nicely formatted reference to the original
 sources in the text without adding it to the list of exceptions to our licence (just
 giving credits):
 
-[Test 1: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=true}
+[Test 1: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist=true}
 
 Note: Using the attribute "nolist" with any value would prevent this span from being
 included in the exceptions list since values will be read as string in the filter.
-So even `[bla]{.origin nolist=false}` will work:
+So even `[bla]{.credits nolist=false}` will work:
 
-[Test 2: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=false}
+[Test 2: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist=false}
 
-[Test 3: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist="false"}
+[Test 3: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist="false"}
 
-[Test 4: Eigenes Material basierend auf einer Idee nach XYZ.]{.origin nolist=0}
+[Test 4: Eigenes Material basierend auf einer Idee nach XYZ.]{.credits nolist=0}
+
+Do not use the old `origin` span anymore - superceded by `credits`.
+[This should emit a warning...]{.origin}
 
 # Filters
 
@@ -1067,7 +1070,7 @@ Pretty-Printer.
 This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in license
 statement!).
 
-[test from yaml (challenges) - should not appear in slides]{.origin}
+[test from yaml (challenges) - should not appear in slides]{.credits}
 :::
 
 [^1]: sometime even more often
