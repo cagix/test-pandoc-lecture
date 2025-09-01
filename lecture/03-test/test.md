@@ -466,6 +466,56 @@ mit div drumherum:
     https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work
     (**need to be "raw"**)
 
+---
+
+## Images from Web (LaTeX backend)
+
+When converting to LaTeX (PDF, Beamer), Pandoc will attempt to download the referred
+images. However, recently a lot of sites deny this. It seems we need to set an
+user-agent.
+
+![](https://upload.wikimedia.org/wikipedia/commons/e/e4/Turing_Test_version_3.png){width="40%" web_width="20%"}
+
+[[Turing Test version
+3.png](https://commons.wikimedia.org/wiki/File:Turing_Test_version_3.png) by
+[Bilby](https://commons.wikimedia.org/wiki/User:Bilby) on Wikimedia Commons ([Public
+Domain](https://en.wikipedia.org/wiki/en:public_domain))]{.credits}
+
+The conversion above will fail with
+
+```
+Could not convert image /tmp/tex2pdf.-c72add2811a5b622/3d299b2a35aa76ba2acfef6d4887a64d6ea8e601.txt: Cannot load file
+  Jpeg Invalid marker used
+  PNG Invalid PNG file, signature broken
+  Bitmap Invalid Bitmap magic identifier
+  GIF Invalid Gif signature : Please
+  HDR Invalid radiance file signature
+  Tiff Invalid endian tag value
+  TGA not enough bytes
+Error producing PDF.
+! LaTeX Error: Unknown graphics extension: .txt.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...
+
+l.1089 ...b2a35aa76ba2acfef6d4887a64d6ea8e601.txt}
+```
+
+unless there is a user-agent defined like
+
+```yaml
+request-headers:
+  - ["User-Agent", "Mozilla/5.0"]
+```
+
+**Note**: This is only needed, when Pandoc attempts to download the image locally,
+i.e. when converting to LaTeX based formats like PDF or Beamer. No need to set this
+for web based formats like GFM or Markdown since we just leave the link as it is.
+
+(see https://github.com/cagix/pandoc-lecture-zen/issues/57)
+(see https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/issues/455)
+
 # Tabellen
 
 mit caption:
