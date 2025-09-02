@@ -5,8 +5,6 @@ outcomes: |
     test for divtometa.lua - should be overwritten, warning should be emitted
 ---
 
-xxx
-
 ::: tldr
 Text für TL;DR ...
 
