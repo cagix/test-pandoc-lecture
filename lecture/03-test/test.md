@@ -549,6 +549,27 @@ Als Author-Zitat @Siek2023racket ...
 
 # GFM
 
+## Darkmode vs. Lightmode
+
+Diese Abbildung liegt in drei Varianten im Repo vor: transparenter Hintergrund, light, dark.
+Die Einbindung ist auf "transparent". Scale ist auf 60%. Die Abbildung sollte sich
+automatisch umstellen.
+
+![](img/dimensionen-ki.png){width=60%}
+
+Nachfolgend die "light"-Variante direkt:
+
+![](img/dimensionen-ki_light.png){width=60%}
+
+Nachfolgend die "dark"-Variante direkt:
+
+![](img/dimensionen-ki_dark.png){width=60%}
+
+Nachfolgend eine Abbildung, die es nicht in light/dark im Repo gibt. Wie verhält sich die
+Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit generiert werden?
+
+![](img/test_transparentbackground.png){width=40%}
+
 ## Details
 
 <details>
