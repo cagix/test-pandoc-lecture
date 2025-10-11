@@ -570,6 +570,10 @@ Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit gener
 
 ![](img/test_transparentbackground.png){width=40%}
 
+Und noch einmal, diesmal mit Caption.
+
+![Hier könnte ihre Werbung stehen.](img/test_transparentbackground.png){width=40%}
+
 ## Details
 
 <details>
