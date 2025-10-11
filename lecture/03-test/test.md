@@ -557,6 +557,8 @@ automatisch umstellen.
 
 ![](img/dimensionen-ki.png){width=60%}
 
+![Hier könnte ihre Werbung stehen.](img/dimensionen-ki.png){width=40%}
+
 Nachfolgend die "light"-Variante direkt:
 
 ![](img/dimensionen-ki_light.png){width=60%}
