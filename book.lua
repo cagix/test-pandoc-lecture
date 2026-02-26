@@ -1,109 +1,124 @@
--- filters/book.lua
--- Aggregiert aus README.md verlinkte .md-Dateien zu einem "Buch", gruppiert nach Unterordnern
--- für mehrere Präfixe (z. B. lecture/, homework/). Kapiteltitel kommen aus H1 des
--- README im jeweiligen Unterordner.
---
--- Konfiguration (empfohlen via --metadata-file book.yml):
--- book:
---   title: "Gesamtskript"
---   demote_by: 1
---   groups:
---     - prefix: "lecture/"
---       level: 1
---     - prefix: "homework/"
---       level: 1
---   readme_names: ["README.md", "readme.md", "_index.md", "index.md"]
---   exclude_readme: true
---
--- Aufrufbeispiele:
---   pandoc README.md -L filters/book.lua --metadata-file book.yml -o build/book.md
---   pandoc README.md -L filters/book.lua --metadata-file book.yml --pdf-engine=tectonic -o build/book.pdf
-
 
 --[[
-# Makefile (Ausschnitt)
+pandoc SUMMARY.md \
+  -L filters/book.lua \
+  -M book.summary_dir=. \
+  -M book.assets_dir=build/book-assets \
+  -M book.assets_rel=book-assets \
+  -M book.max_list_depth=3 \
+  -t gfm -o build/book.md
 
-PANDOC ?= pandoc
-BUILD  ?= build
-META   ?= book.yml
-
-# Ihre weiteren Lua-Filter können Sie hier eintragen (Reihenfolge nach book.lua):
-OTHER_FILTERS ?= filters/your-filter-1.lua filters/your-filter-2.lua
-FILTER_ARGS   := -L filters/book.lua $(addprefix -L ,$(OTHER_FILTERS))
-
-# Gemeinsame Optionen
-PANDOC_COMMON := --metadata-file $(META)
-
-# Ziele
-$(BUILD):
-    mkdir -p $(BUILD)
-
-# Debug: Aggregiertes Markdown (gut zur Kontrolle der Struktur)
-$(BUILD)/book.md: README.md filters/book.lua $(META) | $(BUILD)
-    $(PANDOC) $< $(FILTER_ARGS) $(PANDOC_COMMON) -o $@
-
-# HTML-Version (leichtgewichtig, z. B. als einfache Webansicht)
-$(BUILD)/book.html: README.md filters/book.lua $(META) | $(BUILD)
-    $(PANDOC) $< $(FILTER_ARGS) $(PANDOC_COMMON) -t html5 -s -o $@
-
-# PDF mit Tectonic (schneller, schlank)
-$(BUILD)/book.pdf: README.md filters/book.lua $(META) | $(BUILD)
-    $(PANDOC) $< $(FILTER_ARGS) $(PANDOC_COMMON) --pdf-engine=tectonic -o $@
-
-.PHONY: book book-html book-md
-book: $(BUILD)/book.pdf
-book-html: $(BUILD)/book.html
-book-md: $(BUILD)/book.md
-]]--
+pandoc build/book.md -o build/book.pdf --pdf-engine=tectonic
 
 
---[[
-# book.yml (Beispiel-Konfiguration)
+book.yaml:
+
 book:
-  title: "Gesamtskript"
-  demote_by: 1         # H1 der Einheiten -> H2 (wenn Kapitel H1 sind)
-  exclude_readme: true # README-Dateien der Unterordner nicht als Inhalt einbinden
-  readme_names: ["README.md", "readme.md", "_index.md", "index.md"]
+  summary_dir: "."
+  assets_dir: "build/book-assets"
+  assets_rel: "book-assets"
+  syllabus_title: "Syllabus"
+  max_list_depth: 3
+  drop_root_title_header: true
+  drop_root_title_header: "always"
 
-  # Mehrere Präfixe, die aus dem Haupt-README ausgewertet werden:
-  groups:
-    - prefix: "lecture/"
-      level: 1         # Kapitel-Ebene für lecture/*
-    - prefix: "homework/"
-      level: 1         # Kapitel-Ebene für homework/*
-    # - prefix: "admin/"
-    #   level: 1
+pandoc SUMMARY.md -L filters/book.lua --metadata-file book.yml -t gfm -o build/book.md
 ]]--
+
+
+
+-- filters/book.lua
+-- SUMMARY.md (BulletList) -> Gesamtbuch (Pandoc Markdown)
+-- - Titel aus YAML title der Root-Datei (erstes SUMMARY-Item)
+-- - Einleitung: H1 "Syllabus" + Root-Inhalt (um +1 demoted)
+-- - Weitere Items: Heading-Level = listDepth (1->H1, 2->H2, ...)
+-- - Inhalte demoted um header_level
+-- - Generiert stabile, globale Header-IDs (werden in Pandoc Markdown i. d. R. als {#id} ausgegeben)
+-- - Mappt Links other.md#frag -> #global-id (Alias-Strategie), other.md -> #chap-...
+-- - Kopiert Bilder in assets_dir und rewritet Pfade (GitHub/docsify geeignet)
+-- - Optional: book.drop_root_title_header = true|"always"
+--   entfernt im Root (nach Demotion) das erste H2, wenn es dem YAML-Titel entspricht (oder immer)
+-- - Strict: Fehler -> error()
 
 local P = pandoc.path or {}
 local U = pandoc.utils
 
-local function dirname(p) return (P.directory and P.directory(p)) or (p:match("(.+)/[^/]+$") or ".") end
-local function basename(p) return p:gsub("/+$",""):match("([^/]+)$") or p end
-local function join(a,b) return (P.join and P.join({a,b})) or (a == "" and b or (a .. "/" .. b)) end
+-- ---------- basic helpers ----------
 local function norm(p) return (P.normalize and P.normalize(p)) or p end
-local function is_abs(target)
-  return target:match("^[%a%d]+:") or target:sub(1,1) == '/' or target:sub(1,1) == '#'
+local function join(a, b)
+  return (P.join and P.join({ a, b })) or (a == "" and b or (a .. "/" .. b))
 end
-local function exists(path)
-  local f = io.open(path, "r")
-  if f then f:close(); return true end
-  return false
+local function dirname(p)
+  return (P.directory and P.directory(p)) or (p:match("(.+)/[^/]+$") or ".")
 end
+local function is_abs(t)
+  return t:match("^[%a%d]+:") or t:sub(1, 1) == "/" or t:sub(1, 1) == "#"
+end
+
 local function read_text(path)
-  local f = io.open(path, "r")
+  local f = io.open(path, "rb")
   if not f then return nil end
   local s = f:read("*a"); f:close()
   return s
 end
-local function humanize(s)
-  s = s:gsub("_"," "):gsub("-"," ")
-  return (s:gsub("^%l", string.upper))
+
+local function file_exists(path)
+  local f = io.open(path, "rb")
+  if f then f:close(); return true end
+  return false
+end
+
+local function ensure_dir(path)
+  if P.make_directory then
+    P.make_directory(path, true)
+  else
+    os.execute(string.format('mkdir -p "%s"', path))
+  end
+end
+
+local function copy_file(src, dst)
+  local fin = io.open(src, "rb")
+  if not fin then error("Kann Datei nicht öffnen: " .. src) end
+  local data = fin:read("*a"); fin:close()
+  ensure_dir(dirname(dst))
+  local fout = io.open(dst, "wb")
+  if not fout then error("Kann Datei nicht schreiben: " .. dst) end
+  fout:write(data); fout:close()
+end
+
+local function slugify(s)
+  s = (s or ""):lower()
+  s = s:gsub("%s+", "-")
+  s = s:gsub("[^%w%-_]", "")
+  s = s:gsub("%-+", "-")
+  s = s:gsub("^%-", ""):gsub("%-$", "")
+  if s == "" then s = "x" end
+  return s
+end
+
+local function github_slug(s)
+  -- grob GitHub-ähnlich: lower, spaces->-, drop non-alnum except -, collapse -
+  s = (s or ""):lower()
+  s = s:gsub("[%s]+", "-")
+  s = s:gsub("[^%w%-]", "")
+  s = s:gsub("%-+", "-")
+  s = s:gsub("^%-", ""):gsub("%-$", "")
+  if s == "" then s = "x" end
+  return s
+end
+
+local function hash8(s)
+  local h = 2166136261
+  for i = 1, #s do
+    h = (h ~ s:byte(i)) * 16777619
+    h = h % 2 ^ 32
+  end
+  return string.format("%08x", h)
 end
 
 local function shift_headings(doc, by)
-  if (not by) or by == 0 then return doc end
-  return doc:walk{
+  if not by or by == 0 then return doc end
+  return doc:walk {
     Header = function(h)
       h.level = math.min(h.level + by, 6)
       return h
@@ -111,216 +126,307 @@ local function shift_headings(doc, by)
   }
 end
 
-local function rewrite_rel_paths(doc, base_dir)
-  if not base_dir or base_dir == "" then return doc end
-  return doc:walk{
-    Link = function(el)
-      if el.target and not is_abs(el.target) then
-        el.target = norm(join(base_dir, el.target))
-      end
-      return el
-    end,
-    Image = function(el)
-      local t = el.src or el.target
-      if t and not is_abs(t) then
-        -- pandoc >= 3 uses el.src, ältere evtl. el.target
-        if el.src then
-          el.src = norm(join(base_dir, t))
+local function max(a, b) if a > b then return a else return b end end
+
+local function to_global_id(file_path, local_id)
+  return "h-" .. slugify(local_id) .. "-" .. hash8(file_path)
+end
+
+-- ---------- optional root title header drop ----------
+local function normalize_title(s)
+  s = (s or ""):lower()
+  s = s:gsub("%s+", " ")
+  s = s:gsub("^%s+", ""):gsub("%s+$", "")
+  s = s:gsub("[%p]", "")
+  return s
+end
+
+local function drop_first_root_h2_if_matches_title(blocks, doc_title, mode)
+  if not blocks or #blocks == 0 then return blocks end
+  local want_always = (mode == "always")
+
+  for i, b in ipairs(blocks) do
+    if b.t == "Header" then
+      if b.level == 2 then
+        if want_always then
+          table.remove(blocks, i)
         else
-          el.target = norm(join(base_dir, t))
+          local htxt = U.stringify(b.content)
+          if normalize_title(htxt) == normalize_title(doc_title) then
+            table.remove(blocks, i)
+          end
         end
       end
+      break -- only consider first header in root
+    end
+  end
+  return blocks
+end
+
+-- ---------- parse SUMMARY.md bullet list ----------
+-- returns ordered items {title, path, listDepth}
+local function parse_summary(doc, summary_dir)
+  local items = {}
+
+  local function first_link_in_blocks(blocks)
+    for _, blk in ipairs(blocks) do
+      if blk.t == "Para" or blk.t == "Plain" then
+        for _, inl in ipairs(blk.content) do
+          if inl.t == "Link" then return inl end
+        end
+      end
+    end
+    return nil
+  end
+
+  local function walk_list(list, depth)
+    for _, item in ipairs(list) do
+      local lnk = first_link_in_blocks(item)
+      if lnk and lnk.target and lnk.target:match("%.md") and not is_abs(lnk.target) then
+        local clean = (lnk.target:match("^[^#?]+") or lnk.target)
+        table.insert(items, {
+          title = U.stringify(lnk.content),
+          path = norm(join(summary_dir, clean)),
+          listDepth = depth
+        })
+      end
+      for _, blk in ipairs(item) do
+        if blk.t == "BulletList" then
+          walk_list(blk.content, depth + 1)
+        end
+      end
+    end
+  end
+
+  for _, b in ipairs(doc.blocks) do
+    if b.t == "BulletList" then walk_list(b.content, 0) end
+  end
+
+  return items
+end
+
+-- ---------- header alias collection ----------
+-- aliases[frag] = global_id
+local function collect_header_aliases(subdoc, file_path)
+  local aliases = {}
+  subdoc:walk {
+    Header = function(h)
+      local text = U.stringify(h.content)
+      local explicit = h.identifier
+
+      local s1 = slugify(text)
+      local s2 = github_slug(text)
+
+      local base = (explicit and explicit ~= "") and explicit or s1
+      local gid = to_global_id(file_path, base)
+
+      local candidates = {}
+      if explicit and explicit ~= "" then table.insert(candidates, explicit) end
+      if s1 and s1 ~= "" then table.insert(candidates, s1) end
+      if s2 and s2 ~= "" then table.insert(candidates, s2) end
+
+      for _, c in ipairs(candidates) do
+        if not aliases[c] then aliases[c] = gid end
+      end
+      return nil
+    end
+  }
+  return aliases
+end
+
+-- ---------- rewrite doc (headers/links/images) ----------
+local function rewrite_doc(subdoc, base_dir, ctx)
+  return subdoc:walk {
+    Header = function(h)
+      local text = U.stringify(h.content)
+      local explicit = h.identifier
+      local local_key = (explicit and explicit ~= "") and explicit or slugify(text)
+
+      local aliases = ctx.header_aliases_by_file[ctx.current_file] or {}
+      local gid = aliases[local_key] or to_global_id(ctx.current_file, local_key)
+
+      h.identifier = gid
+      return h
+    end,
+
+    Link = function(el)
+      if not el.target or is_abs(el.target) then return el end
+
+      local raw = el.target:gsub("%?.*$", "")
+      local file_part, frag = raw, nil
+      local before, after = raw:match("^([^#]+)#(.+)$")
+      if before then file_part, frag = before, after end
+
+      if file_part:match("%.md$") then
+        local abs = norm(join(base_dir, file_part))
+        local chap_anchor = ctx.chapter_anchor_by_file[abs]
+        if chap_anchor then
+          if frag and frag ~= "" then
+            local aliases = ctx.header_aliases_by_file[abs] or {}
+            local mapped = aliases[frag] or aliases[slugify(frag)] or aliases[github_slug(frag)]
+            if mapped then
+              el.target = "#" .. mapped
+            else
+              el.target = "#" .. chap_anchor
+              local k = abs .. "#" .. frag
+              if not ctx.unresolved[k] then
+                io.stderr:write("Warnung: Unaufgelöster Link-Anker: " .. k .. "\n")
+                ctx.unresolved[k] = true
+              end
+            end
+          else
+            el.target = "#" .. chap_anchor
+          end
+          return el
+        end
+
+        -- target md file not in book: keep normalized
+        el.target = norm(join(base_dir, el.target))
+        return el
+      end
+
+      -- non-md relative
+      el.target = norm(join(base_dir, el.target))
+      return el
+    end,
+
+    Image = function(el)
+      local t = el.src or el.target
+      if not t or is_abs(t) then return el end
+
+      local clean = (t:match("^[^#?]+") or t)
+      local abs = norm(join(base_dir, clean))
+      if not file_exists(abs) then
+        error("Bilddatei nicht gefunden: " .. abs .. " (referenziert aus " .. ctx.current_file .. ")")
+      end
+
+      local ext = abs:match("(%.[%w]+)$") or ""
+      local safe = slugify(abs:gsub(ext .. "$", "")):sub(-70)
+      local out_name = safe .. "-" .. hash8(abs) .. ext
+      local out_path = norm(join(ctx.assets_dir, out_name))
+
+      if not ctx.assets_seen[abs] then
+        copy_file(abs, out_path)
+        ctx.assets_seen[abs] = true
+      end
+
+      local rel = norm(join(ctx.assets_rel, out_name))
+      if el.src then el.src = rel else el.target = rel end
       return el
     end
   }
 end
 
-local function first_h1_in_markdown(md)
-  local ok, sub = pcall(pandoc.read, md, "markdown")
-  if not ok or not sub then return nil end
-  for _, b in ipairs(sub.blocks) do
-    if b.t == "Header" and b.level == 1 then
-      return U.stringify(b.content)
-    end
-  end
-  return nil
-end
-
-local function first_h1_in_file(path)
-  local md = read_text(path)
-  if not md then return nil end
-  return first_h1_in_markdown(md)
-end
-
-local function collect_md_links(blocks, prefixes, exclude_names)
-  local links = {} -- array of { path=..., prefix=... }
-  local function has_prefix(path)
-    for _, p in ipairs(prefixes) do
-      if path:sub(1, #p) == p then return p end
-    end
-    return nil
-  end
-  local function is_excluded_name(path)
-    local name = basename(path)
-    for _, n in ipairs(exclude_names or {}) do
-      if name:lower() == n:lower() then return true end
-    end
-    return false
-  end
-  local function add(path)
-    local clean = (path:match("^[^#?]+") or path)
-    if not clean:match("%.md$") then return end
-    local pref = has_prefix(clean)
-    if not pref then return end
-    if is_excluded_name(clean) then return end
-    table.insert(links, { path = clean, prefix = pref })
-  end
-  local function walker(el)
-    if el.t == "Link" and el.target then add(el.target) end
-    return nil
-  end
-  pandoc.walk_block(pandoc.Div(blocks), { Link = walker })
-  return links
-end
-
-local function group_dir_for(path, prefix)
-  -- Nimmt den ersten Unterordner unterhalb des Präfixes als Gruppierung, z. B.
-  -- lecture/thema2/foo.md -> lecture/thema2
-  local rest = path:sub(#prefix + 1)
-  local first = rest:match("([^/]+)/")
-  if first then
-    return (prefix:gsub("/+$","")) .. "/" .. first
-  else
-    -- Datei liegt direkt unter prefix
-    return (prefix:gsub("/+$",""))
-  end
-end
-
+-- ---------- main filter ----------
 return {
   {
     Pandoc = function(doc)
-      -- Default-Konfig
-      local DEMOTE_BY = 1
-      local groups_cfg = {} -- array: { prefix=..., level=... }
-      local readme_names = { "README.md", "readme.md", "_index.md", "index.md" }
-      local exclude_readme = true
-      local book_title = nil
+      local cfg = doc.meta.book or {}
 
-      -- Metadaten einlesen
-      if doc.meta.book then
-        local b = doc.meta.book
-        if b.title then book_title = U.stringify(b.title) end
-        if b.demote_by then DEMOTE_BY = tonumber(U.stringify(b.demote_by)) or DEMOTE_BY end
-        if b.readme_names and b.readme_names.t == "MetaList" then
-          readme_names = {}
-          for _, v in ipairs(b.readme_names) do table.insert(readme_names, U.stringify(v)) end
+      local summary_dir = cfg.summary_dir and U.stringify(cfg.summary_dir) or "."
+      local assets_dir  = cfg.assets_dir  and U.stringify(cfg.assets_dir)  or "build/book-assets"
+      local assets_rel  = cfg.assets_rel  and U.stringify(cfg.assets_rel)  or "book-assets"
+      local syllabus_title = cfg.syllabus_title and U.stringify(cfg.syllabus_title) or "Syllabus"
+      local max_list_depth = cfg.max_list_depth and tonumber(U.stringify(cfg.max_list_depth)) or 3
+
+      local drop_root_title_header = false -- false | true | "always"
+      if cfg.drop_root_title_header ~= nil then
+        local v = U.stringify(cfg.drop_root_title_header)
+        if v == "true" then drop_root_title_header = true
+        elseif v == "always" then drop_root_title_header = "always"
+        else drop_root_title_header = false end
+      end
+
+      ensure_dir(assets_dir)
+
+      local items = parse_summary(doc, summary_dir)
+      if #items == 0 then error("SUMMARY.md: keine Bullet-Links auf .md-Dateien gefunden.") end
+
+      local root = items[1]
+      if root.listDepth ~= 0 then
+        error("SUMMARY.md: erster Eintrag muss listDepth=0 (oberster Bulletpoint) sein.")
+      end
+
+      for _, it in ipairs(items) do
+        if not file_exists(it.path) then
+          error("Markdown-Datei nicht gefunden: " .. it.path)
         end
-        if b.exclude_readme ~= nil then
-          exclude_readme = (U.stringify(b.exclude_readme) ~= "false")
-        end
-        if b.groups and b.groups.t == "MetaList" then
-          for _, g in ipairs(b.groups) do
-            local mg = g.t == "MetaMap" and g or nil
-            if mg and mg["prefix"] then
-              local pref = U.stringify(mg["prefix"])
-              local lvl = 1
-              if mg["level"] then lvl = tonumber(U.stringify(mg["level"])) or 1 end
-              table.insert(groups_cfg, { prefix = pref, level = lvl })
-            end
-          end
+        if it.listDepth > max_list_depth then
+          io.stderr:write(
+            "Warnung: Große SUMMARY-Tiefe (" .. it.listDepth ..
+            " > " .. max_list_depth .. "): " .. it.path .. "\n"
+          )
         end
       end
 
-      -- Fallback: Einzelpräfix via -M 'book.prefix=...' (optional)
-      if (#groups_cfg == 0) and doc.meta["book.prefix"] then
-        local pref = U.stringify(doc.meta["book.prefix"])
-        local lvl = 1
-        if doc.meta["book.level"] then lvl = tonumber(U.stringify(doc.meta["book.level"])) or 1 end
-        table.insert(groups_cfg, { prefix = pref, level = lvl })
+      -- Root lesen: YAML title übernehmen
+      local root_md = assert(read_text(root.path), "Kann Root nicht lesen: " .. root.path)
+      local root_doc = pandoc.read(root_md, "markdown")
+      if root_doc.meta and root_doc.meta.title then
+        doc.meta.title = root_doc.meta.title
+      else
+        error("Root-Readme hat kein YAML-Metadatum 'title': " .. root.path)
       end
 
-      if #groups_cfg == 0 then
-        -- Nichts konfiguriert: unverändert zurückgeben
-        return doc
+      -- Anchors per file (links to file without #frag)
+      local chapter_anchor_by_file = {}
+      for _, it in ipairs(items) do
+        chapter_anchor_by_file[it.path] = "chap-" .. slugify(it.title) .. "-" .. hash8(it.path)
       end
 
-      -- Liste der Präfixe für die Link-Suche
-      local prefixes = {}
-      for _, g in ipairs(groups_cfg) do table.insert(prefixes, g.prefix) end
-
-      -- Links aus dem Eingangs-README sammeln
-      local raw_links = collect_md_links(doc.blocks, prefixes, exclude_readme and readme_names or {})
-
-      if #raw_links == 0 then
-        return doc -- keine passenden Links: Original belassen
+      -- Pass 1: collect header aliases for all files (for .md#frag mapping)
+      local header_aliases_by_file = {}
+      for _, it in ipairs(items) do
+        local md = assert(read_text(it.path), "Kann Datei nicht lesen: " .. it.path)
+        local sub = pandoc.read(md, "markdown")
+        header_aliases_by_file[it.path] = collect_header_aliases(sub, it.path)
       end
 
-      -- Map für schnellen Zugriff auf Prefix->Level
-      local prefix_level = {}
-      for _, g in ipairs(groups_cfg) do prefix_level[g.prefix] = g.level or 1 end
+      -- Build output
+      local ctx = {
+        assets_dir = assets_dir,
+        assets_rel = assets_rel,
+        assets_seen = {},
+        chapter_anchor_by_file = chapter_anchor_by_file,
+        header_aliases_by_file = header_aliases_by_file,
+        current_file = nil,
+        unresolved = {},
+      }
 
-      -- Gruppierung aufbauen
-      local groups = {} -- key: group_dir -> { level=..., prefix=..., files = {}, title=nil }
-      local order = {}  -- Reihenfolge der ersten Erwähnung
-      local seen_group = {}
-      local seen_in_group = {}
-
-      for _, L in ipairs(raw_links) do
-        local path, pref = L.path, L.prefix
-        local gdir = group_dir_for(path, pref)
-        if not groups[gdir] then
-          groups[gdir] = { level = prefix_level[pref] or 1, prefix = pref, files = {} }
-          seen_in_group[gdir] = {}
-        end
-        if not seen_group[gdir] then
-          table.insert(order, gdir); seen_group[gdir] = true
-        end
-        if not seen_in_group[gdir][path] then
-          table.insert(groups[gdir].files, path)
-          seen_in_group[gdir][path] = true
-        end
-      end
-
-      -- Ausgabe-Dokument zusammenbauen
       local out = {}
 
-      if book_title and #book_title > 0 then
-        table.insert(out, pandoc.Header(1, pandoc.Str(book_title)))
+      -- H1 Syllabus + Root content (demoted +1)
+      table.insert(out, pandoc.Header(1, pandoc.Str(syllabus_title), pandoc.Attr("syllabus-" .. hash8(root.path))))
+
+      ctx.current_file = root.path
+      root_doc = shift_headings(root_doc, 1)
+
+      if drop_root_title_header then
+        local doc_title_str = U.stringify(doc.meta.title)
+        local mode = (drop_root_title_header == "always") and "always" or "match"
+        root_doc.blocks = drop_first_root_h2_if_matches_title(root_doc.blocks, doc_title_str, mode)
       end
 
-      for _, gdir in ipairs(order) do
-        local g = groups[gdir]
-        -- Kapitel-Titel aus README im Unterordner ermitteln
-        local title = nil
-        for _, cand in ipairs(readme_names) do
-          local p = join(gdir, cand)
-          if exists(p) then
-            title = first_h1_in_file(p)
-            if title and #title > 0 then break end
-          end
-        end
-        if not title or #title == 0 then
-          title = humanize(basename(gdir))
-        end
+      root_doc = rewrite_doc(root_doc, dirname(root.path), ctx)
+      for _, b in ipairs(root_doc.blocks) do table.insert(out, b) end
 
-        table.insert(out, pandoc.Header(g.level, pandoc.Str(title)))
+      -- Remaining items: wrapper heading level = listDepth (1->H1 topics, 2->H2 sessions ...)
+      for i = 2, #items do
+        local it = items[i]
+        ctx.current_file = it.path
 
-        -- Inhalte der verlinkten Dateien einfügen
-        for _, file in ipairs(g.files) do
-          local md = read_text(file)
-          if not md then
-            table.insert(out, pandoc.Para{ pandoc.Str("Warnung: Datei nicht gefunden: " .. file) })
-          else
-            local ok, sub = pcall(pandoc.read, md, "markdown")
-            if not ok or not sub then
-              table.insert(out, pandoc.Para{ pandoc.Str("Warnung: Datei nicht lesbar: " .. file) })
-            else
-              sub = shift_headings(sub, DEMOTE_BY)
-              sub = rewrite_rel_paths(sub, dirname(file))
-              for _, b in ipairs(sub.blocks) do table.insert(out, b) end
-            end
-          end
-        end
+        local header_level = math.min(max(1, it.listDepth), 6)
+        local chap_id = chapter_anchor_by_file[it.path]
+        table.insert(out, pandoc.Header(header_level, pandoc.Str(it.title), pandoc.Attr(chap_id)))
+
+        local md = assert(read_text(it.path), "Kann Datei nicht lesen: " .. it.path)
+        local sub = pandoc.read(md, "markdown")
+
+        -- content under wrapper heading
+        sub = shift_headings(sub, header_level)
+
+        sub = rewrite_doc(sub, dirname(it.path), ctx)
+        for _, b in ipairs(sub.blocks) do table.insert(out, b) end
       end
 
       doc.blocks = out
