@@ -14,6 +14,20 @@ pandoc -L crawl.lua readme.md
 ]]--
 
 
+-- crawl.lua (Pandoc 3.9+)
+-- Link-basierter Crawler für lokale .md-Dateien:
+-- - crawlt nur Inline-Links []() (Pandoc AST: Link)
+-- - dedupliziert (nur erster Fund zählt)
+-- - zyklensicher (seen + processed)
+-- - baut Verzeichnisbaum mit stabiler Einfüge-Reihenfolge pro Ebene
+-- - Titel: Dateien aus YAML title; Ordner aus title des README.md im Ordner (sonst "" + Warnung)
+-- - erzeugt summary.md (mdbook-ähnlich), Ordner-Einträge verlinken auf ihr README (falls vorhanden)
+-- - erzeugt deps.mk und optional crawl-order.txt
+-- - deps.mk/Dateiliste werden NICHT in Crawl-Reihenfolge ausgegeben, sondern als "baum-flache Liste"
+--   in stabiler Reihenfolge je Ebene, mit der Ausgabe-Regel:
+--     "erst Dateien, dann Unterordner" (pro Ordner)
+-- - bricht bei Parse-Fehlern von Markdown-Dateien mit Fehlermeldung ab (pandoc.error)
+
 local system = require 'pandoc.system'
 local utils  = require 'pandoc.utils'
 local path   = require 'pandoc.path'
@@ -33,19 +47,14 @@ local OUT_ORDER_TXT  = "crawl-order.txt"
 local MK_VAR_NAME = "COURSE_MD_SOURCES"
 
 -- ==========================
--- Logging (Pandoc API)
+-- Logging
 -- ==========================
-local function warn(msg)
-  pandoc.log.warn(msg)
-end
-
-local function info(msg)
-  -- optional; für ruhigeren Output auskommentieren:
-  -- pandoc.log.info(msg)
+local function warn(msg) pandoc.log.warn(msg) end
+local function info(msg) -- pandoc.log.info(msg)
 end
 
 -- ==========================
--- Link/Pfad Utilities
+-- Utilities
 -- ==========================
 local function is_remote_target(t)
   if not t or t == "" then return false end
@@ -73,6 +82,9 @@ local function normalize_md_target(basefile, target)
   local clean = strip_fragment_and_query(target)
   if not clean:lower():match("%.md$") then return nil end
 
+  -- Backslashes in Links tolerieren (Windows)
+  clean = clean:gsub("\\", "/")
+
   local basedir = path.directory(basefile)
   local joined  = path.join({ basedir, clean })
   return path.normalize(joined)
@@ -80,6 +92,7 @@ end
 
 local function split_path(p)
   local parts = {}
+  p = p:gsub("\\", "/")
   for part in p:gmatch("[^/]+") do
     table.insert(parts, part)
   end
@@ -87,12 +100,19 @@ local function split_path(p)
 end
 
 -- ==========================
--- Pandoc read + Titel (nur Pandoc API, kein pcall)
+-- Pandoc read + Titel
+-- - bei Fehler: harter Abbruch mit pandoc.error
 -- ==========================
 local function read_doc(filepath)
-  -- nutzt Pandoc intern (kein Subprozess); wir lesen nur den Text ein
   local content = system.read_file(filepath)
-  return pandoc.read(content, "markdown")
+  local ok, doc = pcall(pandoc.read, content, "markdown")
+  if not ok then
+    pandoc.error(
+      "Kann Markdown-Datei nicht parsen: " .. filepath
+      .. "\nDetails: " .. tostring(doc)
+    )
+  end
+  return doc
 end
 
 local function get_title_from_doc(doc)
@@ -109,11 +129,11 @@ end
 -- ==========================
 -- dir node:
 -- { kind="dir", name="topA", path="lecture/topA", title=nil|"...",
---   readme_path=nil|"lecture/topA/README.md",
---   children={}, child_index={} }
+--   readme_path=nil|".../README.md",
+--   children={}, child_index={}, meta_done=false }
 --
 -- file node:
--- { kind="file", name="l01.md", path="lecture/topA/l01.md", title=nil|"..."}
+-- { kind="file", name="l01.md", path="lecture/topA/l01.md", title=nil|"..." }
 local function new_dir_node(name, p)
   return {
     kind = "dir",
@@ -121,6 +141,7 @@ local function new_dir_node(name, p)
     path = p,
     title = nil,
     readme_path = nil,
+    meta_done = false,
     children = {},
     child_index = {}
   }
@@ -135,42 +156,51 @@ local function new_file_node(name, p)
   }
 end
 
+-- typisierte Index-Keys vermeiden Kollisionen file vs dir
+local function dir_key(name)  return "dir:" .. name end
+local function file_key(name) return "file:" .. name end
+
 local function get_or_add_child_dir(parent, dir_name, dir_path)
-  local idx = parent.child_index[dir_name]
+  local k = dir_key(dir_name)
+  local idx = parent.child_index[k]
   if idx then return parent.children[idx] end
   local n = new_dir_node(dir_name, dir_path)
   table.insert(parent.children, n)
-  parent.child_index[dir_name] = #parent.children
+  parent.child_index[k] = #parent.children
   return n
 end
 
 local function add_file_leaf(parent, filename, filepath)
-  local idx = parent.child_index[filename]
+  local k = file_key(filename)
+  local idx = parent.child_index[k]
   if idx then return parent.children[idx] end
   local n = new_file_node(filename, filepath)
   table.insert(parent.children, n)
-  parent.child_index[filename] = #parent.children
+  parent.child_index[k] = #parent.children
   return n
 end
 
+-- Liefert: parent_dirnode, leafname, dirchain (Liste Dirnodes entlang des Pfads)
 local function ensure_dir_chain(root, filepath)
   local parts = split_path(filepath)
   if #parts == 1 then
-    return root, parts[1]
+    return root, parts[1], {}
   end
 
   local dir = root
+  local chain = {}
   local accum = ""
   for i = 1, (#parts - 1) do
     local name = parts[i]
     accum = (accum == "") and name or (accum .. "/" .. name)
     dir = get_or_add_child_dir(dir, name, accum)
+    table.insert(chain, dir)
   end
-  return dir, parts[#parts]
+  return dir, parts[#parts], chain
 end
 
 -- ==========================
--- Dir README Titel (lazy) + Warnung
+-- Dir README Titel (lazy)
 -- ==========================
 local dir_cache = {} -- dirpath -> { title="", readme_path=nil|... }
 
@@ -199,30 +229,22 @@ local function compute_dir_meta(dirnode)
     return dir_cache[p]
   end
 
-  local doc = read_doc(found)
+  local doc = read_doc(found) -- kann hart abbrechen
   local t = get_title_from_doc(doc) or ""
   dir_cache[p] = { title = t, readme_path = found }
   return dir_cache[p]
 end
 
 local function ensure_dir_meta(dirnode)
-  if dirnode.title ~= nil or dirnode.readme_path ~= nil then
-    -- Achtung: readme_path kann nil sein; title kann "" sein. Wir prüfen daher:
-    if dirnode.title ~= nil then return end
-  end
+  if dirnode.meta_done then return end
   local m = compute_dir_meta(dirnode)
   dirnode.title = m.title
   dirnode.readme_path = m.readme_path
-end
-
-local function ensure_file_title(filenode)
-  if filenode.title ~= nil then return end
-  local doc = read_doc(filenode.path)
-  filenode.title = get_title_from_doc(doc) or ""
+  dirnode.meta_done = true
 end
 
 -- ==========================
--- Link Extraktion
+-- Link Extraktion (nur Inline-Links)
 -- ==========================
 local function collect_md_links(doc, current_file)
   local found = {}
@@ -241,17 +263,17 @@ end
 -- ==========================
 -- Rückgabe:
 -- root: Baum
--- order: Liste der Dateien in Crawl-Reihenfolge (dedupliziert)
+-- crawl_order: Liste der Dateien in Crawl-Reihenfolge (dedupliziert)
 local function crawl(startfile)
   local root = new_dir_node("", "")
-  root.title = ""         -- wird gleich durch Startfile-Titel gesetzt
   root.readme_path = startfile
+  root.title = ""
 
   local queue, qh, qt = {}, 1, 0
   local seen = {}       -- entdeckt (in queue)
   local processed = {}  -- abgearbeitet (geparst)
 
-  local order = {}
+  local crawl_order = {}
 
   local function enqueue(p)
     if not p or p == "" then return end
@@ -265,11 +287,13 @@ local function crawl(startfile)
     queue[qt] = p
   end
 
-  -- Root-Titel aus der Startdatei
+  -- Root-Titel aus der Startdatei + Start enqueue
   do
+    if not file_exists(startfile) then
+      pandoc.error("Startdatei existiert nicht: " .. startfile)
+    end
     local startdoc = read_doc(startfile)
     root.title = get_title_from_doc(startdoc) or ""
-    -- Startdatei selbst und initiale Links
     enqueue(startfile)
   end
 
@@ -281,50 +305,76 @@ local function crawl(startfile)
 
     count = count + 1
     if count > MAX_FILES then
-      warn("MAX_FILES erreicht (" .. tostring(MAX_FILES) .. "), Abbruch.")
-      break
+      pandoc.error("MAX_FILES erreicht (" .. tostring(MAX_FILES) .. "), Abbruch.")
     end
+
+    -- Parse current genau einmal: Titel + Links
+    local doc = read_doc(current)
+    local title = get_title_from_doc(doc) or ""
 
     -- In Baum einhängen (stabile Ordnung durch first-seen der Dir-Kette + Datei)
-    local parent, fname = ensure_dir_chain(root, current)
+    local parent, fname, dirchain = ensure_dir_chain(root, current)
     local leaf = add_file_leaf(parent, fname, current)
-    ensure_file_title(leaf)
-    table.insert(order, current)
+    if leaf.title == nil then leaf.title = title end
+    table.insert(crawl_order, current)
 
     -- Dir-Metadaten entlang des Pfads lazy setzen
-    do
-      local parts = split_path(current)
-      local dir = root
-      local accum = ""
-      for i = 1, (#parts - 1) do
-        local name = parts[i]
-        accum = (accum == "") and name or (accum .. "/" .. name)
-        dir = get_or_add_child_dir(dir, name, accum)
-        ensure_dir_meta(dir)
-      end
+    for _, d in ipairs(dirchain) do
+      ensure_dir_meta(d)
     end
 
-    -- Datei parsen und Links sammeln
-    local doc = read_doc(current)
+    -- Links sammeln und enqueue in Dokument-Reihenfolge
     local links = collect_md_links(doc, current)
     for _, p in ipairs(links) do enqueue(p) end
 
     ::continue::
   end
 
-  return root, order
+  return root, crawl_order
 end
 
 -- ==========================
--- Emitter: order + deps.mk
+-- Ausgabe: Baum -> flache Datei-Liste (Themen-/Ordnerbündelung)
+-- Regel pro Ordner: "erst Dateien, dann Unterordner"
+-- ==========================
+local function flatten_tree_files(root)
+  local out = {}
+
+  local function rec(node)
+    if node.kind == "file" then
+      table.insert(out, node.path)
+      return
+    end
+
+    -- dir: Kinder erst files, dann dirs (jeweils stabil in children-Reihenfolge)
+    for _, ch in ipairs(node.children) do
+      if ch.kind == "file" then rec(ch) end
+    end
+    for _, ch in ipairs(node.children) do
+      if ch.kind == "dir" then rec(ch) end
+    end
+  end
+
+  rec(root)
+  return out
+end
+
+-- ==========================
+-- Emitter: crawl order txt (optional, weiterhin Crawl-Reihenfolge)
 -- ==========================
 local function emit_order_txt(order)
   if not OUT_ORDER_TXT then return end
   system.write_file(OUT_ORDER_TXT, table.concat(order, "\n") .. "\n")
 end
 
-local function emit_deps_mk(order)
+-- ==========================
+-- Emitter: deps.mk (aus Baum-Reihenfolge, nicht Crawl-Reihenfolge)
+-- ==========================
+local function emit_deps_mk_from_tree(root)
   if not OUT_DEPS_MK then return end
+
+  local order = flatten_tree_files(root)
+
   local lines = {}
   table.insert(lines, "# generated by pandoc -L crawl.lua")
   table.insert(lines, MK_VAR_NAME .. " := \\")
@@ -338,10 +388,8 @@ end
 
 -- ==========================
 -- Emitter: summary.md
--- Anforderungen:
--- - nur tatsächlich aufgesammelte Links (=> Baum enthält nur aufgesammelte Dateien)
--- - Ordner dienen der Gliederung UND verlinken auf deren README (falls vorhanden)
--- - Gesamttitel = title aus YAML der Startdatei (root.title)
+-- (Ordnerstruktur, Ordner verlinken auf README falls vorhanden)
+-- Regel pro Ordner: "erst Dateien, dann Unterordner"
 -- ==========================
 local function md_escape(s)
   if not s then return "" end
@@ -349,14 +397,11 @@ local function md_escape(s)
 end
 
 local function label_for_file(n)
-  if n.title == nil then ensure_file_title(n) end
   return (n.title and n.title ~= "") and n.title or n.name
 end
 
 local function label_for_dir(n)
   ensure_dir_meta(n)
-  -- Titel darf leer sein; für Anzeige in summary sollten wir dann den Ordnernamen nehmen,
-  -- sonst ist die Liste schwer lesbar. Intern bleibt title="" erhalten.
   if n.title and n.title ~= "" then return n.title end
   return n.name
 end
@@ -387,20 +432,27 @@ local function emit_summary_md(root)
       if node.readme_path then
         table.insert(lines, indent .. "- [" .. label .. "](" .. node.readme_path .. ")")
       else
-        -- Kein README: trotzdem Strukturpunkt (nicht klickbar)
         table.insert(lines, indent .. "- " .. label)
       end
       depth = depth + 1
       indent = string.rep("  ", depth)
     end
 
+    -- Kinder: erst files, dann dirs
     for _, ch in ipairs(node.children) do
-      rec(ch, depth)
+      if ch.kind == "file" then rec(ch, depth) end
+    end
+    for _, ch in ipairs(node.children) do
+      if ch.kind == "dir" then rec(ch, depth) end
     end
   end
 
+  -- root-Kinder: erst files, dann dirs
   for _, ch in ipairs(root.children) do
-    rec(ch, 0)
+    if ch.kind == "file" then rec(ch, 0) end
+  end
+  for _, ch in ipairs(root.children) do
+    if ch.kind == "dir" then rec(ch, 0) end
   end
 
   system.write_file(OUT_SUMMARY_MD, table.concat(lines, "\n") .. "\n")
@@ -412,15 +464,20 @@ end
 function Pandoc(doc)
   local inputs = PANDOC_STATE and PANDOC_STATE.input_files or nil
   local startfile = (inputs and #inputs >= 1) and inputs[1] or "readme.md"
+  startfile = path.normalize(startfile)
 
   info("crawl.lua: start at " .. startfile)
 
-  local tree, order = crawl(startfile)
+  local tree, crawl_order = crawl(startfile)
 
-  emit_order_txt(order)
-  emit_deps_mk(order)
+  -- optional: Crawl-Reihenfolge (BFS, dedupliziert)
+  emit_order_txt(crawl_order)
+
+  -- deps.mk in Themen-/Baum-Reihenfolge (Dateien vor Unterordnern)
+  emit_deps_mk_from_tree(tree)
+
+  -- summary.md in Themen-/Baum-Reihenfolge (Dateien vor Unterordnern)
   emit_summary_md(tree)
 
-  -- Dokument unverändert
   return doc
 end
