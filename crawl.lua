@@ -1,179 +1,134 @@
--- crawl.lua (Pandoc 3.9+)
---
--- Link-basierter Crawler für lokale .md-Dateien:
--- - crawlt nur Inline-Links []() (Pandoc AST: Link)
--- - dedupliziert (nur erster Fund zählt)
--- - zyklensicher (seen + processed)
--- - baut Verzeichnisbaum mit stabiler Einfüge-Reihenfolge pro Ebene
--- - Titel: Dateien aus YAML title
--- - Ordner-Titel: aus YAML title der README.md im jeweiligen Ordner (sonst "" + Warnung)
--- - erzeugt:
---     summary.md (mdbook-ähnlich; pro Ebene: zuerst Dateien, dann Ordner;
---                 Ordner-Einträge verlinken auf ihr README, falls vorhanden)
---     deps.mk (Make-Variable mit Quellenliste, in Baum-Reihenfolge)
---     crawl-order.txt (optional, BFS/Crawl-Reihenfolge)
--- - verändert das Pandoc-Ausgabedokument NICHT
---
--- Aufruf:
---   pandoc -L crawl.lua readme.md -t plain --wrap=none
+--[[
+crawl.lua (Pandoc 3.9+)
+
+Link-based crawler for local .md files:
+- crawls only Markdown inline links `[]()` (Pandoc AST: Link)
+- de-duplicates and is cycle-safe (only the first occurrence counts)
+- builds a directory tree preserving insertion order per level
+- file titles are taken from the YAML field `title`
+- directory titles are taken from the YAML field `title` of the README.md
+  in that directory (otherwise "" + warning)
+- produces:
+    - summary.md (similar to mdBook; per level: files first, then directories;
+                directory entries link to their README if present)
+    - deps.mk (Make variable with the list of source files, in tree order)
+    - crawl-order.txt (optional, BFS/crawl order)
+    - returns, as a “document”, a list of the files (like deps.mk,
+    but directly usable in pipeline operations)
+
+Usage:
+  pandoc -L crawl.lua readme.md -t plain --wrap=none
+]]
 
 local system = require 'pandoc.system'
 local utils  = require 'pandoc.utils'
 local path   = require 'pandoc.path'
+local log    = require 'pandoc.log'
+
+
 
 -- ==========================
--- Konfiguration
+-- Configuration
 -- ==========================
-local MAX_FILES = 5000
+local README_CANDIDATES = { "readme.md", "README.md", "Readme.md" }
+local MK_VAR_NAME       = "MARKDOWN_SRC"
 
-local README_CANDIDATES = { "readme.md", "README.md" }
-
--- Artefakte (nil zum Abschalten)
+-- output artifacts (nil to deactivate)
 local OUT_SUMMARY_MD = "summary.md"
 local OUT_DEPS_MK    = "deps.mk"
 local OUT_ORDER_TXT  = "crawl-order.txt"
 
-local MK_VAR_NAME = "COURSE_MD_SOURCES"
-
--- Optional: Root als Bullet in summary.md ausgeben (Link auf Startdatei)
--- - false: erster Bullet-Punkt "- [<root-title>](<startfile>)"
--- - true : erster Bullet-Punkt "- [<ROOT_README_LABEL>](<startfile>)"
-local SUMMARY_INCLUDE_ROOT_BULLET = true
+-- summary.md, first bullet point:
+-- - nil      : "- [<root-title>](<startfile>)"
+-- - otherwise: "- [<ROOT_README_LABEL>](<startfile>)"
 local ROOT_README_LABEL = "Syllabus"
+local SUMMARY_TITLE     = "Summary"
 
--- ==========================
--- Logging
--- ==========================
-local function warn(msg) pandoc.log.warn(msg) end
-local function info(_msg)
-  -- pandoc.log.info(_msg)
-end
+
 
 -- ==========================
 -- Utilities
 -- ==========================
-local function is_remote_target(t)
-  if not t or t == "" then return false end
-  if t:match("^%a[%w+.-]*:") then return true end -- http:, https:, mailto:, ...
-  if t:match("^//") then return true end
-  return false
+local function _is_local_markdown_file_link (t)
+    return t ~= ""
+        and not t:match('https?://.*') -- is not http(s)
+        and t:lower():match('.*%.md')  -- is markdown
 end
 
-local function strip_fragment_and_query(t)
-  local s = t:gsub("#.*$", "")
-  s = s:gsub("%?.*$", "")
-  return s
+local function _strip_fragment_and_query (t)
+    return t:gsub("#.*$", ""):gsub("%?.*$", "")
 end
 
-local function file_exists(p)
-  local f = io.open(p, "rb")
-  if f then f:close(); return true end
-  return false
-end
+-- replace ".." if possible
+local function _normalize_relpath (p)
+    if p == "" then return p end
 
--- Eigene Normalisierung für relative Pfade:
--- - ersetzt "\" durch "/"
--- - entfernt "."-Segmente
--- - wertet ".." aus, soweit möglich (ohne über den Anfang hinaus zu gehen)
-local function normalize_relpath(p)
-  if not p or p == "" then return p end
+    -- Pandoc: remove "./", replace "" by ".", use platform dependent separator
+    p = path.normalize(p)
 
-  -- erst mal Pandoc normalisieren lassen (Trenner usw.)
-  p = path.normalize(p)
-
-  -- jetzt unsere eigene Segment-Logik für "." und ".."
-  local parts = {}
-  for part in p:gmatch("[^/]+") do
-    if part == "." or part == "" then
-      -- überspringen
-    elseif part == ".." then
-      if #parts > 0 and parts[#parts] ~= ".." then
-        table.remove(parts)
-      else
-        table.insert(parts, "..")
-      end
-    else
-      table.insert(parts, part)
+    -- try to resolve "..":
+    -- "a/b/../../foo.md" should become "foo.md"
+    -- "../foo.md" would reference file outside the project dir - this would be an error
+    local parts = {}
+    for _, part in ipairs(path.split(p)) do
+        if part == ".." then
+            if #parts > 0 and parts[#parts] ~= ".." then
+                table.remove(parts)
+            else
+                error("path contains too many '..': " .. p .. " ... aborting")
+            end
+        else
+            table.insert(parts, part)
+        end
     end
-  end
 
-  local res = table.concat(parts, "/")
-  if res == "" then
-    return "."
-  end
-  return res
+    return path.normalize(path.join(parts))
 end
 
--- Normalize local markdown link target:
+-- normalize local markdown link target:
 -- - ignore remote targets
 -- - ignore non-.md targets
 -- - resolve relative targets against basefile directory
-local function normalize_md_target(basefile, target)
-  if not target or target == "" then return nil end
-  if is_remote_target(target) then return nil end
+local function _normalize_md_target (basefile, target)
+    target = _strip_fragment_and_query(target) -- remove queries and fragments from target
+    if not _is_local_markdown_file_link(target) then return nil end
 
-  local clean = strip_fragment_and_query(target)
-  if not clean:lower():match("%.md$") then return nil end
+    basefile = _normalize_relpath(basefile)
+    local basedir = path.directory(basefile)
+    local joined  = (basedir == "." or basedir == "") and target or path.join({ basedir, target })
 
-  -- tolerate Windows-style separators in links
-  clean = clean:gsub("\\", "/")
-
-  -- Normalize basefile zuerst, um konsistente Pfadauflösung sicherzustellen
-  basefile = normalize_relpath(basefile)
-  local basedir = path.directory(basefile)
-  local joined  = path.join({ basedir, clean })
-
-  -- Relativen Zielpfad an basedir anhängen und dann ".." usw. auflösen
-  local joined = (basedir == "." or basedir == "") and clean or (basedir .. "/" .. clean)
-
-  return normalize_relpath(joined)
+    return _normalize_relpath(joined)
 end
 
-local function split_path(p)
-  local parts = {}
-  p = p:gsub("\\", "/")
-  for part in p:gmatch("[^/]+") do
-    table.insert(parts, part)
-  end
-  return parts
+local function _create_md_link (prefix, label, target)
+    return prefix .. "[" .. label .. "](" .. target .. ")"
 end
+
+
 
 -- ==========================
--- Pandoc read + Title
--- - on error: hard abort with pandoc.error
+-- Pandoc helper
 -- ==========================
-local function read_doc(filepath)
-  local ok_read, content = pcall(system.read_file, filepath)
-  if not ok_read then
-    pandoc.error(
-      "Kann Datei nicht lesen: " .. filepath
-      .. "\nDetails: " .. tostring(content)
-    )
-  end
 
-  local ok_parse, doc = pcall(pandoc.read, content, "markdown")
-  if not ok_parse then
-    pandoc.error(
-      "Kann Markdown-Datei nicht parsen: " .. filepath
-      .. "\nDetails: " .. tostring(doc)
-    )
-  end
-
-  return doc
+-- parse file into doc
+local function _read_doc (filepath)
+    local content = system.read_file(filepath)
+    local doc = pandoc.read(content, "markdown")
+    return doc
 end
 
-local function get_title_from_doc(doc)
-  if not doc or not doc.meta then return nil end
-  local t = doc.meta.title
-  if not t then return nil end
-  local s = utils.stringify(t)
-  if s == "" then return nil end
-  return s
+-- get metadata title or ""
+local function _get_title_from_doc (doc)
+    return (doc and doc.meta and doc.meta.title) and
+        utils.stringify(doc.meta.title) or ""
 end
+
+
 
 -- ==========================
 -- Tree structure
 -- ==========================
+
 -- dir node:
 -- { kind="dir", name="topA", path="lecture/topA",
 --   title=nil|"...", readme_path=nil|"../README.md",
@@ -182,492 +137,372 @@ end
 --
 -- file node:
 -- { kind="file", name="l01.md", path="lecture/topA/l01.md", title=nil|"..."}
-local function new_dir_node(name, p)
-  return {
-    kind = "dir",
-    name = name,
-    path = p,
-    title = nil,
-    readme_path = nil,
-    meta_done = false,
-    children = {},
-    child_index = {},
-  }
+local function _new_dir_node (name, p)
+    return {
+        kind = "dir",
+        name = name,
+        path = _normalize_relpath(p),
+        title = nil,
+        readme_path = nil,
+        meta_done = false,
+        children = {},
+        child_index = {},
+    }
 end
 
-local function new_file_node(name, p)
-  return {
-    kind = "file",
-    name = name,
-    path = p,
-    title = nil,
-  }
+local function _new_file_node (name, p)
+    return {
+        kind = "file",
+        name = name,
+        path = _normalize_relpath(p),
+        title = nil,
+    }
 end
 
--- typed keys to avoid collisions between file and dir nodes with same name
-local function dir_key(name)  return "dir:" .. name end
-local function file_key(name) return "file:" .. name end
+-- helper: typed keys to avoid collisions between file and dir nodes with same name
+local function _dir_key (name)  return "dir:" .. name end
+local function _file_key (name) return "file:" .. name end
 
-local function rebuild_child_index(dirnode)
-  dirnode.child_index = {}
-  for i, ch in ipairs(dirnode.children) do
-    local k = (ch.kind == "file") and file_key(ch.name) or dir_key(ch.name)
-    dirnode.child_index[k] = i
-  end
+-- helper: is child the same readme.md file as the readme.md in the parent (folder)
+local function _is_readme_child (parent, child)
+    return parent.kind == "dir"
+        and parent.readme_path
+        and child.kind == "file"
+        and child.path == parent.readme_path
 end
 
-local function get_or_add_child_dir(parent, dir_name, dir_path)
-  local k = dir_key(dir_name)
-  local idx = parent.child_index[k]
-  if idx then return parent.children[idx] end
-
-  local n = new_dir_node(dir_name, dir_path)
-  table.insert(parent.children, n)
-  parent.child_index[k] = #parent.children
-  return n
+-- helper: get label for file node
+local function _label_for_file_node (n)
+    return (n.title and n.title ~= "") and n.title or n.name
 end
 
-local function add_file_leaf(parent, filename, filepath)
-  local k = file_key(filename)
-  local idx = parent.child_index[k]
-  if idx then return parent.children[idx] end
-
-  local n = new_file_node(filename, filepath)
-  table.insert(parent.children, n)
-  parent.child_index[k] = #parent.children
-  return n
+-- helper: get label for dir node
+local function _label_for_dir_node (n)
+    if n.title and n.title ~= "" then return n.title end
+    return n.name
 end
 
--- Ensure that all directory nodes along filepath exist.
--- Returns: parent_dirnode, leafname, dirchain (list of dirnodes on path)
-local function ensure_dir_chain(root, filepath)
-  local parts = split_path(filepath)
-  if #parts == 1 then
-    return root, parts[1], {}
-  end
+-- helper: get meta data (title) for dir node
+local function _compute_dir_meta (dirnode)
+    local p = dirnode.path
 
-  local dir = root
-  local chain = {}
-  local accum = ""
-
-  for i = 1, (#parts - 1) do
-    local name = parts[i]
-    accum = (accum == "") and name or (accum .. "/" .. name)
-    dir = get_or_add_child_dir(dir, name, accum)
-    table.insert(chain, dir)
-  end
-
-  return dir, parts[#parts], chain
-end
-
--- ==========================
--- Dir README title (lazy) + cache
--- ==========================
-local dir_cache = {} -- dirpath -> { title="", readme_path=nil|... }
-
-local function compute_dir_meta(dirnode)
-  local p = dirnode.path
-
-  -- Root: use what crawler sets; do not auto-generate "Root"
-  if p == "" then
-    return { title = dirnode.title or "", readme_path = dirnode.readme_path }
-  end
-
-  if dir_cache[p] then
-    return dir_cache[p]
-  end
-
-  local found = nil
-  for _, rn in ipairs(README_CANDIDATES) do
-    local candidate = path.join({ p, rn })
-    if file_exists(candidate) then
-      found = candidate
-      break
-    end
-  end
-
-  if not found then
-    warn("Ordner ohne README.md: " .. p)
-    dir_cache[p] = { title = "", readme_path = nil }
-    return dir_cache[p]
-  end
-
-  -- README parsen, Titel holen
-  local doc = read_doc(found)
-  local t = get_title_from_doc(doc) or ""
-
-  -- README als File-Node im Verzeichnisbaum sicherstellen und nach vorne setzen
-  do
-    -- Dateiname extrahieren (z.B. "readme.md")
-    local fname = path.filename and path.filename(found) or found:match("([^/]+)$")
-    if not fname then fname = found end
-
-    -- 1. Versuchen, einen existierenden Knoten mit genau diesem Namen zu finden
-    local k = file_key(fname)
-    local idx = dirnode.child_index[k]
-
-    -- 2. Falls nicht gefunden: case-insensitive suchen (wichtig auf macOS)
-    if not idx then
-      local fname_lower = fname:lower()
-      for i, ch in ipairs(dirnode.children) do
-        if ch.kind == "file" and ch.name:lower() == fname_lower then
-          idx = i
-          break
+    -- search for readme.md
+    local found = nil
+    for _, rn in ipairs(README_CANDIDATES) do
+        local candidate = path.join({ p, rn })
+        if path.exists(candidate) then
+            found = candidate
+            break
         end
-      end
     end
 
-    local readme_node
-
-    if idx then
-      -- Knoten existiert bereits (ggf. mit anderer Groß-/Kleinschreibung):
-      readme_node = dirnode.children[idx]
-
-      -- An erste Stelle verschieben, falls nötig
-      if idx ~= 1 then
-        table.remove(dirnode.children, idx)
-        table.insert(dirnode.children, 1, readme_node)
-      end
-
-      -- Falls der Name (Repräsentation) abweicht, können Sie sich entscheiden:
-      -- a) erste gefundene Schreibweise beibehalten (nichts tun)
-      -- b) oder auf 'fname' umstellen:
-      -- readme_node.name = fname
-      -- readme_node.path = found
-    else
-      -- neuen File-Node an Position 1 einfügen
-      readme_node = new_file_node(fname, found)
-      table.insert(dirnode.children, 1, readme_node)
+    if not found then
+        log.warn("folder w/o README.md: " .. p)
+        return { title = "", readme_path = nil }
     end
 
-    -- Titel auf dem Datei-Knoten setzen, falls noch leer
-    if not readme_node.title or readme_node.title == "" then
-      readme_node.title = t
+    -- parse README and fetch title
+    local doc = _read_doc(found)
+    local t = _get_title_from_doc(doc)
+
+    return { title = t, readme_path = found }
+end
+
+-- add new leaf node
+local function _add_file_leaf (parent, filename, filepath)
+    local k = _file_key(filename)
+
+    -- do we know filename already?
+    local idx = parent.child_index[k]
+    if idx then return parent.children[idx] end
+
+    -- create a new entry/leaf for filename
+    local n = _new_file_node(filename, filepath)
+    table.insert(parent.children, n)
+    parent.child_index[k] = #parent.children
+    return n
+end
+
+-- add new dir node, if not yet existing
+local function _get_or_add_child_dir (parent, dir_name, dir_path)
+    local k = _dir_key(dir_name)
+
+    -- do we know dir_name already, i.e. do we have a child node?
+    local idx = parent.child_index[k]
+    if idx then return parent.children[idx] end
+
+    -- create a new childnode for dir_name
+    local n = _new_dir_node(dir_name, dir_path)
+    table.insert(parent.children, n)
+    parent.child_index[k] = #parent.children
+    return n
+end
+
+-- ensure that all directory nodes along filepath exist
+-- returns: parent_dirnode, leafname, dirchain (list of dirnodes on path)
+local function _ensure_dir_chain (root, filepath)
+    local parts = path.split(filepath) -- last part is filename
+
+    -- just filename
+    if #parts == 1 then
+        return root, parts[1], {}
     end
 
-    -- child_index aktualisieren
-    rebuild_child_index(dirnode)
-  end
+    -- path plus filename
+    local dir = root
+    local chain = {}
+    local accum = ""
 
-  dir_cache[p] = { title = t, readme_path = found }
-  return dir_cache[p]
-end
-
-local function ensure_dir_meta(dirnode)
-  if dirnode.meta_done then return end
-  local m = compute_dir_meta(dirnode)
-  dirnode.title = m.title
-  dirnode.readme_path = m.readme_path
-  dirnode.meta_done = true
-end
-
--- ==========================
--- Iteration helper:
--- "files first, then dirs", stable within each group
--- ==========================
-local function for_children_files_then_dirs(node, fn)
-  for _, ch in ipairs(node.children) do
-    if ch.kind == "file" then fn(ch) end
-  end
-  for _, ch in ipairs(node.children) do
-    if ch.kind == "dir" then fn(ch) end
-  end
-end
-
--- ==========================
--- Link extraction (inline links only)
--- ==========================
-local function collect_md_links(doc, current_file)
-  local found = {}
-  doc:walk({
-    Link = function(el)
-      local norm = normalize_md_target(current_file, el.target)
-      if norm then table.insert(found, norm) end
-      return el
+    -- for each part: get child node or create a new node
+    for i = 1, (#parts - 1) do
+        local name = parts[i]
+        accum = (accum == "") and name or path.join({accum, name})
+        dir = _get_or_add_child_dir(dir, name, accum)
+        table.insert(chain, dir)
     end
-  })
-  return found
+
+    return dir, parts[#parts], chain
 end
 
+-- ensure that the readme path for dirnode is set
+local function _ensure_dir_meta (dirnode)
+    if dirnode.meta_done then return end
+
+    local m = _compute_dir_meta(dirnode)
+
+    dirnode.title = m.title
+    dirnode.readme_path = m.readme_path
+    dirnode.meta_done = true
+end
+
+-- iterate "files first, then dirs", within each group
+local function _for_children_files_then_dirs (node, fn)
+    if node.kind == "file" then return end
+
+    for _, ch in ipairs(node.children) do
+        if ch.kind == "file" then fn(ch) end
+    end
+
+    for _, ch in ipairs(node.children) do
+        if ch.kind == "dir" then fn(ch) end
+    end
+end
+
+-- generic tree traversal: files first, then dirs; skip readme children
+local function _walk_tree_files_then_dirs (root, fn)
+    local function _rec (node, depth)
+        fn(node, depth)
+
+        _for_children_files_then_dirs(node, function (ch)
+            if _is_readme_child(node, ch) then return end -- do not emit readme.md twice
+            _rec(ch, depth + 1)
+        end)
+    end
+
+    _rec(root, 0)
+end
+
+-- tree -> flat file list (topic/directory grouping)
+-- rule per directory: "files first, then subdirs"
+local function _flatten_tree_files (root)
+    local out = {}
+
+    _walk_tree_files_then_dirs(root, function (node, depth)
+        -- directory node: use readme for directory, if present
+        if node.kind == "dir" and node.readme_path then
+            table.insert(out, node.readme_path)
+        end
+
+        -- file node: use path of file
+        if node.kind == "file" then
+            table.insert(out, node.path)
+        end
+    end)
+
+    return out
+end
+
+
+
 -- ==========================
--- Crawl (BFS)
+-- _crawl (BFS)
 -- Returns:
 --   root: tree
---   crawl_order: list of files in BFS crawl order (deduplicated)
+--   _crawl_order: local markdown files in BFS _crawl order (deduplicated)
 -- ==========================
-local function crawl(startfile)
-  local root = new_dir_node("", "")
-  root.readme_path = startfile  -- model root as "points to startfile"
-  root.title = ""               -- will be set from startfile YAML title
+local function _crawl (startfile)
+    -- results: root node of new tree and list of files in _crawl order
+    local root = _new_dir_node("", "")
+    local _crawl_order = {}
 
-  local queue, qh, qt = {}, 1, 0
-  local seen = {}       -- discovered/enqueued
-  local processed = {}  -- already parsed/processed
+    -- simulate a simple queue
+    local queue, qh, qt = {}, 1, 0
+    local seen = {}       -- discovered/enqueued
 
-  local crawl_order = {}
+    local function _enqueue (p)
+        if not p or p == "" then return end
+        p = _normalize_relpath(p)
+        if seen[p] then return end
 
-  local function enqueue(p)
-    if not p or p == "" then return end
-    -- Kanonische Form des Pfads verwenden
-    p = normalize_relpath(p)
-    if seen[p] then return end
-
-    if not file_exists(p) then
-      warn("Linkziel existiert nicht: " .. p)
-      return
+        seen[p] = true
+        qt = qt + 1
+        queue[qt] = p
     end
 
-    seen[p] = true
-    qt = qt + 1
-    queue[qt] = p
-  end
-
-  -- Startpfad kanonisieren
-  startfile = normalize_relpath(startfile)
-  root.readme_path = startfile
-
-  -- Initialize root title from startfile + enqueue startfile
-  if not file_exists(startfile) then
-    pandoc.error("Startdatei existiert nicht: " .. startfile)
-  end
-
-  do
-    local startdoc = read_doc(startfile)
-    root.title = get_title_from_doc(startdoc) or ""
-    enqueue(startfile)
-  end
-
-  local count = 0
-  while qh <= qt do
-    local current = queue[qh]
-    qh = qh + 1
-
-    if not processed[current] then
-      processed[current] = true
-
-      count = count + 1
-      if count > MAX_FILES then
-        pandoc.error("MAX_FILES erreicht (" .. tostring(MAX_FILES) .. "), Abbruch.")
-      end
-
-      -- Parse current exactly once: title + links
-      local doc = read_doc(current)
-      local title = get_title_from_doc(doc) or ""
-
-      -- Attach to tree (stable insertion by first-seen)
-      local parent, fname, dirchain = ensure_dir_chain(root, current)
-      local leaf = add_file_leaf(parent, fname, current)
-      if leaf.title == nil then leaf.title = title end
-
-      table.insert(crawl_order, current)
-
-      -- Ensure directory metadata along the path (lazy, but done during crawl)
-      for _, d in ipairs(dirchain) do
-        ensure_dir_meta(d)
-      end
-
-      -- NEW: Verzeichnis-READMEs entlang des Pfads ebenfalls crawlen
-      for _, d in ipairs(dirchain) do
-        if d.readme_path then
-          enqueue(d.readme_path)
+    local function _dequeue ()
+        local p = nil
+        if qh <= qt then
+            p = queue[qh]
+            qh = qh + 1
         end
-      end
-
-      -- Collect links and enqueue in document order
-      local links = collect_md_links(doc, current)
-      for _, p in ipairs(links) do
-        enqueue(p)
-      end
-    end
-  end
-
-  return root, crawl_order
-end
-
--- ==========================
--- Output: tree -> flat file list (topic/directory grouping)
--- Rule per directory: "files first, then subdirs"
--- ==========================
-local function flatten_tree_files(root)
-  local out = {}
-
-  local function rec(node)
-    if node.kind == "file" then
-      table.insert(out, node.path)
-      return
+        return p
     end
 
-    for_children_files_then_dirs(node, function(ch)
-      rec(ch)
-    end)
-  end
+    -- initialize root from startfile + enqueue startfile
+    _ensure_dir_meta(root)
+    _enqueue(_normalize_relpath(startfile))
 
-  rec(root)
-  return out
-end
+    -- main loop: read next file & extract + enqueue all local markdown links
+    local current = _dequeue()
+    while current do
+        -- parse current exactly once
+        local doc = _read_doc(current)
+        local title = _get_title_from_doc(doc)
 
--- ==========================
--- Emitter: crawl-order.txt (optional; BFS crawl order)
--- ==========================
-local function emit_order_txt(order)
-  if not OUT_ORDER_TXT then return end
-  system.write_file(OUT_ORDER_TXT, table.concat(order, "\n") .. "\n")
-end
+        -- insert into tree (insertion by first-seen)
+        local parent, fname, dirchain = _ensure_dir_chain(root, current)
+        local leaf = _add_file_leaf(parent, fname, current)
+        if leaf.title == nil then leaf.title = title end
 
--- ==========================
--- Emitter: deps.mk (tree order, NOT crawl order)
--- ==========================
-local function emit_deps_mk_from_tree(root)
-  if not OUT_DEPS_MK then return end
+        -- ensure directory metadata along the path (lazy)
+        for _, d in ipairs(dirchain) do
+            _ensure_dir_meta(d)
+        end
 
-  local order = flatten_tree_files(root)
+        -- also _crawl readme.md along the path
+        for _, d in ipairs(dirchain) do
+            if d.readme_path then
+                _enqueue(_normalize_relpath(d.readme_path))
+            end
+        end
 
-  local lines = {}
-  table.insert(lines, "# generated by pandoc -L crawl.lua")
-  table.insert(lines, MK_VAR_NAME .. " := \\")
-  for i, p in ipairs(order) do
-    local suffix = (i == #order) and "" or " \\"
-    table.insert(lines, "  " .. p .. suffix)
-  end
-  table.insert(lines, "")
+        -- collect links and enqueue in document order
+        table.insert(_crawl_order, current)
+        doc:walk({
+            Link = function(el)
+                local p = _normalize_md_target(current, el.target)
+                _enqueue(p)
+            end
+        })
 
-  system.write_file(OUT_DEPS_MK, table.concat(lines, "\n"))
-end
-
--- ==========================
--- Emitter: Dep-Liste als Pandoc-Dokument (für $(shell ...) in Make)
---[[
-## Markdown sources: einmalig beim Parsen bestimmen
-COURSE_MD_SOURCES := $(shell \
-  $(PANDOC_MIN) \
-    -L $(PANDOC_DATA)/crawl.lua \
-    -M prefix=$(OUTPUT_DIR) \
-    -f markdown -t plain --wrap=none \
-    $(ROOT_MD) \
-)
-]]--
--- ==========================
-local function emit_deps_doc_from_tree(root, meta)
-  local order = flatten_tree_files(root)
-
-  local inlines = {}
-  for i, p in ipairs(order) do
-    if i > 1 then
-      table.insert(inlines, pandoc.Space())
+        current = _dequeue() -- next path
     end
-    table.insert(inlines, pandoc.Str(p))
-  end
 
-  local blocks = { pandoc.Plain(inlines) }
-  return pandoc.Pandoc(blocks, meta or pandoc.Meta{})
+    return root, _crawl_order
 end
 
+
+
 -- ==========================
--- Emitter: summary.md
--- - directory structure
+-- Emitter
+-- ==========================
+-- BFS crawl order
+local function _emit_order_txt (order)
+    if not OUT_ORDER_TXT then return end
+    system.write_file(OUT_ORDER_TXT, table.concat(order, "\n") .. "\n")
+end
+
+-- deps.mk (tree order, NOT _crawl order)
+local function _emit_deps_mk_from_tree (root)
+    if not OUT_DEPS_MK then return end
+
+    local order = _flatten_tree_files(root)
+
+    local lines = {}
+    table.insert(lines, "# generated by pandoc -L crawl.lua")
+    table.insert(lines, MK_VAR_NAME .. " := \\")
+    for i, p in ipairs(order) do
+        local suffix = (i < #order) and " \\" or "" -- no backslash in last line
+        table.insert(lines, "  " .. p .. suffix)
+    end
+    table.insert(lines, "")
+
+    system.write_file(OUT_DEPS_MK, table.concat(lines, "\n"))
+end
+
+-- summary.md
 -- - per level: files first, then dirs (stable within each)
 -- - directory entries link to README if present
--- ==========================
-local function md_escape(s)
-  if not s then return "" end
-  return s:gsub("\n", " ")
-end
+local function _emit_summary_md (root)
+    if not OUT_SUMMARY_MD then return end
 
-local function label_for_file(n)
-  return (n.title and n.title ~= "") and n.title or n.name
-end
+    local lines = {}
+    local top = root.title or SUMMARY_TITLE
 
-local function label_for_dir(n)
-  ensure_dir_meta(n)
-  if n.title and n.title ~= "" then return n.title end
-  return n.name
-end
+    table.insert(lines, "# " .. top)
+    table.insert(lines, "")
 
-local function emit_summary_md(root)
-  if not OUT_SUMMARY_MD then return end
+    _walk_tree_files_then_dirs(root, function (node, depth)
+        -- root is depth == -1
+        local eff_depth = depth - 1
+        local indent = (eff_depth == -1) and "- " or (string.rep("  ", eff_depth) .. "- ")
 
-  -- Ensure root meta is consistent (root.readme_path already set in crawl)
-  ensure_dir_meta(root)
+        -- directory node: create bullet point
+        if node.kind == "dir" then
+            local label = eff_depth == -1 and ROOT_README_LABEL or _label_for_dir_node(node)
+            local entry = node.readme_path and _create_md_link(indent, label, node.readme_path)
+                                         or (indent .. label)
+            table.insert(lines, entry)
+            return
+        end
 
-  local lines = {}
-  local top = root.title or ""
-  if top == "" then top = "Summary" end
-
-  table.insert(lines, "# " .. md_escape(top))
-  table.insert(lines, "")
-
-  -- Optional: Root as first bullet item linking to startfile
-  if SUMMARY_INCLUDE_ROOT_BULLET and root.readme_path then
-    local root_label = ROOT_README_LABEL or top
-    table.insert(lines, "- [" .. md_escape(root_label) .. "](" .. root.readme_path .. ")")
-  end
-
-  local function rec(node, depth)
-    local indent = string.rep("  ", depth)
-
-    if node.kind == "file" then
-      local label = md_escape(label_for_file(node))
-      table.insert(lines, indent .. "- [" .. label .. "](" .. node.path .. ")")
-      return
-    end
-
-    -- directory node (root itself is not emitted here as a directory bullet)
-    if node.path ~= "" then
-      local label = md_escape(label_for_dir(node))
-      if node.readme_path then
-        table.insert(lines, indent .. "- [" .. label .. "](" .. node.readme_path .. ")")
-      else
-        table.insert(lines, indent .. "- " .. label)
-      end
-      depth = depth + 1
-    end
-
-    -- children: files first, then dirs
-    for_children_files_then_dirs(node, function(ch)
-      -- README-Datei nicht als Kind ausgeben, wenn der Verzeichniseintrag
-      -- bereits auf node.readme_path verlinkt
-      if node.readme_path
-         and ch.kind == "file"
-         and ch.path == node.readme_path then
-        return
-      end
-      rec(ch, depth)
+        -- file node: create bullet point
+        if node.kind == "file" then
+            local label = _label_for_file_node(node)
+            table.insert(lines, _create_md_link(indent, label, node.path))
+        end
     end)
-  end
 
-  -- Emit children of root (root is header; optionally also a bullet above)
-  for_children_files_then_dirs(root, function(ch)
-    -- Root-README nicht doppelt ausgeben, wenn wir schon eine Bullet dafür erzeugen
-    if SUMMARY_INCLUDE_ROOT_BULLET
-       and root.readme_path
-       and ch.kind == "file"
-       and ch.path == root.readme_path then
-      return
-    end
-    rec(ch, 0)
-  end)
-
-  system.write_file(OUT_SUMMARY_MD, table.concat(lines, "\n") .. "\n")
+    system.write_file(OUT_SUMMARY_MD, table.concat(lines, "\n") .. "\n")
 end
+
+-- list of dependencies for Makefile
+--[[
+MARKDOWN_SRC := $(shell               \
+  $(PANDOC_MIN)                       \
+    -L $(PANDOC_DATA)/crawl.lua       \
+    -M prefix=$(OUTPUT_DIR)           \
+    -f markdown -t plain --wrap=none  \
+    $(ROOT_MD)                        \
+  )
+]]
+local function _emit_deps_doc_from_tree (root, meta)
+    local order = _flatten_tree_files(root)
+
+    local inlines = {}
+    for _, p in ipairs(order) do
+        table.insert(inlines, pandoc.Str(p))
+        table.insert(inlines, pandoc.Space())
+    end
+
+    return pandoc.Pandoc(pandoc.Plain(inlines))
+end
+
+
 
 -- ==========================
 -- Filter Entry Point
 -- ==========================
-function Pandoc(doc)
-  local inputs = PANDOC_STATE and PANDOC_STATE.input_files or nil
-  local startfile = (inputs and #inputs >= 1) and inputs[1] or "readme.md"
-  startfile = normalize_relpath(startfile)
+function Pandoc (doc)
+    local inputs = PANDOC_STATE and PANDOC_STATE.input_files or nil
+    local startfile = (inputs and #inputs >= 1) and inputs[1] or README_CANDIDATES[1]
+    startfile = _normalize_relpath(startfile)
 
-  info("crawl.lua: start at " .. startfile)
+    local tree, _crawl_order = _crawl(startfile)
 
-  -- Crawl und Baum aufbauen
-  local tree, crawl_order = crawl(startfile)
+    _emit_order_txt(_crawl_order)
+    _emit_deps_mk_from_tree(tree)
+    _emit_summary_md(tree)
 
-  -- Immer diese drei Artefakte schreiben
-  emit_order_txt(crawl_order)
-  emit_deps_mk_from_tree(tree)
-  emit_summary_md(tree)
-
-  -- Als Pandoc-Ausgabe immer: Dokument mit leerzeichengetrennter Dateiliste
-  return emit_deps_doc_from_tree(tree, doc.meta)
+    return _emit_deps_doc_from_tree(tree, doc.meta)
 end
