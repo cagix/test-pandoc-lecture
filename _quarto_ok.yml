@@ -1,0 +1,34 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
+  chapters:
+    - readme.md
+    - part: lecture/readme.md
+      chapters:
+        - part: lecture/02-parsing/readme.md
+          chapters:
+            - lecture/02-parsing/cfg.md
+            - lecture/02-parsing/antlr-parsing.md
+        - part: lecture/03-test/readme.md
+          chapters:
+            - lecture/03-test/test.md
+            - lecture/03-test/nn02-linear-regression.md
+            - part: "subfolder"
+              chapters:
+                - lecture/03-test/subfolder/foo.md
+    - part: homework/readme.md
+      chapters:
+        - homework/sheet04.md
+        - homework/sheet01.md
+        - homework/sheet02.md
+        - homework/sheet03.md
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true

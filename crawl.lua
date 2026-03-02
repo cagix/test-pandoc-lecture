@@ -11,6 +11,7 @@ Link-based crawler for local .md files:
 - produces:
     - summary.md (similar to mdBook; per level: files first, then directories;
                 directory entries link to their README if present)
+    - _quarto.yml (like summary.md, but suitable for Quarto)
     - deps.mk (Make variable with the list of source files, in tree order)
     - crawl-order.txt (optional, BFS/crawl order)
     - returns, as a “document”, a list of the files (like deps.mk,
@@ -37,6 +38,7 @@ local MK_VAR_NAME       = "MARKDOWN_SRC"
 local OUT_SUMMARY_MD = "summary.md"
 local OUT_DEPS_MK    = "deps.mk"
 local OUT_ORDER_TXT  = "crawl-order.txt"
+local OUT_QUARTO_YML = "_quarto.yml"
 
 -- summary.md, first bullet point:
 -- - nil      : "- [<root-title>](<startfile>)"
@@ -304,16 +306,13 @@ end
 
 -- tree -> flat file list (topic/directory grouping)
 -- rule per directory: "files first, then subdirs"
-local function _flatten_tree_files (root)
+local function _flatten_tree_files (startnode)
     local out = {}
 
-    _walk_tree_files_then_dirs(root, function (node, depth)
-        -- directory node: use readme for directory, if present
+    _walk_tree_files_then_dirs(startnode, function (node, depth)
         if node.kind == "dir" and node.readme_path then
             table.insert(out, node.readme_path)
         end
-
-        -- file node: use path of file
         if node.kind == "file" then
             table.insert(out, node.path)
         end
@@ -430,7 +429,7 @@ local function _emit_deps_mk_from_tree (root)
     system.write_file(OUT_DEPS_MK, table.concat(lines, "\n"))
 end
 
--- summary.md
+-- summary.md (for mdBook)
 -- - per level: files first, then dirs (stable within each)
 -- - directory entries link to README if present
 local function _emit_summary_md (root)
@@ -453,7 +452,6 @@ local function _emit_summary_md (root)
             local entry = node.readme_path and _create_md_link(indent, label, node.readme_path)
                                          or (indent .. label)
             table.insert(lines, entry)
-            return
         end
 
         -- file node: create bullet point
@@ -487,6 +485,70 @@ local function _emit_deps_doc_from_tree (root, meta)
     return pandoc.Pandoc(pandoc.Plain(inlines))
 end
 
+-- _quarto.yml (for Quarto-Book)
+--[[
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "<root-title>"
+  chapters:
+    - <root-readme-oder-startfile>
+    - <top-level-files>
+    - part: <dir/readme.md>
+      chapters:
+        - <files in dir>
+]]
+-- _emit_quarto_yml (rekursiv, korrekte Einrückung pro Ordner-Ebene)
+local function _emit_quarto_yml (root, startfile)
+    if not OUT_QUARTO_YML then return end
+
+    local lines = {}
+    local book_title = root.title or SUMMARY_TITLE
+
+    table.insert(lines, "project:")
+    table.insert(lines, "  type: book")
+    table.insert(lines, "  output-dir: _book")
+    table.insert(lines, "")
+    table.insert(lines, "book:")
+    table.insert(lines, '  title: "' .. book_title:gsub('"', '\\"') .. '"')
+    table.insert(lines, "  chapters:")
+
+    _walk_tree_files_then_dirs(root, function (node, depth)
+        local indent = string.rep("    ", depth) .. "- "
+
+        -- directory node: create bullet point
+        if node.kind == "dir" then
+            local label = depth == 0 and ROOT_README_LABEL or _label_for_dir_node(node)
+            local entry = node.readme_path and (indent .. "part: " .. node.readme_path)
+                                         or (indent .. "part: \"" .. label .. "\"")
+            if depth == 0 then
+                table.insert(lines, "    - " .. (node.readme_path or label))
+            else
+                table.insert(lines, entry)
+                table.insert(lines, string.rep("    ", depth) .. "  chapters:")
+            end
+        end
+
+        -- file node: create bullet point
+        if node.kind == "file" then
+            local label = _label_for_file_node(node)
+            table.insert(lines, (indent .. node.path))
+        end
+    end)
+
+    table.insert(lines, "")
+    table.insert(lines, "format:")
+    table.insert(lines, "  html:")
+    table.insert(lines, "    theme:")
+    table.insert(lines, "      light: cosmo")
+    table.insert(lines, "      dark: darkly")
+    table.insert(lines, "    toc: true")
+
+    system.write_file(OUT_QUARTO_YML, table.concat(lines, "\n") .. "\n")
+end
+
 
 
 -- ==========================
@@ -502,6 +564,7 @@ function Pandoc (doc)
     _emit_order_txt(_crawl_order)
     _emit_deps_mk_from_tree(tree)
     _emit_summary_md(tree)
+    _emit_quarto_yml(tree, startfile)
 
     return _emit_deps_doc_from_tree(tree, doc.meta)
 end
