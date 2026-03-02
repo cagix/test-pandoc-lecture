@@ -1,0 +1,11 @@
+/* Standard: nichts tun im Light-Mode */
+img {
+  transition: filter 0.2s ease;
+}
+
+/* Im Dark-Mode invertieren */
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+  }
+}
