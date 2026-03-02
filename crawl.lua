@@ -17,7 +17,7 @@ Link-based crawler for local .md files:
     but directly usable in pipeline operations)
 
 Usage:
-  pandoc -L crawl.lua readme.md -t plain --wrap=none
+  pandoc -L crawl.lua -f markdown -t plain --wrap=none readme.md
 ]]
 
 local system = require 'pandoc.system'
@@ -470,8 +470,7 @@ end
 --[[
 MARKDOWN_SRC := $(shell               \
   $(PANDOC_MIN)                       \
-    -L $(PANDOC_DATA)/crawl.lua       \
-    -M prefix=$(OUTPUT_DIR)           \
+    -L crawl.lua                      \
     -f markdown -t plain --wrap=none  \
     $(ROOT_MD)                        \
   )
