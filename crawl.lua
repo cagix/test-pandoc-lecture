@@ -608,8 +608,15 @@ local function _emit_book_md (root)
                 Link = function(el)
                     local t = _is_local_link(el.target)
                     if t then
+                        -- remove link (for now)
+                        --[[
+                        TODO
+                        - normalize link target (file)
+                        - retrieve identifier of toplevel header for this file => we need to produce a mapping {file: title+globalid } from our tree structure (file: title, dir: title) => _walk_tree_files_then_dirs()...
+                        - replace link target with "#"..identifier (or remove linkification+warning, if not found)
+                        ]]
                         warn("removing internal link for [" .. utils.stringify(el.content) .. "](" .. utils.stringify(el.target) .. ")")
-                        return el.content -- remove link (for now)
+                        return el.content
                     end
                 end
             })
