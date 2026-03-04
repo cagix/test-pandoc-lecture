@@ -376,6 +376,18 @@ kleines Bild, keine Breiteangabe:
 
 ------------------------------------------------------------------------------------
 
+Bild in Elternordner, keine Breiteangabe:
+
+![parsing error](../02-parsing/images/bc_xml-parsing-error.png)
+
+![modulbeschreibung](../../admin/images/modulbeschreibung_ba.png)
+
+<!--
+![kaputt](../../../lalune.jpg)
+-->
+
+------------------------------------------------------------------------------------
+
 kleines Bild, mit Titel und Breite:
 
 !["B", width="5%"](img/b.png "foobarwuppiefluppie"){width="5%"}

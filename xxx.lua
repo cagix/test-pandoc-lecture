@@ -1,39 +1,54 @@
 
-title = ""
+local by = 0
 
-function _header(el)
-    if el.level == 1 then
-      return el:walk {
-        Str = function(el)
-            return pandoc.Str(pandoc.text.upper(el.text .. " (" .. title .. ")"))
-        end
-      }
+local function shift_header (el)
+    if el.level + by > 6 then pandoc.log.warn("level to deep: " .. el.level) end
+
+    el.level = math.min(el.level + by, 6)
+    return el
+end
+
+local function add_title (doc)
+    blocks = doc.blocks
+
+    local title = doc.meta.title or "NO TITLE"
+    if doc.meta.title then
+        table.insert(blocks, 1, pandoc.Header(by, pandoc.Str(pandoc.utils.stringify(title))))
     end
+
+    return pandoc.Pandoc(blocks, doc.meta)
 end
 
-function _image (elem)
-  if elem.src then
-    local mt, contents = pandoc.mediabag.lookup(elem.src)
-    pandoc.log.warn(pandoc.utils.stringify(elem.src) .. " (" .. (mt or "nil") .. ")")
-  end
+local function walk_bullets (bl)
+    blocks = bl.blocks
+
+    local function walk_list(list, depth)
+        for _, item in ipairs(list) do
+        local lnk = first_link_in_blocks(item)
+        if lnk and lnk.target and lnk.target:match("%.md") and not is_abs(lnk.target) then
+            local clean = (lnk.target:match("^[^#?]+") or lnk.target)
+            table.insert(items, {
+            title = utils.stringify(lnk.content),
+            path = norm(join(summary_dir, clean)),
+            listDepth = depth
+            })
+        end
+        for _, blk in ipairs(item) do
+            if blk.t == "BulletList" then
+            walk_list(blk.content, depth + 1)
+            end
+        end
+        end
+    end
+
+    for _, b in ipairs(blocks) do
+        if b.t == "BulletList" then walk_list(b.content, 0) end
+    end
+
 end
 
-function _meta(m)
-  if m.title then
-     title = pandoc.utils.stringify(m.title)
-  end
-end
 
-function Pandoc(doc)
-  local fp = 'media/hello.txt'
-  local mt = 'text/plain'
-  local contents = 'Hello, World!'
-  pandoc.mediabag.insert(fp, mt, contents)
-
-  for fp, mt, contents in pandoc.mediabag.items() do
-    pandoc.log.warn(pandoc.utils.stringify(contents))
-  end
-
-  doc = doc:walk { Meta = _meta } -- (1)
-  return doc:walk {Image = _image }:walk { Header = _header }  -- (2)
+function Pandoc (doc)
+    doc = doc:walk { Header = shift_header }: walk { BulletList = walk_bullets }
+    return add_title(doc)
 end

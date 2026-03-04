@@ -18,7 +18,7 @@ Link-based crawler for local .md files:
     but directly usable in pipeline operations)
 
 Usage:
-  pandoc -L crawl.lua -f markdown -t plain --wrap=none readme.md
+  pandoc  -L crawl.lua  -s -f markdown -t markdown --wrap=none  readme.md
 ]]
 
 local system = require 'pandoc.system'
@@ -51,10 +51,18 @@ local SUMMARY_TITLE     = "Summary"
 -- ==========================
 -- Utilities
 -- ==========================
-local function _is_local_markdown_file_link (t)
+local function _is_local_link (t)
     return t ~= ""
         and not t:match('https?://.*') -- is not http(s)
+end
+
+local function _is_markdown_file (t)
+    return t ~= ""
         and t:lower():match('.*%.md')  -- is markdown
+end
+
+local function _is_local_markdown_file_link (t)
+    return _is_local_link(t) and _is_markdown_file(t)
 end
 
 local function _strip_fragment_and_query (t)
@@ -87,19 +95,25 @@ local function _normalize_relpath (p)
     return path.normalize(path.join(parts))
 end
 
--- normalize local markdown link target:
+-- normalize local (markdown) link target:
 -- - ignore remote targets
 -- - ignore non-.md targets
 -- - resolve relative targets against basefile directory
-local function _normalize_md_target (basefile, target)
-    target = _strip_fragment_and_query(target) -- remove queries and fragments from target
-    if not _is_local_markdown_file_link(target) then return nil end
+local function _normalize_local_target (basefile, target)
+    if not _is_local_link(target) then return nil end
 
     basefile = _normalize_relpath(basefile)
     local basedir = path.directory(basefile)
     local joined  = (basedir == "." or basedir == "") and target or path.join({ basedir, target })
 
     return _normalize_relpath(joined)
+end
+
+local function _normalize_md_target (basefile, target)
+    target = _strip_fragment_and_query(target) -- remove queries and fragments from target
+    if not _is_local_markdown_file_link(target) then return nil end
+
+    return _normalize_local_target(basefile, target)
 end
 
 local function _create_md_link (prefix, label, target)
@@ -173,12 +187,19 @@ local function _is_readme_child (parent, child)
         and child.path == parent.readme_path
 end
 
+-- helper: get label for node
+local function _label_for_node (n)
+    return (n.title and n.title ~= "") and n.title or n.name
+end
+
 -- helper: get label for file node
+-- TODO use _label_for_node
 local function _label_for_file_node (n)
     return (n.title and n.title ~= "") and n.title or n.name
 end
 
 -- helper: get label for dir node
+-- TODO use _label_for_node
 local function _label_for_dir_node (n)
     if n.title and n.title ~= "" then return n.title end
     return n.name
@@ -549,6 +570,51 @@ local function _emit_quarto_yml (root, startfile)
     system.write_file(OUT_QUARTO_YML, table.concat(lines, "\n") .. "\n")
 end
 
+local function _emit_book_md (root)
+    local blocks = pandoc.List:new()
+    local meta = pandoc.List:new()
+
+    _walk_tree_files_then_dirs(root, function (node, depth)
+        -- root.readme is depth == 0, we need to treat level 0 and 1 almost equally
+        local eff_depth = math.min(math.max(depth, 1), 6)
+
+        -- get header (or ROOT_README_LABEL at depth == 0)
+        local label = depth == 0 and ROOT_README_LABEL or _label_for_node(node)
+        local h = pandoc.Header(eff_depth, label)
+        blocks:insert(h)
+
+        -- get title (only at depth == 0)
+        if depth == 0 then
+            meta.title = pandoc.MetaInlines(_label_for_node(node))
+        end
+
+        local path = (node.kind == "dir" and node.readme_path) and node.readme_path or nil -- test dir first (readme)
+        path = (node.kind == "file" and node.path) and node.path or path                   -- if not dir, test file
+        if path then
+            local doc = _read_doc(path).blocks
+            blocks:extend(doc:walk {
+                Header = function(h)
+                    if h.level + eff_depth > 6 then warn("level too deep, will vanish " .. h.level .. " => " .. utils.stringify(h.content)) end
+                    h.level = math.min(h.level + eff_depth, 6)
+                    return h
+                end,
+                Image = function(el)
+                    local t = _normalize_local_target(path, el.src)
+                    if t then
+                        el.src = t
+                        return el
+                    end
+                end,
+                Link = function(el)
+
+                end
+            })
+        end
+    end)
+
+    return pandoc.Pandoc(blocks, meta)
+end
+
 
 
 -- ==========================
@@ -566,5 +632,7 @@ function Pandoc (doc)
     _emit_summary_md(tree)
     _emit_quarto_yml(tree, startfile)
 
-    return _emit_deps_doc_from_tree(tree, doc.meta)
+    return _emit_book_md(tree)
+
+--    return _emit_deps_doc_from_tree(tree, doc.meta)
 end
