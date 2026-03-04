@@ -608,7 +608,7 @@ local function _emit_book_md (root)
                 Link = function(el)
                     local t = _is_local_link(el.target)
                     if t then
-                        warn("removing link for [" .. utils.stringify(el.content) .. "](" .. utils.stringify(el.target) .. ")")
+                        warn("removing internal link for [" .. utils.stringify(el.content) .. "](" .. utils.stringify(el.target) .. ")")
                         return el.content -- remove link (for now)
                     end
                 end
