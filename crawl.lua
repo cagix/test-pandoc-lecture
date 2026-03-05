@@ -129,7 +129,7 @@ end
 -- parse file into doc
 local function _read_doc (filepath)
     local content = system.read_file(filepath)
-    local doc = pandoc.read(content, "markdown")
+    local doc = pandoc.read(content, FORMAT)
     return doc
 end
 
