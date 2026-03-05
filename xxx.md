@@ -2,6 +2,8 @@
 title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 ---
 
+<a id="id-da39a3ee5e6b4b0d3255bfef95601890afd80709"></a>
+
 # Syllabus {#id-da39a3ee5e6b4b0d3255bfef95601890afd80709}
 
 ![](admin/images/architektur_cb.png){width="80%"}
@@ -149,11 +151,17 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz und Credits. (Nicht mit generiertem Lizenz-Footer aus cb.yaml verwechseln.)
 
+<a id="id-af09e2fcaf4589921086150d991647b7b52abd03"></a>
+
 # Vorlesungsunterlagen {#id-af09e2fcaf4589921086150d991647b7b52abd03}
+
+<a id="id-208bd9b4194c2c79688c8354df6850e6040cdef7"></a>
 
 ## Syntaktische Analyse {#id-208bd9b4194c2c79688c8354df6850e6040cdef7}
 
 In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lexer kommt. Mit Hilfe einer Grammatik wird geprüft, ob gültige Sätze im Sinne der Sprache/Grammatik gebildet wurden. Der Parser erzeugt dabei den Parse-Tree. Man kann verschiedene Parser unterscheiden, beispielsweise die LL- und die LR-Parser.
+
+<a id="id-ed1ca9f1d126c913f7ce93106335deafa8e5a251"></a>
 
 ### CFG {#id-ed1ca9f1d126c913f7ce93106335deafa8e5a251}
 
@@ -449,6 +457,8 @@ ADD -->
 - k1: LL-Parser
 - k2: Zusammenhang zwischen PDAs und kontextfreien Grammatiken
 :::
+
+<a id="id-6cf46704b72b833be34e815ad028ca9585eca248"></a>
 
 ### Parser mit ANTLR generieren {#id-6cf46704b72b833be34e815ad028ca9585eca248}
 
@@ -956,9 +966,13 @@ Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR. Implement
 (Die genauere Sprachdefinition finden Sie bei Bedarf unter [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
 :::
 
+<a id="id-1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95"></a>
+
 ## Test Markdown {#id-1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95}
 
 Hier werden alle relevanten Markdown-Features getestet
+
+<a id="id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e"></a>
 
 ### Test Markdown {#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e}
 
@@ -1970,6 +1984,8 @@ This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in lice
 [test from yaml (challenges) - should not appear in slides]{.credits}
 :::
 
+<a id="id-3eeb5ef519e0106480d1e04eea752d5105192e22"></a>
+
 ### NN02 - Lineare Regression und Gradientenabstieg {#id-3eeb5ef519e0106480d1e04eea752d5105192e22}
 
 ::: youtube
@@ -2056,7 +2072,11 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 - Zeigen Sie unter Verwendung Ihrer eigenen, zufällig generierten Datenpunkte aus dem Bereich $[100, 300] \times [0, 2]$, wie sich Standardisierung, Min-Max Skalierung und Normalisierung auf die Daten auswirken. Vergleichen Sie dazu die jeweiligen Streudiagramme (scatterplots). Sie können hierzu das folgende [**Jupyter Notebook**](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/Feature_Scaling_Starter.ipynb) als Startpunkt benutzen.
 :::
 
+<a id="id-1b69551948844ea83b35c3b22e545c5a7e410e29"></a>
+
 ### subfolder {#id-1b69551948844ea83b35c3b22e545c5a7e410e29}
+
+<a id="id-21012d4cdd914d7b9c455c770e117de0d4bb6b18"></a>
 
 #### Single page 'Foo' in a leaf bundle {#id-21012d4cdd914d7b9c455c770e117de0d4bb6b18}
 
@@ -2070,9 +2090,13 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 
 This is a "single page" in a "leaf bundle" and should **not** be available.
 
+<a id="id-a264d337dcfeece8936f208b6f89bb1efe99ea0f"></a>
+
 # Praktikum {#id-a264d337dcfeece8936f208b6f89bb1efe99ea0f}
 
 Hier finden Sie die Übungsblätter.
+
+<a id="id-6dc682255c67debc1eebb45a3920a1731f87be41"></a>
 
 ## Blatt 04: Semantische Analyse {#id-6dc682255c67debc1eebb45a3920a1731f87be41}
 
@@ -2394,6 +2418,8 @@ Implementieren Sie einen zweiten Lauf. Dabei soll für Funktionsaufrufe geprüft
 
 Implementieren Sie einen dritten Lauf. Führen Sie die Typprüfung durch: Haben die Operanden in Ausdrücken die richtigen Typen, passen die Typen der Funktionsargumente, passen die Typen bei einer Zuweisung, ... Geben Sie erkannte Fehler auf der Konsole aus. *Hinweis*: Sie brauchen hier nur die Typprüfung durchführen. Eine Typinferenz oder Typerweiterung o.ä. ist nicht notwendig.
 
+<a id="id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415"></a>
+
 ## Blatt 01: Reguläre Sprachen {#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415}
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet01.md  -o xxx.md  -->
@@ -2458,6 +2484,8 @@ A &\rightarrow& d B \ | \ b A \ | \ c A  \nonumber \\
 B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
+
+<a id="id-0db349230022c35e045dc3b052a4faea50fe5f40"></a>
 
 ## Blatt 02: CFG {#id-0db349230022c35e045dc3b052a4faea50fe5f40}
 
@@ -2539,6 +2567,8 @@ Berechnen die die *First-* und *Follow-Mengen* der Grammatik.
 Zeigen Sie, dass die Grammatik LL(1) ist.
 
 Konstruieren Sie die LL-Parsertabelle für die Grammatik und simulieren Sie das Parsen des Wortes *1233*.
+
+<a id="id-0caafae8610423845a8dd05fc7941ec5d42fbae3"></a>
 
 ## Blatt 03: ANTLR {#id-0caafae8610423845a8dd05fc7941ec5d42fbae3}
 
