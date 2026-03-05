@@ -2,12 +2,7 @@
 title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 ---
 
-# Syllabus {#da39a3ee5e6b4b0d3255bfef95601890afd80709}
-
-[Zur Kursbeschreibung](#da39a3ee5e6b4b0d3255bfef95601890afd80709)
-
-[Kursbeschreibung](./xxx.md#da39a3ee5e6b4b0d3255bfef95601890afd80709)
-
+# Syllabus {#id-da39a3ee5e6b4b0d3255bfef95601890afd80709}
 
 ![](admin/images/architektur_cb.png){width="80%"}
 
@@ -23,10 +18,6 @@ title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 
 ------------------------------------------------------------------------
 :::
-
-## Kursbeschreibung {#da39a3ee5e6b4b0d3255bfef95601890afd80709}
-
-
 
 ## Kursbeschreibung
 
@@ -79,40 +70,40 @@ Hier finden Sie einen abonnierbaren [Google Kalender IFM 3.1 CB (PO23, 3. Semest
 
 Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1420724&client_id=FH-Bielefeld). Vorstellung der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Monat                  Woche   Vorlesung                                                                                                                                                                                                                                   Lead          Abgabe Aufgabenblatt                                                 Vorstellung Praktikum
-  ---------------------- ------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------- -------------------------------------------------------------------- -----------------------------------------------------------
-  Oktober                43      23.: [CFG](xxx.md#ed1ca9f1d126c913f7ce93106335deafa8e5a251) \|\| [B04](#6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#6dc682255c67debc1eebb45a3920a1731f87be41)   Carsten, BC
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Monat                  Woche   Vorlesung                                                                                                                                                                                                                                               Lead          Abgabe Aufgabenblatt                                                    Vorstellung Praktikum
+  ---------------------- ------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------- ----------------------------------------------------------------------- -----------------------------------------------------------
+  Oktober                43      23.: [CFG](#id-ed1ca9f1d126c913f7ce93106335deafa8e5a251) \|\| [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41)   Carsten, BC                                                                           
 
-                         44      29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                                                                                                                        *Edmonton*
+                         44      29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                                                                                                                                    *Edmonton*                                                                            
 
-                         44      30.: [Parser mit ANTLR](#6cf46704b72b833be34e815ad028ca9585eca248)                                                                                                                                                                          Carsten
+                         44      30.: [Parser mit ANTLR](#id-6cf46704b72b833be34e815ad028ca9585eca248)                                                                                                                                                                                   Carsten                                                                               
 
-  November               45      06.: *Dienstbesprechung*                                                                                                                                                                                                                                  04.: [B01](#6f673c2e093cdfc53b1f78baef11fd06cc8aa415) CFG            ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)
+  November               45      06.: *Dienstbesprechung*                                                                                                                                                                                                                                              04.: [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415) CFG            ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)
 
-                         52      25.: *Weihnachtspause*
+                         52      25.: *Weihnachtspause*                                                                                                                                                                                                                                                                                                                        
 
-  Januar                 01      01.: *Weihnachtspause*
+  Januar                 01      01.: *Weihnachtspause*                                                                                                                                                                                                                                                                                                                        
 
-                         02      08.: *Sprechstunde/Freies Arbeiten*                                                                                                                                                                                                         Carsten       06.: [B02](#0db349230022c35e045dc3b052a4faea50fe5f40) C++            06\. / 07. / 10. (Carsten, *online*)
+                         02      08.: *Sprechstunde/Freies Arbeiten*                                                                                                                                                                                                                     Carsten       06.: [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40) C++            06\. / 07. / 10. (Carsten, *online*)
 
-                         03      15.: *Freies Arbeiten/Puffer*
+                         03      15.: *Freies Arbeiten/Puffer*                                                                                                                                                                                                                                                                                                                 
 
-                         04      22.: **Parcoursprüfung: Station 2 [B04](#6dc682255c67debc1eebb45a3920a1731f87be41) (VL- und Praktika-Slots, siehe Ankündigung)**                                                                                                            Carsten, BC   20.: [B03](#0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt   20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*)
+                         04      22.: **Parcoursprüfung: Station 2 [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (VL- und Praktika-Slots, siehe Ankündigung)**                                                                                                                     Carsten, BC   20.: [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt   20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*)
 
-  *(Prüfungsphase I)*    05      30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**
+  *(Prüfungsphase I)*    05      30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                                                                                                                                                                                                                       
 
-  *(Prüfungsphase II)*           **Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)** (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher)
+  *(Prüfungsphase II)*           **Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)** (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher)                                                                                                                                                                                                                
 
-                                 [TEST](#5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                 [TEST](#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e)                                                                                                                                                                                                                                                                                          
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Prüfungsform, Note und Credits
 
 **Parcoursprüfung plus Testat**, 5 ECTS (PO23)
 
 - **Testat**: Vergabe der Credit-Points
-  1.  Mindestens 4 der Übungsblätter [B01](#6f673c2e093cdfc53b1f78baef11fd06cc8aa415), [B02](#0db349230022c35e045dc3b052a4faea50fe5f40), [B03](#0caafae8610423845a8dd05fc7941ec5d42fbae3), [B04](#6dc682255c67debc1eebb45a3920a1731f87be41) erfolgreich bearbeitet, **und**
+  1.  Mindestens 4 der Übungsblätter [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415), [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40), [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3), [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) erfolgreich bearbeitet, **und**
   2.  **aktive** Teilnahme an allen 3 Edmonton-Terminen.
 
   ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet, fristgerechte Abgabe der Lösungen im ILIAS, Vorstellung der Lösungen im Praktikum)
@@ -122,7 +113,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
 - **Stationen**:
 
   1.  ILIAS-Test (einzeln, 20.11.)
-  2.  Vorstellung Mini-Projekt [B04](#6dc682255c67debc1eebb45a3920a1731f87be41) (3er Teams, letzte VL-Woche)
+  2.  Vorstellung Mini-Projekt [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (3er Teams, letzte VL-Woche)
 
   Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung **30 Punkte (Station I) und 50 Punkte (Station II)** die Gesamtnote (individuelle Günstigerprüfung).
 
@@ -158,13 +149,13 @@ Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
 
 Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz und Credits. (Nicht mit generiertem Lizenz-Footer aus cb.yaml verwechseln.)
 
-# Vorlesungsunterlagen {#af09e2fcaf4589921086150d991647b7b52abd03}
+# Vorlesungsunterlagen {#id-af09e2fcaf4589921086150d991647b7b52abd03}
 
-## Syntaktische Analyse {#208bd9b4194c2c79688c8354df6850e6040cdef7}
+## Syntaktische Analyse {#id-208bd9b4194c2c79688c8354df6850e6040cdef7}
 
 In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lexer kommt. Mit Hilfe einer Grammatik wird geprüft, ob gültige Sätze im Sinne der Sprache/Grammatik gebildet wurden. Der Parser erzeugt dabei den Parse-Tree. Man kann verschiedene Parser unterscheiden, beispielsweise die LL- und die LR-Parser.
 
-### CFG {#ed1ca9f1d126c913f7ce93106335deafa8e5a251}
+### CFG {#id-ed1ca9f1d126c913f7ce93106335deafa8e5a251}
 
 ::: attachments
 - [Annotierte Folien: CFG, LL-Parser](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/frontend_parsing_cfg.ann.ba.pdf)
@@ -459,7 +450,7 @@ ADD -->
 - k2: Zusammenhang zwischen PDAs und kontextfreien Grammatiken
 :::
 
-### Parser mit ANTLR generieren {#6cf46704b72b833be34e815ad028ca9585eca248}
+### Parser mit ANTLR generieren {#id-6cf46704b72b833be34e815ad028ca9585eca248}
 
 ::: tldr
 Mit ANTLR kann aus einer Grammatik ein LL(\*)-Parser generiert werden. Die Parser-Regeln in der Grammatik fangen dabei mit einem **Kleinbuchstaben** an (Erinnerung: Lexer-Regel starten mit einem Großbuchstaben).
@@ -965,11 +956,11 @@ Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR. Implement
 (Die genauere Sprachdefinition finden Sie bei Bedarf unter [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
 :::
 
-## Test Markdown {#1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95}
+## Test Markdown {#id-1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95}
 
 Hier werden alle relevanten Markdown-Features getestet
 
-### Test Markdown {#5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e}
+### Test Markdown {#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e}
 
 ::: tldr
 Text für TL;DR ...
@@ -1181,13 +1172,13 @@ $$
 
 ##### Internal Links
 
-[selbe ebene: readme.md](#009a0a5753af2814b794a9fbf07d27bafe95c56b)
+[selbe ebene: readme.md](#id-009a0a5753af2814b794a9fbf07d27bafe95c56b)
 
-[unterordner: subfolder/foo.md](#21012d4cdd914d7b9c455c770e117de0d4bb6b18)
+[unterordner: subfolder/foo.md](#id-21012d4cdd914d7b9c455c770e117de0d4bb6b18)
 
-[zurück nach oben I: ../02-parsing/antlr-parsing.md](#6cf46704b72b833be34e815ad028ca9585eca248)
+[zurück nach oben I: ../02-parsing/antlr-parsing.md](#id-6cf46704b72b833be34e815ad028ca9585eca248)
 
-[zurück nach oben II: ../../homework/sheet01.md](#6f673c2e093cdfc53b1f78baef11fd06cc8aa415)
+[zurück nach oben II: ../../homework/sheet01.md](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415)
 
 #### Code
 
@@ -1698,7 +1689,7 @@ compare with
 
 ###### Test Case nn02-linear-regression.md
 
-[nn02-linear-regression.md](#3eeb5ef519e0106480d1e04eea752d5105192e22)
+[nn02-linear-regression.md](#id-3eeb5ef519e0106480d1e04eea752d5105192e22)
 
 #### Filter for Slides and Handouts
 
@@ -1979,7 +1970,7 @@ This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in lice
 [test from yaml (challenges) - should not appear in slides]{.credits}
 :::
 
-### NN02 - Lineare Regression und Gradientenabstieg {#3eeb5ef519e0106480d1e04eea752d5105192e22}
+### NN02 - Lineare Regression und Gradientenabstieg {#id-3eeb5ef519e0106480d1e04eea752d5105192e22}
 
 ::: youtube
 - [NN2.1 - Lineare Regression - Intro](https://youtu.be/f-DTaKMnkj4)
@@ -2065,12 +2056,12 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 - Zeigen Sie unter Verwendung Ihrer eigenen, zufällig generierten Datenpunkte aus dem Bereich $[100, 300] \times [0, 2]$, wie sich Standardisierung, Min-Max Skalierung und Normalisierung auf die Daten auswirken. Vergleichen Sie dazu die jeweiligen Streudiagramme (scatterplots). Sie können hierzu das folgende [**Jupyter Notebook**](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/Feature_Scaling_Starter.ipynb) als Startpunkt benutzen.
 :::
 
-### subfolder {#1b69551948844ea83b35c3b22e545c5a7e410e29}
+### subfolder {#id-1b69551948844ea83b35c3b22e545c5a7e410e29}
 
-#### Single page 'Foo' in a leaf bundle {#21012d4cdd914d7b9c455c770e117de0d4bb6b18}
+#### Single page 'Foo' in a leaf bundle {#id-21012d4cdd914d7b9c455c770e117de0d4bb6b18}
 
 ::: attachments
-- [NN1-Das_Perzeptron.pdf](#56f23cadaf8472e7e33ca0bd1f0fc9c8fe74a298)
+- [NN1-Das_Perzeptron.pdf](#id-56f23cadaf8472e7e33ca0bd1f0fc9c8fe74a298)
 - [Annotierte Folien: LR-Parser1](https://github.com/Compiler-CampusMinden/AnnotatedSlides/blob/master/lr-parser1.ann.ma.pdf)
 - [Annotierte Folien: LR-Parser1 (RAW)](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/lr-parser1.ann.ma.pdf)
 :::
@@ -2079,11 +2070,11 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 
 This is a "single page" in a "leaf bundle" and should **not** be available.
 
-# Praktikum {#a264d337dcfeece8936f208b6f89bb1efe99ea0f}
+# Praktikum {#id-a264d337dcfeece8936f208b6f89bb1efe99ea0f}
 
 Hier finden Sie die Übungsblätter.
 
-## Blatt 04: Semantische Analyse {#6dc682255c67debc1eebb45a3920a1731f87be41}
+## Blatt 04: Semantische Analyse {#id-6dc682255c67debc1eebb45a3920a1731f87be41}
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet04.md  -o xxx.md  -->
 
@@ -2403,7 +2394,7 @@ Implementieren Sie einen zweiten Lauf. Dabei soll für Funktionsaufrufe geprüft
 
 Implementieren Sie einen dritten Lauf. Führen Sie die Typprüfung durch: Haben die Operanden in Ausdrücken die richtigen Typen, passen die Typen der Funktionsargumente, passen die Typen bei einer Zuweisung, ... Geben Sie erkannte Fehler auf der Konsole aus. *Hinweis*: Sie brauchen hier nur die Typprüfung durchführen. Eine Typinferenz oder Typerweiterung o.ä. ist nicht notwendig.
 
-## Blatt 01: Reguläre Sprachen {#6f673c2e093cdfc53b1f78baef11fd06cc8aa415}
+## Blatt 01: Reguläre Sprachen {#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415}
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet01.md  -o xxx.md  -->
 
@@ -2437,7 +2428,7 @@ Recherchieren Sie zunächst den Aufbau von Gleitkommazahlen in Python und Java.
 
 Erstellen Sie für jede der beiden Programmiersprachen reguläre Ausdrücke, DFAs und reguläre Grammatiken wie in Aufgabe 1. Verifizieren Sie Ihre Lösungen wie in Aufgabe
 
-1.
+1.  
 
 ### Mailadressen? (1P)
 
@@ -2468,7 +2459,7 @@ B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
 
-## Blatt 02: CFG {#0db349230022c35e045dc3b052a4faea50fe5f40}
+## Blatt 02: CFG {#id-0db349230022c35e045dc3b052a4faea50fe5f40}
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet02.md  -o xxx.md  -->
 
@@ -2549,7 +2540,7 @@ Zeigen Sie, dass die Grammatik LL(1) ist.
 
 Konstruieren Sie die LL-Parsertabelle für die Grammatik und simulieren Sie das Parsen des Wortes *1233*.
 
-## Blatt 03: ANTLR {#0caafae8610423845a8dd05fc7941ec5d42fbae3}
+## Blatt 03: ANTLR {#id-0caafae8610423845a8dd05fc7941ec5d42fbae3}
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet03.md  -o xxx.md  -->
 
