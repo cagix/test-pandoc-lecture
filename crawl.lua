@@ -53,7 +53,7 @@ local SUMMARY_TITLE     = "Summary"
 -- ==========================
 local function _is_local_link (t)
     return t ~= ""
-        and not t:match('https?://.*') -- is not http(s)
+        and not t:lower():match('https?://.*') -- is not http(s)
 end
 
 local function _is_markdown_file (t)
@@ -190,19 +190,6 @@ end
 -- helper: get label for node
 local function _label_for_node (n)
     return (n.title and n.title ~= "") and n.title or n.name
-end
-
--- helper: get label for file node
--- TODO use _label_for_node
-local function _label_for_file_node (n)
-    return (n.title and n.title ~= "") and n.title or n.name
-end
-
--- helper: get label for dir node
--- TODO use _label_for_node
-local function _label_for_dir_node (n)
-    if n.title and n.title ~= "" then return n.title end
-    return n.name
 end
 
 -- helper: get meta data (title) for dir node
@@ -469,7 +456,7 @@ local function _emit_summary_md (root)
 
         -- directory node: create bullet point
         if node.kind == "dir" then
-            local label = eff_depth == -1 and ROOT_README_LABEL or _label_for_dir_node(node)
+            local label = eff_depth == -1 and ROOT_README_LABEL or _label_for_node(node)
             local entry = node.readme_path and _create_md_link(indent, label, node.readme_path)
                                          or (indent .. label)
             table.insert(lines, entry)
@@ -477,7 +464,7 @@ local function _emit_summary_md (root)
 
         -- file node: create bullet point
         if node.kind == "file" then
-            local label = _label_for_file_node(node)
+            local label = _label_for_node(node)
             table.insert(lines, _create_md_link(indent, label, node.path))
         end
     end)
@@ -541,7 +528,7 @@ local function _emit_quarto_yml (root, startfile)
 
         -- directory node: create bullet point
         if node.kind == "dir" then
-            local label = depth == 0 and ROOT_README_LABEL or _label_for_dir_node(node)
+            local label = depth == 0 and ROOT_README_LABEL or _label_for_node(node)
             local entry = node.readme_path and (indent .. "part: " .. node.readme_path)
                                          or (indent .. "part: \"" .. label .. "\"")
             if depth == 0 then
@@ -554,7 +541,7 @@ local function _emit_quarto_yml (root, startfile)
 
         -- file node: create bullet point
         if node.kind == "file" then
-            local label = _label_for_file_node(node)
+            local label = _label_for_node(node)
             table.insert(lines, (indent .. node.path))
         end
     end)
@@ -574,16 +561,20 @@ local function _emit_book_md (root)
     local blocks = pandoc.List:new()
     local meta = pandoc.List:new()
 
+    local function _anchor (path)
+        return "id-" .. utils.sha1(path)
+    end
+
     _walk_tree_files_then_dirs(root, function (node, depth)
         -- root.readme is depth == 0, we need to treat level 0 and 1 almost equally
         local eff_depth = math.min(math.max(depth, 1), 6)
 
         -- get header (or ROOT_README_LABEL at depth == 0)
         local label = depth == 0 and ROOT_README_LABEL or _label_for_node(node)
-        local id = "id-" .. utils.sha1(node.path)
+        local id = _anchor(node.path)
 --        local h = pandoc.Header(eff_depth, label, pandoc.Attr(id)) -- this does not work in docsify :/
         local h = pandoc.Header(eff_depth, label)
-        local a = pandoc.RawBlock("html", '<a id="' .. id .. '"></a>') -- workaround for docsify: use extra invisible anchors
+        local a = pandoc.RawBlock("html", '<a id="' .. id .. '"></a>') -- workaround for docsify: use extra invisible anchors above the header
         blocks:insert(a)
         blocks:insert(h)
 
@@ -610,10 +601,9 @@ local function _emit_book_md (root)
                     end
                 end,
                 Link = function(el)
-                    local t = _is_local_link(el.target)
+                    local t = _normalize_local_target(path, el.target)
                     if t then
-                        t = _normalize_local_target(path, el.target)
-                        el.target = "#id-" .. utils.stringify(utils.sha1((t)))
+                        el.target = "#" .. _anchor(t)
                         return el
                     end
                 end
@@ -636,12 +626,11 @@ function Pandoc (doc)
 
     local tree, _crawl_order = _crawl(startfile)
 
-    _emit_order_txt(_crawl_order)
-    _emit_deps_mk_from_tree(tree)
-    _emit_summary_md(tree)
-    _emit_quarto_yml(tree, startfile)
-
-    return _emit_book_md(tree)
-
+--    _emit_order_txt(_crawl_order)
+--    _emit_deps_mk_from_tree(tree)
+--    _emit_quarto_yml(tree, startfile)
 --    return _emit_deps_doc_from_tree(tree, doc.meta)
+
+--    return _emit_summary_md(tree)
+    return _emit_book_md(tree)
 end
