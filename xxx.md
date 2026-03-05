@@ -1723,19 +1723,31 @@ Sometimes[^1] we need some[^2] footnotes.
 
 ~~Docsify seems to recognize footnotes even in inline code:~~
 
+  -----------------------------------------------------------------------------
   **Zeichenkette**   **Beschreibt**
   ------------------ ----------------------------------------------------------
   `^`                Zeilenanfang
+
   `[abc]`            "a" oder "b" oder "c"
+
   `[^abc]`           alles außer "a", "b" oder "c" (Negation)
+
   `^abc`             test
+
   `[ ^abc]`          test
+
   `[ ^abc]`          test
+
   `[^ abc]`          test
+
   `[a-zA-Z]`         alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)
+
   `[a-z&&[def]]`     "d","e" oder "f" (Schnitt)
+
   `[a-z&&[^bc]]`     "a" bis "z", außer "b" und "c": `[ad-z]` (Subtraktion)
+
   `[a-z&&[^m-p]]`    "a" bis "z", außer "m" bis "p": `[a-lq-z]` (Subtraktion)
+  -----------------------------------------------------------------------------
 
 ``` java
 ^               // Zeilenanfang
@@ -2358,11 +2370,15 @@ int foo(int a) {
 
 Unsere Sprache hat drei eingebaute Datentypen:
 
+  --------------------------------------------------------------------------
   Datentyp   Definition der Literale
   ---------- ---------------------------------------------------------------
   `int`      eine beliebige Folge der Ziffern `0-9`
+
   `string`   eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"`
+
   `bool`     eines der beiden Schlüsselwörter `T` oder `F`
+  --------------------------------------------------------------------------
 
 #### Beispiele
 
@@ -2723,10 +2739,13 @@ end
 
 Unsere Sprache hat zwei eingebaute Datentypen, für die entsprechende Literale erkannt werden müssen:
 
+  --------------------------------------------------------------------------
   Datentyp   Definition der Literale
   ---------- ---------------------------------------------------------------
   `int`      eine beliebige Folge der Ziffern `0-9`
+
   `string`   eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"`
+  --------------------------------------------------------------------------
 
 Die Sprache ist dynamisch typisiert, d.h. beim Parsen werden Ihnen keine Typ-Angaben im Code begegnen. Aber Sie müssen die entsprechenden Werte (Literale) parsen können.
 

@@ -9,7 +9,7 @@ Link-based crawler for local .md files:
 - directory titles are taken from the YAML field `title` of the README.md
   in that directory (otherwise "" + warning)
 - produces:
-    - summary.md (similar to mdBook; per level: files first, then directories;
+    - _sidebar.md (similar to mdBook; per level: files first, then directories;
                 directory entries link to their README if present)
     - _quarto.yml (like summary.md, but suitable for Quarto)
     - deps.mk (Make variable with the list of source files, in tree order)
@@ -18,7 +18,8 @@ Link-based crawler for local .md files:
     but directly usable in pipeline operations)
 
 Usage:
-  pandoc  -L crawl.lua  -s -f markdown -t markdown --wrap=none  readme.md
+  pandoc  -L crawl.lua  -s -f markdown -t markdown --wrap=none  -M book     readme.md
+  pandoc  -L crawl.lua  -s -f markdown -t markdown --wrap=none  -M sidebar  readme.md
 ]]
 
 local system = require 'pandoc.system'
@@ -35,7 +36,6 @@ local README_CANDIDATES = { "readme.md", "README.md", "Readme.md" }
 local MK_VAR_NAME       = "MARKDOWN_SRC"
 
 -- output artifacts (nil to deactivate)
-local OUT_SUMMARY_MD = "summary.md"
 local OUT_DEPS_MK    = "deps.mk"
 local OUT_ORDER_TXT  = "crawl-order.txt"
 local OUT_QUARTO_YML = "_quarto.yml"
@@ -129,7 +129,7 @@ end
 -- parse file into doc
 local function _read_doc (filepath)
     local content = system.read_file(filepath)
-    local doc = pandoc.read(content, FORMAT)
+    local doc = pandoc.read(content, FORMAT, PANDOC_READER_OPTIONS)
     return doc
 end
 
@@ -437,39 +437,31 @@ local function _emit_deps_mk_from_tree (root)
     system.write_file(OUT_DEPS_MK, table.concat(lines, "\n"))
 end
 
--- summary.md (for mdBook)
+-- _sidebar.md (for docsify, like mdBook)
 -- - per level: files first, then dirs (stable within each)
 -- - directory entries link to README if present
-local function _emit_summary_md (root)
-    if not OUT_SUMMARY_MD then return end
-
+local function _emit_sidebar_md (root)
     local lines = {}
-    local top = root.title or SUMMARY_TITLE
-
-    table.insert(lines, "# " .. top)
-    table.insert(lines, "")
 
     _walk_tree_files_then_dirs(root, function (node, depth)
-        -- root is depth == -1
-        local eff_depth = depth - 1
-        local indent = (eff_depth == -1) and "- " or (string.rep("  ", eff_depth) .. "- ")
+        -- root.readme is depth == 0, we need to treat level 0 and 1 almost equally
+        local eff_depth = math.max(depth, 1) - 1
+        local indent = string.rep("  ", eff_depth) .. "- "
 
-        -- directory node: create bullet point
         if node.kind == "dir" then
-            local label = eff_depth == -1 and ROOT_README_LABEL or _label_for_node(node)
+            local label = (depth == 0) and ROOT_README_LABEL or _label_for_node(node)
             local entry = node.readme_path and _create_md_link(indent, label, node.readme_path)
                                          or (indent .. label)
             table.insert(lines, entry)
         end
 
-        -- file node: create bullet point
         if node.kind == "file" then
             local label = _label_for_node(node)
             table.insert(lines, _create_md_link(indent, label, node.path))
         end
     end)
 
-    system.write_file(OUT_SUMMARY_MD, table.concat(lines, "\n") .. "\n")
+    return pandoc.read(table.concat(lines, "\n") .. "\n", "markdown")
 end
 
 -- list of dependencies for Makefile
@@ -558,8 +550,8 @@ local function _emit_quarto_yml (root, startfile)
 end
 
 local function _emit_book_md (root)
-    local blocks = pandoc.List:new()
-    local meta = pandoc.List:new()
+    local blocks = pandoc.List()
+    local meta = pandoc.List()
 
     local function _anchor (path)
         return "id-" .. utils.sha1(path)
@@ -629,8 +621,8 @@ function Pandoc (doc)
 --    _emit_order_txt(_crawl_order)
 --    _emit_deps_mk_from_tree(tree)
 --    _emit_quarto_yml(tree, startfile)
---    return _emit_deps_doc_from_tree(tree, doc.meta)
+--    _emit_deps_doc_from_tree(tree, doc.meta)
 
---    return _emit_summary_md(tree)
-    return _emit_book_md(tree)
+    if doc.meta and doc.meta.sidebar then return _emit_sidebar_md(tree) end
+    if doc.meta and doc.meta.book then return _emit_book_md(tree) end
 end
