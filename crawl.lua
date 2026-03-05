@@ -580,7 +580,11 @@ local function _emit_book_md (root)
 
         -- get header (or ROOT_README_LABEL at depth == 0)
         local label = depth == 0 and ROOT_README_LABEL or _label_for_node(node)
+        local id = "id-" .. utils.sha1(node.path)
+--        local h = pandoc.Header(eff_depth, label, pandoc.Attr(id)) -- this does not work in docsify :/
         local h = pandoc.Header(eff_depth, label)
+        local a = pandoc.RawBlock("html", '<a id="' .. id .. '"></a>') -- workaround for docsify: use extra invisible anchors
+        blocks:insert(a)
         blocks:insert(h)
 
         -- get title (only at depth == 0)
@@ -608,15 +612,9 @@ local function _emit_book_md (root)
                 Link = function(el)
                     local t = _is_local_link(el.target)
                     if t then
-                        -- remove link (for now)
-                        --[[
-                        TODO
-                        - normalize link target (file)
-                        - retrieve identifier of toplevel header for this file => we need to produce a mapping {file: title+globalid } from our tree structure (file: title, dir: title) => _walk_tree_files_then_dirs()...
-                        - replace link target with "#"..identifier (or remove linkification+warning, if not found)
-                        ]]
-                        warn("removing internal link for [" .. utils.stringify(el.content) .. "](" .. utils.stringify(el.target) .. ")")
-                        return el.content
+                        t = _normalize_local_target(path, el.target)
+                        el.target = "#id-" .. utils.stringify(utils.sha1((t)))
+                        return el
                     end
                 end
             })
