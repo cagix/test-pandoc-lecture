@@ -3,6 +3,7 @@ archetype: assignment
 author: BC George, Carsten Gips (HSBI)
 hidden: true
 points: 10 Punkte
+no_beamer: true
 title: "Blatt 02: CFG"
 ---
 

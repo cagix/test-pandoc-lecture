@@ -3,6 +3,7 @@ archetype: assignment
 author: Carsten Gips, BC George (HSBI)
 hidden: true
 points: 10 Punkte
+no_beamer: true
 title: "Blatt 04: Semantische Analyse"
 ---
 

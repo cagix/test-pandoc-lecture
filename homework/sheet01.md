@@ -3,6 +3,7 @@ archetype: assignment
 author: BC George, Carsten Gips (HSBI)
 hidden: true
 points: 10 Punkte
+no_beamer: true
 title: "Blatt 01: Reguläre Sprachen"
 ---
 
@@ -51,7 +52,7 @@ Recherchieren Sie zunächst den Aufbau von Gleitkommazahlen in Python und Java.
 Erstellen Sie für jede der beiden Programmiersprachen reguläre Ausdrücke, DFAs und
 reguläre Grammatiken wie in Aufgabe 1. Verifizieren Sie Ihre Lösungen wie in Aufgabe
 
-1.  
+1.
 
 # Mailadressen? (1P)
 
