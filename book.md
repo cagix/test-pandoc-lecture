@@ -14,9 +14,9 @@ title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 
 **Read Online**:
 
-- [GitHub Preview](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
-- [Docsify Preview](https://docsify-this.net/?basePath=https://raw.githubusercontent.com/cagix/test-pandoc-lecture/refs/heads/_docsify&homepage=readme.md&sidebar=true&browser-tab-title=PR2&font-size=14px&searchbox=true&externalLinkTarget=_blank&mergeNavbar=true&zoom-images=true&dark-mode=auto#/)
-- [PDF-Version](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/readme.pdf)
+-   [GitHub Preview](https://github.com/cagix/test-pandoc-lecture/blob/_gfm/readme.md)
+-   [Docsify Preview](https://docsify-this.net/?basePath=https://raw.githubusercontent.com/cagix/test-pandoc-lecture/refs/heads/_docsify&homepage=readme.md&sidebar=true&browser-tab-title=PR2&font-size=14px&searchbox=true&externalLinkTarget=_blank&mergeNavbar=true&zoom-images=true&dark-mode=auto#/)
+-   [PDF-Version](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/readme.pdf)
 
 ------------------------------------------------------------------------
 :::
@@ -29,40 +29,37 @@ In diesem Modul geht es um ein grundlegendes Verständnis für die wichtigsten K
 
 ## Überblick Modulinhalte
 
+Die folgenden Punkte werden wir im Laufe des Semesters diskutieren:
+
 1.  Lexikalische Analyse: Scanner/Lexer
-    - Reguläre Sprachen
-    - Generierung mit ANTLR
+    -   Reguläre Sprachen
+    -   Generierung mit ANTLR
 2.  Syntaxanalyse: Parser
-    - Kontextfreie Grammatiken (CFG)
-    - LL-Parser (Top-Down-Parser)
-    - Generierung mit ANTLR
+    -   Kontextfreie Grammatiken (CFG)
+    -   LL-Parser (Top-Down-Parser)
+    -   Generierung mit ANTLR
 3.  Semantische Analyse: Attributierte Grammatiken und Symboltabellen
-    - Namen und Scopes
-    - Typen, Klassen, Polymorphie
+    -   Namen und Scopes
+    -   Typen, Klassen, Polymorphie
 4.  Zwischencode: Intermediate Representation (IR), LLVM-IR
 5.  Backend:
-    - LLVM
-    - Interpreter: AST-Traversierung
+    -   LLVM
+    -   Interpreter: AST-Traversierung
 6.  C++ als zu verarbeitende Programmiersprache
 
 ## Team
 
-- [BC George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
-- [Carsten Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips) (Sprechstunde nach Vereinbarung)
+-   [BC George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
+-   [Carsten Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips) (Sprechstunde nach Vereinbarung)
 
 ## Kursformat
 
-  -------------------------------------------------------------------------------------------------------
-  Vorlesung (2 SWS)                                 Praktikum (2 SWS)
-  ------------------------------------------------- -----------------------------------------------------
-  Mi, 08:00 - 09:30 Uhr (online)                    S3, G1: Di, 11:30 - 13:00 Uhr (online/Präsenz J101)
-
-  (Carsten: *Flipped Classroom*, BC: *Vorlesung*)   S3, G2: Fr, 14:00 - 15:30 Uhr (online/Präsenz J101)
-
-                                                    S3, G3: Mo, 09:15 - 10:45 Uhr (online/Präsenz J101)
-
-                                                    (Carsten: *online*, BC: *Präsenz*)
-  -------------------------------------------------------------------------------------------------------
+| Vorlesung (2 SWS) | Praktikum (2 SWS) |
+|:----------------------------------|:------------------------------------|
+| Mi, 08:00 - 09:30 Uhr (online) | S3, G1: Di, 11:30 - 13:00 Uhr (online/Präsenz J101) |
+| (Carsten: *Flipped Classroom*, BC: *Vorlesung*) | S3, G2: Fr, 14:00 - 15:30 Uhr (online/Präsenz J101) |
+|  | S3, G3: Mo, 09:15 - 10:45 Uhr (online/Präsenz J101) |
+|  | (Carsten: *online*, BC: *Präsenz*) |
 
 Online-Sitzungen per Zoom (**Zugangsdaten siehe [ILIAS IFM 3.1 CB (PO23, 3. Semester)](https://www.hsbi.de/elearning/goto.php?target=crs_1400596&client_id=FH-Bielefeld)**). Sie *können* hierzu den Raum J101 (siehe Stundenplan) nutzen.
 
@@ -72,61 +69,48 @@ Hier finden Sie einen abonnierbaren [Google Kalender IFM 3.1 CB (PO23, 3. Semest
 
 Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://www.hsbi.de/elearning/goto.php?target=exc_1420724&client_id=FH-Bielefeld). Vorstellung der Lösung im jeweiligen Praktikum in der Abgabewoche.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Monat                  Woche   Vorlesung                                                                                                                                                                                                                                               Lead          Abgabe Aufgabenblatt                                                    Vorstellung Praktikum
-  ---------------------- ------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------- ----------------------------------------------------------------------- -----------------------------------------------------------
-  Oktober                43      23.: [CFG](#id-ed1ca9f1d126c913f7ce93106335deafa8e5a251) \|\| [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41)   Carsten, BC                                                                           
-
-                         44      29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding**                                                                                                                                                                                    *Edmonton*                                                                            
-
-                         44      30.: [Parser mit ANTLR](#id-6cf46704b72b833be34e815ad028ca9585eca248)                                                                                                                                                                                   Carsten                                                                               
-
-  November               45      06.: *Dienstbesprechung*                                                                                                                                                                                                                                              04.: [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415) CFG            ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*)
-
-                         52      25.: *Weihnachtspause*                                                                                                                                                                                                                                                                                                                        
-
-  Januar                 01      01.: *Weihnachtspause*                                                                                                                                                                                                                                                                                                                        
-
-                         02      08.: *Sprechstunde/Freies Arbeiten*                                                                                                                                                                                                                     Carsten       06.: [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40) C++            06\. / 07. / 10. (Carsten, *online*)
-
-                         03      15.: *Freies Arbeiten/Puffer*                                                                                                                                                                                                                                                                                                                 
-
-                         04      22.: **Parcoursprüfung: Station 2 [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (VL- und Praktika-Slots, siehe Ankündigung)**                                                                                                                     Carsten, BC   20.: [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt   20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*)
-
-  *(Prüfungsphase I)*    05      30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)**                                                                                                                                                                                                                                                                                       
-
-  *(Prüfungsphase II)*           **Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)** (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher)                                                                                                                                                                                                                
-
-                                 [TEST](#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e)                                                                                                                                                                                                                                                                                          
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Monat | Woche | Vorlesung | Lead | Abgabe Aufgabenblatt | Vorstellung Praktikum |
+|:-----|:--|:----------------------------------|:---|:----------|:-------------|
+| Oktober | 43 | 23.: [CFG](#id-ed1ca9f1d126c913f7ce93106335deafa8e5a251) \|\| [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) `<br>`{=html} [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) | Carsten, BC |  |  |
+|  | 44 | 29.: **18:00 - 19:30 Uhr (online): Edmonton I: ANTLR + Live-Coding** | *Edmonton* |  |  |
+|  | 44 | 30.: [Parser mit ANTLR](#id-6cf46704b72b833be34e815ad028ca9585eca248) | Carsten |  |  |
+| November | 45 | 06.: *Dienstbesprechung* |  | 04.: [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415) CFG | ~~04.~~ **07. 08:00** / 05. / 08. (BC, *Präsenz*) |
+|  | 52 | 25.: *Weihnachtspause* |  |  |  |
+| Januar | 01 | 01.: *Weihnachtspause* |  |  |  |
+|  | 02 | 08.: *Sprechstunde/Freies Arbeiten* | Carsten | 06.: [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40) C++ | 06\. / 07. / 10. (Carsten, *online*) |
+|  | 03 | 15.: *Freies Arbeiten/Puffer* |  |  |  |
+|  | 04 | 22.: **Parcoursprüfung: Station 2 [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (VL- und Praktika-Slots, siehe Ankündigung)** | Carsten, BC | 20.: [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt | 20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
+| *(Prüfungsphase I)* | 05 | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)** |  |  |  |
+| *(Prüfungsphase II)* |  | **Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)** (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |  |  |  |
+|  |  | [TEST](#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e) |  |  |  |
 
 ## Prüfungsform, Note und Credits
 
 **Parcoursprüfung plus Testat**, 5 ECTS (PO23)
 
-- **Testat**: Vergabe der Credit-Points
-  1.  Mindestens 4 der Übungsblätter [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415), [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40), [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3), [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) erfolgreich bearbeitet, **und**
-  2.  **aktive** Teilnahme an allen 3 Edmonton-Terminen.
+-   **Testat**: Vergabe der Credit-Points
+    1.  Mindestens 4 der Übungsblätter [B01](#id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415), [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40), [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3), [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) erfolgreich bearbeitet, **und**
+    2.  **aktive** Teilnahme an allen 3 Edmonton-Terminen.
 
-  ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet, fristgerechte Abgabe der Lösungen im ILIAS, Vorstellung der Lösungen im Praktikum)
+    ("erfolgreich bearbeitet": Bearbeitung in 3er Teams, je mindestens 60% bearbeitet, fristgerechte Abgabe der Lösungen im ILIAS, Vorstellung der Lösungen im Praktikum)
 
 ### Prüfung im ersten Zeitraum"
 
-- **Stationen**:
+-   **Stationen**:
 
-  1.  ILIAS-Test (einzeln, 20.11.)
-  2.  Vorstellung Mini-Projekt [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (3er Teams, letzte VL-Woche)
+    1.  ILIAS-Test (einzeln, 20.11.)
+    2.  Vorstellung Mini-Projekt [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (3er Teams, letzte VL-Woche)
 
-  Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung **30 Punkte (Station I) und 50 Punkte (Station II)** die Gesamtnote (individuelle Günstigerprüfung).
+    Note für das Modul: Beide Stationen ergeben zu **je 50%** *oder* in der Gewichtung **30 Punkte (Station I) und 50 Punkte (Station II)** die Gesamtnote (individuelle Günstigerprüfung).
 
-  Für Station I werden 3 Punkte Überhang gewährt: Von den 33 maximal erreichbaren Punkten werden 30 Punkte als 100% gewertet, darüber hinausgehende Punkte bleiben als Bonuspunkte erhalten.
+    Für Station I werden 3 Punkte Überhang gewährt: Von den 33 maximal erreichbaren Punkten werden 30 Punkte als 100% gewertet, darüber hinausgehende Punkte bleiben als Bonuspunkte erhalten.
 
 ### Prüfung im zweiten Zeitraum"
 
-- **Stationen**:
-  1.  Mündliche Prüfung (individuell, ca. 45 Minuten, zweiter Prüfungszeitraum)
+-   **Stationen**:
+    1.  Mündliche Prüfung (individuell, ca. 45 Minuten, zweiter Prüfungszeitraum)
 
-  Die Note der mündlichen Prüfung ergibt die Gesamtnote.
+    Die Note der mündlichen Prüfung ergibt die Gesamtnote.
 
 ## Materialien
 
@@ -168,18 +152,18 @@ In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lex
 ### CFG
 
 ::: attachments
-- [Annotierte Folien: CFG, LL-Parser](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/frontend_parsing_cfg.ann.ba.pdf)
+-   [Annotierte Folien: CFG, LL-Parser](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/frontend_parsing_cfg.ann.ba.pdf)
 :::
 
 #### Wiederholung
 
 ##### Endliche Automaten, reguläre Ausdrücke, reguläre Grammatiken, reguläre Sprachen
 
-- Wie sind DFAs und NFAs definiert?
-- Was sind reguläre Ausdrücke?
-- Was sind formale und reguläre Grammatiken?
-- In welchem Zusammenhang stehen all diese Begriffe?
-- Wie werden DFAs und reguläre Ausdrücke im Compilerbau eingesetzt?
+-   Wie sind DFAs und NFAs definiert?
+-   Was sind reguläre Ausdrücke?
+-   Was sind formale und reguläre Grammatiken?
+-   In welchem Zusammenhang stehen all diese Begriffe?
+-   Wie werden DFAs und reguläre Ausdrücke im Compilerbau eingesetzt?
 
 #### Motivation
 
@@ -187,30 +171,30 @@ In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lex
 
 Für z. B. alle Sprachen, in deren Wörtern Zeichen über eine Konstante hinaus gezählt werden müssen. Diese Sprachen lassen sich oft mit Variablen im Exponenten beschreiben, die unendlich viele Werte annehmen können.
 
-- $a^ib^{2*i}$ ist nicht regulär
-- $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
+-   $a^ib^{2*i}$ ist nicht regulär
+-   $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
 
 \smallskip
 
-- Wo finden sich die oben genannten Variablen bei einem DFA wieder?
-- Warum ist die erste Sprache oben nicht regulär, die zweite aber?
+-   Wo finden sich die oben genannten Variablen bei einem DFA wieder?
+-   Warum ist die erste Sprache oben nicht regulär, die zweite aber?
 
 ##### Themen für heute
 
-- PDAs: mächtiger als DFAs, NFAs
-- kontextfreie Grammatiken und Sprachen: mächtiger als reguläre Grammatiken und Sprachen
-- DPDAs und deterministisch kontextfreie Grammatiken: die Grundlage der Syntaxanalyse im Compilerbau
-- Der Einsatz kontextfreier Grammatiken zur Syntaxanalyse mittels Top-Down-Techniken
+-   PDAs: mächtiger als DFAs, NFAs
+-   kontextfreie Grammatiken und Sprachen: mächtiger als reguläre Grammatiken und Sprachen
+-   DPDAs und deterministisch kontextfreie Grammatiken: die Grundlage der Syntaxanalyse im Compilerbau
+-   Der Einsatz kontextfreier Grammatiken zur Syntaxanalyse mittels Top-Down-Techniken
 
 ##### Einordnung: Erweiterung der Automatenklasse DFA, um komplexere Sprachen als die regulären akzeptieren zu können
 
 Wir spendieren den DFAs einen möglichst einfachen, aber beliebig großen, Speicher, um zählen und matchen zu können. Wir suchen dabei konzeptionell die "kleinstmögliche" Erweiterung, die die akzeptierte Sprachklasse gegenüber DFAs vergrößert.
 
-- Der konzeptionell einfachste Speicher ist ein Stack. Wir haben keinen wahlfreien Zugriff auf die gespeicherten Werte.
+-   Der konzeptionell einfachste Speicher ist ein Stack. Wir haben keinen wahlfreien Zugriff auf die gespeicherten Werte.
 
-- Es soll eine deterministische und eine indeterministische Variante der neuen Automatenklasse geben.
+-   Es soll eine deterministische und eine indeterministische Variante der neuen Automatenklasse geben.
 
-- In diesem Zusammenhang wird der Stack auch Keller genannt.
+-   In diesem Zusammenhang wird der Stack auch Keller genannt.
 
 ##### Kellerautomaten (Push-Down-Automata, PDAs)
 
@@ -236,9 +220,9 @@ Ein PDA für $L=\lbrace ww^{R}\mid w\in \lbrace a,b\rbrace^{\ast}\rbrace$:
 
 **Def.** Ein PDA $P = (Q, \Sigma, \Gamma, \delta, q_0, \perp, F)$ ist *deterministisch* $: \Leftrightarrow$
 
-- $\delta(q, a, X)$ hat höchstens ein Element für jedes $q \in Q, a \in\Sigma$ oder $(a = \epsilon$ und $X \in \Gamma)$.
+-   $\delta(q, a, X)$ hat höchstens ein Element für jedes $q \in Q, a \in\Sigma$ oder $(a = \epsilon$ und $X \in \Gamma)$.
 
-- Wenn $\delta (q, a, x)$ nicht leer ist für ein $a \in \Sigma$, dann muss $\delta (q, \epsilon, x)$ leer sein.
+-   Wenn $\delta (q, a, x)$ nicht leer ist für ein $a \in \Sigma$, dann muss $\delta (q, \epsilon, x)$ leer sein.
 
 Deterministische PDAs werden auch *DPDAs* genannt.
 
@@ -290,9 +274,9 @@ Vorgehensweise im Compilerbau: Eine Grammatik für die gewünschte Sprache defin
 
 ##### Was brauchen wir für die Syntaxanalyse von Programmen?
 
-- einen Grammatiktypen, aus dem sich manuell oder automatisiert ein Programm zur deterministischen Syntaxanalyse (=Parser) erstellen lässt
+-   einen Grammatiktypen, aus dem sich manuell oder automatisiert ein Programm zur deterministischen Syntaxanalyse (=Parser) erstellen lässt
 
-- einen Algorithmus zum Parsen von Programmen mit Hilfe einer solchen Grammatik
+-   einen Algorithmus zum Parsen von Programmen mit Hilfe einer solchen Grammatik
 
 ##### Syntax
 
@@ -306,13 +290,13 @@ Dabei wird der Ableitungsbaum von oben nach unten aufgebaut.
 
 ##### Ziele der Syntaxanalyse
 
-- Bestimmung der syntaktischen Struktur eines Programms
+-   Bestimmung der syntaktischen Struktur eines Programms
 
-- aussagekräftige Fehlermeldungen, wenn ein Eingabeprogramm syntaktisch nicht korrekt ist
+-   aussagekräftige Fehlermeldungen, wenn ein Eingabeprogramm syntaktisch nicht korrekt ist
 
-- Erstellung des AST (abstrakter Syntaxbaum): Der Parse Tree ohne Symbole, die nach der Syntaxanalyse inhaltlich irrelevant sind (z. B. Semikolons, manche Schlüsselwörter)
+-   Erstellung des AST (abstrakter Syntaxbaum): Der Parse Tree ohne Symbole, die nach der Syntaxanalyse inhaltlich irrelevant sind (z. B. Semikolons, manche Schlüsselwörter)
 
-- die Symboltablelle(n) mit Informationen bzgl. Bezeichner (Variable, Funktionen und Methoden, Klassen, benutzerdefinierte Typen, Parameter, ...), aber auch die Gültigkeitsbereiche.
+-   die Symboltablelle(n) mit Informationen bzgl. Bezeichner (Variable, Funktionen und Methoden, Klassen, benutzerdefinierte Typen, Parameter, ...), aber auch die Gültigkeitsbereiche.
 
 #### LL(k)-Grammatiken
 
@@ -326,9 +310,9 @@ Wir brauchen die "terminalen k-Anfänge" von Ableitungen von Nichtterminalen, um
 
 **Def.:** Wir definieren $First$ - Mengen einer Grammatik wie folgt:
 
-- $a \in T^\ast, |a| \leq k: {First}_k (a) = \lbrace a \rbrace$
-- $a \in T^\ast, |a| > k: {First}_k (a) = \lbrace v \in T^\ast \mid a = vw, |v| = k \rbrace$
-- $\alpha \in (N \cup T)^\ast \backslash T^\ast: {First}_k (\alpha) = \lbrace v \in T^\ast \mid  \alpha \overset{\ast}{\Rightarrow} w,\text{mit}\ w \in T^\ast, First_k(w) = \lbrace v \rbrace \rbrace$
+-   $a \in T^\ast, |a| \leq k: {First}_k (a) = \lbrace a \rbrace$
+-   $a \in T^\ast, |a| > k: {First}_k (a) = \lbrace v \in T^\ast \mid a = vw, |v| = k \rbrace$
+-   $\alpha \in (N \cup T)^\ast \backslash T^\ast: {First}_k (\alpha) = \lbrace v \in T^\ast \mid  \alpha \overset{\ast}{\Rightarrow} w,\text{mit}\ w \in T^\ast, First_k(w) = \lbrace v \rbrace \rbrace$
 
 ##### Linksableitungen
 
@@ -368,10 +352,10 @@ In der Praxis reichen *LL(1)* - Grammatiken oft. Hier gibt es effiziente Parserg
 
 ##### Was brauchen wir zur Erzeugung eines LL(k)-Parsers?
 
-- eine *LL(k)*-Grammatik
-- die $First_k$-Mengen der rechten Seiten aller Produktionsregeln
-- die $Follow_k$-Mengen aller Nichtterminale und der rechten Seiten aller Produktionsregeln
-- das Endezeichen $\perp$ hinter dem Eingabewort
+-   eine *LL(k)*-Grammatik
+-   die $First_k$-Mengen der rechten Seiten aller Produktionsregeln
+-   die $Follow_k$-Mengen aller Nichtterminale und der rechten Seiten aller Produktionsregeln
+-   das Endezeichen $\perp$ hinter dem Eingabewort
 
 **Def.:** Wir definieren $Follow$ - Mengen einer Grammatik wie folgt:
 
@@ -419,26 +403,26 @@ Hier entsteht ein Tafelbild.
 
 ##### Ergebnisse der Syntaxanalyse
 
-- eventuelle Syntaxfehler mit Angabe der Fehlerart und des -Ortes
+-   eventuelle Syntaxfehler mit Angabe der Fehlerart und des -Ortes
 
-- Format für die Weiterverarbeitung:
+-   Format für die Weiterverarbeitung:
 
-  - Ableitungsbaum oder Syntaxbaum oder Parse Tree
-  - abstrakter Syntaxbaum (AST): Der Parse Tree ohne Symbole, die nach der Syntaxanalyse inhaltlich irrelevant sind (z. B. ;, Klammern, manche Schlüsselwörter, $\ldots$)
+    -   Ableitungsbaum oder Syntaxbaum oder Parse Tree
+    -   abstrakter Syntaxbaum (AST): Der Parse Tree ohne Symbole, die nach der Syntaxanalyse inhaltlich irrelevant sind (z. B. ;, Klammern, manche Schlüsselwörter, $\ldots$)
 
 #### Wrap-Up
 
 ##### Das sollen Sie mitnehmen
 
-- Die Struktur von gängigen Programmiersprachen lässt sich nicht mit regulären Ausdrücken beschreiben und damit nicht mit DFAs akzeptieren.
-- Das Automatenmodell der DFAs wird um einen endlosen Stack erweitert, das ergibt PDAs.
-- Kontextfreie Grammatiken (CFGs) erweitern die regulären Grammatiken.
-- Deterministisch parsebare Sprachen haben eine eindeutige kontextfreie Grammatik.
-- Es ist nicht entscheidbar, ob eine gegebene kontextfreie Grammatik eindeutig ist.
-- Syntaxanalyse wird mit deterministisch kontextfreien Grammatiken durchgeführt.
-- Eine Teilmenge der dazu gehörigen Sprachen lässt sich top-down parsen.
-- Ein effizienter LL(k)-Parser realisiert einen DPDA und kann automatisch aus einer LL(k)-Grammatik generiert werden.
-- Der Parser liefert in der Regel einen abstrakten Syntaxbaum.
+-   Die Struktur von gängigen Programmiersprachen lässt sich nicht mit regulären Ausdrücken beschreiben und damit nicht mit DFAs akzeptieren.
+-   Das Automatenmodell der DFAs wird um einen endlosen Stack erweitert, das ergibt PDAs.
+-   Kontextfreie Grammatiken (CFGs) erweitern die regulären Grammatiken.
+-   Deterministisch parsebare Sprachen haben eine eindeutige kontextfreie Grammatik.
+-   Es ist nicht entscheidbar, ob eine gegebene kontextfreie Grammatik eindeutig ist.
+-   Syntaxanalyse wird mit deterministisch kontextfreien Grammatiken durchgeführt.
+-   Eine Teilmenge der dazu gehörigen Sprachen lässt sich top-down parsen.
+-   Ein effizienter LL(k)-Parser realisiert einen DPDA und kann automatisch aus einer LL(k)-Grammatik generiert werden.
+-   Der Parser liefert in der Regel einen abstrakten Syntaxbaum.
 
 <!-- ADD
 - mehr Inhalte für CFGs (vertiefendere Erklärungen)
@@ -446,18 +430,18 @@ Hier entsteht ein Tafelbild.
 ADD -->
 
 ::: readings
-- @Aho2023
-- @hopcroft2003
+-   @Aho2023
+-   @hopcroft2003
 :::
 
 ::: outcomes
-- k1: PDAs
-- k1: Deterministische PDAs
-- k1: Kontextfreie Grammatiken
-- k1: Deterministisch kontextfreie Grammatiken
-- k1: Top-Down-Analyse
-- k1: LL-Parser
-- k2: Zusammenhang zwischen PDAs und kontextfreien Grammatiken
+-   k1: PDAs
+-   k1: Deterministische PDAs
+-   k1: Kontextfreie Grammatiken
+-   k1: Deterministisch kontextfreie Grammatiken
+-   k1: Top-Down-Analyse
+-   k1: LL-Parser
+-   k2: Zusammenhang zwischen PDAs und kontextfreien Grammatiken
 :::
 
 <a id="id-6cf46704b72b833be34e815ad028ca9585eca248"></a>
@@ -481,9 +465,9 @@ Benannte Alternativen und Regel-Elemente sind nützlich, weil für die benannten
 :::
 
 ::: youtube
-- [VL Parser mit ANTLR (YT)](https://youtu.be/YuUHBvPUS4k)
-- [Demo ANTLR Parser (YT)](https://youtu.be/FJOEPY-TMmw)
-- [VL Parser mit ANTLR (HSBI)](https://www.hsbi.de/medienportal/m/19925b756d6fc934bfe0b5107eb5fa58373a53af49c690ebce86e15f2b212c89c80ea7665e42c78abdc8dfe0718ea46f6a9817eeba4ad1293bdb4c84f7c8f084)
+-   [VL Parser mit ANTLR (YT)](https://youtu.be/YuUHBvPUS4k)
+-   [Demo ANTLR Parser (YT)](https://youtu.be/FJOEPY-TMmw)
+-   [VL Parser mit ANTLR (HSBI)](https://www.hsbi.de/medienportal/m/19925b756d6fc934bfe0b5107eb5fa58373a53af49c690ebce86e15f2b212c89c80ea7665e42c78abdc8dfe0718ea46f6a9817eeba4ad1293bdb4c84f7c8f084)
 :::
 
 #### Hello World
@@ -513,32 +497,32 @@ WS    : [ \t\n]+ -> skip ;
 1.  Grammatik übersetzen und Code generieren: `antlr Hello.g4`
 2.  Java-Code kompilieren: `javac *.java`
 3.  Parser ausführen:
-    - `grun Hello start -tree` oder `grun Hello start -gui` (Grammatik "Hello", Startregel "start")
+    -   `grun Hello start -tree` oder `grun Hello start -gui` (Grammatik "Hello", Startregel "start")
 
-    - Alternativ mit kleinem Java-Programm:
+    -   Alternativ mit kleinem Java-Programm:
 
-      ``` java
-      import org.antlr.v4.runtime.CharStreams;
-      import org.antlr.v4.runtime.CommonTokenStream;
-      import org.antlr.v4.runtime.tree.ParseTree;
+        ``` java
+        import org.antlr.v4.runtime.CharStreams;
+        import org.antlr.v4.runtime.CommonTokenStream;
+        import org.antlr.v4.runtime.tree.ParseTree;
 
-      public class Main {
-          public static void main(String[] args) throws Exception {
-              HelloLexer lexer = new HelloLexer(CharStreams.fromStream(System.in));
-              CommonTokenStream tokens = new CommonTokenStream(lexer);
-              HelloParser parser = new HelloParser(tokens);
+        public class Main {
+            public static void main(String[] args) throws Exception {
+                HelloLexer lexer = new HelloLexer(CharStreams.fromStream(System.in));
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                HelloParser parser = new HelloParser(tokens);
 
-              ParseTree tree = parser.start();  // Start-Regel
-              System.out.println(tree.toStringTree(parser));
-          }
-      }
-      ```
+                ParseTree tree = parser.start();  // Start-Regel
+                System.out.println(tree.toStringTree(parser));
+            }
+        }
+        ```
 
 ##### Startregeln
 
-- `start` ist eine ==Parser-Regel== =\> Eine Parser-Regel pro Grammatik wird benötigt, damit man den generierten Parser am Ende auch starten kann ...
-- Alle Regeln mit kleinem Anfangsbuchstaben sind Parser-Regeln
-- Alle Regeln mit großem Anfangsbuchstaben sind Lexer-Regeln
+-   `start` ist eine ==Parser-Regel== =\> Eine Parser-Regel pro Grammatik wird benötigt, damit man den generierten Parser am Ende auch starten kann ...
+-   Alle Regeln mit kleinem Anfangsbuchstaben sind Parser-Regeln
+-   Alle Regeln mit großem Anfangsbuchstaben sind Lexer-Regeln
 
 ##### Formen der Subregeln
 
@@ -643,8 +627,8 @@ Zusätzlich muss bei LL-Parsern Links-Rekursion vermieden werden: Die Parser-Reg
 
 ANTLR (ab Version 4) kann mit beiden Aspekten automatisch umgehen:
 
-- ANTLR kann direkte Linksrekursion automatisch auflösen. Die Regel `r : r T U | V ;` kann also in ANTLR verarbeitet werden.
-- ANTLR besitzt einen Mechanismus zur Auflösung von Mehrdeutigkeiten. Wie oben geschrieben, wird bei der Anwendbarkeit von mehreren Alternativen die erste Alternative genutzt.
+-   ANTLR kann direkte Linksrekursion automatisch auflösen. Die Regel `r : r T U | V ;` kann also in ANTLR verarbeitet werden.
+-   ANTLR besitzt einen Mechanismus zur Auflösung von Mehrdeutigkeiten. Wie oben geschrieben, wird bei der Anwendbarkeit von mehreren Alternativen die erste Alternative genutzt.
 
 Damit lässt sich die typische Struktur für Expression-Grammatiken deutlich lesbarer gestalten:
 :::
@@ -922,26 +906,26 @@ Parser mit ANTLR generieren: Parser-Regeln werden mit **Kleinbuchstaben** geschr
 
 \bigskip
 
-- Regeln können Lexer- und Parser-Regeln "aufrufen"
-- Regeln können Alternativen haben
-- Bei Mehrdeutigkeit: Vorrang für erste Alternative
-- ANTLR erlaubt direkte Links-Rekursion
-- ANTLR erzeugt Parse-Tree
-- Benannte Alternativen und Regel-Elemente
-- Traversierung des Parse-Tree: Listener oder Visitoren, Zugriff auf Kontextobjekte
+-   Regeln können Lexer- und Parser-Regeln "aufrufen"
+-   Regeln können Alternativen haben
+-   Bei Mehrdeutigkeit: Vorrang für erste Alternative
+-   ANTLR erlaubt direkte Links-Rekursion
+-   ANTLR erzeugt Parse-Tree
+-   Benannte Alternativen und Regel-Elemente
+-   Traversierung des Parse-Tree: Listener oder Visitoren, Zugriff auf Kontextobjekte
 
 ::: readings
-- @Parr2014
+-   @Parr2014
 :::
 
 ::: outcomes
-- k2: Aufbau der Parser-Regeln
-- k3: Alternativen und optionale/mehrfache Regelteile in Parser-Regeln
-- k3: Vorrang von Alternativen (bei Mehrdeutigkeiten)
-- k3: Benannte Alternativen und Regel-Elemente
-- k2: Aufbau des Parse-Tree
-- k3: Umgang mit Kontext-Objekten
-- k3: Traversierung des Parse-Tree mit den generierten Listenern oder Visitors
+-   k2: Aufbau der Parser-Regeln
+-   k3: Alternativen und optionale/mehrfache Regelteile in Parser-Regeln
+-   k3: Vorrang von Alternativen (bei Mehrdeutigkeiten)
+-   k3: Benannte Alternativen und Regel-Elemente
+-   k2: Aufbau des Parse-Tree
+-   k3: Umgang mit Kontext-Objekten
+-   k3: Traversierung des Parse-Tree mit den generierten Listenern oder Visitors
 :::
 
 ::: challenges
@@ -1025,15 +1009,15 @@ Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in
 :::
 
 ::: youtube
-- [VL Parser mit ANTLR (YouTube)](https://youtu.be/YuUHBvPUS4k)
-- [Demo ANTLR Parser (YouTube)](https://youtu.be/FJOEPY-TMmw)
-- <https://foo.bar.de>
-- [VL Git Basics (HSBI Medienportal)](https://www.hsbi.de/medienportal/m/3a44c8a32e7699db77ae922c6b8944acf0d8c65b78d02859e707ffdf783ea45a78200312cdb8102c1052f382101b69a5092bcaf0a11ded36b98f4552a4aca345)
+-   [VL Parser mit ANTLR (YouTube)](https://youtu.be/YuUHBvPUS4k)
+-   [Demo ANTLR Parser (YouTube)](https://youtu.be/FJOEPY-TMmw)
+-   <https://foo.bar.de>
+-   [VL Git Basics (HSBI Medienportal)](https://www.hsbi.de/medienportal/m/3a44c8a32e7699db77ae922c6b8944acf0d8c65b78d02859e707ffdf783ea45a78200312cdb8102c1052f382101b69a5092bcaf0a11ded36b98f4552a4aca345)
 :::
 
 ::: attachments
-- [Folien (raw link)](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/master/lecture/nn/files/NN03-Logistische_Regression.pdf)
-- [Folien](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/lecture_03-test_test.pdf)
+-   [Folien (raw link)](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/master/lecture/nn/files/NN03-Logistische_Regression.pdf)
+-   [Folien](https://github.com/cagix/test-pandoc-lecture/blob/_pdf/lecture_03-test_test.pdf)
 :::
 
 <p align="center">
@@ -1046,9 +1030,9 @@ Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in
 
 Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
-- Stichpunkt 1
-- Stichpunkt 2
-- Stichpunkt 3
+-   Stichpunkt 1
+-   Stichpunkt 2
+-   Stichpunkt 3
 
 1.  Aufzählung 1
 2.  Aufzählung 2
@@ -1058,14 +1042,20 @@ Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
 Hier die ==Pandoc-Markdown== mark-Erweiterung.
 
+Hier nochmal eine Stichpunktliste, aber ohne Leerzeile davor (`+lists_without_preceding_blankline`):
+
+-   Stichpunkt 1
+-   Stichpunkt 2
+-   Stichpunkt 3
+
 #### Math
 
 ##### Inline
 
 $\mathbf{g} = (g_1, \dots, g_m)\in \{ 0,1\}^m$
 
-- $a^ib^{2*i}$ ist nicht regulär
-- $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
+-   $a^ib^{2*i}$ ist nicht regulär
+-   $a^ib^{2*i}$ für $0 \leq i \leq 3$ ist regulär
 
 ##### Block
 
@@ -1084,10 +1074,10 @@ $$g_i^{(t+1)} = \left\{
 
 ##### Known Problems
 
-- VSCode Preview: `\mbox{ tanh }` =\> $\mbox{ tanh }$ =\> `\text{ tanh }` =\> $\text{ tanh }$
-- GH Preview:
-  - `\phantom{xyz}` =\> $\phantom{xyz}$ =\> ?? =\> ??
-  - `\operatorname{tanh}` =\> $\operatorname{tanh}$ =\> `\mathop{\text{tanh}}` =\> $\mathop{\text{tanh}}$
+-   VSCode Preview: `\mbox{ tanh }` =\> $\mbox{ tanh }$ =\> `\text{ tanh }` =\> $\text{ tanh }$
+-   GH Preview:
+    -   `\phantom{xyz}` =\> $\phantom{xyz}$ =\> ?? =\> ??
+    -   `\operatorname{tanh}` =\> $\operatorname{tanh}$ =\> `\mathop{\text{tanh}}` =\> $\mathop{\text{tanh}}$
 
 $$g_i^{(t+1)} = \left\{
 \begin{array}{rll}
@@ -1361,7 +1351,7 @@ mit div drumherum:
 
 ##### Known Problems
 
-- In VSC preview as well as in LaTeX images via web like https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (**need to be "raw"**)
+-   In VSC preview as well as in LaTeX images via web like https://github.com/cagix/pandoc-thesis/blob/master/figs/wuppie.png do not work (**need to be "raw"**)
 
 ------------------------------------------------------------------------
 
@@ -1407,23 +1397,23 @@ request-headers:
 
 mit caption:
 
-    Rechtsbündig Linksbündig   Default    Zentriert
-  -------------- ------------- --------- -----------
-             foo foo           foo           foo
-             123 123           123           123
-             bar bar           bar           bar
+| Rechtsbündig | Linksbündig | Default | Zentriert |
+|-------------:|:------------|---------|:---------:|
+|          foo | foo         | foo     |    foo    |
+|          123 | 123         | 123     |    123    |
+|          bar | bar         | bar     |    bar    |
 
-  : Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
+: Tabelle als Markdown-Pipe-Table, vgl. [@SICP]
 
 ------------------------------------------------------------------------
 
 ohne caption:
 
-    Rechtsbündig Linksbündig   Default    Zentriert
-  -------------- ------------- --------- -----------
-             foo foo           foo           foo
-             123 123           123           123
-             bar bar           bar           bar
+| Rechtsbündig | Linksbündig | Default | Zentriert |
+|-------------:|:------------|---------|:---------:|
+|          foo | foo         | foo     |    foo    |
+|          123 | 123         | 123     |    123    |
+|          bar | bar         | bar     |    bar    |
 
 #### Zitieren, Quellen
 
@@ -1510,9 +1500,9 @@ Foo bar, wuppie fluppie!
 Foo bar, wuppie fluppie!
 :::
 
-- Export to GH Markdown using ["distinctive alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
-- Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
-- Export to Beamer using [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`, `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
+-   Export to GH Markdown using ["distinctive alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
+-   Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
+-   Export to Beamer using [beamercolorbox](https://tex.stackexchange.com/questions/411069/creating-beamer-box-environment) (also [beameruserguide.pdf](https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf); or `block`, `alertblock`, `examples` - cf. https://www.overleaf.com/learn/latex/Beamer%23Creating_a_table_of_contents)
 
 This should probably be in line with #180 ...
 
@@ -1522,46 +1512,46 @@ The GitHub Markdown parser has a really weird bug: as soon as there's inline mat
 
 ###### Example
 
-- Bullet point 1
+-   Bullet point 1
 
-- Bullet point 2 with block math (w/o blank line) $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   Bullet point 2 with block math (w/o blank line) $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-- Bullet point 3 with block math and blank line
+-   Bullet point 3 with block math and blank line
 
-  $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
 
-- Bullet point 4 with inline math ($x_i$) and block math and blank line
+-   Bullet point 4 with inline math ($x_i$) and block math and blank line
 
-  $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+    $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
 
-- Bullet point 5 with image
+-   Bullet point 5 with image
 
-  ![](lecture/03-test/img/b.png)
+    ![](lecture/03-test/img/b.png)
 
-- Bullet point 6 with figure
+-   Bullet point 6 with figure
 
-  ![image caption](lecture/03-test/img/b.png)
+    ![image caption](lecture/03-test/img/b.png)
 
-- Bullet point 7 with code block
+-   Bullet point 7 with code block
 
-  ``` antlr
-  grammar Hello;
+    ``` antlr
+    grammar Hello;
 
-  start : stmt* ;
+    start : stmt* ;
 
-  stmt  : ID '=' expr ';' | expr ';' ;
-  expr  : term ('+' term)* ;
-  term  : atom ('*' atom)* ;
-  atom  : ID | NUM ;
+    stmt  : ID '=' expr ';' | expr ';' ;
+    expr  : term ('+' term)* ;
+    term  : atom ('*' atom)* ;
+    atom  : ID | NUM ;
 
-  ID    : [a-z][a-zA-Z]* ;
-  NUM   : [0-9]+ ;
-  WS    : [ \t\n]+ -> skip ;
-  ```
+    ID    : [a-z][a-zA-Z]* ;
+    NUM   : [0-9]+ ;
+    WS    : [ \t\n]+ -> skip ;
+    ```
 
-  foo bar wuppie fluppie - text below code block in bullet point 6
+    foo bar wuppie fluppie - text below code block in bullet point 6
 
-- simple bullet point
+-   simple bullet point
 
 ###### Tests
 
@@ -1642,44 +1632,44 @@ compare with
 
 **will be rendered as**
 
-- wuppie $x_i$ fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
-- foo bar
+-   wuppie $x_i$ fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
 
 compare with
 
-- wuppie fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
-- foo bar
+-   wuppie fluppie: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   foo bar
 
 compare with
 
-- wuppie $x_i$ fluppie:
+-   wuppie $x_i$ fluppie:
 
 $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-- foo bar
+-   foo bar
 
 compare with
 
-- wuppie $x_i$ fluppie: $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
-- foo bar
+-   wuppie $x_i$ fluppie: $h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$
+-   foo bar
 
 compare with
 
-- wuppie $x_i$ fluppie $w_0$:
-  - bla bla bla
+-   wuppie $x_i$ fluppie $w_0$:
+    -   bla bla bla
 
-  - blub $x$ blub blub
+    -   blub $x$ blub blub
 
-    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-  - brabbel brabbel brabbel
+    -   brabbel brabbel brabbel
 
-  - blafasel $y$
+    -   blafasel $y$
 
-    $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+        $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-    blubfasel $z$
-- foobar
+        blubfasel $z$
+-   foobar
 
 compare with
 
@@ -1687,19 +1677,19 @@ compare with
 
     $$h(\mathbf{x}^1) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-    - bla bla bla
+    -   bla bla bla
 
-    - blub $x$ blub blub
+    -   blub $x$ blub blub
 
-      $$h(\mathbf{x}^2) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+        $$h(\mathbf{x}^2) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-    - brabbel brabbel brabbel
+    -   brabbel brabbel brabbel
 
-    - blafasel $y$
+    -   blafasel $y$
 
-      $$h(\mathbf{x}^3) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+        $$h(\mathbf{x}^3) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-      blubfasel $z$
+        blubfasel $z$
 
 2.  foobar
 
@@ -1725,31 +1715,19 @@ Sometimes[^1] we need some[^2] footnotes.
 
 ~~Docsify seems to recognize footnotes even in inline code:~~
 
-  -----------------------------------------------------------------------------
-  **Zeichenkette**   **Beschreibt**
-  ------------------ ----------------------------------------------------------
-  `^`                Zeilenanfang
-
-  `[abc]`            "a" oder "b" oder "c"
-
-  `[^abc]`           alles außer "a", "b" oder "c" (Negation)
-
-  `^abc`             test
-
-  `[ ^abc]`          test
-
-  `[ ^abc]`          test
-
-  `[^ abc]`          test
-
-  `[a-zA-Z]`         alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)
-
-  `[a-z&&[def]]`     "d","e" oder "f" (Schnitt)
-
-  `[a-z&&[^bc]]`     "a" bis "z", außer "b" und "c": `[ad-z]` (Subtraktion)
-
-  `[a-z&&[^m-p]]`    "a" bis "z", außer "m" bis "p": `[a-lq-z]` (Subtraktion)
-  -----------------------------------------------------------------------------
+| **Zeichenkette** | **Beschreibt**                                           |
+|:-----------------|:-----------------------------------------------------|
+| `^`              | Zeilenanfang                                             |
+| `[abc]`          | "a" oder "b" oder "c"                                    |
+| `[^abc]`         | alles außer "a", "b" oder "c" (Negation)                 |
+| `^abc`           | test                                                     |
+| `[ ^abc]`        | test                                                     |
+| `[ ^abc]`        | test                                                     |
+| `[^ abc]`        | test                                                     |
+| `[a-zA-Z]`       | alle Zeichen von "a" bis "z" und "A" bis "Z" (Range)     |
+| `[a-z&&[def]]`   | "d","e" oder "f" (Schnitt)                               |
+| `[a-z&&[^bc]]`   | "a" bis "z", außer "b" und "c": `[ad-z]` (Subtraktion)   |
+| `[a-z&&[^m-p]]`  | "a" bis "z", außer "m" bis "p": `[a-lq-z]` (Subtraktion) |
 
 ``` java
 ^               // Zeilenanfang
@@ -1775,8 +1753,8 @@ Sometimes[^1] we need some[^2] footnotes.
 
 :   (Formale) Beschreibung einer durch Agenten ausführbaren Aktion
 
-    - Anwendbar auf bestimmte Zustände
-    - Überführt Welt in neuen Zustand ("Nachfolge-Zustand")
+    -   Anwendbar auf bestimmte Zustände
+    -   Überführt Welt in neuen Zustand ("Nachfolge-Zustand")
 
 LaTeX-Befehle wie `\bigskip` etc. sollten automatisch entfernt werden:
 
@@ -1951,21 +1929,21 @@ Nach `\pause`... ("neue" Slide)
 should be added automatically and in `\scriptsize` or `<sup><sub>`
 
 ::: readings
-- @Tate2011 [Kapitel 2]: foo bar wuppie fluppie
-- @Tate2011 [Kapitel 2]: Creating Graphical User Interfaces \> Creating a GUI With Swing
-- @Nystrom2021: Abschnitt 2.5.2: Ant
-- [@Nystrom2021]: Abschnitt 2.5.2: Ant
+-   @Tate2011 [Kapitel 2]: foo bar wuppie fluppie
+-   @Tate2011 [Kapitel 2]: Creating Graphical User Interfaces \> Creating a GUI With Swing
+-   @Nystrom2021: Abschnitt 2.5.2: Ant
+-   [@Nystrom2021]: Abschnitt 2.5.2: Ant
 :::
 
 ::: outcomes
-- k1: K1
-- k2: K2
-- k3: K3.1
-- k3: K3.2
+-   k1: K1
+-   k2: K2
+-   k3: K3.1
+-   k3: K3.2
 :::
 
 ::: quizzes
-- [Quiz Git Basics (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106241&client_id=FH-Bielefeld)
+-   [Quiz Git Basics (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106241&client_id=FH-Bielefeld)
 :::
 
 ::: challenges
@@ -2003,57 +1981,57 @@ This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in lice
 ### NN02 - Lineare Regression und Gradientenabstieg
 
 ::: youtube
-- [NN2.1 - Lineare Regression - Intro](https://youtu.be/f-DTaKMnkj4)
-- [NN2.2 - Vergleich Perzeptron und Bsp](https://youtu.be/UnLjjMswNRo)
-- [NN2.3 - Kostenfunktiıon und Gradientenvektor](https://youtu.be/H2YvYIaUW1Q)
-- [NN2.4 - Berechnung Gradientenvektor - Beispiel](https://youtu.be/URaVsZnfppQ)
-- [NN2.5 - Berechnung Gradientenvektor - Allgemein](https://youtu.be/5OZF3Qopous)
-- [NN2.6 - Skalierung der Merkmale](https://youtu.be/m-TnM13I-no)
+-   [NN2.1 - Lineare Regression - Intro](https://youtu.be/f-DTaKMnkj4)
+-   [NN2.2 - Vergleich Perzeptron und Bsp](https://youtu.be/UnLjjMswNRo)
+-   [NN2.3 - Kostenfunktiıon und Gradientenvektor](https://youtu.be/H2YvYIaUW1Q)
+-   [NN2.4 - Berechnung Gradientenvektor - Beispiel](https://youtu.be/URaVsZnfppQ)
+-   [NN2.5 - Berechnung Gradientenvektor - Allgemein](https://youtu.be/5OZF3Qopous)
+-   [NN2.6 - Skalierung der Merkmale](https://youtu.be/m-TnM13I-no)
 :::
 
 ::: attachments
-- [NN02-Lineare_Regression.pdf](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/NN02-Lineare_Regression.pdf)
+-   [NN02-Lineare_Regression.pdf](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/NN02-Lineare_Regression.pdf)
 :::
 
 #### Kurze Übersicht
 
 ##### Formalisierung (original)
 
-- Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
-- Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
-- Der **Verlust** (engl. loss) für einen Datenpunkt $\mathbf{x}$ ist das **Fehlerquadrat**: $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
-- Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte: $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
+-   Ausgabe $y$ ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+-   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale $x_i$ plus eine Konstante $w_0$: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   Der **Verlust** (engl. loss) für einen Datenpunkt $\mathbf{x}$ ist das **Fehlerquadrat**: $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+-   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte: $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 ##### Formalisierung (ohne inline math)
 
-- Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
-- Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
-- Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**: $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
-- Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte: $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
+-   Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+-   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0: $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
+-   Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**: $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
+-   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte: $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 ##### Formalisierung (mit inline math, block math ausgerückt)
 
-- Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
+-   Ausgabe y ist reelle Zahl aus einem stetigen Bereich (zum Beispiel Hauspreis)
 
-- Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0:
+-   Die **Hypothesenfunktion** ist eine gewichtete Summe der Merkmale x_i plus eine Konstante w_0:
 
 $$h(\mathbf{x}) = \mathbf{w}^T\mathbf{x} = w_0 + w_1x_1 + w_2x_2 + \ldots + w_nx_n$$
 
-- Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**:
+-   Der **Verlust** (engl. loss) für einen Datenpunkt x ist das **Fehlerquadrat**:
 
 $$\mathcal{L} = (\hat{y} - y)^2 = (h(\mathbf{x}) - y)^2$$
 
-- Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
+-   Die Kosten (engl. cost) sind der durchschnittliche Verlust über alle Datenpunkte:
 
 $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} (h(\mathbf{x}) - y)^2$$
 
 ##### Der Gradient
 
-- Der **Gradientenvektor** $\nabla J(\mathbf{w})$ setzt sich zusammen aus den partiellen Ableitungen der Kostenfunktion $J$ nach den Gewichten $w_i$ und zeigt in jedem Punkt $\mathbf{w}$ in die **Richtung des steilsten Aufstiegs**: $$\nabla J = [ \partial J / \partial w_0
-  \quad \partial J / \partial w_1 \quad \ldots
-  \quad \partial J / \partial w_n]^T$$
-- **Schlussfolgerung**: In die entgegengesetzte Richtung, i.e. in Richtung $-\nabla J(\mathbf{w})$ geht es am *steilsten bergab!*
-- **IDEE**: Bewege $\mathbf{w}$ in Richtung $-\nabla J(\mathbf{w})$, um die Kosten $J$ möglichst schnell zu senken.
+-   Der **Gradientenvektor** $\nabla J(\mathbf{w})$ setzt sich zusammen aus den partiellen Ableitungen der Kostenfunktion $J$ nach den Gewichten $w_i$ und zeigt in jedem Punkt $\mathbf{w}$ in die **Richtung des steilsten Aufstiegs**: $$\nabla J = [ \partial J / \partial w_0
+    \quad \partial J / \partial w_1 \quad \ldots
+    \quad \partial J / \partial w_n]^T$$
+-   **Schlussfolgerung**: In die entgegengesetzte Richtung, i.e. in Richtung $-\nabla J(\mathbf{w})$ geht es am *steilsten bergab!*
+-   **IDEE**: Bewege $\mathbf{w}$ in Richtung $-\nabla J(\mathbf{w})$, um die Kosten $J$ möglichst schnell zu senken.
 
 ##### Der Gradientenabstieg (engl. Gradient Descent)
 
@@ -2063,16 +2041,16 @@ $$J = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y} - y)^2 = \frac{1}{2m} \sum_{i=1}^{m} 
 4.  Wiederhole Schritte 2-3, bis das globale Minimum von $J$ erreicht ist.
 
 ::: outcomes
-- k2: Lineare Regression aus Sicht neuronaler Netze: Graphische Darstellung, Vergleich mit Perzeptron
-- k2: Formalisierung
-- k2: Verlust- und Kostenfunktion
-- k2: Gradientenvektor
-- k2: Lernrate
-- k3: Gradientenabstieg
+-   k2: Lineare Regression aus Sicht neuronaler Netze: Graphische Darstellung, Vergleich mit Perzeptron
+-   k2: Formalisierung
+-   k2: Verlust- und Kostenfunktion
+-   k2: Gradientenvektor
+-   k2: Lernrate
+-   k3: Gradientenabstieg
 :::
 
 ::: quizzes
-- [Selbsttest Lineare Regression (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106590&client_id=FH-Bielefeld)
+-   [Selbsttest Lineare Regression (ILIAS)](https://www.hsbi.de/elearning/goto.php?target=tst_1106590&client_id=FH-Bielefeld)
 :::
 
 ::: challenges
@@ -2082,8 +2060,8 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 
 ![Abbildung 1](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/images/contour_plot_a.png?raw=true){width="40%"} ![Abbildung 2](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/images/contour_plot_b.png?raw=true){width="40%"}
 
-- Erklären Sie, welcher der beiden Fälle nachteilhaft für den Gradientenabstieg Algorithmus ist. Wo liegt der Nachteil? Wie kann die Merkmalskalierung dem genannten Nachteil entgegenwirken?
-- Zeigen Sie unter Verwendung Ihrer eigenen, zufällig generierten Datenpunkte aus dem Bereich $[100, 300] \times [0, 2]$, wie sich Standardisierung, Min-Max Skalierung und Normalisierung auf die Daten auswirken. Vergleichen Sie dazu die jeweiligen Streudiagramme (scatterplots). Sie können hierzu das folgende [**Jupyter Notebook**](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/Feature_Scaling_Starter.ipynb) als Startpunkt benutzen.
+-   Erklären Sie, welcher der beiden Fälle nachteilhaft für den Gradientenabstieg Algorithmus ist. Wo liegt der Nachteil? Wie kann die Merkmalskalierung dem genannten Nachteil entgegenwirken?
+-   Zeigen Sie unter Verwendung Ihrer eigenen, zufällig generierten Datenpunkte aus dem Bereich $[100, 300] \times [0, 2]$, wie sich Standardisierung, Min-Max Skalierung und Normalisierung auf die Daten auswirken. Vergleichen Sie dazu die jeweiligen Streudiagramme (scatterplots). Sie können hierzu das folgende [**Jupyter Notebook**](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/Feature_Scaling_Starter.ipynb) als Startpunkt benutzen.
 :::
 
 <a id="id-1b69551948844ea83b35c3b22e545c5a7e410e29"></a>
@@ -2095,9 +2073,9 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 #### Single page 'Foo' in a leaf bundle
 
 ::: attachments
-- [NN1-Das_Perzeptron.pdf](files/NN1-Das_Perzeptron.pdf)
-- [Annotierte Folien: LR-Parser1](https://github.com/Compiler-CampusMinden/AnnotatedSlides/blob/master/lr-parser1.ann.ma.pdf)
-- [Annotierte Folien: LR-Parser1 (RAW)](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/lr-parser1.ann.ma.pdf)
+-   [NN1-Das_Perzeptron.pdf](files/NN1-Das_Perzeptron.pdf)
+-   [Annotierte Folien: LR-Parser1](https://github.com/Compiler-CampusMinden/AnnotatedSlides/blob/master/lr-parser1.ann.ma.pdf)
+-   [Annotierte Folien: LR-Parser1 (RAW)](https://raw.githubusercontent.com/Compiler-CampusMinden/AnnotatedSlides/master/lr-parser1.ann.ma.pdf)
 :::
 
 ##### Lecture/03-Test/Subfolder/Foo.md
@@ -2187,23 +2165,23 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 
 ##### Vergleichsoperatoren
 
-  Operation       Operator
-  -------------- ----------
-  Gleichheit        `==`
-  Ungleichheit      `!=`
-  Größer            `>`
-  Kleiner           `<`
+| Operation    | Operator |
+|:-------------|:--------:|
+| Gleichheit   |   `==`   |
+| Ungleichheit |   `!=`   |
+| Größer       |   `>`    |
+| Kleiner      |   `<`    |
 
 Die Operanden müssen jeweils beide den selben Typ haben. Dabei sind `string` und `int` zulässig. Das Ergebnis ist immer vom Typ `bool`.
 
 ##### Arithmetische Operatoren
 
-  Operation                               Operator
-  -------------------------------------- ----------
-  Addition / String-Literal-Verkettung      `+`
-  Subtraktion                               `-`
-  Multiplikation                            `*`
-  Division                                  `/`
+| Operation                            | Operator |
+|:-------------------------------------|:--------:|
+| Addition / String-Literal-Verkettung |   `+`    |
+| Subtraktion                          |   `-`    |
+| Multiplikation                       |   `*`    |
+| Division                             |   `/`    |
 
 Die Operanden müssen jeweils beide den selben Typ haben. Für `+` sind `string` und `int` zulässig, für die anderen Operatoren (`-`, `*`, `/`) nur `int`. Das Ergebnis ist vom Typ der Operanden.
 
@@ -2372,15 +2350,11 @@ int foo(int a) {
 
 Unsere Sprache hat drei eingebaute Datentypen:
 
-  --------------------------------------------------------------------------
-  Datentyp   Definition der Literale
-  ---------- ---------------------------------------------------------------
-  `int`      eine beliebige Folge der Ziffern `0-9`
-
-  `string`   eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"`
-
-  `bool`     eines der beiden Schlüsselwörter `T` oder `F`
-  --------------------------------------------------------------------------
+| Datentyp | Definition der Literale                                       |
+|:---------|:--------------------------------------------------------------|
+| `int`    | eine beliebige Folge der Ziffern `0-9`                        |
+| `string` | eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"` |
+| `bool`   | eines der beiden Schlüsselwörter `T` oder `F`                 |
 
 #### Beispiele
 
@@ -2452,13 +2426,13 @@ $a\ +\ a\ (a\ +\ b)^*\ a$
 
 Betrachten Sie eine Programmiersprache, in der die Bezeichner (= Namen für Variablen, Funktionen, Klassen, Methoden, ...) folgenden Aufbau haben:
 
-- Alle Variablennamen beginnen mit **V** oder **v**
-- Handelt es sich um globale Variablen, beginnen Sie mit **V**, lokale beginnen mit **v**
-- Funktions- und Methodenparameter beginnen mit **p**, KLassenparameter (bei der Definition von Vererbung) beginnen mit **P**
-- Weitere Bezeichner müssen mit einem Buchstaben (a-z, A-Z) beginnen
-- Die folgenden Zeichen dürfen Buchstaben, Ziffern und ein Untersreich sein
-- Bezeichner dürfen nicht mit einem Unterstrich enden
-- Alle Bezeichner müssen aus mindestens zwei Zeichen bestehen
+-   Alle Variablennamen beginnen mit **V** oder **v**
+-   Handelt es sich um globale Variablen, beginnen Sie mit **V**, lokale beginnen mit **v**
+-   Funktions- und Methodenparameter beginnen mit **p**, KLassenparameter (bei der Definition von Vererbung) beginnen mit **P**
+-   Weitere Bezeichner müssen mit einem Buchstaben (a-z, A-Z) beginnen
+-   Die folgenden Zeichen dürfen Buchstaben, Ziffern und ein Untersreich sein
+-   Bezeichner dürfen nicht mit einem Unterstrich enden
+-   Alle Bezeichner müssen aus mindestens zwei Zeichen bestehen
 
 Entwickeln Sie einen regulären Ausdruck, der den Aufbau der Bezeichner beschreibt. Beachten Sie, dass Ihr regex alle zulässigen Bezeichner beschreiben muss, aber keinen einzigen unzulässigen beschreiben darf. Wählen Sie zwei Bezeichner aus der Sprache und zeigen Sie, wie sie vom regex gematcht werden.
 
@@ -2639,21 +2613,21 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 
 ##### Vergleichsoperatoren {#vergleichsoperatoren}
 
-  Operation       Operator
-  -------------- ----------
-  Gleichheit        `==`
-  Ungleichheit      `!=`
-  Größer            `>`
-  Kleiner           `<`
+| Operation    | Operator |
+|:-------------|:--------:|
+| Gleichheit   |   `==`   |
+| Ungleichheit |   `!=`   |
+| Größer       |   `>`    |
+| Kleiner      |   `<`    |
 
 ##### Arithmetische Operatoren {#arithmetische-operatoren}
 
-  Operation                               Operator
-  -------------------------------------- ----------
-  Addition / String-Literal-Verkettung      `+`
-  Subtraktion                               `-`
-  Multiplikation                            `*`
-  Division                                  `/`
+| Operation                            | Operator |
+|:-------------------------------------|:--------:|
+| Addition / String-Literal-Verkettung |   `+`    |
+| Subtraktion                          |   `-`    |
+| Multiplikation                       |   `*`    |
+| Division                             |   `/`    |
 
 ##### Beispiele für Ausdrücke {#beispiele-für-ausdrücke}
 
@@ -2741,13 +2715,10 @@ end
 
 Unsere Sprache hat zwei eingebaute Datentypen, für die entsprechende Literale erkannt werden müssen:
 
-  --------------------------------------------------------------------------
-  Datentyp   Definition der Literale
-  ---------- ---------------------------------------------------------------
-  `int`      eine beliebige Folge der Ziffern `0-9`
-
-  `string`   eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"`
-  --------------------------------------------------------------------------
+| Datentyp | Definition der Literale                                       |
+|:---------|:--------------------------------------------------------------|
+| `int`    | eine beliebige Folge der Ziffern `0-9`                        |
+| `string` | eine beliebige Folge von ASCII-Zeichen, eingeschlossen in `"` |
 
 Die Sprache ist dynamisch typisiert, d.h. beim Parsen werden Ihnen keine Typ-Angaben im Code begegnen. Aber Sie müssen die entsprechenden Werte (Literale) parsen können.
 
