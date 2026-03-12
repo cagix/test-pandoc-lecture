@@ -145,7 +145,7 @@ Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz und 
 
 In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lexer kommt. Mit Hilfe einer Grammatik wird geprüft, ob gültige Sätze im Sinne der Sprache/Grammatik gebildet wurden. Der Parser erzeugt dabei den Parse-Tree. Man kann verschiedene Parser unterscheiden, beispielsweise die LL- und die LR-Parser.
 
-![](lecture/02-parsing/admin/images/architektur_cb.png){width="80%"}
+![](lecture/02-parsing/images/architektur_cb_parser.png){width="80%"}
 
 <a id="id-ed1ca9f1d126c913f7ce93106335deafa8e5a251"></a>
 
