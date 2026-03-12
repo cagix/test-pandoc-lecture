@@ -35,6 +35,7 @@ für C++ ein.
 
 # Überblick Modulinhalte
 
+Die folgenden Punkte werden wir im Laufe des Semesters diskutieren:
 1.  Lexikalische Analyse: Scanner/Lexer
     -   Reguläre Sprachen
     -   Generierung mit ANTLR

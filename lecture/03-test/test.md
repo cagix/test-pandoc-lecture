@@ -163,6 +163,12 @@ Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
 Hier die ==Pandoc-Markdown== mark-Erweiterung.
 
+Hier nochmal eine Stichpunktliste, aber ohne Leerzeile davor (`+lists_without_preceding_blankline`):
+-   Stichpunkt 1
+-   Stichpunkt 2
+-   Stichpunkt 3
+
+
 # Math
 
 ## Inline
