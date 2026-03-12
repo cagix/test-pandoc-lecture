@@ -1,5 +1,6 @@
 ## Source files of our project
 METADATA               ?= cb.yaml
+BOOK_SRC               ?= book.md
 OUTPUT_DIR             ?= build
 
 ## Folder to contain the Pandoc-Lecture-Zen project tooling
