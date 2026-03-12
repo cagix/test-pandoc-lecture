@@ -1,5 +1,3 @@
-# IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)
-
 - [Syllabus](readme.md)
 - [Vorlesungsunterlagen](lecture/readme.md)
   - [Syntaktische Analyse](lecture/02-parsing/readme.md)
