@@ -113,6 +113,11 @@ Lines](https://en.wikipedia.org/wiki/Contour_line)) von zwei Kostenfunktionen.
 ![Abbildung
 2](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/images/contour_plot_b.png?raw=true){width="40%"}
 
+![Abbildung
+1](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/refs/heads/master/lecture/nn/images/contour_plot_a.png){width="40%"}
+![Abbildung
+2](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/refs/heads/master/lecture/nn/images/contour_plot_b.png){width="40%"}
+
 -   Erklären Sie, welcher der beiden Fälle nachteilhaft für den Gradientenabstieg
     Algorithmus ist. Wo liegt der Nachteil? Wie kann die Merkmalskalierung dem
     genannten Nachteil entgegenwirken?
