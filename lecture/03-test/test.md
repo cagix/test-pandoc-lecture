@@ -389,7 +389,7 @@ is (also like in LaTeX).
 <p>"B" (small)</p>
 ```
 
-(Bild geht auf GH/Docsify, `center` nur Docsify)
+(Bild geht auf GH/Docsify, `div/center` nur Docsify)
 
 
 ### img (relativ):
@@ -406,13 +406,13 @@ is (also like in LaTeX).
 - `?raw=true`:
 
 ```{=markdown}
-<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="10%">
 ```
 
 - `raw.githubusercontent.com`:
 
 ```{=markdown}
-<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="15%">
 ```
 
 (Bild+Skalierung gehen auf GH und Docsify)
@@ -436,7 +436,7 @@ is (also like in LaTeX).
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
 <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
-<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="15%">
 </picture>
 ```
 
@@ -452,7 +452,7 @@ is (also like in LaTeX).
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
 <source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
-<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="15%">
 </picture>
 </p><p align="center">
 foo bar wuppie fluppie
@@ -488,7 +488,7 @@ foo bar wuppie fluppie
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
 <source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
-<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="10%">
 </picture>
 <figcaption>lalelu ... foo!</figcaption>
 </figure>
@@ -503,7 +503,7 @@ foo bar wuppie fluppie
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
 <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
-<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="20%">
 </picture>
 <figcaption>lalelu ... foo!</figcaption>
 </figure>
@@ -621,25 +621,25 @@ ohne alles:
 
 ------------------------------------------------------------------------------------
 
-mit breitenangabe:
+mit breitenangabe 5%:
 
 ![](img/b.png){width="5%"}
 
 ------------------------------------------------------------------------------------
 
-mit breitenangabe ("width") und titel:
+mit breitenangabe ("width=15%") und titel:
 
-![](img/b.png "title: wuppie"){width="5%"}
+![](img/b.png "title: wuppie"){width="15%"}
 
 ------------------------------------------------------------------------------------
 
-mit breitenangabe ("web_width") und titel:
+mit breitenangabe ("web_width=10%") und titel:
 
 ![](img/b.png "title: wuppie"){web_width="10%"}
 
 ------------------------------------------------------------------------------------
 
-mit breitenangabe ("width" und "web_width") und titel:
+mit breitenangabe ("width=5%" und "web_width=10%") und titel:
 
 ![](img/b.png "title: wuppie"){width="5%" web_width="10%"}
 
@@ -762,18 +762,18 @@ automatisch umstellen.
 
 ![](img/dimensionen-ki.png){width=60%}
 
-![Hier könnte ihre Werbung stehen.](img/dimensionen-ki.png){width=40%}
+![Hier könnte ihre Werbung stehen. (40%)](img/dimensionen-ki.png){width=40%}
 
-Nachfolgend die "light"-Variante direkt:
+Nachfolgend die "light"-Variante direkt (60%):
 
 ![](img/dimensionen-ki_light.png){width=60%}
 
-Nachfolgend die "dark"-Variante direkt:
+Nachfolgend die "dark"-Variante direkt (60%):
 
 ![](img/dimensionen-ki_dark.png){width=60%}
 
 Nachfolgend eine Abbildung, die es nicht in light/dark im Repo gibt. Wie verhält sich die
-Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit generiert werden?
+Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit generiert werden? (40%)
 
 ![](img/test_transparentbackground.png){width=40%}
 
