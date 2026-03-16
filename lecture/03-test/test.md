@@ -478,7 +478,7 @@ foo bar wuppie fluppie
 
 
 
-### figures mit picture
+### figures mit picture und p
 
 - `?raw=true`:
 
@@ -512,6 +512,52 @@ foo bar wuppie fluppie
 
 (Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert und bräuchte ein `<div>`, was aber auf GH nicht erlaubt ist.)
 
+
+
+
+
+
+### figures mit picture und div
+
+- `?raw=true`:
+
+```{=markdown}
+<div style="text-align: center;">
+<div style="margin: 0 auto;">
+
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+
+</div>
+</div>
+```
+
+- `raw.githubusercontent.com`:
+
+```{=markdown}
+<div style="text-align: center;">
+<div style="margin: 0 auto;">
+
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+
+</div>
+</div>
+```
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert auf GH)
 
 
 
