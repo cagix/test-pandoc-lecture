@@ -478,6 +478,38 @@ foo bar wuppie fluppie
 
 
 
+### figures mit picture
+
+- `?raw=true`:
+
+```{=markdown}
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+```
+
+- `raw.githubusercontent.com`:
+
+```{=markdown}
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+```
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify)
+
+
+
 
 ## Images with Caption
 
