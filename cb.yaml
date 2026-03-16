@@ -15,6 +15,9 @@ refs: |
 # root document
 root_doc: readme.md
 
+# base url
+base_url: "https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/"
+
 # license footer
 license_footer: |
     ![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
