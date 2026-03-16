@@ -791,6 +791,7 @@ Lalelu ...
 
 </details>
 
+
 ## Alert Extension
 
 GH introduced "alerts" with distinctive styling, like
@@ -812,6 +813,53 @@ GH introduced "alerts" with distinctive styling, like
 
 (see
 https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
+
+(**formatted like in GH, needs `-f markdown+alerts` when reading from markdown to be recognized**)
+
+------------------------------------------------------------------------------------
+
+**gh alerts, written as nested pandoc divs (needs `-t markdown+alerts` when writing to markdown to produce the format above)**
+
+:::: note
+::: title
+Note
+:::
+
+Foo bar, wuppie fluppie!
+::::
+
+:::: tip
+::: title
+Tip
+:::
+
+Foo bar, wuppie fluppie!
+::::
+
+:::: important
+::: title
+Important
+:::
+
+Foo bar, wuppie fluppie!
+::::
+
+:::: warning
+::: title
+Warning
+:::
+
+Foo bar, wuppie fluppie!
+::::
+
+:::: caution
+::: title
+Caution
+:::
+
+Foo bar, wuppie fluppie!
+::::
+
 
 ------------------------------------------------------------------------------------
 
@@ -836,6 +884,9 @@ Foo bar, wuppie fluppie!
 ::: caution
 Foo bar, wuppie fluppie!
 :::
+
+(**formatted using custom divs in pandoc-markdown, needs custom lua-filter**)
+
 
 -   Export to GH Markdown using ["distinctive
     alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
