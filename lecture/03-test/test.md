@@ -483,6 +483,7 @@ foo bar wuppie fluppie
 - `?raw=true`:
 
 ```{=markdown}
+<p align="center">
 <figure>
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
@@ -491,11 +492,13 @@ foo bar wuppie fluppie
 </picture>
 <figcaption>lalelu ... foo!</figcaption>
 </figure>
+</p>
 ```
 
 - `raw.githubusercontent.com`:
 
 ```{=markdown}
+<p align="center">
 <figure>
 <picture>
 <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
@@ -504,9 +507,10 @@ foo bar wuppie fluppie
 </picture>
 <figcaption>lalelu ... foo!</figcaption>
 </figure>
+</p>
 ```
 
-(Bild+Skalierung+Darkmode gehen auf GH und Docsify)
+(Bild+Skalierung+Darkmode+Einrückung gehen auf GH und Docsify)
 
 
 
