@@ -510,7 +510,7 @@ foo bar wuppie fluppie
 </p>
 ```
 
-(Bild+Skalierung+Darkmode+Einrückung gehen auf GH und Docsify)
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert und bräuchte ein `<div>`, was aber auf GH nicht erlaubt ist.)
 
 
 
