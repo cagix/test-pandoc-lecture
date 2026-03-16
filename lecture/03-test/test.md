@@ -374,6 +374,111 @@ Code ohne alles
 Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as
 is (also like in LaTeX).
 
+## Tests GH vs. Docsify
+
+
+### Div und Markdown-Link:
+
+```{=markdown}
+<div style="text-align: center;">
+
+![](img/b.png)
+
+</div>
+
+<p>"B" (small)</p>
+```
+
+(Bild geht auf GH/Docsify, `center` nur Docsify)
+
+
+### img (relativ):
+
+```{=markdown}
+<img src="img/b.png" width="5%">
+```
+
+(Bild und Skalierung geht auf GH, auf Docsify nur wenn direkt geladen)
+
+
+### img (https)
+
+- `?raw=true`:
+
+```{=markdown}
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+```
+
+- `raw.githubusercontent.com`:
+
+```{=markdown}
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+```
+
+(Bild+Skalierung gehen auf GH und Docsify)
+
+
+### picture
+
+- `?raw=true`:
+
+```{=markdown}
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+```
+
+- `raw.githubusercontent.com`:
+
+```{=markdown}
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+```
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify)
+
+
+### picture mit `<p align>`
+
+- `?raw=true`:
+
+```{=markdown}
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+</p><p align="center">
+foo bar wuppie fluppie
+</p>
+```
+
+- `raw.githubusercontent.com`:
+
+```{=markdown}
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+</p><p align="center">
+foo bar wuppie fluppie
+</p>
+```
+
+(Bild+Skalierung+Darkmode+Einrückung gehen auf GH und Docsify)
+
+
+
+
+
 ## Images with Caption
 
 kleines Bild, keine Breiteangabe:
