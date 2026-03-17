@@ -333,7 +333,7 @@ WS    : [ \t\n]+ -> skip ;
 
 Java-Code kompilieren: `javac *.java`
 
-``` {#lst:huh .java caption="The preprocessing step, cf. [@Dietz2018]"}
+``` {#lst:huh .java caption="The preprocessing step, cf. [@Diehl]"}
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
