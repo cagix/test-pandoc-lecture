@@ -820,6 +820,8 @@ https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-d
 
 **gh alerts, written as nested pandoc divs (needs `-t markdown+alerts` when writing to markdown to produce the format above)**
 
+==currently the markdown reader would not recognize the gh-alert properly if the extension `lists_without_preceding_blankline` is activated (see https://github.com/jgm/pandoc/issues/11534), so this will fail until this issue is fixed:==
+
 :::: note
 ::: title
 Note
@@ -863,7 +865,7 @@ Foo bar, wuppie fluppie!
 
 ------------------------------------------------------------------------------------
 
-Let's stick with Pandocs divs in Markdown content and use filters for export:
+Let's stick with Pandocs divs in Markdown content and use filters for export. This should work regardless the bugs relating to GH alterts in both the reader (https://github.com/jgm/pandoc/issues/11534) and the writer (https://github.com/jgm/pandoc/issues/11533), also when using "-f markdown+lists_without_preceding_blankline`:
 
 ::: note
 Foo bar, wuppie fluppie! Blablabla third line of nonsense ...
@@ -887,6 +889,23 @@ Foo bar, wuppie fluppie!
 
 (**formatted using custom divs in pandoc-markdown, needs custom lua-filter**)
 
+
+---
+
+(**usage in custom divs**)
+
+This should work regardless the bugs relating to GH alterts in both the reader and the writer, also when using "-f markdown+lists_without_preceding_blankline`:
+
+:::: tldr
+foobar test
+::::
+
+:::: challenges
+prove that $E = m c^2$.
+::::
+
+
+---
 
 -   Export to GH Markdown using ["distinctive
     alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
