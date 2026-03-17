@@ -820,7 +820,7 @@ https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-d
 
 **gh alerts, written as nested pandoc divs (needs `-t markdown+alerts` when writing to markdown to produce the format above)**
 
-==currently the markdown reader would not recognize the gh-alert properly if the extension `lists_without_preceding_blankline` is activated (see https://github.com/jgm/pandoc/issues/11534), so this will fail until this issue is fixed:==
+currently the markdown reader would not recognize the gh-alert properly if the extension `lists_without_preceding_blankline` is activated (see https://github.com/jgm/pandoc/issues/11534), so this will fail until this issue is fixed:
 
 :::: note
 ::: title
