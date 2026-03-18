@@ -797,19 +797,19 @@ Lalelu ...
 GH introduced "alerts" with distinctive styling, like
 
 > [!NOTE]
-> Foo bar, wuppie fluppie!
+> NOTE: Foo bar, wuppie fluppie!
 
 > [!TIP]
-> Foo bar, wuppie fluppie!
+> TIP: Foo bar, wuppie fluppie!
 
 > [!IMPORTANT]
-> Foo bar, wuppie fluppie!
+> IMPORTANT: Foo bar, wuppie fluppie!
 
 > [!WARNING]
-> Foo bar, wuppie fluppie!
+> WARNING: Foo bar, wuppie fluppie!
 
 > [!CAUTION]
-> Foo bar, wuppie fluppie!
+> CAUTION: Foo bar, wuppie fluppie!
 
 (see
 https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
@@ -827,7 +827,7 @@ currently the markdown reader would not recognize the gh-alert properly if the e
 Note
 :::
 
-Foo bar, wuppie fluppie!
+NOTE: Foo bar, wuppie fluppie!
 ::::
 
 :::: tip
@@ -835,7 +835,7 @@ Foo bar, wuppie fluppie!
 Tip
 :::
 
-Foo bar, wuppie fluppie!
+TIP: Foo bar, wuppie fluppie!
 ::::
 
 :::: important
@@ -843,7 +843,7 @@ Foo bar, wuppie fluppie!
 Important
 :::
 
-Foo bar, wuppie fluppie!
+IMPORTANT: Foo bar, wuppie fluppie!
 ::::
 
 :::: warning
@@ -851,7 +851,7 @@ Foo bar, wuppie fluppie!
 Warning
 :::
 
-Foo bar, wuppie fluppie!
+WARNING: Foo bar, wuppie fluppie!
 ::::
 
 :::: caution
@@ -859,7 +859,7 @@ Foo bar, wuppie fluppie!
 Caution
 :::
 
-Foo bar, wuppie fluppie!
+CAUTION: Foo bar, wuppie fluppie!
 ::::
 
 
@@ -868,23 +868,23 @@ Foo bar, wuppie fluppie!
 Let's stick with Pandocs divs in Markdown content and use filters for export. This should work regardless the bugs relating to GH alterts in both the reader (https://github.com/jgm/pandoc/issues/11534) and the writer (https://github.com/jgm/pandoc/issues/11533), also when using "-f markdown+lists_without_preceding_blankline`:
 
 ::: note
-Foo bar, wuppie fluppie! Blablabla third line of nonsense ...
+NOTE: Foo bar, wuppie fluppie!
 :::
 
 ::: tip
-Foo bar, wuppie fluppie!
+TIP: Foo bar, wuppie fluppie!
 :::
 
 ::: important
-Foo bar, wuppie fluppie!
+IMPORTANT: Foo bar, wuppie fluppie!
 :::
 
 ::: warning
-Foo bar, wuppie fluppie!
+WARNING: Foo bar, wuppie fluppie!
 :::
 
 ::: caution
-Foo bar, wuppie fluppie!
+CAUTION: Foo bar, wuppie fluppie!
 :::
 
 (**formatted using custom divs in pandoc-markdown, needs custom lua-filter**)
