@@ -1,4 +1,4 @@
-name: PDF Handout
+name: Handout (Docsify plus PDF)
 
 on:
   # push on master branch
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  pdf:
+  handout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -16,13 +16,13 @@ jobs:
           fetch-depth: 0
       - uses: cagix/pandoc-lecture-zen@master
         with:
-          mktarget: pdf
+          mktarget: handout
           metadata: cb.yaml
-          output_dir: _pdf
+          output_dir: _handout
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          output_dir: _pdf
-          publish_branch: _pdf
+          output_dir: _handout
+          publish_branch: _handout    ## TODO (semester branch)
           force_orphan: true
           commit_message: ${{ github.event.head_commit.message }}
