@@ -22,7 +22,7 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          output_dir: _handout
+          publish_dir: _handout
           publish_branch: _handout    ## TODO (semester branch)
           force_orphan: true
           commit_message: ${{ github.event.head_commit.message }}
