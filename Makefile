@@ -2,6 +2,7 @@
 METADATA               ?= cb.yaml
 BOOK_SRC               ?= book.md
 OUTPUT_DIR             ?= build
+IMAGE_DARK_SUFFIX      ?= _inv
 
 ## Folder to contain the Pandoc-Lecture-Zen project tooling
 PANDOC_DATA            ?= .pandoc
