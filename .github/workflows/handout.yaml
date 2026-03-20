@@ -10,7 +10,7 @@ on:
 env:
     MKTARGET: handout
     METADATA_FILE: cb.yaml
-    HANDOUT_PATH: _handout
+    BUILD_PATH: _handout
 
 jobs:
     handout:
@@ -19,20 +19,39 @@ jobs:
             contents: write
 
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout lecture-repo
+              uses: actions/checkout@v6
               with:
                   fetch-depth: 0
 
-            - uses: cagix/pandoc-lecture-zen@master
+            - name: Build handout
+              uses: cagix/pandoc-lecture-zen@master
               with:
                   mktarget: ${{ env.MKTARGET }}
                   metadata: ${{ env.METADATA_FILE }}
-                  output_dir: ${{ env.HANDOUT_PATH }}
+                  output_dir: ${{ env.BUILD_PATH }}
 
-            - uses: peaceiris/actions-gh-pages@v4
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ${{ env.HANDOUT_PATH }}
-                  publish_branch: ${{ env.HANDOUT_PATH }}
-                  force_orphan: true
-                  commit_message: ${{ github.event.head_commit.message }}
+            - name: Publish handout to orphan branch
+              env:
+                  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+              run: |
+                  git config user.name "cagix"
+                  git config user.email "cagix@users.noreply.github.com"
+
+                  if [ -z "${COMMIT_MESSAGE:-}" ]; then
+                    COMMIT_MESSAGE="publish handout (manual trigger)"
+                  fi
+
+                  git switch --orphan "$BUILD_PATH"
+
+                  find . -mindepth 1 -maxdepth 1  \
+                    ! -name '.git'                \
+                    ! -name "$BUILD_PATH"         \
+                    -exec rm -rf {} +
+
+                  mv "$BUILD_PATH"/* .
+                  rmdir "$BUILD_PATH" || true
+
+                  git add -f .
+                  git commit -m "$COMMIT_MESSAGE"
+                  git push --force origin "$BUILD_PATH"
