@@ -5,6 +5,9 @@ lang: de-DE
 author: "Foo Bar"
 institute: "Unless otherwise noted, this work is licensed under CC BY-SA 4.0."
 
+# build date
+date: "\\today"
+
 # bibtex file
 bibliography: cb.bib
 
