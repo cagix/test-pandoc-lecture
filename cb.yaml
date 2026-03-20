@@ -2,6 +2,7 @@
 lang: de-DE
 
 # author information
+author: "Foo Bar"
 institute: "Unless otherwise noted, this work is licensed under CC BY-SA 4.0."
 
 # bibtex file
