@@ -304,6 +304,10 @@ $$
 
 ## Internal Links
 
+[empty link]()
+
+[link target: .](.)
+
 [selbe ebene: readme.md](readme.md)
 
 [unterordner: subfolder/foo.md](subfolder/foo.md)
