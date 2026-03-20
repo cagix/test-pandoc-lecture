@@ -32,14 +32,14 @@ jobs:
                   output_dir: ${{ env.BUILD_PATH }}
 
             - name: Publish handout to orphan branch
-              env:
-                  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
               run: |
                   git config user.name "cagix"
                   git config user.email "cagix@users.noreply.github.com"
 
-                  if [ -z "${COMMIT_MESSAGE:-}" ]; then
+                  if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
                     COMMIT_MESSAGE="publish handout (manual trigger)"
+                  else
+                    COMMIT_MESSAGE="$(git log -1 --pretty=%s)"
                   fi
 
                   git reset --hard
