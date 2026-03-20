@@ -44,6 +44,7 @@ jobs:
 
                   git reset --hard
                   git clean -fd -e "$BUILD_PATH"
+                  git branch -D "$BUILD_PATH" 2>/dev/null || true
                   git switch --orphan "$BUILD_PATH"
 
                   find . -mindepth 1 -maxdepth 1  \
