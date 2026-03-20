@@ -560,6 +560,16 @@ foo bar wuppie fluppie
 (Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert auf GH)
 
 
+#### Really deep headings level (h4 to h7 - warning)
+
+Markdown allows level 6 headings, max. When building the book version, we need to shift all headings,
+in this case by 3. So in this example all h3 headings will become h6 headings, h4 headings (like this
+one) would become h7 headings, which do not exist. Our filter should emit a warning here.
+
+NB: The filter should also warn on h3 headings, as those will be demoted to (valid) h6 headings in
+the first step and due to `--shift-heading-level-by=1` in the next processing step would become h7
+headings.
+
 
 ## Images with Caption
 
