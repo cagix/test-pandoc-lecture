@@ -1,28 +1,38 @@
 name: Handout (Docsify plus PDF)
 
 on:
-  # push on master branch
-  push:
-    branches: [master]
-  # triggered manually
-  workflow_dispatch:
+    push:
+        # push on master branch
+        branches: [master]
+    # triggered manually
+    workflow_dispatch:
+
+env:
+    MKTARGET: handout
+    METADATA_FILE: cb.yaml
+    HANDOUT_PATH: _handout
 
 jobs:
-  handout:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - uses: cagix/pandoc-lecture-zen@master
-        with:
-          mktarget: handout
-          metadata: cb.yaml
-          output_dir: _handout
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _handout
-          publish_branch: _handout    ## TODO (semester branch)
-          force_orphan: true
-          commit_message: ${{ github.event.head_commit.message }}
+    handout:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - uses: actions/checkout@v6
+              with:
+                  fetch-depth: 0
+
+            - uses: cagix/pandoc-lecture-zen@master
+              with:
+                  mktarget: ${{ env.MKTARGET }}
+                  metadata: ${{ env.METADATA_FILE }}
+                  output_dir: ${{ env.HANDOUT_PATH }}
+
+            - uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ${{ env.HANDOUT_PATH }}
+                  publish_branch: ${{ env.HANDOUT_PATH }}
+                  force_orphan: true
+                  commit_message: ${{ github.event.head_commit.message }}
