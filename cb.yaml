@@ -11,16 +11,16 @@ date: "\\today"
 # bibtex file
 bibliography: cb.bib
 
-# collect references (for use in filter/template)
-refs: |
-   ::: {#refs}
-   :::
-
 # root document
 root_doc: readme.md
 
 # base url
 base_url: "https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_handout/"
+
+# collect references (for use in filter/template)
+refs: |
+   ::: {#refs}
+   :::
 
 # license footer
 license_footer: |
