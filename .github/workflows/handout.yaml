@@ -19,7 +19,7 @@ jobs:
             contents: write
 
         steps:
-            - name: Checkout lecture-repo
+            - name: Checkout lecture-repo (fully)
               uses: actions/checkout@v6
               with:
                   fetch-depth: 0
@@ -39,7 +39,11 @@ jobs:
                   if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
                     COMMIT_MESSAGE="publish handout (manual trigger)"
                   else
-                    COMMIT_MESSAGE="$(git log -1 --pretty=%s)"
+                    COMMIT_MESSAGE="$(git log -1 --pretty=%s 2>/dev/null || echo 'unversioned')"
+                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\"/}
+                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\'/}
+                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\`/}
+                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\$/}
                   fi
 
                   git reset --hard
@@ -53,7 +57,7 @@ jobs:
                     -exec rm -rf {} +
 
                   mv "$BUILD_PATH"/* .
-                  rmdir "$BUILD_PATH" || true
+                  rm -rf "$BUILD_PATH"
 
                   git add -f .
                   git commit -m "$COMMIT_MESSAGE"
