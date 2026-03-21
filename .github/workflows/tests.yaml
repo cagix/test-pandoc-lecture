@@ -10,7 +10,7 @@ jobs:
     with:
       mktarget: beamer
       metadata: cb.yaml
-      build_path: _beamer
+      build_dir: _beamer
       publish: false
 
   test_docsify:
@@ -18,7 +18,7 @@ jobs:
     with:
       mktarget: docsify
       metadata: cb.yaml
-      build_path: _docsify
+      build_dir: _docsify
       publish: false
 
   test_pdf:
@@ -26,5 +26,5 @@ jobs:
     with:
       mktarget: pdf
       metadata: cb.yaml
-      build_path: _pdf
+      build_dir: _pdf
       publish: false

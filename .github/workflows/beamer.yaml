@@ -11,5 +11,4 @@ jobs:
     with:
       mktarget: beamer
       metadata: cb.yaml
-      build_path: _beamer
-      publish: true
+      build_dir: _beamer

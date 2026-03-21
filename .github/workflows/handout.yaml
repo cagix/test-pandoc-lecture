@@ -11,5 +11,4 @@ jobs:
     with:
       mktarget: handout
       metadata: cb.yaml
-      build_path: _handout
-      publish: true
+      build_dir: _handout
