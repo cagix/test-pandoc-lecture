@@ -43,6 +43,11 @@ jobs:
           overwrite: true
           retention-days: 1
 
+      - name: Check/Debug
+        run: |
+          ls -la
+          ls -la "${{ inputs.build_path }}"
+
   publish:
     if: ${{ inputs.publish }}
     needs: build
@@ -109,3 +114,7 @@ jobs:
           else
             echo "no changes to push"
           fi
+
+      - name: Check/Debug
+        run: |
+          ls -la
