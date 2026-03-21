@@ -55,8 +55,6 @@ Kontextobjekt angelegt, welches `public` sichtbar ist.
 
 # Hello World
 
-FOOBARWUPPIEFLUPPIE
-
 ``` antlr
 grammar Hello;
 
