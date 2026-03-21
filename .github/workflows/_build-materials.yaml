@@ -76,6 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - name: Checkout lecture-repo (last commit)
         uses: actions/checkout@v6
@@ -136,6 +137,28 @@ jobs:
           else
             echo "no changes to push"
           fi
+
+      - name: Delete build artifact
+        if: ${{ success() }}
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const artifactName = 'materials-${{ inputs.build_dir }}';
+            const { owner, repo } = context.repo;
+            const run_id = context.runId;
+
+            const { data } = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id });
+            const matches = data.artifacts.filter(a => a.name === artifactName);
+
+            if (matches.length === 0) {
+              core.info(`No artifact found in this run named ${artifactName}`);
+              return;
+            }
+
+            for (const a of matches) {
+              core.info(`Deleting (this run) ${a.name} (id=${a.id})`);
+              await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: a.id });
+            }
 
       - name: Check/Debug
         run: |
