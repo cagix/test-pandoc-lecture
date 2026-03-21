@@ -54,10 +54,8 @@ Die folgenden Punkte werden wir im Laufe des Semesters diskutieren:
 
 # Team
 
--   [BC
-    George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
--   [Carsten
-    Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips)
+-   [BC George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
+-   [Carsten Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips)
     (Sprechstunde nach Vereinbarung)
 
 # Kursformat
