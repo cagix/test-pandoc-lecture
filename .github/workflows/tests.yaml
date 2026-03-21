@@ -6,7 +6,7 @@ on:
 
 jobs:
   test_beamer:
-    uses: ./.github/workflows/_build-materials.yml
+    uses: ./.github/workflows/_build-materials.yaml
     with:
       mktarget: beamer
       metadata: cb.yaml
@@ -14,7 +14,7 @@ jobs:
       publish: false
 
   test_docsify:
-    uses: ./.github/workflows/_build-materials.yml
+    uses: ./.github/workflows/_build-materials.yaml
     with:
       mktarget: docsify
       metadata: cb.yaml
@@ -22,7 +22,7 @@ jobs:
       publish: false
 
   test_pdf:
-    uses: ./.github/workflows/_build-materials.yml
+    uses: ./.github/workflows/_build-materials.yaml
     with:
       mktarget: pdf
       metadata: cb.yaml

@@ -7,7 +7,7 @@ on:
 
 jobs:
   call:
-    uses: ./.github/workflows/_build-materials.yml
+    uses: ./.github/workflows/_build-materials.yaml
     with:
       mktarget: beamer
       metadata: cb.yaml
