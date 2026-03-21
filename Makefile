@@ -1,7 +1,7 @@
 ## Source files of our project
 METADATA               ?= cb.yaml
 BOOK_SRC               ?= book.md
-OUTPUT_DIR             ?= build
+BUILD_DIR              ?= build
 IMAGE_DARK_SUFFIX      ?= _inv
 
 ## Folder to contain the Pandoc-Lecture-Zen project tooling
