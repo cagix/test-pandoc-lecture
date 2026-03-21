@@ -54,20 +54,18 @@ Die folgenden Punkte werden wir im Laufe des Semesters diskutieren:
 
 # Team
 
--   [BC
-    George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
--   [Carsten
-    Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips)
+-   [BC George](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/birgit-christina-george)
+-   [Carsten Gips](https://www.hsbi.de/minden/ueber-uns/personenverzeichnis/carsten-gips)
     (Sprechstunde nach Vereinbarung)
 
 # Kursformat
 
-| Vorlesung (2 SWS) | Praktikum (2 SWS) |
-|:----------------------------------------|:------------------------------------------|
-| Mi, 08:00 - 09:30 Uhr (online) | S3, G1: Di, 11:30 - 13:00 Uhr (online/Präsenz J101) |
+| Vorlesung (2 SWS)                               | Praktikum (2 SWS)                                   |
+|:------------------------------------------------|:----------------------------------------------------|
+| Mi, 08:00 - 09:30 Uhr (online)                  | S3, G1: Di, 11:30 - 13:00 Uhr (online/Präsenz J101) |
 | (Carsten: *Flipped Classroom*, BC: *Vorlesung*) | S3, G2: Fr, 14:00 - 15:30 Uhr (online/Präsenz J101) |
-|  | S3, G3: Mo, 09:15 - 10:45 Uhr (online/Präsenz J101) |
-|  | (Carsten: *online*, BC: *Präsenz*) |
+|                                                 | S3, G3: Mo, 09:15 - 10:45 Uhr (online/Präsenz J101) |
+|                                                 | (Carsten: *online*, BC: *Präsenz*)                  |
 
 Online-Sitzungen per Zoom (**Zugangsdaten siehe [ILIAS IFM 3.1 CB (PO23, 3.
 Semester)](https://www.hsbi.de/elearning/goto.php?target=crs_1400596&client_id=FH-Bielefeld)**).
