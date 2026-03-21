@@ -1,60 +1,30 @@
 name: TESTS
 
 on:
-  # triggered by pull requests
   pull_request:
-  # triggered manually
   workflow_dispatch:
 
 jobs:
-  # try building slides (pandoc, beamer)
   test_beamer:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - uses: cagix/pandoc-lecture-zen@master
-        with:
-          mktarget: beamer
-          metadata: cb.yaml
-          output_dir: _beamer
+    uses: ./.github/workflows/_build-materials.yml
+    with:
+      mktarget: beamer
+      metadata: cb.yaml
+      build_path: _beamer
+      publish: false
 
-  # try building lecture notes (docsify)
   test_docsify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - uses: cagix/pandoc-lecture-zen@master
-        with:
-          mktarget: docsify
-          metadata: cb.yaml
-          output_dir: _docsify
+    uses: ./.github/workflows/_build-materials.yml
+    with:
+      mktarget: docsify
+      metadata: cb.yaml
+      build_path: _docsify
+      publish: false
 
-  # try building lecture notes (pdf)
   test_pdf:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - uses: cagix/pandoc-lecture-zen@master
-        with:
-          mktarget: pdf
-          metadata: cb.yaml
-          output_dir: _pdf
-
-  # try building handout (docsify and pdf)
-  test_handout:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - uses: cagix/pandoc-lecture-zen@master
-        with:
-          mktarget: handout
-          metadata: cb.yaml
-          output_dir: _handout
+    uses: ./.github/workflows/_build-materials.yml
+    with:
+      mktarget: pdf
+      metadata: cb.yaml
+      build_path: _pdf
+      publish: false

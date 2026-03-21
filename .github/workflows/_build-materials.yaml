@@ -1,0 +1,111 @@
+name: _build-materials (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      mktarget:
+        type: string
+        required: true
+      metadata:
+        type: string
+        required: true
+      build_path:
+        type: string
+        required: true
+      publish:
+        type: boolean
+        required: false
+        default: true
+    secrets: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout lecture-repo (fully)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Build materials
+        uses: cagix/pandoc-lecture-zen@master
+        with:
+          mktarget: ${{ inputs.mktarget }}
+          metadata: ${{ inputs.metadata }}
+          output_dir: ${{ inputs.build_path }}
+
+      - name: Upload build artifact
+        if: ${{ inputs.publish }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: materials-${{ inputs.build_path }}
+          path: ${{ inputs.build_path }}
+          overwrite: true
+          retention-days: 1
+
+  publish:
+    if: ${{ inputs.publish }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout lecture-repo (last commit)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          clean: true
+
+      - name: Retrieve last commit message
+        id: message
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            msg="publish materials (manual trigger)"
+          else
+            msg="$(git log -n 1 --pretty=format:'%s' 2>/dev/null || echo 'unversioned')"
+            msg=${msg//\"/}
+            msg=${msg//\'/}
+            msg=${msg//\`/}
+            msg=${msg//\$/}
+          fi
+          echo "COMMIT_MESSAGE=$msg" >> "$GITHUB_OUTPUT"
+
+      - name: Create new orphan branch
+        run: |
+          git reset --hard
+          git clean -fd
+          git branch -D "${{ inputs.build_path }}" 2>/dev/null || true
+          git switch --orphan "${{ inputs.build_path }}"
+          git rm -r --cached . || true
+
+      - name: Clean working tree
+        run: |
+          find . -mindepth 1 -maxdepth 1  \
+            ! -name '.git'                \
+            -exec rm -rf {} +
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: materials-${{ inputs.build_path }}
+          path: ${{ inputs.build_path }}
+
+      - name: Copy files over
+        run: |
+          mv "${{ inputs.build_path }}"/* .
+          rm -rf "${{ inputs.build_path }}"
+
+      - name: Commit and push
+        env:
+          COMMIT_MESSAGE: ${{ steps.message.outputs.COMMIT_MESSAGE }}
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "cagix"
+            git config user.email "cagix@users.noreply.github.com"
+
+            git add -f .
+            git commit -m "$COMMIT_MESSAGE"
+            git push --force origin "${{ inputs.build_path }}"
+          else
+            echo "no changes to push"
+          fi

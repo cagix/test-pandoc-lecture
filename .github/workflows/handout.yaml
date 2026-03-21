@@ -1,64 +1,15 @@
 name: Handout (Docsify plus PDF)
 
 on:
-    push:
-        # push on master branch
-        branches: [master]
-    # triggered manually
-    workflow_dispatch:
-
-env:
-    MKTARGET: handout
-    METADATA_FILE: cb.yaml
-    BUILD_PATH: _handout
+  push:
+    branches: [master]
+  workflow_dispatch:
 
 jobs:
-    handout:
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-
-        steps:
-            - name: Checkout lecture-repo (fully)
-              uses: actions/checkout@v6
-              with:
-                  fetch-depth: 0
-
-            - name: Build handout
-              uses: cagix/pandoc-lecture-zen@master
-              with:
-                  mktarget: ${{ env.MKTARGET }}
-                  metadata: ${{ env.METADATA_FILE }}
-                  output_dir: ${{ env.BUILD_PATH }}
-
-            - name: Publish handout to orphan branch
-              run: |
-                  git config user.name "cagix"
-                  git config user.email "cagix@users.noreply.github.com"
-
-                  if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
-                    COMMIT_MESSAGE="publish handout (manual trigger)"
-                  else
-                    COMMIT_MESSAGE="$(git log -1 --pretty=%s 2>/dev/null || echo 'unversioned')"
-                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\"/}
-                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\'/}
-                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\`/}
-                    COMMIT_MESSAGE=${COMMIT_MESSAGE//\$/}
-                  fi
-
-                  git reset --hard
-                  git clean -fd -e "$BUILD_PATH"
-                  git branch -D "$BUILD_PATH" 2>/dev/null || true
-                  git switch --orphan "$BUILD_PATH"
-
-                  find . -mindepth 1 -maxdepth 1  \
-                    ! -name '.git'                \
-                    ! -name "$BUILD_PATH"         \
-                    -exec rm -rf {} +
-
-                  mv "$BUILD_PATH"/* .
-                  rm -rf "$BUILD_PATH"
-
-                  git add -f .
-                  git commit -m "$COMMIT_MESSAGE"
-                  git push --force origin "$BUILD_PATH"
+  call:
+    uses: ./.github/workflows/_build-materials.yml
+    with:
+      mktarget: handout
+      metadata: cb.yaml
+      build_path: _handout
+      publish: true
