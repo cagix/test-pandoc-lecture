@@ -8,10 +8,10 @@ on:
         type: string
         required: true
       publish_branch:
-        description: 'Name for orphan branch to push (empty string for no publishing)'
+        description: 'Name for orphan branch to push (__NO_PUBLISH__ for no publishing)'
         type: string
         required: false
-        default: ""
+        default: "__NO_PUBLISH__"
     secrets: {}
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
         run: make  ${{ inputs.mktarget }}  BUILD_DIR=${{ inputs.publish_branch }}
 
       - name: Upload build artifact
-        if: ${{ inputs.publish_branch != '' }}
+        if: ${{ inputs.publish_branch != '__NO_PUBLISH__' }}
         uses: actions/upload-artifact@v7
         with:
           name: materials-${{ inputs.publish_branch }}
@@ -44,7 +44,7 @@ jobs:
           ls -lags "${{ inputs.publish_branch }}"
 
   publish:
-    if: ${{ inputs.publish_branch != '' }}
+    if: ${{ inputs.publish_branch != '__NO_PUBLISH__' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
