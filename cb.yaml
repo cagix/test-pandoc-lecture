@@ -8,9 +8,6 @@ institute: "Unless otherwise noted, this work is licensed under CC BY-SA 4.0."
 # build date
 date: "\\today"
 
-# base url
-base_url: "https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_handout/"
-
 # collect references (for use in filter/template)
 refs: |
    ::: {#refs}

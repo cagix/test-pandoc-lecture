@@ -5,6 +5,7 @@ ROOT_DOC               ?= readme.md
 BOOK_SRC               ?= book.md
 BUILD_DIR              ?= build
 IMAGE_DARK_SUFFIX      ?= _inv
+BASE_URL               ?= https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_handout/
 
 ## Folder to contain the Pandoc-Lecture-Zen project tooling
 PANDOC_DATA            ?= .pandoc
