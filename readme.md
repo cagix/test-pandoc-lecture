@@ -22,7 +22,7 @@ title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 ------------------------------------------------------------------------------------
 :::
 
-# Kursbeschreibung
+# Kursbeschreibung XYZ
 
 Der Compiler ist das wichtigste Werkzeug in der Informatik. In der Königsdisziplin
 der Informatik schließt sich der Kreis, hier kommen die unterschiedlichen
