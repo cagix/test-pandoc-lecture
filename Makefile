@@ -2,15 +2,21 @@
 METADATA               ?= cb.yaml
 BIB_FILE               ?= cb.bib
 ROOT_DOC               ?= readme.md
+
+## Generated output files and directories
 BOOK_SRC               ?= book.md
 BUILD_DIR              ?= build
+
+## Image settings for dark and light themes
 IMAGE_DARK_SUFFIX      ?= _inv
 BASE_URL               ?= https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_handout/
+
+## Publishing settings for the output branch
 PUBLISH_BRANCH         ?= _handout
 GIT_AUTHOR_NAME        ?= cagix
 GIT_AUTHOR_EMAIL       ?= cagix@users.noreply.github.com
 
-## Folder to contain the Pandoc-Lecture-Zen project tooling
+## Folder containing the Pandoc-Lecture-Zen project tooling
 PANDOC_DATA            ?= .pandoc
 
 
