@@ -6,8 +6,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  call:
-    uses: ./.github/workflows/_build-materials.yaml
-    with:
-      mktarget: handout
-      publish_branch: _handout
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout lecture-repo (fully)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fetch cagix/pandoc-lecture-zen@master
+        run: make update_tooling
+
+      - name: Build materials
+        run: make handout
+
+      - name: Publish materials
+        run: make publish_orphan
