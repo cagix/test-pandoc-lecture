@@ -1,6 +1,7 @@
 ## Source files of our project
 METADATA               ?= cb.yaml
 BIB_FILE               ?= cb.bib
+ROOT_DOC               ?= readme.md
 BOOK_SRC               ?= book.md
 BUILD_DIR              ?= build
 IMAGE_DARK_SUFFIX      ?= _inv
