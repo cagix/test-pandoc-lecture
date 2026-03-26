@@ -2,7 +2,7 @@
 title: "IFM 3.1 (PO23) / IFM 5.21 (PO18): Compilerbau (Winter 2024/25)"
 ---
 
-<a id="id-da39a3ee5e6b4b0d3255bfef95601890afd80709"></a>
+`<a id="id-da39a3ee5e6b4b0d3255bfef95601890afd80709"></a>`{=markdown}
 
 # Syllabus
 
@@ -79,7 +79,7 @@ Abgabe der Übungsblätter jeweils **Montag bis 09:00 Uhr** im [ILIAS](https://w
 | Januar | 01 | 01.: *Weihnachtspause* |  |  |  |
 |  | 02 | 08.: *Sprechstunde/Freies Arbeiten* | Carsten | 06.: [B02](#id-0db349230022c35e045dc3b052a4faea50fe5f40) C++ | 06\. / 07. / 10. (Carsten, *online*) |
 |  | 03 | 15.: *Freies Arbeiten/Puffer* |  |  |  |
-|  | 04 | 22.: **Parcoursprüfung: Station 2 [B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41) (VL- und Praktika-Slots, siehe Ankündigung)** | Carsten, BC | 20.: [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt | 20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
+|  | 04 | 22.: **Parcoursprüfung: Station 2 ~~[B04](#id-6dc682255c67debc1eebb45a3920a1731f87be41)~~ (VL- und Praktika-Slots, siehe Ankündigung)** | Carsten, BC | 20.: [B03](#id-0caafae8610423845a8dd05fc7941ec5d42fbae3) Mini-Projekt | 20\. / 21. / 24. (**15:00-16:30**) (Carsten/BC, *online*) |
 | *(Prüfungsphase I)* | 05 | 30.: **Feedback-Gespräche (15:30 - 18:00 Uhr, online)** |  |  |  |
 | *(Prüfungsphase II)* |  | **Parcoursprüfung: Do, 27. Mar 2025, 08-18 Uhr, mdl. Prüfung (alle Themen)** (je Prüfung ca. 45', Vergabe ca. 2 Wochen vorher) |  |  |  |
 |  |  | [TEST](#id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e) |  |  |  |
@@ -129,17 +129,17 @@ Wir freuen uns, auch in diesem Semester wieder drei gemeinsame Sitzungen für be
 
 ## LICENSE
 
-[`<img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">`{=html}](https://creativecommons.org/licenses/by-sa/4.0/)
+![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
 
-Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
+Unless otherwise noted, this work is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Hier steht vielleicht noch mehr - zentrales Readme mit detaillierter Lizenz und Credits. (Nicht mit generiertem Lizenz-Footer aus cb.yaml verwechseln.)
 
-<a id="id-af09e2fcaf4589921086150d991647b7b52abd03"></a>
+`<a id="id-af09e2fcaf4589921086150d991647b7b52abd03"></a>`{=markdown}
 
 # Vorlesungsunterlagen
 
-<a id="id-208bd9b4194c2c79688c8354df6850e6040cdef7"></a>
+`<a id="id-208bd9b4194c2c79688c8354df6850e6040cdef7"></a>`{=markdown}
 
 ## Syntaktische Analyse
 
@@ -147,7 +147,7 @@ In der syntaktischen Analyse arbeitet ein Parser mit dem Tokenstrom, der vom Lex
 
 ![](lecture/02-parsing/images/architektur_cb_parser.png){width="80%"}
 
-<a id="id-ed1ca9f1d126c913f7ce93106335deafa8e5a251"></a>
+`<a id="id-ed1ca9f1d126c913f7ce93106335deafa8e5a251"></a>`{=markdown}
 
 ### CFG
 
@@ -367,7 +367,7 @@ $Follow_k(\beta) = \lbrace w \in T^\ast\ |\ \exists \alpha, \gamma \in (N \cup T
 Hier entsteht ein Tafelbild.
 :::
 
-##### Algorithmus: Konstruktion einer LL-Parsertabelle {#algorithmus-konstruktion-einer-ll-parsertabelle .fragile}
+##### Algorithmus: Konstruktion einer LL-Parsertabelle
 
 **Eingabe:** Eine Grammatik $G = (N, T, P, S)$
 
@@ -387,7 +387,7 @@ Hier entsteht ein Tafelbild.
 
 Rekursive Programmierung bedeutet, dass das Laufzeitsystem einen Stack benutzt. Diesen Stack kann man auch "selbst programmieren", d. h. einen PDA implementieren. Dabei wird ebenfalls die oben genannte Tabelle zur Bestimmung der nächsten anzuwendenden Produktion benutzt. Der Stack enthält die zu erwartenden Eingabezeichen, wenn immer eine Linksableitung gebildet wird. Diese Zeichen im Stack werden mit dem Input gematcht.
 
-##### Algorithmus: Tabellengesteuertes LL-Parsen mit einem PDA {#algorithmus-tabellengesteuertes-ll-parsen-mit-einem-pda .fragile}
+##### Algorithmus: Tabellengesteuertes LL-Parsen mit einem PDA
 
 **Eingabe:** Eine Grammatik $G = (N, T, P, S)$, eine Parsertabelle $P$ mit "$w\perp$" als initialem Kellerinhalt
 
@@ -444,7 +444,7 @@ ADD -->
 -   k2: Zusammenhang zwischen PDAs und kontextfreien Grammatiken
 :::
 
-<a id="id-6cf46704b72b833be34e815ad028ca9585eca248"></a>
+`<a id="id-6cf46704b72b833be34e815ad028ca9585eca248"></a>`{=markdown}
 
 ### Parser mit ANTLR generieren
 
@@ -900,7 +900,7 @@ Auch die Parser-Regeln können mit eingebetteten Aktionen ergänzt werden, die i
 Damit haben wir die sprichwörtliche "Spitze des Eisbergs" gesehen. Mit ANTLR sind noch viele weitere Dinge möglich. Bitte nutzen Sie aktiv die Dokumentation auf [github.com/antlr/antlr4](https://github.com/antlr/antlr4).
 :::
 
-#### Wrap-Up {#wrap-up}
+#### Wrap-Up
 
 Parser mit ANTLR generieren: Parser-Regeln werden mit **Kleinbuchstaben** geschrieben
 
@@ -952,13 +952,13 @@ Erstellen Sie für diese fiktive Sprache einen Lexer+Parser mit ANTLR. Implement
 (Die genauere Sprachdefinition finden Sie bei Bedarf unter [craftinginterpreters.com/the-lox-language.html](https://www.craftinginterpreters.com/the-lox-language.html).)
 :::
 
-<a id="id-1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95"></a>
+`<a id="id-1ce401405b6a7b2f25ca3e5070a1e9ac1f0afc95"></a>`{=markdown}
 
 ## Test Markdown
 
 Hier werden alle relevanten Markdown-Features getestet
 
-<a id="id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e"></a>
+`<a id="id-5ffe05b0cc6e0ec8341b3bea1c18f41cd3de0a4e"></a>`{=markdown}
 
 ### Test Markdown
 
@@ -1026,7 +1026,7 @@ Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in
 
 </p>
 
-#### Hello World {#hello-world}
+#### Hello World
 
 Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
@@ -1178,6 +1178,10 @@ $$
 
 ##### Internal Links
 
+[empty link]()
+
+[link target: .](.)
+
 [selbe ebene: readme.md](#id-009a0a5753af2814b794a9fbf07d27bafe95c56b)
 
 [unterordner: subfolder/foo.md](#id-21012d4cdd914d7b9c455c770e117de0d4bb6b18)
@@ -1207,7 +1211,7 @@ WS    : [ \t\n]+ -> skip ;
 
 Java-Code kompilieren: `javac *.java`
 
-``` {#lst:huh .java caption="The preprocessing step, cf. [@Dietz2018]"}
+``` {#lst:huh .java caption="The preprocessing step, cf. [@Diehl]"}
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -1246,6 +1250,160 @@ Code ohne alles
 #### Images
 
 Figures (w/ caption) should be centered like in LaTeX. Inline images will appear as is (also like in LaTeX).
+
+##### Tests GH vs. Docsify
+
+###### Div und Markdown-Link:
+
+<div style="text-align: center;">
+
+![](img/b.png)
+
+</div>
+
+<p>"B" (small)</p>
+
+(Bild geht auf GH/Docsify, `div/center` nur Docsify)
+
+###### img (relativ):
+
+<img src="img/b.png" width="5%">
+
+(Bild und Skalierung geht auf GH, auf Docsify nur wenn direkt geladen)
+
+###### img (https)
+
+-   `?raw=true`:
+
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="10%">
+
+-   `raw.githubusercontent.com`:
+
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="15%">
+
+(Bild+Skalierung gehen auf GH und Docsify)
+
+###### picture
+
+-   `?raw=true`:
+
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+
+-   `raw.githubusercontent.com`:
+
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="15%">
+</picture>
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify)
+
+###### picture mit `<p align>`
+
+-   `?raw=true`:
+
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="15%">
+</picture>
+</p><p align="center">
+foo bar wuppie fluppie
+</p>
+
+-   `raw.githubusercontent.com`:
+
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+</p><p align="center">
+foo bar wuppie fluppie
+</p>
+
+(Bild+Skalierung+Darkmode+Einrückung gehen auf GH und Docsify)
+
+###### figures mit picture und p
+
+-   `?raw=true`:
+
+<p align="center">
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="10%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+</p>
+
+-   `raw.githubusercontent.com`:
+
+<p align="center">
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="20%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+</p>
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert und bräuchte ein `<div>`, was aber auf GH nicht erlaubt ist.)
+
+###### figures mit picture und div
+
+-   `?raw=true`:
+
+<div style="text-align: center;">
+<div style="margin: 0 auto;">
+
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b_dark.png?raw=true">
+<img src="https://github.com/cagix/test-pandoc-lecture/blob/_docsify/lecture/03-test/img/b.png?raw=true" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+
+</div>
+</div>
+
+-   `raw.githubusercontent.com`:
+
+<div style="text-align: center;">
+<div style="margin: 0 auto;">
+
+<figure>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b_dark.png">
+<img src="https://raw.githubusercontent.com/cagix/test-pandoc-lecture/_docsify/lecture/03-test/img/b.png" width="5%">
+</picture>
+<figcaption>lalelu ... foo!</figcaption>
+</figure>
+
+</div>
+</div>
+
+(Bild+Skalierung+Darkmode gehen auf GH und Docsify; die Einrückung scheitert auf GH)
+
+###### Really deep headings level (h4 to h7 - warning)
+
+Markdown allows level 6 headings, max. When building the book version, we need to shift all headings, in this case by 3. So in this example all h3 headings will become h6 headings, h4 headings (like this one) would become h7 headings, which do not exist. Our filter should emit a warning here.
+
+NB: The filter should also warn on h3 headings, as those will be demoted to (valid) h6 headings in the first step and due to `--shift-heading-level-by=1` in the next processing step would become h7 headings.
 
 ##### Images with Caption
 
@@ -1305,25 +1463,25 @@ ohne alles:
 
 ------------------------------------------------------------------------
 
-mit breitenangabe:
+mit breitenangabe 5%:
 
 ![](lecture/03-test/img/b.png){width="5%"}
 
 ------------------------------------------------------------------------
 
-mit breitenangabe ("width") und titel:
+mit breitenangabe ("width=15%") und titel:
 
-![](lecture/03-test/img/b.png "title: wuppie"){width="5%"}
+![](lecture/03-test/img/b.png "title: wuppie"){width="15%"}
 
 ------------------------------------------------------------------------
 
-mit breitenangabe ("web_width") und titel:
+mit breitenangabe ("web_width=10%") und titel:
 
 ![](lecture/03-test/img/b.png "title: wuppie"){web_width="10%"}
 
 ------------------------------------------------------------------------
 
-mit breitenangabe ("width" und "web_width") und titel:
+mit breitenangabe ("width=5%" und "web_width=10%") und titel:
 
 ![](lecture/03-test/img/b.png "title: wuppie"){width="5%" web_width="10%"}
 
@@ -1431,17 +1589,17 @@ Diese Abbildung liegt in drei Varianten im Repo vor: transparenter Hintergrund, 
 
 ![](lecture/03-test/img/dimensionen-ki.png){width="60%"}
 
-![Hier könnte ihre Werbung stehen.](lecture/03-test/img/dimensionen-ki.png){width="40%"}
+![Hier könnte ihre Werbung stehen. (40%)](lecture/03-test/img/dimensionen-ki.png){width="40%"}
 
-Nachfolgend die "light"-Variante direkt:
+Nachfolgend die "light"-Variante direkt (60%):
 
 ![](lecture/03-test/img/dimensionen-ki_light.png){width="60%"}
 
-Nachfolgend die "dark"-Variante direkt:
+Nachfolgend die "dark"-Variante direkt (60%):
 
 ![](lecture/03-test/img/dimensionen-ki_dark.png){width="60%"}
 
-Nachfolgend eine Abbildung, die es nicht in light/dark im Repo gibt. Wie verhält sich die Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit generiert werden?
+Nachfolgend eine Abbildung, die es nicht in light/dark im Repo gibt. Wie verhält sich die Preview, so lange nicht beim Übersetzen die light- und dark-Varianten mit generiert werden? (40%)
 
 ![](lecture/03-test/img/test_transparentbackground.png){width="40%"}
 
@@ -1462,43 +1620,120 @@ Lalelu ...
 
 ##### Alert Extension
 
+------------------------------------------------------------------------
+
 GH introduced "alerts" with distinctive styling, like
 
-> \[!NOTE\] Foo bar, wuppie fluppie!
+> [!NOTE]
+> NOTE: Foo bar, wuppie fluppie!
 
-> \[!TIP\] Foo bar, wuppie fluppie!
+> [!TIP]
+> TIP: Foo bar, wuppie fluppie!
 
-> \[!IMPORTANT\] Foo bar, wuppie fluppie!
+> [!IMPORTANT]
+> IMPORTANT: Foo bar, wuppie fluppie!
 
-> \[!WARNING\] Foo bar, wuppie fluppie!
+> [!WARNING]
+> WARNING: Foo bar, wuppie fluppie!
 
-> \[!CAUTION\] Foo bar, wuppie fluppie!
+> [!CAUTION]
+> CAUTION: Foo bar, wuppie fluppie!
 
 (see https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)
 
+(**formatted like in GH, needs `-f markdown+alerts` when reading from markdown to be recognized**)
+
 ------------------------------------------------------------------------
 
-Let's stick with Pandocs divs in Markdown content and use filters for export:
+**gh alerts, written as nested pandoc divs (needs `-t markdown+alerts` when writing to markdown to produce the format above)**
+
+currently the markdown reader would not recognize the gh-alert properly if the extension `lists_without_preceding_blankline` is activated (see https://github.com/jgm/pandoc/issues/11534), so this will fail until this issue is fixed:
+
+:::: note
+::: title
+Note
+:::
+
+NOTE: Foo bar, wuppie fluppie!
+::::
+
+:::: tip
+::: title
+Tip
+:::
+
+TIP: Foo bar, wuppie fluppie!
+::::
+
+:::: important
+::: title
+Important
+:::
+
+IMPORTANT: Foo bar, wuppie fluppie!
+::::
+
+:::: warning
+::: title
+Warning
+:::
+
+WARNING: Foo bar, wuppie fluppie!
+::::
+
+:::: caution
+::: title
+Caution
+:::
+
+CAUTION: Foo bar, wuppie fluppie!
+::::
+
+------------------------------------------------------------------------
+
+Let's stick with Pandocs divs in Markdown content and use filters for export. This should work regardless the bugs relating to GH alterts in both the reader (https://github.com/jgm/pandoc/issues/11534) and the writer (https://github.com/jgm/pandoc/issues/11533), also when using "-f markdown+lists_without_preceding_blankline\`:
 
 ::: note
-Foo bar, wuppie fluppie! Blablabla third line of nonsense ...
+NOTE: Foo bar, wuppie fluppie!
 :::
 
 ::: tip
-Foo bar, wuppie fluppie!
+TIP: Foo bar, wuppie fluppie!
 :::
 
 ::: important
-Foo bar, wuppie fluppie!
+IMPORTANT: Foo bar, wuppie fluppie!
 :::
 
 ::: warning
-Foo bar, wuppie fluppie!
+WARNING: Foo bar, wuppie fluppie!
 :::
 
 ::: caution
-Foo bar, wuppie fluppie!
+CAUTION: Foo bar, wuppie fluppie!
 :::
+
+(**formatted using custom divs in pandoc-markdown, needs custom lua-filter**)
+
+------------------------------------------------------------------------
+
+(**usage in custom divs**)
+
+This should work regardless the bugs relating to GH alterts in both the reader and the writer, also when using "-f markdown+lists_without_preceding_blankline\`:
+
+::: tldr
+foobar test
+:::
+
+::: readings
+prove that $E = m c^2$.
+:::
+
+::: slides
+*no content here*
+:::
+
+------------------------------------------------------------------------
 
 -   Export to GH Markdown using ["distinctive alerts"](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 -   Export to Hugo using [notice shortcode](https://mcshelby.github.io/hugo-theme-relearn/shortcodes/notice/index.html)
@@ -1976,7 +2211,7 @@ This should appear only in GFM/Docsify/PDF, but NOT in Beamer (i.e. not in lice
 [test from yaml (challenges) - should not appear in slides]{.credits}
 :::
 
-<a id="id-3eeb5ef519e0106480d1e04eea752d5105192e22"></a>
+`<a id="id-3eeb5ef519e0106480d1e04eea752d5105192e22"></a>`{=markdown}
 
 ### NN02 - Lineare Regression und Gradientenabstieg
 
@@ -2060,15 +2295,17 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 
 ![Abbildung 1](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/images/contour_plot_a.png?raw=true){width="40%"} ![Abbildung 2](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/images/contour_plot_b.png?raw=true){width="40%"}
 
+![Abbildung 1](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/refs/heads/master/lecture/nn/images/contour_plot_a.png){width="40%"} ![Abbildung 2](https://raw.githubusercontent.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/refs/heads/master/lecture/nn/images/contour_plot_b.png){width="40%"}
+
 -   Erklären Sie, welcher der beiden Fälle nachteilhaft für den Gradientenabstieg Algorithmus ist. Wo liegt der Nachteil? Wie kann die Merkmalskalierung dem genannten Nachteil entgegenwirken?
 -   Zeigen Sie unter Verwendung Ihrer eigenen, zufällig generierten Datenpunkte aus dem Bereich $[100, 300] \times [0, 2]$, wie sich Standardisierung, Min-Max Skalierung und Normalisierung auf die Daten auswirken. Vergleichen Sie dazu die jeweiligen Streudiagramme (scatterplots). Sie können hierzu das folgende [**Jupyter Notebook**](https://github.com/Artificial-Intelligence-HSBI-TDU/KI-Vorlesung/blob/master/lecture/nn/files/Feature_Scaling_Starter.ipynb) als Startpunkt benutzen.
 :::
 
-<a id="id-1b69551948844ea83b35c3b22e545c5a7e410e29"></a>
+`<a id="id-1b69551948844ea83b35c3b22e545c5a7e410e29"></a>`{=markdown}
 
 ### subfolder
 
-<a id="id-21012d4cdd914d7b9c455c770e117de0d4bb6b18"></a>
+`<a id="id-21012d4cdd914d7b9c455c770e117de0d4bb6b18"></a>`{=markdown}
 
 #### Single page 'Foo' in a leaf bundle
 
@@ -2082,13 +2319,13 @@ Abbildung 1 und Abbildung 2 zeigen die [Höhenlinien](https://de.wikipedia.org/w
 
 This is a "single page" in a "leaf bundle" and should **not** be available.
 
-<a id="id-a264d337dcfeece8936f208b6f89bb1efe99ea0f"></a>
+`<a id="id-a264d337dcfeece8936f208b6f89bb1efe99ea0f"></a>`{=markdown}
 
 # Praktikum
 
 Hier finden Sie die Übungsblätter.
 
-<a id="id-6dc682255c67debc1eebb45a3920a1731f87be41"></a>
+`<a id="id-6dc682255c67debc1eebb45a3920a1731f87be41"></a>`{=markdown}
 
 ## Blatt 04: Semantische Analyse
 
@@ -2410,7 +2647,7 @@ Implementieren Sie einen zweiten Lauf. Dabei soll für Funktionsaufrufe geprüft
 
 Implementieren Sie einen dritten Lauf. Führen Sie die Typprüfung durch: Haben die Operanden in Ausdrücken die richtigen Typen, passen die Typen der Funktionsargumente, passen die Typen bei einer Zuweisung, ... Geben Sie erkannte Fehler auf der Konsole aus. *Hinweis*: Sie brauchen hier nur die Typprüfung durchführen. Eine Typinferenz oder Typerweiterung o.ä. ist nicht notwendig.
 
-<a id="id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415"></a>
+`<a id="id-6f673c2e093cdfc53b1f78baef11fd06cc8aa415"></a>`{=markdown}
 
 ## Blatt 01: Reguläre Sprachen
 
@@ -2477,7 +2714,7 @@ B &\rightarrow& a c \ | \ b C \ | \ c A  \nonumber \\
 C &\rightarrow& \epsilon                 \nonumber
 \end{eqnarray}$$
 
-<a id="id-0db349230022c35e045dc3b052a4faea50fe5f40"></a>
+`<a id="id-0db349230022c35e045dc3b052a4faea50fe5f40"></a>`{=markdown}
 
 ## Blatt 02: CFG
 
@@ -2560,13 +2797,13 @@ Zeigen Sie, dass die Grammatik LL(1) ist.
 
 Konstruieren Sie die LL-Parsertabelle für die Grammatik und simulieren Sie das Parsen des Wortes *1233*.
 
-<a id="id-0caafae8610423845a8dd05fc7941ec5d42fbae3"></a>
+`<a id="id-0caafae8610423845a8dd05fc7941ec5d42fbae3"></a>`{=markdown}
 
 ## Blatt 03: ANTLR
 
 <!--  pandoc -s -f markdown -t markdown+smart-grid_tables-multiline_tables-simple_tables --columns=94 --reference-links=true  sheet03.md  -o xxx.md  -->
 
-### Zusammenfassung {#zusammenfassung}
+### Zusammenfassung
 
 Ziel dieses Aufgabenblattes ist die Erstellung eines einfachen *Pretty Printers* für eine einfache fiktive Sprache mit Expressions und Kontrollstrukturen.
 
@@ -2578,7 +2815,7 @@ Den im Parse-Tree repräsentierten Code des Eingabeprogramms können Sie mit Hil
 
 Sie werden merken, dass viele Strukturen im Parse-Tree für diese Aufgabe nicht relevant sind und den Baum mit einer weiteren Traversierung in einen vereinfachten Baum, den sogenannten Abstract-Syntex-Tree (*AST*), transformieren und diesen erneut als formatierten Code auf der Konsole ausgeben.
 
-### Methodik {#methodik}
+### Methodik
 
 Nutzen Sie das [Starter-Projekt](https://github.com/Compiler-CampusMinden/CB-Vorlesung-Bachelor/tree/master/homework/src/sample_project) in der Vorgabe.
 
@@ -2588,11 +2825,11 @@ Bauen Sie dann Ihre Grammatik für die Aufgabe schrittweise auf. Testen Sie dies
 
 Erkunden Sie dann die Strukturen Ihres Parse-Trees. Diese sind an die Regeln Ihrer Grammatik gekoppelt und sind deshalb so individuell wie Ihre Grammatik. Mit einer Traversierung des Baumes können Sie die gewünschte Ausgabe programmieren und auch die Erstellung des vereinfachten Baumes (AST).
 
-### Sprachdefinition {#sprachdefinition}
+### Sprachdefinition
 
 Ein Programm besteht aus einer oder mehreren Anweisungen (*Statements*).
 
-#### Anweisungen (*Statements*) {#anweisungen-statements}
+#### Anweisungen (*Statements*)
 
 Eine Anweisung ist eine einzeilige Befehlsfolge, beispielsweise eine Zuweisung oder eine Operation. Sie muss immer mit einem Newline abgeschlossen werden. Eine Anweisung hat keinen Wert.
 
@@ -2603,7 +2840,7 @@ b := "foo"   # Zuweisung des Ausdrucks "foo" (String) an die Variable b
 
 Kontrollstrukturen (s.u.) zählen ebenfalls als Anweisungen.
 
-#### Ausdrücke (*Expressions*) {#ausdrücke-expressions}
+#### Ausdrücke (*Expressions*)
 
 Die einfachsten Ausdrücke sind Integer- oder String-Literale. Variablen sind ebenfalls Ausdrücke. Komplexere Ausdrücke werden mit Hilfe von Operationen gebildet, dabei sind die Operanden jeweils auch wieder Ausdrücke. Ein Ausdruck hat/ergibt immer einen Wert.
 
@@ -2611,7 +2848,7 @@ Die Operatoren besitzen eine Rangfolge, um verschachtelte Operationen aufzulöse
 
 Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 
-##### Vergleichsoperatoren {#vergleichsoperatoren}
+##### Vergleichsoperatoren
 
 | Operation    | Operator |
 |:-------------|:--------:|
@@ -2620,7 +2857,7 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 | Größer       |   `>`    |
 | Kleiner      |   `<`    |
 
-##### Arithmetische Operatoren {#arithmetische-operatoren}
+##### Arithmetische Operatoren
 
 | Operation                            | Operator |
 |:-------------------------------------|:--------:|
@@ -2629,7 +2866,7 @@ Es gibt in unserer Sprache folgende Operationen mit der üblichen Semantik:
 | Multiplikation                       |   `*`    |
 | Division                             |   `/`    |
 
-##### Beispiele für Ausdrücke {#beispiele-für-ausdrücke}
+##### Beispiele für Ausdrücke
 
 ``` python
 10 - 5  # Der Integer-Wert 5
@@ -2638,11 +2875,11 @@ a       # Wert der Variablen a
 a + b   # Ergebnis der Addition der Variablen a und b
 ```
 
-#### Bezeichner {#bezeichner}
+#### Bezeichner
 
 Werden zur Bezeichnung von Variablen verwendet. Sie bestehen aus einer Zeichenkette der Zeichen `a-z`,`A-Z`, `0-9`, `_`. Bezeichner dürfen nicht mit einer Ziffer `0-9` beginnen.
 
-#### Variablen {#variablen}
+#### Variablen
 
 Variablen bestehen aus einem eindeutigen Bezeichner (Variablennamen). Den Variablen können Werte zugewiesen werden und Variablen können als Werte verwendet werden. Die Zuweisung erfolgt mithilfe des `:=`-Operators. Auf der rechten Seite der Zuweisung können auch Ausdrücke stehen.
 
@@ -2651,13 +2888,13 @@ a := 5      # Zuweisung des Wertes 5 an die Variable a
 a := 2 + 3  # Zuweisung des Wertes 5 an die Variable a
 ```
 
-#### Kommentare {#kommentare}
+#### Kommentare
 
 Kommentare werden durch das Zeichen `#` eingeleitet und umfassen sämtliche Zeichen bis zum nächsten Newline.
 
-#### Kontrollstrukturen {#kontrollstrukturen}
+#### Kontrollstrukturen
 
-##### While-Schleife {#while-schleife}
+##### While-Schleife
 
 While-Schleifen werden mit dem Schlüsselwort `while` eingeleitet. Sie bestehen im Weiteren aus einer Bedingung, die durch ein `do` abgeschlossen wird, einer Folge von Anweisungen und werden mit dem Schlüsselwort `end` abgeschlossen.
 
@@ -2679,7 +2916,7 @@ while a >= 0 do
 end
 ```
 
-##### Bedingte Anweisung (If-Else) {#bedingte-anweisung-if-else}
+##### Bedingte Anweisung (If-Else)
 
 Eine bedingte Anweisung besteht immer aus genau einer `if`-Anweisung, gefolgt von einer Bedingung, die mit einem `do` abgeschlossen wird und einer Folge von Anweisungen.
 
@@ -2711,7 +2948,7 @@ else do
 end
 ```
 
-#### Datentypen {#datentypen}
+#### Datentypen
 
 Unsere Sprache hat zwei eingebaute Datentypen, für die entsprechende Literale erkannt werden müssen:
 
@@ -2722,7 +2959,7 @@ Unsere Sprache hat zwei eingebaute Datentypen, für die entsprechende Literale e
 
 Die Sprache ist dynamisch typisiert, d.h. beim Parsen werden Ihnen keine Typ-Angaben im Code begegnen. Aber Sie müssen die entsprechenden Werte (Literale) parsen können.
 
-#### Beispiele {#beispiele}
+#### Beispiele
 
 ``` python
 a := "wuppie fluppie"
@@ -2737,7 +2974,7 @@ else do
 end
 ```
 
-### Aufgaben {#aufgaben}
+### Aufgaben
 
 #### Grammatik (4P)
 
