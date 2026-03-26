@@ -808,6 +808,8 @@ Lalelu ...
 
 ## Alert Extension
 
+---
+
 GH introduced "alerts" with distinctive styling, like
 
 > [!NOTE]
@@ -914,10 +916,13 @@ This should work regardless the bugs relating to GH alterts in both the reader a
 foobar test
 ::::
 
-:::: challenges
+:::: readings
 prove that $E = m c^2$.
 ::::
 
+::: slides
+_no content here_
+:::
 
 ---
 
