@@ -1026,7 +1026,7 @@ Morbi dictum dapibus diam in vulputate. Nam sed magna fringilla, congue purus in
 
 </p>
 
-#### Hello World
+#### Hello World (Slide-Level)
 
 Hier ist normaler Markdown-Text, mit **fett** und auch *kursiv*.
 
@@ -1047,6 +1047,14 @@ Hier nochmal eine Stichpunktliste, aber ohne Leerzeile davor (`+lists_without_pr
 -   Stichpunkt 1
 -   Stichpunkt 2
 -   Stichpunkt 3
+
+##### Heading just below slide level (should get a number in pdf)
+
+foo bar wuppie
+
+###### Heading two levels below slide level (no numbering in pdf)
+
+wuppie fluppie!
 
 #### Math
 
