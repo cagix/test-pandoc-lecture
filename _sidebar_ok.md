@@ -1,14 +1,14 @@
-- [Syllabus](readme.md)
-- [Vorlesungsunterlagen](lecture/readme.md)
-  - [Syntaktische Analyse](lecture/02-parsing/readme.md)
+- [**Syllabus**](readme.md)
+- **Vorlesungsunterlagen**
+  - **Syntaktische Analyse**
     - [CFG](lecture/02-parsing/cfg.md)
     - [Parser mit ANTLR generieren](lecture/02-parsing/antlr-parsing.md)
-  - [Test Markdown](lecture/03-test/readme.md)
+  - **Test Markdown**
     - [Test Markdown](lecture/03-test/test.md)
     - [NN02 - Lineare Regression und Gradientenabstieg](lecture/03-test/nn02-linear-regression.md)
-    - subfolder
+    - **subfolder**
       - [Single page ‘Foo’ in a leaf bundle](lecture/03-test/subfolder/foo.md)
-- [Praktikum](homework/readme.md)
+- **Praktikum**
   - [Blatt 04: Semantische Analyse](homework/sheet04.md)
   - [Blatt 01: Reguläre Sprachen](homework/sheet01.md)
   - [Blatt 02: CFG](homework/sheet02.md)
